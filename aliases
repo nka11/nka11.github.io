@@ -1,0 +1,14 @@
+#!/bin/bash
+# Prepare dockerfile and aliases for commands
+
+DIR=`dirname $0`
+cd $DIR
+PROJECT_HOME=`pwd`
+
+docker build --build-arg DEV_UID=`id -u` -t decisionmap .
+alias node="docker run --rm -it -v $PROJECT_HOME:/app decisionmap node "
+alias npm="docker run --rm -it -v $PROJECT_HOME:/app decisionmap npm "
+alias yarn="docker run --rm -it -v $PROJECT_HOME:/app decisionmap yarn "
+alias ydev="docker run --rm -it -v $PROJECT_HOME:/app -p 3000:3000 decisionmap yarn dev"
+alias npx="docker run --rm -it -v $PROJECT_HOME:/app decisionmap npx "
+alias cbash="docker run --rm -it -v $PROJECT_HOME:/app decisionmap bash "
