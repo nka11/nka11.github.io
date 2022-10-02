@@ -76,6 +76,10 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Static HTML export with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next export
+      - name: Prepare data
+        run: |
+          curl   -H "Accept: application/vnd.github+json" \
+          -H "Authentication: Bearer $GITHUB_TOKEN" https://api.github.com/repos/nka11/nka11.github.com/commits > out/commits.json
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
