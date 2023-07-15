@@ -1,0 +1,70 @@
+[
+    { 
+        "name": "Logo",
+        "first_contact_year": 1987
+    },
+    { 
+        "name": "Basic",
+        "first_contact_year": 1990
+    },
+    { 
+        "name": "Pascal",
+        "first_contact_year": 1994
+    },
+    { 
+        "name": "Windows",
+        "first_contact_year": 1994
+    },
+    { 
+        "name": "Novell Netware",
+        "first_contact_year": 1994
+    },
+    {
+        "name": "Electronics",
+        "first_contact_year": 1994
+    },
+    { 
+        "name": "HTML",
+        "first_contact_year": 1996
+    },
+    { 
+        "name": "Linux",
+        "first_contact_year": 1996
+    },
+    { 
+        "name": "C",
+        "first_contact_year": 1997
+    },
+    { 
+        "name": "Java",
+        "first_contact_year": 1997
+    },
+    { 
+        "name": "Cobol",
+        "first_contact_year": 1997
+    },
+    { 
+        "name": "CSS",
+        "first_contact_year": 1998
+    },
+    { 
+        "name": "AI with Neural Networks",
+        "first_contact_year": 1998
+    },
+    { 
+        "name": "SQL",
+        "first_contact_year": 1997
+    },
+    { 
+        "name": "PHP",
+        "first_contact_year": 2000
+    },
+    { 
+        "name": "MySQL",
+        "first_contact_year": 2000
+    },
+    { 
+        "name": "Javascript",
+        "first_contact_year": 2000
+    }
+]
