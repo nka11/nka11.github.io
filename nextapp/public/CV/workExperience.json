@@ -1,0 +1,31 @@
+{
+    "Company": "Club Mediterranée SA",
+    "Title": "Architecte Technique",
+    "Duration": "June 2001 - Present",
+    "Responsibilities": [
+    "Design of applications that access heterogeneous components: From the central zOs system to rich client interfaces in the browser",
+    "Involved early in project lifecycle to oversee the process of writing specifications and specifying technical prerequisites for production",
+    "Development of basic ESB Mule for inter-system communications",
+    "Level 3 support, often called upon to debug integrated software or those needing to be integrated into our existing infrastructure",
+    "Technical expert role for development teams: support for development methods and implementations (scrum/TDD/MDA), definition and implementation of development environments, support for development teams with pair programming on particularly complex problems, optimizations and security management.",
+    "Management and administration of tools around development processes; continuous integration, deployment logistics, source management with CVS, SVN, GIT",
+    "Design and development of delivery/deployment logistics",
+    "Quality control of JAVA/J2EE and javascript web applications",
+    "Lead technical role on operational security aspects, SSO integration, identity management and monitoring of equipment and application integrations in relation to the RSSI",
+    "Management and maintenance of openLDAP/ISAM/IGI security products (currently being integrated)",
+    "Implementation and configuration of synchronization between directory systems (MIM/FIM, ISDI, IGI in progress)",
+    "Preparation of production environments for operational teams (Linux, AIX and Windows)",
+    "Writing technical procedures",
+    "Integration of basic operations on application servers in monitoring and tracking tools",
+    "Configuration and optimization of application servers"
+    ],
+    "Key Accomplishments": [
+    "Specifications for the ClubMed sales cockpit for call centers and agencies (J2EE web application integrated with GENESYS telephone systems)",
+    "Organization of team documentation in a sharepoint reference",
+    "Technical architecture design for the ClubMed sales website (BroadVision/AIX)",
+    "Batch extraction of cross-references and consultation applications",
+    "Assistance with migration of DB2 database from z/OS to Linux",
+ 
+    "Lead Technical role on the project to migrate the central sales application from a z/OS system to Linux. Handling environment configuration and communication aspects with other systems, migration of RACF security to OpenLDAP, support for team members during testing and deployment."
+    ]
+    }

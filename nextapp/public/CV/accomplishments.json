@@ -1,0 +1,303 @@
+[
+    {
+        "summary": "Set-up CVS and manage packaging and deployment of JAVA applications with ant",
+        "description": [
+            "Write automation for logistics around J2EE packaged applications",
+            "Guide development teams and provide support for CVS, packaging and deployment to production",
+            "Integrate deployment with OPC Enterprise scheduler (z/OS)"
+        ],
+        "start_date": 2002,
+        "end_date": 2005 
+    },
+    {
+        "summary": "Writing specifications for the ClubMed sales cockpit for call centers and agencies (J2EE web application integrated with GENESYS telephone systems)",
+        "start_date": 2002,
+        "end_date": 2003,
+        "skills": [
+            {
+                "name": "UML"
+            }
+        ]
+    },
+    {
+        "summary": "Modernisation of JAVA applications logistic",
+        "description": [
+            "Integrate maven and guide development teams for packaging applications",
+            "Migrate from CVS to subversion"
+        ],
+        "start_date": 2006,
+        "end_date": 2007
+    },
+    {
+        "summary": "Source control Coupled packaging automation",
+        "description": [
+            "Integrate Hudson and guide development teams for building integration chains"
+        ],
+        "start_date": 2006,
+        "end_date": 2010
+    },
+    {
+        "summary": "DB2 for z/OS JAVA stored procedure versionning and deployment",
+        "description": [
+            ""
+        ],
+        "start_date": 2005,
+        "end_date": 2006, 
+        "skills": [
+            {
+                "name": "DB2",
+                "practice": "Competent"
+            },
+            {
+                "name": "DB2 Data Studio",
+                "practice": "Competent"
+            }
+            
+        ]
+    },
+    {
+        "summary": "DB2 for Linux JAVA stored procedure versionning and deployment",
+        "description": [
+            ""
+        ],
+        "start_date": 2012,
+        "end_date": 2013, 
+        "skills": [
+            {
+                "name": "DB2",
+                "practice": "Competent"
+            },
+            {
+                "name": "DB2 Data Studio",
+                "practice": "Competent"
+            },
+            {
+                "name": "DevOps"
+            }
+            
+        ]
+    },
+    {
+        "summary": "Migration of the DB2 databases from z/OS to Linux",
+        "description": [
+            ""
+        ],
+        "start_date": 2011,
+        "end_date": 2013, 
+        "skills": [
+            {
+                "name": "DB2",
+                "practice": "Competent"
+            }
+        ]
+    },
+    {
+        "summary": "Central Sales Application source management migration and CI toolchain development",
+        "description": [
+            "From barely versionned source file to a git repository.",
+            "Using gerrit to support a review process and structure deployment process.",
+            "Write and describe the git workflow used by a team who used to work with a 3270 terminal.",
+            "Continuous intégration and automated deployment with gitlab, to target SoftwareAG Natural runtime servers"
+        ],
+        "start_date": 2014,
+        "end_date": 2015, 
+        "skills": [
+            {
+                "name": "Linux"
+            },
+            {
+                "name": "rpm"
+            },
+            {
+                "name": "bash"
+            },
+            {
+                "name": "DevOps"
+            },
+            {
+                "name": "Jenkins"
+            },
+            {
+                "name": "ant"
+            },
+            {
+                "name": "Redmine"
+            },
+            {
+                "name": "git"
+            },
+            {
+                "name": "gerrit"
+            }
+        ]
+    },
+    {
+        "summary": "Central Sales Application migration from a z/OS system to Linux",
+        "description": [
+            "Handling environment configuration and communication aspects with other systems",
+            "migration of RACF security to OpenLDAP",
+            "support for team members during testing and deployment."
+        ],
+        "start_date": 2014,
+        "end_date": 2015, 
+        "skills": [
+            {
+                "name": "DB2",
+                "practice": "Competent"
+            },
+            {
+                "name": "softwareAG Natural for Linux"
+            },
+            {
+                "name": "softwareAG EntireX  for Linux"
+            },
+            {
+                "name": "softwareAG Adabas  for Linux"
+            },
+            {
+                "name": "Linux"
+            },
+            {
+                "name": "openLDAP"
+            },
+            {
+                "name": "rpm"
+            },
+            {
+                "name": "bash"
+            }
+        ]
+    },
+    {
+        "summary": "Migration of COBOL batch execution environment from zOS to Linux",
+        "description": [
+            "CI/CD setup for a devOps logistic (source control, compilation chain & deployment) while providing support for developers"],
+        "start_date": 2013,
+        "end_date": 2014, 
+        "skills": [
+            {
+                "name": "COBOL",
+                "practice": "Novice"
+            },
+            {
+                "name": "openCobol",
+                "practice": "Advanced Beginner"
+            },
+            {
+                "name": "DB2",
+                "practice": "Competent",
+                "comments": "Integrate DB2 precompile and COBOL compile phase in CI/CD, and automatic packages binding in rpm"
+            },
+            {
+                "name": "Linux"
+            },
+            {
+                "name": "rpm"
+            },
+            {
+                "name": "bash"
+            },
+            {
+                "name": "opCon"
+            },
+            {
+                "name": "DevOps"
+            },
+            {
+                "name": "Jenkins"
+            },
+            {
+                "name": "Redmine"
+            },
+            {
+                "name": "git"
+            }
+        ]
+    },
+    {
+        "summary": "First Integration of a single sign-on solution in the clubmed ecosystem",
+        "start_date": 2017,
+        "end_date": 2017
+    },
+    {
+        "summary": "Lead Architect for a strategic project of sales workstation evolution (CxO)",
+        "start_date": 2016,
+        "end_date": 2017
+    },
+    {
+        "summary": "Integration NetOps",
+        "description": [
+            "CI/CD setup for a netOps logistic (source control, CI/CD) while providing metoring for network engineer",
+            ""
+        ],
+        "start_date": 2022,
+        "end_date": 2023, 
+        "skills": [
+            {
+                "name": "CISCO",
+                "practice": "Novice"
+            },
+            {
+                "name": "Huawei",
+                "practice": "Novice"
+            },
+            {
+                "name": "Linux"
+            },
+            {
+                "name": "ansible",
+                "practice": "Proficient"
+            },
+            {
+                "name": "python",
+                "practice": "Expert"
+            },
+            {
+                "name": "gitlab"
+            },
+            {
+                "name": "gitlab-ci"
+            }
+        ]
+    },
+    {
+        "summary": "Technical leadership for the move2cloud of Clubmed's Data infrastructure",
+        "description": [
+            "Full IAC GCP Landing zone implementation (network/iam).",
+            "Technical lead for the devops team working on GCP.",
+            "CI/CD with gitlab, integrated with the enterprise scheduler opCon.",
+            "Deliver environment for a dozen of projects from batch transformation do mlOps.",
+            "Providing support and tools to development teams like CI templates files and integration guide."
+        ],
+        "start_date": 2022,
+        "end_date": 2023, 
+        "skills": [
+            {
+                "name": "terraform",
+                "practice": "Competent"
+            },
+            {
+                "name": "GCP",
+                "practice": "Proficient"
+            },
+            {
+                "name": "Linux"
+            },
+            {
+                "name": "ansible",
+                "practice": "Proficient"
+            },
+            {
+                "name": "python",
+                "practice": "Expert"
+            },
+            {
+                "name": "gitlab"
+            },
+            {
+                "name": "gitlab-ci",
+                "practice": "Proficient"
+            }
+        ]
+    }
+]
