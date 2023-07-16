@@ -30,7 +30,7 @@ const HistoryBlog: React.FC = () => {
 					iconStyle={{ background: '#606C5A', color: '#fff', boxShadow: '0 0 0 4px #424340, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05)' }}
 					date={commit.commit.author.date}
 					>
-						<ReactMarkdown>{ commit.commit.message }</ReactMarkdown>
+						<ReactMarkdown>{ "# " + commit.commit.message }</ReactMarkdown>
 				</VerticalTimelineElement>
 			}))
 		})
