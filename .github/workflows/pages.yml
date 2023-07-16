@@ -7,6 +7,7 @@ on:
   push:
     branches: 
       - "build/*/*"
+      - "page/*/*"
       - "main"
 
   # Allows you to run this workflow manually from the Actions tab
@@ -85,7 +86,7 @@ jobs:
         run: |
           mv nextapp/out .
           curl   -H "Accept: application/vnd.github+json" \
-          -H "Authentication: Bearer $GITHUB_TOKEN" https://api.github.com/repos/nka11/nka11.github.com/commits > out/commits.json
+          -H "Authentication: Bearer $GITHUB_TOKEN" https://api.github.com/repos/nka11/nka11.github.io/commits > out/commits.json
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
@@ -93,6 +94,7 @@ jobs:
 
   # Deployment job
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -9,13 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@types/react-vertical-timeline-component": "^3.3.3",
+    "axios": "^1.4.0",
     "google-spreadsheet": "^3.3.0",
     "leaflet": "^1.8.0",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-leaflet": "^4.0.0",
-    "tabletop": "^1.6.3"
+    "react-markdown": "^8.0.7",
+    "react-vertical-timeline-component": "^3.6.0",
+    "react-vis-network-graph": "^3.0.1",
+    "react-vis-timeline": "^2.0.3",
+    "tabletop": "^1.6.3",
+    "vis-data": "^7.1.6",
+    "vis-network": "^9.1.6"
   },
   "devDependencies": {
     "@types/leaflet": "^1.7.11",
