@@ -1,14 +1,15 @@
 #!/bin/bash
 # Prepare dockerfile and aliases for commands
 
-DIR=`dirname $0`
-cd $DIR
 PROJECT_HOME=`pwd`
+export image_name=$1
+echo "`pwd`"
+podman build --build-arg DEV_UID=`id -u` -t ${image_name} .
+alias node="docker run --rm -it -v $PROJECT_HOME/nextapp:/app ${1} node "
+alias npm="docker run --rm -it -v $PROJECT_HOME/nextapp:/app ${1} npm "
+alias yarn="docker run --rm -it -v $PROJECT_HOME/nextapp:/app ${1} yarn "
+alias ydev="docker run --rm -it -v $PROJECT_HOME/nextapp:/app:U,Z -p 3000:3000 ${1} yarn dev"
+alias npx="docker run --rm -it -v $PROJECT_HOME/nextapp:/app ${1} npx "
+alias cbash="docker run --rm -it -v $PROJECT_HOME/nextapp:/app ${1} bash "
 
-docker build --build-arg DEV_UID=`id -u` -t decisionmap .
-alias node="docker run --rm -it -v $PROJECT_HOME:/app decisionmap node "
-alias npm="docker run --rm -it -v $PROJECT_HOME:/app decisionmap npm "
-alias yarn="docker run --rm -it -v $PROJECT_HOME:/app decisionmap yarn "
-alias ydev="docker run --rm -it -v $PROJECT_HOME:/app -p 3000:3000 decisionmap yarn dev"
-alias npx="docker run --rm -it -v $PROJECT_HOME:/app decisionmap npx "
-alias cbash="docker run --rm -it -v $PROJECT_HOME:/app decisionmap bash "
+docker run --rm -it -v ./nextapp:/app:U,Z -p 3000:3000 nka11 bas

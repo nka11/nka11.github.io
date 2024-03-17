@@ -19,7 +19,8 @@
     "react-dom": "18.1.0",
     "react-leaflet": "^4.0.0",
     "react-vertical-timeline-component": "^3.6.0",
-    "tabletop": "^1.6.3"
+    "tabletop": "^1.6.3",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@types/leaflet": "^1.7.11",
