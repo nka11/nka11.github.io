@@ -1,11 +1,11 @@
 ---
 title: Nicolas Karageuzian
-# heroImage: /sveltepress@3x.png
+heroImage: /nkaLogo.svg
 tagline: Programming computers since 1987. I love to write about programming, web development and open source.
 actions:
   - label: Visit my github
     type: primary
-    to: https://github.com/mka11
+    to: https://github.com/nka11
     external: true
 #features:
 #  - title: Markdown centered

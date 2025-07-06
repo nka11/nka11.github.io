@@ -8,10 +8,6 @@ const config = defineConfig({
 			theme: defaultTheme({
 				navbar: [
 					{
-						title: "Accueil",
-						to: "/"
-					},
-					{
 						title: "Articles",
 						to: "/articles"
 					}
@@ -22,6 +18,7 @@ const config = defineConfig({
 					// Add your sidebar configs here
 				},
 				github: 'https://github.com/nka11',
+				logo: "/nkaLogo-simple.svg",
 				//logo: '/sveltepress.svg',
 				themeColor: {
 					gradient: {
@@ -34,10 +31,10 @@ const config = defineConfig({
 				}
 			}),
 			siteConfig: {
+				
 				title: 'Nicolas Karageuzian',
-				description: 'A programmer, a software engineer and an open source enthousiast',
+				description: 'Programmer, Solution Architect and Free Software Enthusiast',
 			},
-			
 		}),
 	],
 })
