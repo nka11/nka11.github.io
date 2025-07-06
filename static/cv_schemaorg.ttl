@@ -1,0 +1,94 @@
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/cv/nkarageuzian#> .
+
+ex:nkarageuzian a schema:Person ;
+    schema:name "Nicolas Karageuzian" ;
+    schema:email "mailto:nkarageuzian@example.com" ;
+    schema:url <http://github.com/nka11> ;
+    schema:jobTitle "Senior Security Architect, DevOps & Tech Lead" ;
+    schema:birthPlace [
+        a schema:Place ;
+        schema:address [
+            a schema:Country ;
+            schema:name "France"
+        ]
+    ] ;
+    schema:knowsLanguage "fr", "en" ;
+    schema:hasSkill "Java", "Docker", "SPARQL", "Azure" ;
+
+    schema:alumniOf ex:edu1, ex:edu2 ;
+    schema:hasOccupation ex:exp1, ex:exp2, ex:exp3, ex:exp4 ;
+    schema:hasPart ex:proj1, ex:proj2 .
+
+### Formations
+
+ex:edu1 a schema:EducationalOccupationalCredential ;
+    schema:name "DUT Informatique" ;
+    schema:educationalLevel "Diplôme universitaire de technologie" ;
+    schema:awardingBody [
+        a schema:EducationalOrganization ;
+        schema:name "IUT de Fontainebleau"
+    ] ;
+    schema:startDate "1996-01-01"^^xsd:date ;
+    schema:endDate "1998-12-31"^^xsd:date .
+
+ex:edu2 a schema:EducationalOccupationalCredential ;
+    schema:name "Bac S option Technologie" ;
+    schema:educationalLevel "Baccalauréat Scientifique" ;
+    schema:awardingBody [
+        a schema:EducationalOrganization ;
+        schema:name "Lycée George Sand"
+    ] ;
+    schema:endDate "1996-06-30"^^xsd:date .
+
+### Expériences professionnelles
+
+ex:exp1 a schema:OrganizationRole ;
+    schema:roleName "CTO part time" ;
+    schema:startDate "2024-01-01"^^xsd:date ;
+    schema:endDate "2025-05-31"^^xsd:date ;
+    schema:memberOf [
+        a schema:Organization ;
+        schema:name "IzRoadbook"
+    ] .
+
+ex:exp2 a schema:OrganizationRole ;
+    schema:roleName "Senior Technical Architect" ;
+    schema:startDate "2001-01-01"^^xsd:date ;
+    schema:endDate "2023-09-30"^^xsd:date ;
+    schema:memberOf [
+        a schema:Organization ;
+        schema:name "Club Méditerranée SA"
+    ] .
+
+ex:exp3 a schema:OrganizationRole ;
+    schema:roleName "Responsable Sécurité du SI" ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:endDate "2025-06-30"^^xsd:date ;
+    schema:memberOf [
+        a schema:Organization ;
+        schema:name "ISM interpretariat"
+    ] .
+
+ex:exp4 a schema:OrganizationRole ;
+    schema:roleName "Ingénieur d’exploitation" ;
+    schema:startDate "2000-01-01"^^xsd:date ;
+    schema:endDate "2001-01-01"^^xsd:date ;
+    schema:description "Pupitrage, monitoring et déploiement d'un ensemble d'applications web." ;
+    schema:memberOf [
+        a schema:Organization ;
+        schema:name "AlphaCSP"
+    ] .
+
+### Projets & Réalisations
+
+ex:proj1 a schema:CreativeWork ;
+    schema:name "KaraCos" ;
+    schema:description "Serveur d’applications pour la gestion des données personnelles" ;
+    schema:url <http://github.com/karacos> .
+
+ex:proj2 a schema:CreativeWork ;
+    schema:name "Aloha Editor" ;
+    schema:description "Contribution open-source (drag & drop, image)" ;
+    schema:url <http://aloha-editor.org/> .

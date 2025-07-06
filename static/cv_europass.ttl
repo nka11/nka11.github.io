@@ -1,0 +1,92 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix doac: <http://ramonantonio.net/doac/> .
+@prefix europass: <https://data.europa.eu/europass/ontology/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/cv/nkarageuzian#> .
+
+ex:nkarageuzian a foaf:Person, europass:Person ;
+    foaf:name "Nicolas Karageuzian" ;
+    europass:fullName "Nicolas Karageuzian" ;
+    europass:preferredLabel "Senior Security Architect, DevOps & Tech Lead" ;
+    foaf:mbox <mailto:nkarageuzian@example.com> ;
+    foaf:homepage <http://github.com/nka11> ;
+    europass:countryOfBirth "France" ;
+    europass:hasLanguageSkill "fr", "en" ;
+    europass:hasSkill ex:skillJava, ex:skillDocker, ex:skillSPARQL, ex:skillAzure ;
+
+    europass:hasWorkExperience ex:exp1, ex:exp2, ex:exp3, ex:exp4 ;
+
+    doac:hasEducation ex:edu1, ex:edu2 ;
+    europass:hasEducation ex:edu1, ex:edu2 ;
+
+    europass:portfolio ex:proj1, ex:proj2 .
+
+### Expériences professionnelles
+
+ex:exp1 a europass:WorkExperience ;
+    europass:jobTitle "CTO part time" ;
+    europass:employer "IzRoadbook" ;
+    europass:startDate "2024-01-01"^^xsd:date ;
+    europass:endDate "2025-05-31"^^xsd:date .
+
+ex:exp2 a europass:WorkExperience ;
+    europass:jobTitle "Senior Technical Architect" ;
+    europass:employer "Club Méditerranée SA" ;
+    europass:startDate "2001-01-01"^^xsd:date ;
+    europass:endDate "2023-09-30"^^xsd:date .
+
+ex:exp3 a europass:WorkExperience ;
+    europass:jobTitle "Responsable Sécurité du SI" ;
+    europass:employer "ISM interpretariat" ;
+    europass:startDate "2024-06-01"^^xsd:date ;
+    europass:endDate "2025-06-30"^^xsd:date .
+
+ex:exp4 a europass:WorkExperience ;
+    europass:jobTitle "Ingénieur d’exploitation" ;
+    europass:employer "AlphaCSP" ;
+    europass:startDate "2000-01-01"^^xsd:date ;
+    europass:description "Pupitrage, monitoring et deploiement d'un ensemble d'applications web." ;
+    europass:endDate "2001-01-01"^^xsd:date .
+
+### Formations
+
+ex:edu1 a doac:Education, europass:Qualification ;
+    doac:degree "DUT Informatique" ;
+    doac:school "IUT de Fontainebleau" ;
+    europass:title "DUT Informatique" ;
+    europass:awardingBody "IUT de Fontainebleau" ;
+    doac:startDate "1996-01-01"^^xsd:date ;
+    doac:endDate "1998-12-31"^^xsd:date .
+
+ex:edu2 a doac:Education, europass:Qualification ;
+    doac:degree "Baccalauréat Scientifique, option Technologie" ;
+    doac:school "Lycée George Sand" ;
+    europass:title "Bac S option Technologie" ;
+    europass:awardingBody "Lycée George Sand" ;
+    doac:endDate "1996-06-30"^^xsd:date .
+
+### Compétences
+
+ex:skillJava a europass:Skill ;
+    europass:skillLabel "Java" .
+
+ex:skillDocker a europass:Skill ;
+    europass:skillLabel "Docker" .
+
+ex:skillSPARQL a europass:Skill ;
+    europass:skillLabel "SPARQL" .
+
+ex:skillAzure a europass:Skill ;
+    europass:skillLabel "Azure" .
+
+### Projets & réalisations
+
+ex:proj1 a europass:Portfolio ;
+    europass:name "KaraCos" ;
+    europass:description "Serveur d’applications pour la gestion des données personnelles" ;
+    europass:url <http://github.com/karacos> .
+
+ex:proj2 a europass:Portfolio ;
+    europass:name "Aloha Editor" ;
+    europass:description "Contribution open-source (drag & drop, image)" ;
+    europass:url <http://aloha-editor.org/> .
