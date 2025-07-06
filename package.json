@@ -21,6 +21,7 @@
     "vite": "^5.1.4"
   },
   "dependencies": {
+    "mdsvex": "^0.12.6",
     "oxigraph": "^0.4.11"
   }
 }

@@ -1,3 +1,10 @@
+---
+title: "Choisir une ontologie pour présenter un CV sémantique"
+date: "2025-07-06"
+description: "Comparatif des ontologies RDF pour modéliser un CV"
+slug: "2025-07-06-cv-ontology"
+---
+
 # Comparatif des ontologies RDF pour modéliser un CV : ResumeRDF, Europass, DOAC et autres
 
 ## 🧭 Introduction
@@ -108,14 +115,14 @@ Plusieurs **ontologies RDF** ont été proposées pour cette tâche. Cet article
 ## 🧪 Exemple minimal en Turtle (Europass + FOAF)
 
 ```turtle
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix europass: <https://data.europa.eu/europass/ontology/> .
 
 <#me> a foaf:Person, europass:Person ;
     foaf:name "Nicolas Karageuzian" ;
     europass:fullName "Nicolas Karageuzian" ;
     europass:preferredLabel "Senior Security Architect" ;
-    europass:hasSkill "Java", "DevOps", "SPARQL" .
+    europass:hasSkill "Javascript", "DevOps", "SPARQL" .
 ```
 
 ## Conclusion

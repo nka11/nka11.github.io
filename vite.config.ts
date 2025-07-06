@@ -7,9 +7,18 @@ const config = defineConfig({
 		sveltepress({
 			theme: defaultTheme({
 				navbar: [
+					{
+						title: "Accueil",
+						to: "/"
+					},
+					{
+						title: "Articles",
+						to: "/articles"
+					}
 					// Add your navbar configs here
 				],
 				sidebar: {
+					
 					// Add your sidebar configs here
 				},
 				github: 'https://github.com/nka11',
