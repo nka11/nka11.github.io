@@ -31,7 +31,10 @@
     try {
 
       const { store, oxiReady } = get(oxigraphStore);
-      if (!oxiReady) return;
+      if (!oxiReady) {
+        console.log("CV page onMount: semantic store not ready");
+        return;
+      }
       //const store = instance;
 
       // await init(wasmUrl);; // charge le module WebAssembly

@@ -30,7 +30,10 @@
   }
   onMount(async () => {
       const { store, oxiReady } = get(oxigraphStore);
-      if (!oxiReady) return;
+      if (!oxiReady) {
+        console.log("OrganiwationRole component onMount: semantic store not ready");
+        return;
+      }
       const credentialsDetailsQuery = `
         PREFIX schema: <https://schema.org/>
 
