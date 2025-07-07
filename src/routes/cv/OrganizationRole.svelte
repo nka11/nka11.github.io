@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/semantic_cv_store_cv_store';
+  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/semantic_cv_store';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import ProjectDetail from '$lib/components/ProjectDetail.svelte';
