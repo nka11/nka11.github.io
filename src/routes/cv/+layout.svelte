@@ -1,7 +1,7 @@
 <script>
   const { children } = $props()
   import { onMount } from 'svelte';
-  import { initOxigraph, oxigraphStore } from '$lib/stores/oxigraph';
+  import { initOxigraph, oxigraphStore } from '$lib/stores/semantic_cv_store_cv_store';
   import { get } from 'svelte/store';
   
   onMount(async () =>  {

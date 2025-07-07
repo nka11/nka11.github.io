@@ -15,10 +15,12 @@ export async function initOxigraph() {
   const turtleUrl = '/cv_schemaorg.ttl';
   // Charger le fichier .ttl (ex: CV)
   const turtleText = await fetch(turtleUrl).then((res) => res.text());
-
+  console.log("successfuly fetched semantic data");
   // Charger les triples dans le store RDF
   store.load(turtleText, {format: 'text/turtle'}); 
+  console.log("successfuly loaded semantic data");
   oxigraphStore.set({ store, oxiReady: true });
+  console.log("Semantic store ready");
 }
 
 export function mapToObject(map: Map<string, any>): Record<string, any> {

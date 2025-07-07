@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import OrganizationRole from './OrganizationRole.svelte';
-  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/oxigraph';
+  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/semantic_cv_store_cv_store';
   import { get } from 'svelte/store';
   let mainResult: any = null;
   let organizationRoles: any = null;
