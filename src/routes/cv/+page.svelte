@@ -118,7 +118,11 @@
               <p>Langue : {row.lang?.value}</p>
           {/if}
       {/each}
-      <div property="schema:hasOccupation">
+      <h2 class="text-3xl">Experiences</h2>
+      <div 
+        class="px-2"
+        property="schema:hasOccupation">
+        
         {#each organizationRoles as orgrole}
           <OrganizationRole organizationRole={orgrole}/>
         {/each}

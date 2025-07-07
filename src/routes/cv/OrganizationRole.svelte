@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/semantic_cv_store';
+  import { mapToObject, oxigraphStore } from '$lib/stores/semantic_cv_store';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
-  import ProjectDetail from '$lib/components/ProjectDetail.svelte';
+    import CredentialDetail from '$lib/components/schemaorgcv/CredentialDetail.svelte';
   export let organizationRole = {
     roleName: null,
     employer: null,
@@ -35,31 +35,60 @@
         return;
       }
       const credentialsDetailsQuery = `
-        PREFIX schema: <https://schema.org/>
+          PREFIX aschema: <https://schema.ld.admin.ch/>
+    PREFIX schema: <https://schema.org/>
 
-SELECT ?credentialName ?projectName ?projectDesc
-WHERE {
-  ?person a schema:Person .
+    SELECT ?person ?identifier ?credentialName ?credentialDescription ?credentialIdentifier ?credentialStartDate ?credentialEndDate
+    WHERE {
+      ?person a schema:Person .
+      ?person schema:hasOccupation ?exp .
+                ?exp schema:roleName ?jobTitle ;
+                schema:identifier ?identifier ;
+                schema:hasCredential ?credential .
 
-  # Rôle de la personne dans une organisation
-  ?person schema:hasOccupation ?exp .
-            ?exp schema:roleName ?jobTitle ;
-            schema:identifier ?identifier ;
-            schema:hasCredential ?credential .
+      FILTER(?identifier = "${organizationRole.identifier.value}") .
 
-  FILTER(?identifier = "${organizationRole.identifier.value}") .
+      ?credential a schema:EducationalOccupationalCredential ;
+                schema:identifier ?credentialIdentifier ;
+                schema:name ?credentialName . #;
+      OPTIONAL {
+        ?credential a schema:EducationalOccupationalCredential ;
+              schema:description ?credentialDescription .
+      }
+      OPTIONAL {
+        ?credential a schema:EducationalOccupationalCredential ;
+              schema:startDate ?credentialStartDate .
+      }
+      OPTIONAL {
+        ?credential a schema:EducationalOccupationalCredential ;
+              schema:endDate ?credentialEndDate .
+      }
+    } ORDER BY  DESC(?credentialStartDate)
+    `;
+//     PREFIX schema: <https://schema.org/>
 
-  ?credential a schema:EducationalOccupationalCredential ;
-              schema:name ?credentialName ;
-              schema:subjectOf ?project .
+// SELECT ?credentialName ?projectName ?projectDesc
+// WHERE {
+// ?person a schema:Person .
 
-  # Projet lié au credential
-  ?project a schema:Project ;
-           schema:name ?projectName ;
-           schema:description ?projectDesc .
-}
-# ORDER BY ?person ?credentialName ?projectName
-      `;
+// # Rôle de la personne dans une organisation
+// ?person schema:hasOccupation ?exp .
+//         ?exp schema:roleName ?jobTitle ;
+//         schema:identifier ?identifier ;
+//         schema:hasCredential ?credential .
+
+// FILTER(?identifier = "${organizationRole.identifier.value}") .
+
+// ?credential a schema:EducationalOccupationalCredential ;
+//           schema:name ?credentialName ;
+//           schema:subjectOf ?project .
+
+// # Projet lié au credential
+// ?project a schema:Project ;
+//        schema:name ?projectName ;
+//        schema:description ?projectDesc .
+// }
+// # ORDER BY ?person ?credentialName ?projectName
       try {
        credentialsDetails = store.query(credentialsDetailsQuery).map(mapToObject);
        //console.log(credentialsDetailsQuery);
@@ -75,7 +104,7 @@ WHERE {
 <!-- Entité RDFa : LearningActivity représentant une expérience pro -->
 <div
   typeof="schema:OrganizationRole"
-  class="border-b border-gray-300 py-4 last:border-0"
+  class="border-b border-gray-300 py-2 m-0 last:border-0"
 >
 
   <!-- Typage explicite : classification ou specifiedBy -->
@@ -86,18 +115,20 @@ WHERE {
   {#if organizationRole.roleName}
     <h3
       property="schema:roleName"
-      class="text-2xl font-semibold text-gray-900"
+      class="text-2xl font-semibold text-gray-900 pt-1 pb-0 m-0"
     >
       {organizationRole.roleName.value}
     </h3>
   {/if}
 
   {#if organizationRole.employer || organizationRole.startDate || organizationRole.endDate}
-    <p class="text-sm text-gray-700 mb-1">
+    <p class="text-sm text-gray-700 p-0 m-0">
       {#if organizationRole.employer}
         <span property="schema:memberOf" class="font-medium">
           <span typeof="schema:Organization">
-            <span property="schema:name">{organizationRole.employer.value}</span>
+            <span 
+              class="font-bold"
+              property="schema:name">{organizationRole.employer.value}</span>
           </span>
         </span>
       {/if}
@@ -142,20 +173,24 @@ WHERE {
   {/if}
 
   {#if organizationRole.place}
-    <p property="elm:hasLocation" class="text-sm text-gray-600 mb-1">
+    <p property="elm:hasLocation" class="text-sm text-gray-600 m-0 p-0">
       {organizationRole.place.value}
     </p>
   {/if}
 
   {#if organizationRole.description}
-    <p property="schema:description" class="text-gray-800 text-sm whitespace-pre-line">
+    <p property="schema:description" class="p-0 m-0 text-gray-800 text-sm whitespace-pre-line">
       {organizationRole.description.value}
     </p>
   {/if}
   {#if credentialsDetails}
-    {#each credentialsDetails as projectDetail }
-          <ProjectDetail projectDetail={projectDetail}></ProjectDetail>
-    {/each}
+    <div 
+      class="px-2 py-0 m-0"
+      property="schema:hasCredential">
+      {#each credentialsDetails as credentialDetails }
+            <CredentialDetail credentialDetails={credentialDetails}></CredentialDetail>
+      {/each}
+    </div>
   {/if}
 
 </div>
