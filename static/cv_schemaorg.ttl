@@ -1,6 +1,8 @@
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ex: <http://example.org/cv/nkarageuzian#> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+@prefix ex: <http://nka11.github.io/cv#> .
 
 ex:nkarageuzian a schema:Person ;
     schema:name "Nicolas Karageuzian" ;
@@ -47,7 +49,8 @@ ex:edu2 a schema:EducationalOccupationalCredential ;
 ex:exp1 a schema:OrganizationRole ;
     schema:roleName "CTO part time" ;
     schema:startDate "2024-01-01"^^xsd:date ;
-    schema:endDate "2025-05-31"^^xsd:date ;
+    # schema:endDate "2025-05-31"^^xsd:date ;
+    schema:identifier "izrb-cto" ;
     schema:memberOf [
         a schema:Organization ;
         schema:name "IzRoadbook"
@@ -57,15 +60,78 @@ ex:exp2 a schema:OrganizationRole ;
     schema:roleName "Senior Technical Architect" ;
     schema:startDate "2001-01-01"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;
+    schema:identifier "cm-ate" ;
     schema:memberOf [
         a schema:Organization ;
         schema:name "Club Méditerranée SA"
-    ] .
+    ] ;
+    schema:hasCredential [
+            a schema:EducationalOccupationalCredential ;
+            schema:credentialCategory "Experience" ;
+            schema:name "Architecte Technique" ;
+            schema:validFor "P2Y"^^xsd:duration ;
+            schema:startDate "2001-06-01"^^xsd:date ;
+            schema:endDate "2005-06-01"^^xsd:date ;
+            schema:subjectOf
+                [
+                    a schema:Project ;
+                    schema:name "Horizon Centre d'Appels" ;
+                    schema:description """
+                        Conception de l'architecture technique et logicielle d'un couplage téléphonie/informatique
+                        Spécifications technique détaillée
+                        Packaging, Déploiement et suivi d'exploitation.
+                    """ ;
+                    schema:about
+                        [
+                            a elm:LearningOutcome ;
+                            elm:targetFramework "ESCO" ;
+                            elm:targetName "Full Stack Development" ;
+                            elm:targetResource <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
+                        ],
+                        [
+                            a elm:LearningOutcome ;
+                            elm:targetName "DevOps practices" ;
+                            elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+                        ],
+                        [
+                            a elm:LearningOutcome ;
+                            elm:targetName "Gestion de projet Agile" ;
+                            elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+                        ]
+                ],
+                [
+                    a schema:Project ;
+                    schema:name "Controle qualité, packaging et deploiement J2EE" ;
+                    schema:description """
+                        Rôle pivot entre les équipes de dev et d'exploitation.
+                        - Preparation des livraisons
+                        - Assistance au debugging
+                    """ ;
+                    schema:about
+                        [
+                            a elm:LearningOutcome ;
+                            elm:targetName "DevOps practices" ;
+                            elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+                        ],
+                        [
+                            a elm:LearningOutcome ;
+                            elm:targetName "Gestion de projet Agile" ;
+                            elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+                        ]
+                ]
+
+    ].
 
 ex:exp3 a schema:OrganizationRole ;
     schema:roleName "Responsable Sécurité du SI" ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2025-06-30"^^xsd:date ;
+    schema:identifier "ism-rssi" ;
+    schema:description '''
+        Definition des objectifs stratégiques et de l’orientation de la politique de sécurité du SI
+        Audit PSSI & mise en place de l’organisation de la gouvernance cyber
+        Supervision et amélioration : Surveillance des risques, audits et renforcement des défenses.
+    ''' ;
     schema:memberOf [
         a schema:Organization ;
         schema:name "ISM interpretariat"
@@ -76,6 +142,7 @@ ex:exp4 a schema:OrganizationRole ;
     schema:startDate "2000-01-01"^^xsd:date ;
     schema:endDate "2001-01-01"^^xsd:date ;
     schema:description "Pupitrage, monitoring et déploiement d'un ensemble d'applications web." ;
+    schema:identifier "acsp-inge-exp" ;
     schema:memberOf [
         a schema:Organization ;
         schema:name "AlphaCSP"
@@ -92,3 +159,16 @@ ex:proj2 a schema:CreativeWork ;
     schema:name "Aloha Editor" ;
     schema:description "Contribution open-source (drag & drop, image)" ;
     schema:url <http://aloha-editor.org/> .
+
+
+# PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+#        PREFIX europass: <https://data.europa.eu/europass/ontology/>
+#
+#        SELECT ?fullName ?title ?lang
+#        WHERE {
+#          ?person a foaf:Person ;
+#                  europass:fullName ?fullName ;
+#                  europass:preferredLabel ?title .
+#          
+#        }
+

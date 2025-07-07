@@ -1,76 +1,91 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import init, { Store } from 'oxigraph';
-  import wasmUrl from 'oxigraph/web_bg.wasm?url';
-  import WorkExperience from './WorkExperience.svelte';
+  import OrganizationRole from './OrganizationRole.svelte';
+  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/oxigraph';
+  import { get } from 'svelte/store';
   let mainResult: any = null;
-  let experiences: any = null;
+  let organizationRoles: any = null;
   let error = '';
   let loading = true;
   // https://europa.eu/europass/elm-browser/documentation/rdf/ontology/documentation/elm.html#/
-  const turtleUrl = '/cv_schemaorg.ttl';
 
-    function mapToObject(map: Map<string, any>): Record<string, any> {
-    const obj: Record<string, any> = {};
-    for (const [key, value] of map.entries()) {
-        obj[key] = value;
+  
+  // tool to compare experience dates to sort
+  function compareExperience(exp1, exp2) {
+    if (!exp1.endDate && !exp2.endDate) {
+      if (exp1.startDate.value < exp2.startDate.value)  return  -1
+      return 1;
     }
-    return obj;
+    if (!exp1.endDate && exp2.endDate) {
+      return -1;
     }
-
+    if (exp1.endDate && !exp2.endDate) {
+      return 1;
+    }
+    if (exp1.endDate.value < exp2.endDate.value) {
+      return 1;
+    }
+    return -1;
+  }
   onMount(async () => {
     try {
-      await init(wasmUrl);; // charge le module WebAssembly
 
-      const store = new Store();
+      const { store, oxiReady } = get(oxigraphStore);
+      if (!oxiReady) return;
+      //const store = instance;
+
+      // await init(wasmUrl);; // charge le module WebAssembly
+
+      //const store = new Store();
 
       // Charger le fichier .ttl (ex: CV)
-      const turtleText = await fetch(turtleUrl).then((res) => res.text());
+      // const turtleText = await fetch(turtleUrl).then((res) => res.text());
 
       // Charger les triples dans le store RDF
-      store.load(turtleText, 'text/turtle');
+      // store.load(turtleText, 'text/turtle');
 
       // SPARQL query dans le navigateur
       const EntityQuery = `
         PREFIX schema: <https://schema.org/>
-
-SELECT ?fullName ?title
-WHERE {
-  ?person a schema:Person ;
-          schema:name ?fullName ;
-          schema:jobTitle ?title .
-}
+        SELECT ?fullName ?title
+        WHERE {
+          ?person a schema:Person ;
+                  schema:name ?fullName ;
+                  schema:jobTitle ?title .
+        }
       `;
       const ExperiencesQuery = `
-      PREFIX schema: <https://schema.org/>
+        PREFIX schema: <https://schema.org/>
+        SELECT ?person ?roleName ?employer ?startDate ?endDate ?description ?identifier
+        WHERE {
+          ?person a schema:Person .
 
-SELECT ?person ?jobTitle ?employer ?startDate ?endDate ?description
-WHERE {
-  ?person a schema:Person .
+          OPTIONAL {
+            ?person schema:hasOccupation ?exp .
+            ?exp schema:roleName ?roleName ;
+                schema:identifier ?identifier ;
+                schema:startDate ?startDate ;
+                
+                schema:memberOf ?org .
 
-  OPTIONAL {
-    ?person schema:hasOccupation ?exp .
-    ?exp schema:roleName ?jobTitle ;
-         schema:startDate ?startDate ;
-         schema:endDate ?endDate ;
-         schema:memberOf ?org .
-
-    ?org schema:name ?employer .
-
-    OPTIONAL {
-      ?exp schema:description ?description .
-    }
-  }
-}
-ORDER BY DESC(?endDate)
-`
+            ?org schema:name ?employer .
+            OPTIONAL {
+              ?exp schema:endDate ?endDate .
+            }
+            OPTIONAL {
+              ?exp schema:description ?description .
+            }
+          }
+        }
+        ORDER BY DESC(?endDate)
+      `
         // OPTIONAL { ?person europass:hasLanguageSkill ?lang . }
       const mainResults = store.query(EntityQuery);
       const experiencesRaw = store.query(ExperiencesQuery);
-      console.log(experiencesRaw);
+      //console.log(experiencesRaw);
       if (Array.isArray(mainResults)) {
         mainResult = mainResults.map(mapToObject);
-        experiences = experiencesRaw.map(mapToObject);
+        organizationRoles = experiencesRaw.map(mapToObject).sort(compareExperience);
       } else {
         error = 'La requête SPARQL ne retourne pas un objet du type attendu.';
       }
@@ -84,7 +99,7 @@ ORDER BY DESC(?endDate)
 </script>
 
 {#if loading}
-  <p>Chargement du CV RDF dans Oxigraph…</p>
+  <p>Chargement du CV</p>
 {:else if error}
   <p style="color: red;">{error}</p>
 {:else if mainResult}
@@ -92,17 +107,18 @@ ORDER BY DESC(?endDate)
     prefix="
       schema: https://schema.org/
     "
-  typeof="schema:Person">
-    {#each mainResult as row}
-        <h2 property="schema:name">{row.fullName?.value}</h2>
-        <p><strong property="schema:jobTitle">{row.title?.value}</strong></p>
-        {#if row.lang}
-            <p>Langue : {row.lang?.value}</p>
-        {/if}
-    {/each}
-    {#each experiences as experience}
-        <WorkExperience workExperience={experience}/>
-        
-    {/each}
+    typeof="schema:Person">
+      {#each mainResult as row}
+          <h2 property="schema:name">{row.fullName?.value}</h2>
+          <p><strong property="schema:jobTitle">{row.title?.value}</strong></p>
+          {#if row.lang}
+              <p>Langue : {row.lang?.value}</p>
+          {/if}
+      {/each}
+      <div property="schema:hasOccupation">
+        {#each organizationRoles as orgrole}
+          <OrganizationRole organizationRole={orgrole}/>
+        {/each}
+      </div>
   </article>
 {/if}
