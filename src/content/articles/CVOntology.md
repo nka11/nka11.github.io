@@ -3,6 +3,8 @@ title: "Choisir une ontologie pour présenter un CV sémantique"
 date: "2025-07-06"
 description: "Comparatif des ontologies RDF pour modéliser un CV"
 slug: "2025-07-06-cv-ontology"
+tags:
+  - semanticweb
 ---
 
 # Comparatif des ontologies RDF pour modéliser un CV : ResumeRDF, Europass, DOAC et autres

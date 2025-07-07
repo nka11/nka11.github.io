@@ -12,7 +12,7 @@
     slug: string;
   };
 
-  let ContentComponent;
+  let ContentComponent: any;
 
   onMount(async () => {
     const modules = import.meta.glob('../../../content/articles/*.md');
@@ -26,7 +26,7 @@
 
     //const mod = await match[1]();
     for (const resolver of Object.values(modules)) {
-        const mod = await resolver();
+        const mod: any = await resolver();
         const metadata = mod.metadata;
 
         if (metadata.slug === data.slug) {

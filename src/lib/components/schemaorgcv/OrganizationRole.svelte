@@ -1,9 +1,13 @@
 <script lang="ts">
   import { mapToObject, oxigraphStore } from '$lib/stores/semantic_cv_store';
   import { onMount } from 'svelte';
+  import { formatDateFr } from '$lib/dateFormatter';
   import { get } from 'svelte/store';
-    import CredentialDetail from '$lib/components/schemaorgcv/CredentialDetail.svelte';
-  export let organizationRole = {
+  import CredentialDetail from '$lib/components/schemaorgcv/CredentialDetail.svelte';
+    import type { ICredentialDetails, IOrganizationRole } from '$lib/models/schemaorgcv';
+    import type { Term } from 'oxigraph';
+    
+  export let organizationRole: IOrganizationRole = {
     roleName: null,
     employer: null,
     startDate: null,
@@ -11,23 +15,10 @@
     description: null,
     place: null,
     identifier: null,
-    classification: "http://data.europa.eu/snb/elm/classification/workbasedlearning" // ou null
+    //classification: "http://data.europa.eu/snb/elm/classification/workbasedlearning" // ou null
   };
-  let credentialsDetails: any = null;
-  function formatDateFr(dateStr) {
-    if (!dateStr) return null;
-    try {
-      const date = new Date(dateStr);
-      if (isNaN(date)) return null;
-      const day = date.getDate();
-      // const dayStr = day === 1 ? "1er" : day;
-      const month = date.toLocaleString("fr-FR", { month: "long" });
-      const year = date.getFullYear();
-      return `${month} ${year}`;
-    } catch {
-      return dateStr;
-    }
-  }
+  let credentialsDetails: ICredentialDetails[] = [];
+  
   onMount(async () => {
       const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
@@ -46,7 +37,7 @@
                 schema:identifier ?identifier ;
                 schema:hasCredential ?credential .
 
-      FILTER(?identifier = "${organizationRole.identifier.value}") .
+      FILTER(?identifier = "${organizationRole.identifier?.value}") .
 
       ?credential a schema:EducationalOccupationalCredential ;
                 schema:identifier ?credentialIdentifier ;
@@ -90,7 +81,7 @@
 // }
 // # ORDER BY ?person ?credentialName ?projectName
       try {
-       credentialsDetails = store.query(credentialsDetailsQuery).map(mapToObject);
+       credentialsDetails = (store?.query(credentialsDetailsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as ICredentialDetails[];
        //console.log(credentialsDetailsQuery);
        //console.log(organizationRole.identifier.value);
        //console.log(credentialsDetails);

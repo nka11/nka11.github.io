@@ -1,19 +1,21 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import OrganizationRole from './OrganizationRole.svelte';
+  import OrganizationRole from '../../lib/components/schemaorgcv/OrganizationRole.svelte';
   import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/semantic_cv_store';
   import { get } from 'svelte/store';
-  let mainResult: any = null;
-  let organizationRoles: any = null;
+  import type { IOrganizationRole } from '$lib/models/schemaorgcv';
+    import type { Term } from 'oxigraph';
+  let mainResult: Array<any> = [];
+  let organizationRoles: IOrganizationRole[] = [];
   let error = '';
   let loading = true;
   // https://europa.eu/europass/elm-browser/documentation/rdf/ontology/documentation/elm.html#/
 
   
   // tool to compare experience dates to sort
-  function compareExperience(exp1, exp2) {
+  function compareExperience(exp1: IOrganizationRole, exp2: IOrganizationRole) {
     if (!exp1.endDate && !exp2.endDate) {
-      if (exp1.startDate.value < exp2.startDate.value)  return  -1
+      if ((exp1.startDate?.value ?? '') < (exp2.startDate?.value ?? ''))  return  -1
       return 1;
     }
     if (!exp1.endDate && exp2.endDate) {
@@ -22,7 +24,7 @@
     if (exp1.endDate && !exp2.endDate) {
       return 1;
     }
-    if (exp1.endDate.value < exp2.endDate.value) {
+    if ((exp1.endDate?.value ?? '') < (exp2.endDate?.value ?? '')) {
       return 1;
     }
     return -1;
@@ -83,15 +85,13 @@
         ORDER BY DESC(?endDate)
       `
         // OPTIONAL { ?person europass:hasLanguageSkill ?lang . }
-      const mainResults = store.query(EntityQuery);
-      const experiencesRaw = store.query(ExperiencesQuery);
+      const mainResults = store?.query(EntityQuery) as unknown as Map<string, Term>[];
+      const experiencesRaw = store?.query(ExperiencesQuery) as unknown as Map<string, Term>[];
       //console.log(experiencesRaw);
-      if (Array.isArray(mainResults)) {
-        mainResult = mainResults.map(mapToObject);
-        organizationRoles = experiencesRaw.map(mapToObject).sort(compareExperience);
-      } else {
-        error = 'La requête SPARQL ne retourne pas un objet du type attendu.';
-      }
+      mainResult = mainResults.map(mapToObject);
+      
+      organizationRoles = (experiencesRaw.map(mapToObject) as IOrganizationRole[]).sort(compareExperience);
+      
     } catch (e) {
       console.error(e);
       error = 'Erreur lors de l’exécution du module WASM ou du parsing RDF.';

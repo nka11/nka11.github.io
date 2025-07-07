@@ -1,25 +1,14 @@
 <script lang="ts">
-export let projectDetail = {
+    import { formatDateFr } from "$lib/dateFormatter";
+    import type { IProjectDetail } from "$lib/models/schemaorgcv";
+
+export let projectDetail: IProjectDetail = {
     credentialName: null,
     projectName: null,
     projectDescription: null,
     projectStartDate: null,
     projectEndDate: null
   };
-  function formatDateFr(dateStr) {
-    if (!dateStr) return null;
-    try {
-      const date = new Date(dateStr);
-      if (isNaN(date)) return null;
-      const day = date.getDate();
-      // const dayStr = day === 1 ? "1er" : day;
-      const month = date.toLocaleString("fr-FR", { month: "long" });
-      const year = date.getFullYear();
-      return `${month} ${year}`;
-    } catch {
-      return dateStr;
-    }
-  }
 
 </script>
 
@@ -27,7 +16,7 @@ export let projectDetail = {
   class="pt-1 my-0 pb-0"
   typeof="schema:Project">
   <span class="text-sm p-0 m-0">
-    <span class="font-bold" property="schema:name">{projectDetail.projectName.value}</span> :
+    <span class="font-bold" property="schema:name">{projectDetail.projectName?.value}</span> :
     {#if projectDetail.projectStartDate || projectDetail.projectEndDate}
       
       <span class="text-xs italic">

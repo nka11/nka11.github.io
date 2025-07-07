@@ -2,15 +2,18 @@
   import { mapToObject, oxigraphStore } from '$lib/stores/semantic_cv_store';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
-  import ProjectDetail from '$lib/components/ProjectDetail.svelte';
-  export let credentialDetails = {
+  import ProjectDetail from '$lib/components/schemaorgcv/ProjectDetail.svelte';
+    import type { ICredentialDetails, IProjectDetail } from '$lib/models/schemaorgcv';
+    import { formatDateFr } from '$lib/dateFormatter';
+    import type { Term } from 'oxigraph';
+  export let credentialDetails: ICredentialDetails = {
     credentialName: null,
     credentialIdentifier: null,
     credentialDescription: null,
     credentialEndDate: null,
     credentialStartDate: null
   };
-  let projectsDetail: any = null;
+  let projectsDetail: IProjectDetail[] = [];
   const projectsDetailsQuery = `
 PREFIX schema: <https://schema.org/>
 
@@ -30,7 +33,7 @@ PREFIX schema: <https://schema.org/>
 	  	schema:identifier ?identifier ;
     schema:subjectOf ?project .
   }
-   FILTER(?identifier = "${credentialDetails.credentialIdentifier.value}") .
+   FILTER(?identifier = "${credentialDetails.credentialIdentifier?.value}") .
             ?project a schema:Project ;
                       schema:name ?projectName.
             OPTIONAL {
@@ -54,7 +57,7 @@ PREFIX schema: <https://schema.org/>
         console.log("OrganiwationRole component onMount: semantic store not ready");
         return;
       }
-       projectsDetail = store.query(projectsDetailsQuery).map(mapToObject);
+       projectsDetail = (store?.query(projectsDetailsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IProjectDetail[];
        //console.log(credentialsDetailsQuery);
        //console.log(organizationRole.identifier.value);
        //console.log(credentialsDetails);
@@ -63,27 +66,13 @@ PREFIX schema: <https://schema.org/>
       }
 
     })
-      function formatDateFr(dateStr) {
-    if (!dateStr) return null;
-    try {
-      const date = new Date(dateStr);
-      if (isNaN(date)) return null;
-      const day = date.getDate();
-      // const dayStr = day === 1 ? "1er" : day;
-      const month = date.toLocaleString("fr-FR", { month: "long" });
-      const year = date.getFullYear();
-      return `${month} ${year}`;
-    } catch {
-      return dateStr;
-    }
-  }
 </script>
 
 <div typeof="schema:EducationalOccupationalCredential">
     <p 
         class="pt-1 pb-0 m-0">
         
-        <span class="font-bold" property="schema:name">{credentialDetails.credentialName.value}</span>
+        <span class="font-bold" property="schema:name">{credentialDetails.credentialName?.value}</span>
         {#if credentialDetails.credentialStartDate || credentialDetails.credentialEndDate}
         <span class="text-xs italic">
 

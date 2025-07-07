@@ -5,7 +5,7 @@ export async function entries() {
 
   const slugs = await Promise.all(
     Object.values(modules).map(async (resolver) => {
-      const mod = await resolver();
+      const mod:any = await resolver();
       return { slug: mod.metadata.slug };
     })
   );
@@ -13,11 +13,11 @@ export async function entries() {
   return slugs;
 }
 
-export async function load({ params }) {
+export async function load({ params }: any) {
   const modules = import.meta.glob('../../../content/articles/*.md');
 
   for (const resolver of Object.values(modules)) {
-    const mod = await resolver();
+    const mod: any = await resolver();
     const metadata = mod.metadata;
 
     if (metadata.slug === params.slug) {
@@ -28,5 +28,5 @@ export async function load({ params }) {
     }
   }
 
-  throw error(404, 'Article not found');
+  throw 'Article not found';
 }
