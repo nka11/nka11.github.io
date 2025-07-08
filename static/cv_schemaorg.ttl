@@ -77,7 +77,8 @@ ev:withinOrganization a rdf:Property ;
 ### Expériences professionnelles
 
 :exp1 a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
-    schema:roleName "CTO part-time" ;
+    schema:roleName "CTO part-time"@en ;
+    schema:roleName "Directeur Technique à temps partiel"@fr ;
     schema:startDate "2024-01-01"^^xsd:date ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "izrb-cto" ;
@@ -102,7 +103,8 @@ ev:withinOrganization a rdf:Property ;
         schema:name "Winastar"
     ] .
 :exp2 a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
-    schema:roleName "Senior Technical Architect" ;
+    schema:roleName "Senior Technical Architect"@en ;
+    schema:roleName "Architecte Technique Senior"@fr ;
     schema:startDate "2001-01-01"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;
     schema:identifier "cm-ate" ;
