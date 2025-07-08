@@ -19,7 +19,7 @@
       const eduQuery=`
 		PREFIX schema: <https://schema.org/>
 
-        SELECT ?educ ?educName ?educLocation ?educLevel
+        SELECT ?educ ?educName ?educLocationName ?educLocationAddress ?educLevel ?educStart ?educEnd
         WHERE {
           	?person a schema:Person .
           	?person schema:alumniOf ?educ .
@@ -28,9 +28,18 @@
             OPTIONAL {
               ?educ schema:educationalLevel ?educLevel .
             }
-
             OPTIONAL {
-              ?educ schema:location ?educLocation .
+              ?educ schema:startDate ?educStart .
+            }
+            OPTIONAL {
+              ?educ schema:endDate ?educEnd .
+            }
+            OPTIONAL {
+              ?educ schema:location ?locationEntity .
+              ?locationEntity schema:name ?educLocationName .
+              OPTIONAL {
+                ?locationEntity schema:address ?educLocationAddress .
+              }
         }
 	}
       `
@@ -47,12 +56,17 @@
 </script>
 
 {#each educationDetails as education }
-  <div>
-  {education.educName.value}
-
-  {education.educLevel.value}  
-  {#if education.educLocation }
-    {education.educLocation.value}  
-  {/if}
-  </div>
+    <section class="bg-gray-100 py-1 px-2 m-0 rounded-lg shadow-md">
+      <p class="text-xl font-semibold p-0 m-0">{education.educName.value}</p>
+      <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Niveau :</strong> {education.educLevel.value}</p>
+      {#if education.educLocationName }
+        <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Établissement :</strong> {education.educLocationName.value}</p>
+      {/if}
+      {#if education.educLocationAddress }
+        <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Adresse :</strong> {education.educLocationAddress.value}</p>
+      {/if}
+      {#if education.educEnd }
+        <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Date de fin :</strong> {education.educEnd.value}</p>
+      {/if}
+    </section>
 {/each}

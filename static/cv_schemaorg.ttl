@@ -42,27 +42,30 @@ ev:withinOrganization a rdf:Property ;
 
 :dut1998 a schema:EducationalOrganization, schema:EducationalOccupationalCredential, schema:Role ;
     schema:name "DUT Informatique" ;
-    schema:location "Fontainebleau" ;
+    schema:location [
+        a schema:Place ;
+        schema:name "IUT Paris XII";
+        schema:address "Fontainebleau"] ;
     schema:educationalLevel "Diplôme Universitaire de Technologie" ;
-    schema:startDate "1996-01-01"^^xsd:date ;
-    schema:endDate "1998-12-31"^^xsd:date ;
+    schema:startDate "1996-09-01"^^xsd:date ;
+    schema:endDate "1998-06-31"^^xsd:date ;
 
     schema:subjectOf [
         a schema:CreativeWork, schema:Project, schema:Role ;
         schema:name "Stage au laboratoire LERISS de Sénart"@fr ;
         schema:startDate "2022-10-02"^^xsd:date ;
         schema:endDate "2023-09-30"^^xsd:date ;
-        schema:description ```Implementation d'un mini jeu de plateau
+        schema:description """Implementation d'un mini jeu de plateau
         Conception d'un moteur d'assertions pour valider le déplacement des pièces.
-        Conception d'un algorithme de type arbre de décision pour que l'humain puisse jouer contre la machine```@fr ;
+        Conception d'un algorithme de type arbre de décision pour que l'humain puisse jouer contre la machine"""@fr ;
         schema:about
             [
-                a elm:LearningOutcome schema:DefinedTerm ;
+                a elm:LearningOutcome, schema:DefinedTerm ;
                 elm:targetName "DevOps practices" ;
                 elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
             ],
             [
-                a elm:LearningOutcome  schema:DefinedTerm ;
+                a elm:LearningOutcome, schema:DefinedTerm ;
                 elm:targetName "Gestion de projet Agile" ;
                 elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
             ]
@@ -71,10 +74,10 @@ ev:withinOrganization a rdf:Property ;
 :edu2 a schema:EducationalOrganization, schema:EducationalOccupationalCredential, schema:Role  ;
     schema:name "Bac S option Technologie" ;
     schema:educationalLevel "Baccalauréat Scientifique" ;
-    schema:awardingBody [
-        a schema:EducationalOrganization ;
-        schema:name "Lycée George Sand"
-    ] ;
+    schema:location [
+        a schema:Place ;
+        schema:name "Lycée George Sand";
+        schema:address "Le Mée sur Seine"] ;
     schema:endDate "1996-06-30"^^xsd:date .
 
 ### Expériences professionnelles
@@ -133,23 +136,23 @@ ev:withinOrganization a rdf:Property ;
                         Packaging, Déploiement et suivi d'exploitation. """ ;
                     schema:about
                         [
-                            a elm:LearningOutcome schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetFramework "ESCO" ;
                             elm:targetName "Full Stack Development" ;
                             elm:targetResource <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
                         ],
                         [
-                            a elm:LearningOutcome schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ],
                         [
-                            a elm:LearningOutcome schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Structurer l’information " ;
                             elm:targetResource <http://data.europa.eu/esco/skill/cc9b4fbb-65f1-4c92-9229-1392d03b6e20>
                         ]
@@ -163,12 +166,12 @@ ev:withinOrganization a rdf:Property ;
                     """ ;
                     schema:about
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ]
@@ -181,18 +184,18 @@ ev:withinOrganization a rdf:Property ;
                     """ ;
                     schema:about
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetFramework "ESCO" ;
                             elm:targetName "Full Stack Development" ;
                             elm:targetResource <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ]
@@ -217,18 +220,18 @@ ev:withinOrganization a rdf:Property ;
                     """ ;
                     schema:about
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetFramework "ESCO" ;
                             elm:targetName "Full Stack Development" ;
                             elm:targetResource <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ]
@@ -251,18 +254,18 @@ ev:withinOrganization a rdf:Property ;
                 #     """ ;
                 #     schema:about
                 #         [
-                #             a elm:LearningOutcome  schema:DefinedTerm ;
+                #             a elm:LearningOutcome, schema:DefinedTerm ;
                 #             elm:targetFramework "ESCO" ;
                 #             elm:targetName "Full Stack Development" ;
                 #             elm:targetResource <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
                 #         ],
                 #         [
-                #             a elm:LearningOutcome  schema:DefinedTerm ;
+                #             a elm:LearningOutcome, schema:DefinedTerm ;
                 #             elm:targetName "DevOps practices" ;
                 #             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                 #         ],
                 #         [
-                #             a elm:LearningOutcome  schema:DefinedTerm ;
+                #             a elm:LearningOutcome, schema:DefinedTerm ;
                 #             elm:targetName "Gestion de projet Agile" ;
                 #             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                 #         ]
@@ -277,12 +280,12 @@ ev:withinOrganization a rdf:Property ;
                     - Industrialisation processus de deploiement de l'application autour de gitlab avec une CI Jenkins""" ;
                     schema:about
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ]
@@ -298,12 +301,12 @@ ev:withinOrganization a rdf:Property ;
                         - Mise en place d'une chaîne de build et d'une procédure de déploiement pour les programmes COBOL.""" ;
                     schema:about
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ]
@@ -332,12 +335,12 @@ ev:withinOrganization a rdf:Property ;
                     ''' ;
                     schema:about
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ]
@@ -351,18 +354,18 @@ ev:withinOrganization a rdf:Property ;
                     """ ;
                     schema:about
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetFramework "ESCO" ;
                             elm:targetName "Full Stack Development" ;
                             elm:targetResource <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ]
@@ -376,12 +379,12 @@ ev:withinOrganization a rdf:Property ;
                     Accompagnement du RSSI dans l'organisation de rituels agile.""" ;
                     schema:about
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "DevOps practices" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
                         ],
                         [
-                            a elm:LearningOutcome  schema:DefinedTerm ;
+                            a elm:LearningOutcome, schema:DefinedTerm ;
                             elm:targetName "Gestion de projet Agile" ;
                             elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
                         ]
