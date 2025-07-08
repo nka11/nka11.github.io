@@ -1,10 +1,24 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+
 @prefix schema: <https://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix elm: <https://data.europa.eu/snb/elm/> .
 @prefix esco: <https://data.europa.eu/esco/skill/> .
-@prefix ex: <http://nka11.github.io/cv#> .
 
-ex:fulldetails a schema:Person ;
+@prefix ev: <http://nka11.github.io/ExtendedVocabulary#> .
+@prefix : <http://nka11.github.io/cv#> .
+
+# Définition de la propriété withinOrganization
+ev:withinOrganization a rdf:Property ;
+    rdfs:label "withinOrganization"@en ;
+    rdfs:comment "Lien entre un rôle et l'organisation dans laquelle il est exercé."@fr ;
+    rdfs:domain schema:Role ;
+    rdfs:range schema:Organization .
+
+:nka11 a schema:Person ;
     schema:name "Nicolas Karageuzian" ;
     schema:email "mailto:nkarageuzian@gmail.com" ;
     schema:url <http://github.com/nka11> ;
@@ -19,13 +33,13 @@ ex:fulldetails a schema:Person ;
     schema:knowsLanguage "fr", "en" ;
     schema:hasSkill "Java", "Docker", "SPARQL", "Azure" ;
 
-    schema:alumniOf ex:edu1, ex:edu2 ;
-    schema:hasOccupation ex:exp1, ex:exp2, ex:exp3, ex:exp4, ex:expISMRSSI, ex:expISMGRC, ex:expCTOWinastar ;
-    schema:hasPart ex:proj1, ex:proj2 .
+    schema:alumniOf :edu1, :edu2 ;
+    schema:hasOccupation :exp1, :exp2, :exp3, :exp4, :expISMRSSI, :expISMGRC, :expCTOWinastar ;
+    schema:hasPart :proj1, :proj2 .
 
 ### Formations
 
-ex:edu1 a schema:EducationalOccupationalCredential ;
+:edu1 a schema:EducationalOccupationalCredential ;
     schema:name "DUT Informatique" ;
     schema:educationalLevel "Diplôme universitaire de technologie" ;
     schema:awardingBody [
@@ -35,7 +49,7 @@ ex:edu1 a schema:EducationalOccupationalCredential ;
     schema:startDate "1996-01-01"^^xsd:date ;
     schema:endDate "1998-12-31"^^xsd:date .
 
-ex:edu2 a schema:EducationalOccupationalCredential ;
+:edu2 a schema:EducationalOccupationalCredential ;
     schema:name "Bac S option Technologie" ;
     schema:educationalLevel "Baccalauréat Scientifique" ;
     schema:awardingBody [
@@ -46,40 +60,43 @@ ex:edu2 a schema:EducationalOccupationalCredential ;
 
 ### Expériences professionnelles
 
-ex:exp1 a schema:OrganizationRole ;
+:exp1 a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
     schema:roleName "CTO part-time" ;
     schema:startDate "2024-01-01"^^xsd:date ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "izrb-cto" ;
     schema:description """Encadrement developpeurs et Architecture.
         Tech Leadership et mise en place des outils de CI/CD (github actions vers Ikoula).""" ;
-    schema:memberOf [
+    schema:withinOrganization [
         a schema:Organization ;
         schema:name "IzRoadbook"
     ] .
-ex:expCTOWinastar a schema:OrganizationRole ;
-    schema:roleName "CTO de transition" ;
+:expCTOWinastar a schema:OrganizationRole, schema:Occupation, schema:Organization ;
+    schema:roleName "CTO de transition"@fr ;
+    schema:roleName "Transition CTO"@en ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:identifier "winastar-cto" ;
-    schema:description """Definition et mise en oeuvre d’une stratégie de scale UP.
-Elaboration d’une feuille de route pour cibler les conformités stratégiques.""" ;
-    schema:memberOf [
+    schema:description """- Definition et mise en oeuvre d’une stratégie de scale UP avec pour focus la capacité de realiser un grand nombre de transactions blockchain en parallel : migration d'une architecture limitée à un process vers un pool d'agents multi-threadés qui ont permi une augmentation de 400% de la capacité de traitement sans besoin de ressources complémentaires.
+        - Elaboration d’une feuille de route pour cibler les conformités stratégiques."""@fr ;
+    schema:description: """- Spearheaded the development and execution of a scale-up strategy that focused on transaction throughput and parralelism : From a limited single process Architecture to a multi-threaded agents architecture the load capacity has been increased by 400% without additional resources needs.
+        - Definition of a roadmap to reach strategic compliance."""@en ;
+    schema:withinOrganization [
         a schema:Organization ;
         schema:name "Winastar"
     ] .
-ex:exp2 a schema:OrganizationRole ;
+:exp2 a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
     schema:roleName "Senior Technical Architect" ;
     schema:startDate "2001-01-01"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;
     schema:identifier "cm-ate" ;
-    schema:memberOf [
+    schema:withinOrganization [
         a schema:Organization ;
         schema:name "Club Méditerranée SA"
     ] ;
     schema:hasCredential 
         [
-            a schema:EducationalOccupationalCredential ;
+            a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:name "Architecte Technique" ;
             schema:identifier "cm-ate-architech" ;
@@ -88,7 +105,7 @@ ex:exp2 a schema:OrganizationRole ;
             schema:endDate "2005-06-01"^^xsd:date ;
             schema:subjectOf
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Application 'Horizon' Centre d'Appels" ;
                     schema:description """Conception de l'architecture technique et logicielle d'un couplage téléphonie/informatique.
                         Spécifications technique détaillée.
@@ -117,7 +134,7 @@ ex:exp2 a schema:OrganizationRole ;
                         ]
                 ],
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Controle qualité, packaging et deploiement J2EE" ;
                     schema:description """Rôle pivot entre les équipes de dev et d'exploitation.
                         - Preparation des livraisons
@@ -136,7 +153,7 @@ ex:exp2 a schema:OrganizationRole ;
                         ]
                 ],
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Integration PeopleSoft on prem" ;
                     schema:description """Migration SIRH legacy sur z/OS vers la plate forme PeopleSoft/aix.
                         Défi technique compte tenu de l'environnement assez exotique pour l'éditeur et l'intégrateur.
@@ -162,7 +179,7 @@ ex:exp2 a schema:OrganizationRole ;
 
     ],
     [
-        a schema:EducationalOccupationalCredential ;
+        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:name "Architecte Technique Senior" ;
             schema:identifier "cm-ate-senarchitech" ;
@@ -171,7 +188,7 @@ ex:exp2 a schema:OrganizationRole ;
             schema:endDate "2011-06-01"^^xsd:date ;
             schema:subjectOf
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Industrialisation et controle qualité du developpement procstock DB2/MVS" ;
                     schema:description """Conception de l'architecture technique et des procédures de livraisons de procédures stockées DB2 entre les différents environnements dans un DB2 z/OS.
                         Spécifications technique détaillée.
@@ -198,7 +215,7 @@ ex:exp2 a schema:OrganizationRole ;
 
     ],
     [
-        a schema:EducationalOccupationalCredential ;
+        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:name "Lead DevOps" ;
             schema:identifier "cm-ate-leaddevops" ;
@@ -230,7 +247,7 @@ ex:exp2 a schema:OrganizationRole ;
                 #         ]
                 # ],
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Migration z/OS vers Linux" ;
                     schema:startDate "2013-03-10" ;
                     schema:endDate "2015-09-10" ;
@@ -250,7 +267,7 @@ ex:exp2 a schema:OrganizationRole ;
                         ]
                 ],
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Migration du warehouse de DB2/Z vers DB2 LUW" ;
                     schema:startDate "2012-03-10" ;
                     schema:endDate "2012-12-10" ;
@@ -273,7 +290,7 @@ ex:exp2 a schema:OrganizationRole ;
 
     ],
     [
-        a schema:EducationalOccupationalCredential ;
+        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:name "Lead DevSecOps" ;
             schema:identifier "cm-ate-leaddevsecops" ;
@@ -282,7 +299,7 @@ ex:exp2 a schema:OrganizationRole ;
             schema:endDate "2023-09-31"^^xsd:date ;
             schema:subjectOf
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Projet Road45" ;
                     schema:startDate "2022-10-02"^^xsd:date ;
                     schema:endDate "2023-09-30"^^xsd:date ;
@@ -305,7 +322,7 @@ ex:exp2 a schema:OrganizationRole ;
                         ]
                 ],
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Integration d'authentification fédérée" ;
                     schema:startDate "2017-06-02"^^xsd:date ;
                     schema:endDate "2021-10-31"^^xsd:date ;
@@ -330,7 +347,7 @@ ex:exp2 a schema:OrganizationRole ;
                         ]
                 ],
                 [
-                    a schema:Project ;
+                    a schema:CreativeWork, schema:Project, schema:Role ;
                     schema:name "Creation FeatureTem SecOps" ;
                     schema:startDate "2021-11-02"^^xsd:date ;
                     schema:endDate "2022-05-30"^^xsd:date ;
@@ -351,7 +368,7 @@ ex:exp2 a schema:OrganizationRole ;
 
     ].
 
-ex:expISMRSSI a schema:OrganizationRole ;
+:expISMRSSI a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
     schema:roleName "Responsable Sécurité du SI" ;
     schema:startDate "2025-01-01"^^xsd:date ;
     schema:endDate "2025-06-30"^^xsd:date ;
@@ -359,42 +376,42 @@ ex:expISMRSSI a schema:OrganizationRole ;
     schema:description '''Definition des objectifs stratégiques et de l’orientation de la politique de sécurité du SI
         Audit PSSI & mise en place de l’organisation de la gouvernance cyber
         Supervision et amélioration : Surveillance des risques, audits et renforcement des défenses.''' ;
-    schema:memberOf [
+    schema:withinOrganization [
         a schema:Organization ;
         schema:name "ISM interpretariat"
     ] .
 
-ex:expISMGRC a schema:OrganizationRole ;
+:expISMGRC a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
     schema:roleName "Consultant GRC" ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:identifier "ism-rssi" ;
     schema:description """Audit de la maturité cyber et de la PSSI.
     Recommandations stratégiques et proposition d'une feuille de route.""" ;
-    schema:memberOf [
+    schema:withinOrganization [
         a schema:Organization ;
         schema:name "ISM interpretariat"
     ] .
 
-ex:exp4 a schema:OrganizationRole ;
+:exp4 a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
     schema:roleName "Ingénieur d’exploitation" ;
     schema:startDate "2000-01-01"^^xsd:date ;
     schema:endDate "2001-01-01"^^xsd:date ;
     schema:description "Pupitrage, monitoring et déploiement d'un ensemble d'applications web." ;
     schema:identifier "acsp-inge-exp" ;
-    schema:memberOf [
+    schema:withinOrganization [
         a schema:Organization ;
         schema:name "AlphaCSP"
     ] .
 
 ### Projets & Réalisations
 
-ex:proj1 a schema:CreativeWork ;
+:proj1 a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "KaraCos" ;
     schema:description "Serveur d’applications pour la gestion des données personnelles" ;
     schema:url <http://github.com/karacos> .
 
-ex:proj2 a schema:CreativeWork ;
+:proj2 a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Aloha Editor" ;
     schema:description "Contribution open-source (drag & drop, image)" ;
     schema:url <http://aloha-editor.org/> .

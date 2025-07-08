@@ -4,7 +4,7 @@ export async function load() {
 
   const articles = await Promise.all(
     Object.entries(modules).map(async ([path, resolver]) => {
-      const { metadata } = await resolver();
+      const { metadata }:any = await resolver();
       if (metadata)
         return {
             ...metadata,

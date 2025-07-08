@@ -68,7 +68,7 @@ PREFIX schema: <https://schema.org/>
     })
 </script>
 
-<div typeof="schema:EducationalOccupationalCredential">
+<div property="schema:hasCredential" typeof="schema:EducationalOccupationalCredential schema:OrganizationRole">
     <p 
         class="pt-1 pb-0 m-0">
         
@@ -121,7 +121,7 @@ PREFIX schema: <https://schema.org/>
     {#if projectsDetail}
         <div
             class="px-2 pt-0 pb-0 m-0"
-            property="schema:subjectOf">
+            >
             {#each projectsDetail as projectDetail}
                 <ProjectDetail projectDetail={projectDetail}></ProjectDetail>
             {/each}

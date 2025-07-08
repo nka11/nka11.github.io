@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import OrganizationRole from '../../lib/components/schemaorgcv/OrganizationRole.svelte';
+  import OrganizationRole from '$lib/components/schemaorgcv/Experience.svelte';
   import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/semantic_cv_store';
   import { get } from 'svelte/store';
   import type { IOrganizationRole } from '$lib/models/schemaorgcv';
@@ -71,14 +71,15 @@
                 schema:identifier ?identifier ;
                 schema:startDate ?startDate ;
                 
-                schema:memberOf ?org .
-
+                schema:withinOrganization ?org .
+            FILTER(LANG(?roleName) = "fr" || LANG(?roleName) = "")
             ?org schema:name ?employer .
             OPTIONAL {
               ?exp schema:endDate ?endDate .
             }
             OPTIONAL {
               ?exp schema:description ?description .
+              FILTER(LANG(?description) = "fr" || LANG(?description) = "")
             }
           }
         }
@@ -118,14 +119,30 @@
               <p>Langue : {row.lang?.value}</p>
           {/if}
       {/each}
-      <h2 class="text-3xl">Experiences</h2>
-      <div 
+      <h2 class="text-3xl">Expérience Professionnelle</h2>
+      <section 
         class="px-2"
-        property="schema:hasOccupation">
+        >
         
         {#each organizationRoles as orgrole}
           <OrganizationRole organizationRole={orgrole}/>
         {/each}
-      </div>
+      </section>
+      <h2 class="text-3xl">Compétences</h2>
+      <section>
+
+      </section>
+      <h2>Formation</h2>
+      <section>
+
+      </section>
+      <h2>Langues</h2>
+      <section>
+
+      </section>
+      <h2>Projets Personnels</h2>
+      <section>
+
+      </section>
   </article>
 {/if}

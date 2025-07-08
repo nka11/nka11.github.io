@@ -14,7 +14,8 @@ export let projectDetail: IProjectDetail = {
 
 <div 
   class="pt-1 my-0 pb-0"
-  typeof="schema:Project">
+  property="schema:subjectOf"
+  typeof="schema:CreativeWork schema:Project schema:Role">
   <span class="text-sm p-0 m-0">
     <span class="font-bold" property="schema:name">{projectDetail.projectName?.value}</span> :
     {#if projectDetail.projectStartDate || projectDetail.projectEndDate}
@@ -60,7 +61,7 @@ export let projectDetail: IProjectDetail = {
   {#if projectDetail.projectDescription}   
   <p 
   class="whitespace-pre-line text-xs p-0 m-0"
-  property="schema:descrition">
+  property="schema:description">
       { projectDetail.projectDescription.value }
   </p>
   {/if}

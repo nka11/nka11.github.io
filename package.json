@@ -21,7 +21,11 @@
     "vite": "^5.1.4"
   },
   "dependencies": {
+    "jsonld-streaming-serializer": "^4.0.0",
     "mdsvex": "^0.12.6",
-    "oxigraph": "^0.4.11"
+    "oxigraph": "^0.4.11",
+    "rdf-parse": "^4.0.0",
+    "rdflib": "^2.2.37",
+    "svelte-i18n": "^4.0.1"
   }
 }

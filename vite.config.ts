@@ -1,11 +1,13 @@
 import { defaultTheme } from '@sveltepress/theme-default'
 import { sveltepress } from '@sveltepress/vite'
+import path from 'path'
 import { defineConfig } from 'vite'
 
 const config = defineConfig({
 	plugins: [
 		sveltepress({
 			theme: defaultTheme({
+				//globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
 				navbar: [
 					{
 						title: "Articles",

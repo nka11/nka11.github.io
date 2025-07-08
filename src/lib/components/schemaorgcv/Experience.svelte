@@ -42,13 +42,17 @@
       ?credential a schema:EducationalOccupationalCredential ;
                 schema:identifier ?credentialIdentifier ;
                 schema:name ?credentialName . #;
+      FILTER(LANG(?credentialName) = "fr" || LANG(?credentialName) = "")
       OPTIONAL {
         ?credential a schema:EducationalOccupationalCredential ;
               schema:description ?credentialDescription .
+        FILTER(LANG(?credentialDescription) = "fr" || LANG(?credentialDescription) = "")
+    
       }
       OPTIONAL {
         ?credential a schema:EducationalOccupationalCredential ;
               schema:startDate ?credentialStartDate .
+        
       }
       OPTIONAL {
         ?credential a schema:EducationalOccupationalCredential ;
@@ -93,8 +97,8 @@
 </script>
 
 <!-- Entité RDFa : LearningActivity représentant une expérience pro -->
-<div
-  typeof="schema:OrganizationRole"
+<div property="schema:hasOccupation"
+  typeof="schema:OrganizationRole schema:Occupation  schema:Organization"
   class="border-b border-gray-300 py-2 m-0 last:border-0"
 >
 
@@ -115,12 +119,10 @@
   {#if organizationRole.employer || organizationRole.startDate || organizationRole.endDate}
     <p class="text-sm text-gray-700 p-0 m-0">
       {#if organizationRole.employer}
-        <span property="schema:memberOf" class="font-medium">
-          <span typeof="schema:Organization">
+        <span property="ev:withinOrganization" class="font-medium" typeof="schema:Organization">
             <span 
               class="font-bold"
               property="schema:name">{organizationRole.employer.value}</span>
-          </span>
         </span>
       {/if}
 
@@ -176,8 +178,7 @@
   {/if}
   {#if credentialsDetails}
     <div 
-      class="px-2 py-0 m-0"
-      property="schema:hasCredential">
+      class="px-2 py-0 m-0">
       {#each credentialsDetails as credentialDetails }
             <CredentialDetail credentialDetails={credentialDetails}></CredentialDetail>
       {/each}
