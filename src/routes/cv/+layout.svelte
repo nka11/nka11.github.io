@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   const { children } = $props()
   import { onMount } from 'svelte';
   import { initOxigraph, oxigraphStore } from '$lib/stores/semantic_cv_store';
@@ -14,6 +14,9 @@
     
 
   });
+
+
+
 </script>
 
 <!-- Leave this. Or you can add more content for your custom layout -->

@@ -39,15 +39,31 @@ ev:withinOrganization a rdf:Property ;
 
 ### Formations
 
-:edu1 a schema:EducationalOccupationalCredential ;
+:edu1 a schema:EducationalOrganization, schema:EducationalOccupationalCredential, schema:Role ;
     schema:name "DUT Informatique" ;
-    schema:educationalLevel "Diplôme universitaire de technologie" ;
-    schema:awardingBody [
-        a schema:EducationalOrganization ;
-        schema:name "IUT de Fontainebleau"
-    ] ;
+    schema:location "Fontainebleau"
+    schema:educationalLevel "Diplôme Universitaire de Technologie" ;
     schema:startDate "1996-01-01"^^xsd:date ;
     schema:endDate "1998-12-31"^^xsd:date .
+
+    schema:subjectOf [
+        a schema:CreativeWork, schema:Project, schema:Role ;
+        schema:name "Stage au laboratoire LERISS de Sénart"@fr ;
+        schema:startDate "2022-10-02"^^xsd:date ;
+        schema:endDate "2023-09-30"^^xsd:date ;
+        schema:description ''''''@fr ;
+        schema:about
+            [
+                a elm:LearningOutcome ;
+                elm:targetName "DevOps practices" ;
+                elm:targetResource <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+            ],
+            [
+                a elm:LearningOutcome ;
+                elm:targetName "Gestion de projet Agile" ;
+                elm:targetResource <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+            ]
+    ].
 
 :edu2 a schema:EducationalOccupationalCredential ;
     schema:name "Bac S option Technologie" ;
@@ -79,7 +95,7 @@ ev:withinOrganization a rdf:Property ;
     schema:identifier "winastar-cto" ;
     schema:description """- Definition et mise en oeuvre d’une stratégie de scale UP avec pour focus la capacité de realiser un grand nombre de transactions blockchain en parallel : migration d'une architecture limitée à un process vers un pool d'agents multi-threadés qui ont permi une augmentation de 400% de la capacité de traitement sans besoin de ressources complémentaires.
         - Elaboration d’une feuille de route pour cibler les conformités stratégiques."""@fr ;
-    schema:description: """- Spearheaded the development and execution of a scale-up strategy that focused on transaction throughput and parralelism : From a limited single process Architecture to a multi-threaded agents architecture the load capacity has been increased by 400% without additional resources needs.
+    schema:description """- Spearheaded the development and execution of a scale-up strategy that focused on transaction throughput and parralelism : From a limited single process Architecture to a multi-threaded agents architecture the load capacity has been increased by 400% without additional resources needs.
         - Definition of a roadmap to reach strategic compliance."""@en ;
     schema:withinOrganization [
         a schema:Organization ;
