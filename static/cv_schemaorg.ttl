@@ -41,10 +41,10 @@ ev:withinOrganization a rdf:Property ;
 
 :edu1 a schema:EducationalOrganization, schema:EducationalOccupationalCredential, schema:Role ;
     schema:name "DUT Informatique" ;
-    schema:location "Fontainebleau"
+    schema:location "Fontainebleau" ;
     schema:educationalLevel "Diplôme Universitaire de Technologie" ;
     schema:startDate "1996-01-01"^^xsd:date ;
-    schema:endDate "1998-12-31"^^xsd:date .
+    schema:endDate "1998-12-31"^^xsd:date ;
 
     schema:subjectOf [
         a schema:CreativeWork, schema:Project, schema:Role ;
