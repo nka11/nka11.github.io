@@ -1,12 +1,15 @@
 <script lang="ts">
+  import { locale, _ } from 'svelte-i18n';
   import { mapToObject, oxigraphStore } from '$lib/stores/semantic_cv_store';
   import { onMount } from 'svelte';
-  import { formatDateFr } from '$lib/dateFormatter';
   import { get } from 'svelte/store';
+
+  import { formatDateFr } from '$lib/dateFormatter';
+  
   import CredentialDetail from '$lib/components/schemaorgcv/CredentialDetail.svelte';
     import type { ICredentialDetails, IOrganizationRole } from '$lib/models/schemaorgcv';
     import type { Term } from 'oxigraph';
-    
+  let savedLang: string = 'en';
   export let organizationRole: IOrganizationRole = {
     roleName: null,
     employer: null,
@@ -20,9 +23,12 @@
   let credentialsDetails: ICredentialDetails[] = [];
   
   onMount(async () => {
+      const stored = localStorage.getItem('lang');
+      if (stored) savedLang = stored;
+      
       const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
-        console.log("OrganiwationRole component onMount: semantic store not ready");
+        console.log("Experience component onMount: semantic store not ready");
         return;
       }
       const credentialsDetailsQuery = `
@@ -36,17 +42,17 @@
                 ?exp schema:roleName ?jobTitle ;
                 schema:identifier ?identifier ;
                 schema:hasCredential ?credential .
-
+      FILTER(LANG(?jobTitle) = "${savedLang}" || LANG(?jobTitle) = "")
       FILTER(?identifier = "${organizationRole.identifier?.value}") .
 
       ?credential a schema:EducationalOccupationalCredential ;
                 schema:identifier ?credentialIdentifier ;
-                schema:name ?credentialName . #;
-      FILTER(LANG(?credentialName) = "fr" || LANG(?credentialName) = "")
+                schema:name ?credentialName .
+      FILTER(LANG(?credentialName) = "${savedLang}" || LANG(?credentialName) = "")
       OPTIONAL {
         ?credential a schema:EducationalOccupationalCredential ;
               schema:description ?credentialDescription .
-        FILTER(LANG(?credentialDescription) = "fr" || LANG(?credentialDescription) = "")
+        FILTER(LANG(?credentialDescription) = "${savedLang}" || LANG(?credentialDescription) = "")
     
       }
       OPTIONAL {

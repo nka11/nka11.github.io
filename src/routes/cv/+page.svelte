@@ -7,16 +7,19 @@
   import { get } from 'svelte/store';
   import type { IOrganizationRole } from '$lib/models/schemaorgcv';
     import type { Store, Term } from 'oxigraph';
+    import Educations from '$lib/components/schemaorgcv/Educations.svelte';
   let mainResult: Array<any> = [];
   let organizationRoles: IOrganizationRole[] = [];
   let error = '';
   let oxistore: Store;
   let loading = true;
+  let savedLang: string = 'en';
   // https://europa.eu/europass/elm-browser/documentation/rdf/ontology/documentation/elm.html#/
   const changeLang = (lang: string) => {
     locale.set(lang);
     loadCVData(lang);
-    // localStorage.setItem('lang', lang);
+    savedLang = lang;
+    localStorage.setItem('lang', lang);
   };
   
   // tool to compare experience dates to sort
@@ -44,6 +47,7 @@
           ?person a schema:Person ;
                   schema:name ?fullName ;
                   schema:jobTitle ?title .
+          FILTER(LANG(?title) = "${lang}" || LANG(?title) = "")
         }
       `;
       const ExperiencesQuery = `
@@ -80,8 +84,13 @@
       
       organizationRoles = (experiencesRaw.map(mapToObject) as IOrganizationRole[]).sort(compareExperience);
   }
+
+  
+
   onMount(async () => {
     try {
+      const stored = localStorage.getItem('lang');
+      if (stored) savedLang = stored;
       await initOxigraph(); // Exécuté uniquement côté navigateur
       const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
@@ -89,7 +98,7 @@
           return;
         }
         oxistore = store as unknown as Store;
-        loadCVData('fr');
+        loadCVData(savedLang);
       // const EntityQuery = `
       //   PREFIX schema: <https://schema.org/>
       //   SELECT ?fullName ?title
@@ -180,6 +189,7 @@
 
       </section>
       <h2 class="text-3xl">Formation</h2>
+      <Educations></Educations>
       <section>
 
       </section>

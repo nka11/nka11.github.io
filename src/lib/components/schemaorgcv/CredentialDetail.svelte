@@ -13,6 +13,7 @@
     credentialEndDate: null,
     credentialStartDate: null
   };
+  let savedLang: string = 'en';
   let projectsDetail: IProjectDetail[] = [];
   const projectsDetailsQuery = `
 PREFIX schema: <https://schema.org/>
@@ -25,6 +26,7 @@ PREFIX schema: <https://schema.org/>
                 schema:hasCredential ?credential .
 		?credential a schema:EducationalOccupationalCredential ;
   			schema:name ?credentialName .
+    FILTER(LANG(?jobTitle) = "${savedLang}" || LANG(?jobTitle) = "")
   # ;
              
             
@@ -36,9 +38,11 @@ PREFIX schema: <https://schema.org/>
    FILTER(?identifier = "${credentialDetails.credentialIdentifier?.value}") .
             ?project a schema:Project ;
                       schema:name ?projectName.
+            FILTER(LANG(?projectName) = "${savedLang}" || LANG(?projectName) = "")
             OPTIONAL {
              ?project a schema:Project ;
                   schema:description ?projectDescription .
+                  FILTER(LANG(?projectDescription) = "${savedLang}" || LANG(?projectDescription) = "")
              }
                 OPTIONAL {
              ?project a schema:Project ;
@@ -51,6 +55,10 @@ PREFIX schema: <https://schema.org/>
 
         }    ORDER BY  DESC(?projectStartDate)   `
     onMount(async () => {
+
+        const stored = localStorage.getItem('lang');
+        if (stored) savedLang = stored;
+      
         try {
             const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
