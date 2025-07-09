@@ -1,0 +1,230 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <http://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <http://nka11.github.io/#> .
+@prefix cv: <http://nka11.github.io/cv#> .
+@prefix skills: <http://nka11.github.io/cv#skills/> .
+@prefix projects: <http://nka11.github.io/cv#projects/> .
+@prefix : <http://nka11.github.io/cv#data/> .
+
+# Définition de la propriété withinOrganization
+ev:withinOrganization a rdf:Property ;
+    rdfs:label "withinOrganization"@en ;
+    rdfs:comment "Lien entre un rôle et l'organisation dans laquelle il est exercé."@fr ;
+    rdfs:domain schema:Role ;
+    rdfs:range schema:Organization .
+
+nka:me a schema:Person ;
+    schema:name "Nicolas Karageuzian" ;
+    schema:email "mailto:nkarageuzian@gmail.com" ;
+    schema:url <http://github.com/nka11> ;
+    schema:jobTitle "CyberSecurity & Architecture Consultant"@en ;
+    schema:jobTitle "Consultant en Cyber-Sécurité spécialiste des Architecture"@fr ;
+    schema:birthPlace [
+        a schema:Place ;
+        schema:address [
+            a schema:PostalAddress ;
+            schema:addressCountry "France"
+        ]
+    ] ;
+    # schema:knowsLanguage "fr", "en" ;
+    # schema:hasSkill "Java", "Docker", "SPARQL", "Azure" ;
+
+    schema:alumniOf :dut1998, :edu2 ;
+    schema:hasOccupation :exp1, :exp2, :exp3, :exp4, :expISMRSSI, :expISMGRC, :expCTOWinastar .
+    # schema:hasPart :proj1, :proj2 .
+
+### Formations
+
+:dut1998 a schema:EducationalOrganization, schema:EducationalOccupationalCredential, schema:Role ;
+    schema:name "DUT Informatique" ;
+    schema:location [
+        a schema:Place ;
+        schema:name "IUT Paris XII";
+        schema:address "Fontainebleau"] ;
+    schema:educationalLevel "Diplôme Universitaire de Technologie" ;
+    schema:startDate "1996-09-01"^^xsd:date ;
+    schema:endDate "1998-06-31"^^xsd:date ;
+    schema:competencyRequired 
+        skills:it-algorithmics,
+        skills:programming-java,
+        skills:programming,
+        skills:programming-pascal,
+        skills:softwaredesign-uml,
+        skills:softwaredesign ;
+    schema:subjectOf [
+        a schema:CreativeWork, schema:Project, schema:Role ;
+        schema:name "Stage au laboratoire LERISS de Sénart"@fr ;
+        schema:startDate "2022-10-02"^^xsd:date ;
+        schema:endDate "2023-09-30"^^xsd:date ;
+        schema:description """Au sein du Laboratioire de Recherche LERISS de Paris XII, spécialisé dans la recherche en réseaux de neurones. 
+        Implementation d'un mini jeu de plateau
+        Conception d'un moteur d'assertions pour valider le déplacement des pièces.
+        Conception d'un algorithme de type arbre de décision pour que l'humain puisse jouer contre la machine"""@fr ;
+        schema:about skills:ai-general, skills:ai-neuralnet, skills:softwaredesign
+    ] .
+
+:edu2 a schema:EducationalOrganization, schema:EducationalOccupationalCredential, schema:Role  ;
+    schema:name "Bac S option Technologie" ;
+    schema:educationalLevel "Baccalauréat Scientifique" ;
+    schema:competencyRequired
+        skills:programming,
+        skills:programming-pascal ;
+    schema:location [
+        a schema:Place ;
+        schema:name "Lycée George Sand";
+        schema:address "Le Mée sur Seine"] ;
+    schema:endDate "1996-06-30"^^xsd:date .
+
+### Expériences professionnelles
+
+:izrbcto a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
+    schema:roleName "CTO part-time"@en ;
+    schema:roleName "Directeur de la Technologie à temps partiel"@fr ;
+    schema:startDate "2024-01-01"^^xsd:date ;
+    # schema:endDate "2025-05-31"^^xsd:date ;
+    schema:identifier "izrbcto" ;
+    schema:description """Encadrement developpeurs et Architecture.
+        Tech Leadership et mise en place des outils de CI/CD (github actions vers Ikoula).""" ;
+    schema:withinOrganization [
+        a schema:Organization ;
+        schema:name "IzRoadbook"
+    ] .
+:expCTOWinastar a schema:OrganizationRole, schema:Occupation, schema:Organization ;
+    schema:roleName "Directeur Technique de transition"@fr ;
+    schema:roleName "Transition CTO"@en ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:endDate "2024-12-20"^^xsd:date ;
+    schema:identifier "winastar-cto" ;
+    schema:description """- Definition et mise en oeuvre d’une stratégie de scale UP avec pour focus la capacité de realiser un grand nombre de transactions blockchain en parallel : migration d'une architecture limitée à un process vers un pool d'agents multi-threadés qui ont permi une augmentation de 400% de la capacité de traitement sans besoin de ressources complémentaires.
+        - Elaboration d’une feuille de route pour cibler les conformités stratégiques."""@fr ;
+    schema:description """- Spearheaded the development and execution of a scale-up strategy that focused on transaction throughput and parralelism : From a limited single process Architecture to a multi-threaded agents architecture the load capacity has been increased by 400% without additional resources needs.
+        - Definition of a roadmap to reach strategic compliance."""@en ;
+    schema:withinOrganization [
+        a schema:Organization ;
+        schema:name "Winastar"
+    ] .
+:exp2 a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
+    schema:roleName "Senior Technical Architect"@en ;
+    schema:roleName "Architecte Technique Senior"@fr ;
+    schema:startDate "2001-01-01"^^xsd:date ;
+    schema:endDate "2023-09-30"^^xsd:date ;
+    schema:identifier "cm-ate" ;
+    schema:withinOrganization [
+        a schema:Organization ;
+        schema:name "Club Méditerranée SA"
+    ] ;
+    schema:hasCredential 
+        [
+            a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+            schema:credentialCategory "Experience" ;
+            schema:name "Architecte Technique" ;
+            schema:identifier "cm-ate-architech" ;
+            schema:validFor "P2Y"^^xsd:duration ;
+            schema:startDate "2001-06-01"^^xsd:date ;
+            schema:endDate "2005-06-01"^^xsd:date ;
+            schema:subjectOf
+                projects:cm-Horizon,
+                projects:cm-ATE,
+                projects:cm-PeopleSoft
+
+    ],
+    [
+        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+            schema:credentialCategory "Experience" ;
+            schema:name "Architecte Technique Senior" ;
+            schema:identifier "cm-ate-senarchitech" ;
+            schema:validFor "P2Y"^^xsd:duration ;
+            schema:startDate "2005-06-02"^^xsd:date ;
+            schema:endDate "2011-06-01"^^xsd:date ;
+            schema:subjectOf
+                projects:cm-procstockmvs
+                    
+
+    ],
+    [
+        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+            schema:credentialCategory "Experience" ;
+            schema:name "Lead DevOps" ;
+            schema:identifier "cm-ate-leaddevops" ;
+            schema:validFor "P2Y"^^xsd:duration ;
+            schema:startDate "2011-06-02"^^xsd:date ;
+            schema:endDate "2017-06-01"^^xsd:date ;
+            schema:subjectOf
+                projects:cm-sortieZ,
+                projects:cm-migreISISLUW
+
+    ],
+    [
+        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+            schema:credentialCategory "Experience" ;
+            schema:name "Lead DevSecOps" ;
+            schema:identifier "cm-ate-leaddevsecops" ;
+            schema:validFor "P2Y"^^xsd:duration ;
+            schema:startDate "2017-06-02"^^xsd:date ;
+            schema:endDate "2023-09-31"^^xsd:date ;
+            schema:subjectOf
+                projects:cm-road45,
+                projects:cm-SSO,
+                projects:cm-secOpsTeam
+                
+
+    ].
+
+:expISMRSSI a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
+    schema:roleName "RSSI à temps partiel"@fr ;
+    schema:roleName "Part-Time CISO"@en ;
+    schema:startDate "2025-01-01"^^xsd:date ;
+    schema:endDate "2025-06-30"^^xsd:date ;
+    schema:identifier "ism-rssi" ;
+    schema:description '''Definition des objectifs stratégiques et de l’orientation de la politique de sécurité du SI
+        Audit PSSI & mise en place de l’organisation de la gouvernance cyber
+        Supervision et amélioration : Surveillance des risques, audits et renforcement des défenses.''' ;
+    schema:withinOrganization [
+        a schema:Organization ;
+        schema:name "ISM interpretariat"
+    ] .
+
+:expISMGRC a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
+    schema:roleName "Consultant GRC" ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:endDate "2024-12-20"^^xsd:date ;
+    schema:identifier "ism-rssi" ;
+    schema:description """Audit de la maturité cyber et de la PSSI.
+    Recommandations stratégiques et proposition d'une feuille de route.""" ;
+    schema:withinOrganization [
+        a schema:Organization ;
+        schema:name "ISM interpretariat"
+    ] .
+
+:exp4 a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
+    schema:roleName "Ingénieur d’exploitation" ;
+    schema:startDate "2000-01-01"^^xsd:date ;
+    schema:endDate "2001-01-01"^^xsd:date ;
+    schema:description "Pupitrage, monitoring et déploiement d'un ensemble d'applications web." ;
+    schema:identifier "acsp-inge-exp" ;
+    schema:withinOrganization [
+        a schema:Organization ;
+        schema:name "AlphaCSP"
+    ] .
+
+### Projets & Réalisations
+
+:proj1 a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "KaraCos" ;
+    schema:description "Serveur d’applications pour la gestion des données personnelles" ;
+    schema:url <http://github.com/karacos> .
+
+:proj2 a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Aloha Editor" ;
+    schema:description "Contribution open-source (drag & drop, image)" ;
+    schema:url <http://aloha-editor.org/> .
+

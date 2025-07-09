@@ -1,0 +1,188 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <http://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <http://nka11.github.io/#> .
+@prefix cv: <http://nka11.github.io/cv#> .
+@prefix skills: <http://nka11.github.io/cv#skills/> .
+@prefix : <http://nka11.github.io/cv#projects/> .
+
+
+:cm-Horizon a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Application 'Horizon' Centre d'Appels" ;
+    schema:description """Conception de l'architecture technique et logicielle d'un couplage téléphonie/informatique.
+        Spécifications technique détaillée.
+        Packaging, Déploiement et suivi d'exploitation. """ ;
+    schema:about 
+        skills:scm-cvs,
+        skills:programming-java,
+        skills:softwaredesign-uml,
+        skills:fullstack,
+        skills:devops,
+        skills:data-structure .
+
+:cm-ATE a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Controle qualité, packaging et deploiement J2EE" ;
+    schema:description """Rôle pivot entre les équipes de dev et d'exploitation.
+        - Preparation des livraisons
+        - Assistance au debugging
+    """ ;
+    schema:about 
+        skills:scm-cvs,
+        skills:devops .
+
+:cm-PeopleSoft a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Integration PeopleSoft on prem" ;
+    schema:description """Migration SIRH legacy sur z/OS vers la plate forme PeopleSoft/aix.
+        Défi technique compte tenu de l'environnement assez exotique pour l'éditeur et l'intégrateur.
+    """ ;
+    schema:about
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:targetFramework "ESCO" ;
+            elm:label "Full Stack Development" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "DevOps practices" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "Gestion de projet Agile" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+        ] .
+
+:cm-procstockmvs a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Industrialisation et controle qualité du developpement procstock DB2/MVS" ;
+    schema:description """Conception de l'architecture technique et des procédures de livraisons de procédures stockées DB2 entre les différents environnements dans un DB2 z/OS.
+        Spécifications technique détaillée.
+        Packaging, Déploiement et suivi d'exploitation.
+    """ ;
+    schema:about
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:targetFramework "ESCO" ;
+            elm:label "Full Stack Development" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "DevOps practices" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "Gestion de projet Agile" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+        ] .
+
+:cm-sortieZ a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Migration z/OS vers Linux" ;
+    schema:startDate "2013-03-10" ;
+    schema:endDate "2015-09-10" ;
+    schema:description """- Migration de la base d'authentification RACF vers un annuaire openLDAP.
+    - Mise en place des environnements et configuration des système pour heberger l'application centrale développée avec SoftwareAG Natural.
+    - Industrialisation processus de deploiement de l'application autour de gitlab avec une CI Jenkins""" ;
+    schema:about
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "DevOps practices" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "Gestion de projet Agile" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+        ] .
+
+:cm-migreISISLUW a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Migration du warehouse de DB2/Z vers DB2 LUW" ;
+    schema:startDate "2012-03-10" ;
+    schema:endDate "2012-12-10" ;
+    schema:description """- Migration de la base de données DB2 warehouse de z/OS vers Linux.
+        - Adaptation des processus de livraison (Schema et procédures stockées).
+        - Migration des programmes COBOL de z/OS vers linux.
+        - Mise en place d'une chaîne de build et d'une procédure de déploiement pour les programmes COBOL.""" ;
+    schema:about
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "DevOps practices" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "Gestion de projet Agile" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+        ] .
+:cm-road45 a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Projet Road45" ;
+    schema:startDate "2022-10-02"^^xsd:date ;
+    schema:endDate "2023-09-30"^^xsd:date ;
+    schema:description '''ROAD 45 stands for Reloaded Organization and Architecture of Data, 45 is the lucky number of the ClubMed company. In this ambitious project, Clubmed redesigned its entire Data analysis stack with an event-driven data propagation Architecture. The events emitted from all the operational components of the IT ecosystem will then be collected and processed on the GCP cloud platform to offer DATA users an intuitive and self-explainatory environment to work with their DATA (Reporting, previsions, etc…).
+    - Tech Lead and PO on the infrastructure stream (3 devOps)
+    - Design The GCP landing zone integrated with Clubmed’s legacy infrastructure, using IaC and CI/CD with gitlab
+    - Create governance documentation and link with Azure AD for the SSO and IAM (Users)
+    - Provide blueprints for various types of projects (REST API, Scheduled batches, Event-driven data propagation, Machine Learning Pipelines, Transactional Inference) to perform automated configuration and deployment (Project templates including IaC and CI/CD toolbox with an accurate documentation).
+    ''' ;
+    schema:about
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "DevOps practices" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "Gestion de projet Agile" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+        ] .
+
+:cm-SSO a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Integration d'authentification fédérée" ;
+    schema:startDate "2017-06-02"^^xsd:date ;
+    schema:endDate "2021-10-31"^^xsd:date ;
+    schema:description """Intégration de la solution IBM ISAM pour le SSO SAML et OIDC et mise en œuvre d’une politique de gestion des identités.
+    """ ;
+    schema:about
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:targetFramework "ESCO" ;
+            elm:label "Full Stack Development" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "DevOps practices" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "Gestion de projet Agile" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+        ] .
+
+:cm-secOpsTeam a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Creation FeatureTem SecOps" ;
+    schema:startDate "2021-11-02"^^xsd:date ;
+    schema:endDate "2022-05-30"^^xsd:date ;
+    schema:description """Proposition et matérialisation de l'équipe de sécurité du SI sous forme de 'Feature Team' sécurité.
+    Accompagnement du RSSI dans l'organisation de rituels agile.""" ;
+    schema:about
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "DevOps practices" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
+        ],
+        [
+            a elm:LearningOutcome, schema:DefinedTerm ;
+            elm:label "Gestion de projet Agile" ;
+            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
+        ] .

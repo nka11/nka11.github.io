@@ -6,7 +6,7 @@ import { JsonLdSerializer } from 'jsonld-streaming-serializer';
 export async function load() {
   let data:any;
 
-  const turtlePath = './static/cv_schemaorg.ttl';
+  const turtlePath = './static/cv/schemaorg.ttl';
 
   const turtleString = fs.readFileSync(turtlePath,'utf8');  
 

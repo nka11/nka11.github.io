@@ -18,8 +18,6 @@ Un **ATS** est un logiciel de gestion des candidatures. Il scanne les CV reçus 
 
 Un CV mal structuré ou trop graphique peut rendre l’extraction des données difficile, voire impossible.
 
----
-
 ## ✅ Les règles de base à respecter
 
 ### 1. Utiliser un format de fichier compatible

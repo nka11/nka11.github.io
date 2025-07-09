@@ -3,11 +3,11 @@
   
   import { onMount } from 'svelte';
   import OrganizationRole from '$lib/components/schemaorgcv/Experience.svelte';
-  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/stores/semantic_cv_store';
+  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/schemaorgcv/semantic_cv_store';
   import { get } from 'svelte/store';
-  import type { IOrganizationRole } from '$lib/models/schemaorgcv';
+  import type { IOrganizationRole } from '$lib/schemaorgcv/models';
     import type { Store, Term } from 'oxigraph';
-    import Educations from '$lib/components/schemaorgcv/Educations.svelte';
+    import Educations from '$lib/components/schemaorgcv/ListEducations.svelte';
   let mainResult: Array<any> = [];
   let organizationRoles: IOrganizationRole[] = [];
   let error = '';

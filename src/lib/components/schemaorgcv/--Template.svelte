@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { mapToObject, oxigraphStore } from '$lib/stores/semantic_cv_store';
+  import { mapToObject, oxigraphStore } from '$lib/schemaorgcv/semantic_cv_store';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   let savedLang: string = 'en';

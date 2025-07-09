@@ -1,7 +1,7 @@
 <script lang="ts">
   const { children } = $props()
   import { onMount } from 'svelte';
-  import { initOxigraph, oxigraphStore } from '$lib/stores/semantic_cv_store';
+  import { initOxigraph, oxigraphStore } from '$lib/schemaorgcv/semantic_cv_store';
   import { get } from 'svelte/store';
   
   onMount(async () =>  {
@@ -11,7 +11,7 @@
     // await init(wasmUrl);; // charge le module WebAssembly
     
     //const store = new Store();
-    
+
 
   });
 

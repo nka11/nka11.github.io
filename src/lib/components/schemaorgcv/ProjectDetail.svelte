@@ -1,14 +1,18 @@
 <script lang="ts">
-    import { formatDateFr } from "$lib/dateFormatter";
-    import type { IProjectDetail } from "$lib/models/schemaorgcv";
+  import { formatDateFr } from "$lib/dateFormatter";
+    import { listSkills } from "$lib/schemaorgcv/adapters/skillsAdapter";
+  import type { IProjectDetail, ISkillsDetails } from "$lib/schemaorgcv/models";
+  import { onMount } from "svelte";
+    import Skills from "./Skills.svelte";
 
-export let projectDetail: IProjectDetail = {
-    credentialName: null,
-    projectName: null,
-    projectDescription: null,
-    projectStartDate: null,
-    projectEndDate: null
-  };
+  export let projectDetail: IProjectDetail;
+  let skills: ISkillsDetails[];
+  let savedLang: string = 'en';
+  onMount(async () => {
+        const stored = localStorage.getItem('lang');
+        if (stored) savedLang = stored;
+        skills = listSkills(projectDetail.project, "schema:about", savedLang)
+}) 
 
 </script>
 
@@ -65,4 +69,5 @@ export let projectDetail: IProjectDetail = {
       { projectDetail.projectDescription.value }
   </p>
   {/if}
+  <Skills skills={skills}></Skills>
 </div>

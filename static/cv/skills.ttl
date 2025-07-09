@@ -1,0 +1,97 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <http://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <http://nka11.github.io/#> .
+@prefix cv: <http://nka11.github.io/cv#> .
+@prefix : <http://nka11.github.io/cv#skills/> .
+
+:softwaredesign a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Software Architecture"@en ;
+        elm:label "Architecture Logicielle"@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> .
+
+:softwaredesign-uml a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "UML" ;
+        elm:relatedSkill :softwaredesign ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> .
+
+:programming a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Computer Programming"@en ;
+        elm:label "Programmation"@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97> .
+
+:fullstack a elm:LearningOutcome, schema:DefinedTerm ;
+                            elm:targetFramework "ESCO" ;
+                            elm:label "Full Stack Development" ;
+                            elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879> .
+:devops a elm:LearningOutcome, schema:DefinedTerm ;
+                            elm:label "DevOps practices" ;
+                            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858> .
+
+:projectManagement-agile a elm:LearningOutcome, schema:DefinedTerm ;
+                            elm:label "Gestion de projet Agile" ;
+                            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1> .
+
+:data-structure a elm:LearningOutcome, schema:DefinedTerm ;
+                            elm:label "Structurer l’information " ;
+                            elm:relatedESCOSkill <http://data.europa.eu/esco/skill/cc9b4fbb-65f1-4c92-9229-1392d03b6e20> .
+                        
+
+:programming-pascal a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Pascal" ;
+        elm:relatedSkill :programming ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b> .
+
+
+:programming-java a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Java" ;
+        elm:relatedSkill :programming ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389> .
+
+:it-algorithmics a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Algorithmics"@en ;
+        elm:label "Algorithmique"@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7482a123-e801-48de-9733-262125671410> .
+
+:ai-neuralnet a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Artificial Neural Networks"@en ;
+        elm:label "Reseaux de Neurones"@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/5608d5a0-6d5e-43b7-be37-616501729bb4> .
+
+:ai-general a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "AI Fundamentals"@en ;
+        elm:label "Principes de l’Intelligence Artificielle "@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/5608d5a0-6d5e-43b7-be37-616501729bb4> .
+
+:scm a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Source Control Management"@en ;
+        elm:label "Gestion des Versions de Code Source"@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/9d2e926f-53d9-41f5-98f3-19dfaa687f3f> .
+
+:scm-cvs a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Source Control Management with CVS"@en ;
+        elm:label "Gestion des Vesions avec CVS"@fr ;
+        elm:relatedSkill :scm .
+
+:scm-svn a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Source Control Management with Subversion (SVN)"@en ;
+        elm:label "Gestion des Vesions avec Subversion (SVN)"@fr ;
+        elm:relatedSkill :scm .
+
+:scm-git a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Source Control Management with Git"@en ;
+        elm:label "Gestion des Vesions avec Git"@fr ;
+        elm:relatedSkill :scm .
+
+:cicd-jenkins a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Jenkins"@en ;
+        elm:label "Jenkins"@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/f47a1998-0beb-43be-9f46-380aa4d183da> .

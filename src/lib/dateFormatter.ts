@@ -12,3 +12,16 @@ export function formatDateFr(dateStr: string): string | null {
       return dateStr;
     }
   }
+export function extractYear(dateStr: string): string | null {
+    if (!dateStr) return null;
+    try {
+      const date = new Date(dateStr);
+      if (isNaN(date.getTime())) return null;
+      const day = date.getDate();
+      // const dayStr = day === 1 ? "1er" : day;
+      const year = date.getFullYear();
+      return `${year}`;
+    } catch {
+      return dateStr;
+    }
+  }

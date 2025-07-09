@@ -1,24 +1,19 @@
 <script lang="ts">
-  import { mapToObject, oxigraphStore } from '$lib/stores/semantic_cv_store';
+  import { mapToObject, oxigraphStore } from '$lib/schemaorgcv/semantic_cv_store';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import ProjectDetail from '$lib/components/schemaorgcv/ProjectDetail.svelte';
-    import type { ICredentialDetails, IProjectDetail } from '$lib/models/schemaorgcv';
+    import type { ICredentialDetails, IProjectDetail, ISkillsDetails } from '$lib/schemaorgcv/models';
     import { formatDateFr } from '$lib/dateFormatter';
     import type { Term } from 'oxigraph';
-  export let credentialDetails: ICredentialDetails = {
-    credentialName: null,
-    credentialIdentifier: null,
-    credentialDescription: null,
-    credentialEndDate: null,
-    credentialStartDate: null
-  };
+    import { listSkills } from '$lib/schemaorgcv/adapters/skillsAdapter';
+  export let credentialDetails: ICredentialDetails;
   let savedLang: string = 'en';
   let projectsDetail: IProjectDetail[] = [];
   const projectsDetailsQuery = `
 PREFIX schema: <https://schema.org/>
 
-        SELECT ?projectName ?projectDescription ?projectStartDate ?projectEndDate
+        SELECT ?project ?projectName ?projectDescription ?projectStartDate ?projectEndDate
         WHERE {
         ?person a schema:Person .
       ?person schema:hasOccupation ?exp .
@@ -54,11 +49,13 @@ PREFIX schema: <https://schema.org/>
              }
 
         }    ORDER BY  DESC(?projectStartDate)   `
-    onMount(async () => {
+    
+    let skills: ISkillsDetails[] = [];
+        onMount(async () => {
 
         const stored = localStorage.getItem('lang');
         if (stored) savedLang = stored;
-      
+        skills = listSkills(credentialDetails.credential, "schema:about", savedLang);
         try {
             const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {

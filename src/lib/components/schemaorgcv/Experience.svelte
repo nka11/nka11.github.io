@@ -1,13 +1,13 @@
 <script lang="ts">
   import { locale, _ } from 'svelte-i18n';
-  import { mapToObject, oxigraphStore } from '$lib/stores/semantic_cv_store';
+  import { mapToObject, oxigraphStore } from '$lib/schemaorgcv/semantic_cv_store';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
 
   import { formatDateFr } from '$lib/dateFormatter';
   
   import CredentialDetail from '$lib/components/schemaorgcv/CredentialDetail.svelte';
-    import type { ICredentialDetails, IOrganizationRole } from '$lib/models/schemaorgcv';
+    import type { ICredentialDetails, IOrganizationRole } from '$lib/schemaorgcv/models';
     import type { Term } from 'oxigraph';
   let savedLang: string = 'en';
   export let organizationRole: IOrganizationRole = {
@@ -35,7 +35,7 @@
           PREFIX aschema: <https://schema.ld.admin.ch/>
     PREFIX schema: <https://schema.org/>
 
-    SELECT ?person ?identifier ?credentialName ?credentialDescription ?credentialIdentifier ?credentialStartDate ?credentialEndDate
+    SELECT ?person ?identifier ?credential ?credentialName ?credentialDescription ?credentialIdentifier ?credentialStartDate ?credentialEndDate
     WHERE {
       ?person a schema:Person .
       ?person schema:hasOccupation ?exp .

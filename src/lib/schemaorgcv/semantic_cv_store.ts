@@ -13,15 +13,29 @@ export async function initOxigraph() {
   // @ts-ignore
   await init(wasmUrl);
   const store = new Store();
-  const turtleUrl = '/cv_schemaorg.ttl';
+  const turtleUrls = [
+    '/cv/schemaorg.ttl',
+    '/cv/skills.ttl',
+    '/cv/projects.ttl'
+  ]
+
   // Charger le fichier .ttl (ex: CV)
-  const turtleText = await fetch(turtleUrl).then((res) => res.text());
-  console.log("successfuly fetched semantic data");
-  // Charger les triples dans le store RDF
-  store.load(turtleText, {format: 'text/turtle'}); 
-  console.log("successfuly loaded semantic data");
+  await Promise.all(
+    turtleUrls.map(async (turtleUrl) => {
+      await loadTurtleFile(turtleUrl, store);
+    })
+  );
+  
   oxigraphStore.set({ store, oxiReady: true });
   console.log("Semantic store ready");
+}
+
+async function loadTurtleFile(turtleUrl: string, store: init.Store) {
+  const turtleText = await fetch(turtleUrl).then((res) => res.text());
+  console.log(`successfuly fetched data '${turtleUrl}'`);
+  // Charger les triples dans le store RDF
+  store.load(turtleText, { format: 'text/turtle' });
+  console.log(`successfuly loaded semantic data '${turtleUrl}'`);
 }
 
 export function mapToObject(map: Map<string, Term>): unknown {
