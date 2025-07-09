@@ -1,7 +1,7 @@
 <script lang="ts">
   import { formatDateFr } from "$lib/dateFormatter";
-    import { listSkills } from "$lib/schemaorgcv/adapters/skillsAdapter";
-  import type { IProjectDetail, ISkillsDetails } from "$lib/schemaorgcv/models";
+    import { listSkills } from "$lib/semcv/adapters/skillsAdapter";
+  import type { IProjectDetail, ISkillsDetails } from "$lib/semcv/models";
   import { onMount } from "svelte";
     import Skills from "./Skills.svelte";
 

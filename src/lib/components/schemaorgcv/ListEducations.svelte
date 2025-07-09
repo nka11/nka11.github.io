@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { mapToObject, oxigraphStore } from '$lib/schemaorgcv/semantic_cv_store';
+  import { mapToObject, oxigraphStore } from '$lib/semcv/semantic_cv_store';
     import type { Term } from 'oxigraph';
   import { onMount } from 'svelte';
   import { get } from 'svelte/store';
   import { extractYear } from '$lib/dateFormatter';
-    import type { IEducationDetails } from '$lib/schemaorgcv/models';
+    import type { IEducationDetails, IPersonDetails } from '$lib/semcv/models';
     import Education from './Education.svelte';
   let savedLang: string = 'en';
-
+  export let of: IPersonDetails;
   const projectsDetailsQuery = ``;
   let educationDetails: IEducationDetails[];
     onMount(async () => {
@@ -24,8 +24,7 @@
 
         SELECT ?educ ?educName ?educLocationName ?educLocationAddress ?educLevel ?educStart ?educEnd
         WHERE {
-          	?person a schema:Person .
-          	?person schema:alumniOf ?educ .
+          	${of.person} schema:alumniOf ?educ .
 			?educ schema:name ?educName .
             OPTIONAL {
               ?educ schema:educationalLevel ?educLevel .

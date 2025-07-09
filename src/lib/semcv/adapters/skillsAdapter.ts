@@ -4,12 +4,12 @@ import type { ISkillsDetails } from "../models";
 import { mapToObject, oxigraphStore } from "../semantic_cv_store";
 import { get } from "svelte/store";
 
-export function listSkills(subject: NamedNode | BlankNode, attribute: string = "schema:about", lang: string = "fr" ): ISkillsDetails[] {
+export function listSkills(subject: NamedNode, attribute: string = "schema:about", lang: string = "fr" ): ISkillsDetails[] {
     
     let result: ISkillsDetails[] = [];
     const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
-        console.log("Template component onMount: semantic store not ready");
+        console.log("SkillsAdapter: semantic store not ready");
         return result;
     }
     const skillsQuery = `
@@ -18,7 +18,6 @@ export function listSkills(subject: NamedNode | BlankNode, attribute: string = "
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         prefix elm: <https://data.europa.eu/snb/elm/>
-        PREFIX skills: <http://nka11.github.io/cv#skills/>
         
         SELECT
             ?skill 

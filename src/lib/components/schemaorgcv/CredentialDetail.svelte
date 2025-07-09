@@ -1,75 +1,20 @@
 <script lang="ts">
-  import { mapToObject, oxigraphStore } from '$lib/schemaorgcv/semantic_cv_store';
   import { onMount } from 'svelte';
-  import { get } from 'svelte/store';
   import ProjectDetail from '$lib/components/schemaorgcv/ProjectDetail.svelte';
-    import type { ICredentialDetails, IProjectDetail, ISkillsDetails } from '$lib/schemaorgcv/models';
-    import { formatDateFr } from '$lib/dateFormatter';
-    import type { Term } from 'oxigraph';
-    import { listSkills } from '$lib/schemaorgcv/adapters/skillsAdapter';
+  import type { ICredentialDetails, IProjectDetail, ISkillsDetails } from '$lib/semcv/models';
+  import { formatDateFr } from '$lib/dateFormatter';
+  import { listSkills } from '$lib/semcv/adapters/skillsAdapter';
+  import { listProjects } from '$lib/semcv/adapters/projectsAdapter';
   export let credentialDetails: ICredentialDetails;
   let savedLang: string = 'en';
   let projectsDetail: IProjectDetail[] = [];
-  const projectsDetailsQuery = `
-PREFIX schema: <https://schema.org/>
-
-        SELECT ?project ?projectName ?projectDescription ?projectStartDate ?projectEndDate
-        WHERE {
-        ?person a schema:Person .
-      ?person schema:hasOccupation ?exp .
-                ?exp schema:roleName ?jobTitle ;
-                schema:hasCredential ?credential .
-		?credential a schema:EducationalOccupationalCredential ;
-  			schema:name ?credentialName .
-    FILTER(LANG(?jobTitle) = "${savedLang}" || LANG(?jobTitle) = "")
-  # ;
-             
-            
-  OPTIONAL {
-    ?credential a schema:EducationalOccupationalCredential ;
-	  	schema:identifier ?identifier ;
-    schema:subjectOf ?project .
-  }
-   FILTER(?identifier = "${credentialDetails.credentialIdentifier?.value}") .
-            ?project a schema:Project ;
-                      schema:name ?projectName.
-            FILTER(LANG(?projectName) = "${savedLang}" || LANG(?projectName) = "")
-            OPTIONAL {
-             ?project a schema:Project ;
-                  schema:description ?projectDescription .
-                  FILTER(LANG(?projectDescription) = "${savedLang}" || LANG(?projectDescription) = "")
-             }
-                OPTIONAL {
-             ?project a schema:Project ;
-                               schema:startDate ?projectStartDate .
-             }
-                  OPTIONAL {
-             ?project a schema:Project ;
-                schema:endDate ?projectEndDate .
-             }
-
-        }    ORDER BY  DESC(?projectStartDate)   `
-    
-    let skills: ISkillsDetails[] = [];
-        onMount(async () => {
+  let skills: ISkillsDetails[] = [];
+  onMount(async () => {
 
         const stored = localStorage.getItem('lang');
         if (stored) savedLang = stored;
         skills = listSkills(credentialDetails.credential, "schema:about", savedLang);
-        try {
-            const { store, oxiReady } = get(oxigraphStore);
-      if (!oxiReady) {
-        console.log("OrganiwationRole component onMount: semantic store not ready");
-        return;
-      }
-       projectsDetail = (store?.query(projectsDetailsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IProjectDetail[];
-       //console.log(credentialsDetailsQuery);
-       //console.log(organizationRole.identifier.value);
-       //console.log(credentialsDetails);
-      } catch(e) { // silent fail
-        console.error(e);
-      }
-
+       projectsDetail = listProjects(credentialDetails.credential, "schema:subjectOf", savedLang);
     })
 </script>
 

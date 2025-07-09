@@ -8,10 +8,11 @@
 @prefix elm: <https://data.europa.eu/snb/elm/> .
 @prefix esco: <https://data.europa.eu/esco/skill/> .
 
-@prefix ev: <http://nka11.github.io/ExtendedVocabulary#> .
-@prefix nka: <http://nka11.github.io/#> .
-@prefix cv: <http://nka11.github.io/cv#> .
-@prefix : <http://nka11.github.io/cv#skills/> .
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix projects: <https://nka11.github.io/cv#projects/> .
+@prefix : <https://nka11.github.io/cv#skills/> .
 
 :softwaredesign a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Software Architecture"@en ;

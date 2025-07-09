@@ -1,5 +1,16 @@
 import { BlankNode, Literal, NamedNode } from 'oxigraph';
+
+export interface IPersonDetails {
+    person: NamedNode;
+    name: Literal | null;
+    lang: Literal | null;
+    email: Literal | null;
+    jobTitle: Literal | null;
+    decription: Literal | null
+    }
+
 export interface IOrganizationRole {
+    role: NamedNode;
     roleName: Literal | null;
     employer: Literal | null;
     startDate: Literal | null;
@@ -10,7 +21,7 @@ export interface IOrganizationRole {
     }
 
 export interface IProjectDetail {
-    project: NamedNode | BlankNode,
+    project: NamedNode,
     projectName: Literal | null;
     projectDescription: Literal | null;
     projectStartDate: Literal | null;
@@ -18,7 +29,7 @@ export interface IProjectDetail {
   };
 
 export interface ICredentialDetails {
-    credential: NamedNode | BlankNode,
+    credential: NamedNode,
     credentialName: Literal | null;
     credentialIdentifier: Literal | null;
     credentialDescription: Literal | null;
@@ -27,7 +38,7 @@ export interface ICredentialDetails {
   };
 
 export interface IEducationDetails {
-    educ: NamedNode | BlankNode,
+    educ: NamedNode,
     educName: Literal | null;
     educLocationName: Literal | null;
     educLocationAddress: Literal | null;
@@ -37,7 +48,7 @@ export interface IEducationDetails {
   };
 
   export interface ISkillsDetails {
-    skill: NamedNode | BlankNode,
+    skill: NamedNode,
     skillLabel: Literal | null,
     parentSkillName: Literal | null
   };

@@ -2,13 +2,16 @@
   import { locale, _ } from 'svelte-i18n';
   
   import { onMount } from 'svelte';
-  import OrganizationRole from '$lib/components/schemaorgcv/Experience.svelte';
-  import { mapToObject, oxigraphStore, initOxigraph } from '$lib/schemaorgcv/semantic_cv_store';
+  import OrganizationRole from '$lib/components/schemaorgcv/OrganisationRole.svelte';
+  import { oxigraphStore, initOxigraph } from '$lib/semcv/semantic_cv_store';
   import { get } from 'svelte/store';
-  import type { IOrganizationRole } from '$lib/schemaorgcv/models';
-    import type { Store, Term } from 'oxigraph';
-    import Educations from '$lib/components/schemaorgcv/ListEducations.svelte';
+  import type { IOrganizationRole, IPersonDetails } from '$lib/semcv/models';
+  import { namedNode, NamedNode, type Store, type Term } from 'oxigraph';
+  import ListEducations from '$lib/components/schemaorgcv/ListEducations.svelte';
+  import { getPerson } from '$lib/semcv/adapters/personAdapters';
+  import { listOrgRoles } from '$lib/semcv/adapters/experienceAdapter';
   let mainResult: Array<any> = [];
+  let person: IPersonDetails | undefined = undefined;
   let organizationRoles: IOrganizationRole[] = [];
   let error = '';
   let oxistore: Store;
@@ -21,7 +24,6 @@
     savedLang = lang;
     localStorage.setItem('lang', lang);
   };
-  
   // tool to compare experience dates to sort
   function compareExperience(exp1: IOrganizationRole, exp2: IOrganizationRole) {
     if (!exp1.endDate && !exp2.endDate) {
@@ -40,49 +42,12 @@
     return -1;
   }
   async function loadCVData(lang: string = 'fr') {
-          const EntityQuery = `
-        PREFIX schema: <https://schema.org/>
-        SELECT ?fullName ?title
-        WHERE {
-          ?person a schema:Person ;
-                  schema:name ?fullName ;
-                  schema:jobTitle ?title .
-          FILTER(LANG(?title) = "${lang}" || LANG(?title) = "")
-        }
-      `;
-      const ExperiencesQuery = `
-        PREFIX schema: <https://schema.org/>
-        SELECT ?person ?roleName ?employer ?startDate ?endDate ?description ?identifier
-        WHERE {
-          ?person a schema:Person .
 
-          OPTIONAL {
-            ?person schema:hasOccupation ?exp .
-            ?exp schema:roleName ?roleName ;
-                schema:identifier ?identifier ;
-                schema:startDate ?startDate ;
-                
-                schema:withinOrganization ?org .
-            FILTER(LANG(?roleName) = "${lang}" || LANG(?roleName) = "")
-            ?org schema:name ?employer .
-            OPTIONAL {
-              ?exp schema:endDate ?endDate .
-            }
-            OPTIONAL {
-              ?exp schema:description ?description .
-              FILTER(LANG(?description) = "${lang}" || LANG(?description) = "")
-            }
-          }
-        }
-        ORDER BY DESC(?endDate)
-      `;
-
-      const mainResults = oxistore?.query(EntityQuery) as unknown as Map<string, Term>[];
-      const experiencesRaw = oxistore?.query(ExperiencesQuery) as unknown as Map<string, Term>[];
-      //console.log(experiencesRaw);
-      mainResult = mainResults.map(mapToObject);
+      const personNode: NamedNode = namedNode("https://nka11.github.io/#me")
+      person = getPerson(personNode,lang);
       
-      organizationRoles = (experiencesRaw.map(mapToObject) as IOrganizationRole[]).sort(compareExperience);
+      organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",lang).sort(compareExperience);
+      console.log(organizationRoles);
   }
 
   
@@ -98,50 +63,7 @@
           return;
         }
         oxistore = store as unknown as Store;
-        loadCVData(savedLang);
-      // const EntityQuery = `
-      //   PREFIX schema: <https://schema.org/>
-      //   SELECT ?fullName ?title
-      //   WHERE {
-      //     ?person a schema:Person ;
-      //             schema:name ?fullName ;
-      //             schema:jobTitle ?title .
-      //   }
-      // `;
-      // const ExperiencesQuery = `
-      //   PREFIX schema: <https://schema.org/>
-      //   SELECT ?person ?roleName ?employer ?startDate ?endDate ?description ?identifier
-      //   WHERE {
-      //     ?person a schema:Person .
-
-      //     OPTIONAL {
-      //       ?person schema:hasOccupation ?exp .
-      //       ?exp schema:roleName ?roleName ;
-      //           schema:identifier ?identifier ;
-      //           schema:startDate ?startDate ;
-                
-      //           schema:withinOrganization ?org .
-      //       FILTER(LANG(?roleName) = "fr" || LANG(?roleName) = "")
-      //       ?org schema:name ?employer .
-      //       OPTIONAL {
-      //         ?exp schema:endDate ?endDate .
-      //       }
-      //       OPTIONAL {
-      //         ?exp schema:description ?description .
-      //         FILTER(LANG(?description) = "fr" || LANG(?description) = "")
-      //       }
-      //     }
-      //   }
-      //   ORDER BY DESC(?endDate)
-      // `
-      //   // OPTIONAL { ?person europass:hasLanguageSkill ?lang . }
-      // const mainResults = store?.query(EntityQuery) as unknown as Map<string, Term>[];
-      // const experiencesRaw = store?.query(ExperiencesQuery) as unknown as Map<string, Term>[];
-      // //console.log(experiencesRaw);
-      // mainResult = mainResults.map(mapToObject);
-      
-      // organizationRoles = (experiencesRaw.map(mapToObject) as IOrganizationRole[]).sort(compareExperience);
-      
+        loadCVData(savedLang);      
     } catch (e) {
       console.error(e);
       error = 'Erreur lors de l’exécution du module WASM ou du parsing RDF.';
@@ -163,19 +85,20 @@
     <option value="en">English</option>
     <option value="fr">Français</option>
   </select> -->
-  <article vocab="https://data.europa.eu/europass/ontology/" 
+  {#if person}
+    <article
     prefix="
       schema: https://schema.org/
     "
-    typeof="schema:Person">
-      {#each mainResult as row}
-          <h2 property="schema:name">{row.fullName?.value}</h2>
-          <p><strong property="schema:jobTitle">{row.title?.value}</strong></p>
-          {#if row.lang}
-              <p>Langue : {row.lang?.value}</p>
-          {/if}
-      {/each}
-      <h2 class="text-3xl">Expérience Professionnelle</h2>
+    typeof="schema:Person"
+    about={ `${person.person.value}` }>
+      <h2 property="schema:name">{person.name?.value}</h2>
+      <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
+      {#if person.lang}
+          <p>Langue : {person.lang?.value}</p>
+      {/if}
+
+          <h2 class="text-3xl">Expérience Professionnelle</h2>
       <section 
         class="px-2"
         >
@@ -189,7 +112,7 @@
 
       </section>
       <h2 class="text-3xl">Formation</h2>
-      <Educations></Educations>
+      <ListEducations of={ person }></ListEducations>
       <section>
 
       </section>
@@ -201,5 +124,10 @@
       <section>
 
       </section>
-  </article>
+
+    </article>
+  {/if}
+  
+  
+  
 {/if}

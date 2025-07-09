@@ -8,12 +8,12 @@
 @prefix elm: <https://data.europa.eu/snb/elm/> .
 @prefix esco: <https://data.europa.eu/esco/skill/> .
 
-@prefix ev: <http://nka11.github.io/ExtendedVocabulary#> .
-@prefix nka: <http://nka11.github.io/#> .
-@prefix cv: <http://nka11.github.io/cv#> .
-@prefix skills: <http://nka11.github.io/cv#skills/> .
-@prefix projects: <http://nka11.github.io/cv#projects/> .
-@prefix : <http://nka11.github.io/cv#data/> .
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix projects: <https://nka11.github.io/cv#projects/> .
+@prefix : <https://nka11.github.io/cv#data/> .
 
 # Définition de la propriété withinOrganization
 ev:withinOrganization a rdf:Property ;
@@ -123,8 +123,12 @@ nka:me a schema:Person ;
         schema:name "Club Méditerranée SA"
     ] ;
     schema:hasCredential 
-        [
-            a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+        :cm-ArchiTech,
+        :cm-SeniorArchiTech,
+        :cm-lead-DevOps,
+        :cm-lead-DevSecOps .
+
+:cm-ArchiTech a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:name "Architecte Technique" ;
             schema:identifier "cm-ate-architech" ;
@@ -134,11 +138,9 @@ nka:me a schema:Person ;
             schema:subjectOf
                 projects:cm-Horizon,
                 projects:cm-ATE,
-                projects:cm-PeopleSoft
+                projects:cm-PeopleSoft .
 
-    ],
-    [
-        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+:cm-SeniorArchiTech a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:name "Architecte Technique Senior" ;
             schema:identifier "cm-ate-senarchitech" ;
@@ -146,12 +148,8 @@ nka:me a schema:Person ;
             schema:startDate "2005-06-02"^^xsd:date ;
             schema:endDate "2011-06-01"^^xsd:date ;
             schema:subjectOf
-                projects:cm-procstockmvs
-                    
-
-    ],
-    [
-        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+                projects:cm-procstockmvs .
+:cm-lead-DevOps a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:name "Lead DevOps" ;
             schema:identifier "cm-ate-leaddevops" ;
@@ -160,11 +158,8 @@ nka:me a schema:Person ;
             schema:endDate "2017-06-01"^^xsd:date ;
             schema:subjectOf
                 projects:cm-sortieZ,
-                projects:cm-migreISISLUW
-
-    ],
-    [
-        a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+                projects:cm-migreISISLUW .
+:cm-lead-DevSecOps a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:name "Lead DevSecOps" ;
             schema:identifier "cm-ate-leaddevsecops" ;
@@ -174,10 +169,7 @@ nka:me a schema:Person ;
             schema:subjectOf
                 projects:cm-road45,
                 projects:cm-SSO,
-                projects:cm-secOpsTeam
-                
-
-    ].
+                projects:cm-secOpsTeam .
 
 :expISMRSSI a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
     schema:roleName "RSSI à temps partiel"@fr ;
