@@ -69,7 +69,7 @@
     schema:about
         skills:sgbd-DB2,
         skills:scm-git,
-        skills::system-linux,
+        skills:system-linux,
         skills:system-zos
         .
 
@@ -114,6 +114,8 @@
     - Provide blueprints for various types of projects (REST API, Scheduled batches, Event-driven data propagation, Machine Learning Pipelines, Transactional Inference) to perform automated configuration and deployment (Project templates including IaC and CI/CD toolbox with an accurate documentation).
     ''' ;
     schema:about
+        skills:scm-git,
+        skills:cicd-gitlab,
         skills:programming-python .
 
 :cm-SSO a schema:CreativeWork, schema:Project, schema:Role ;

@@ -54,6 +54,6 @@ export interface IEducationDetails {
   };
 
 export interface ISkillsCount {
-  skillName: string,
-  count: number
+  skillName: Literal,
+  count: Literal
 }

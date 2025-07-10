@@ -48,7 +48,7 @@
 
       const personNode: NamedNode = namedNode("https://nka11.github.io/#me")
       person = getPerson(personNode,lang);
-      skills = skillsCounts();
+      skills = skillsCounts(lang);
       organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",lang).sort(compareExperience);
       console.log(organizationRoles);
   }

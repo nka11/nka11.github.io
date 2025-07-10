@@ -48,7 +48,7 @@ export function listSkills(subject: NamedNode, attribute: string = "schema:about
     return result;
 }
 
-export function skillsCounts(): ISkillsCount[] {
+export function skillsCounts(lang: string = 'en'): ISkillsCount[] {
   let result: ISkillsCount[] = [];
     const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
@@ -96,7 +96,7 @@ export function skillsCounts(): ISkillsCount[] {
       ?s schema:about ?skill .
 
     }
-    FILTER(LANG(?skillName) = "fr" || LANG(?skillName) = "")
+    FILTER(LANG(?skillName) = "${lang}" || LANG(?skillName) = "")
     } 
     GROUP BY ?skillName ORDER BY DESC(?count) 
   `
