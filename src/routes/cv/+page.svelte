@@ -5,14 +5,17 @@
   import OrganizationRole from '$lib/components/schemaorgcv/OrganisationRole.svelte';
   import { oxigraphStore, initOxigraph } from '$lib/semcv/semantic_cv_store';
   import { get } from 'svelte/store';
-  import type { IOrganizationRole, IPersonDetails } from '$lib/semcv/models';
+  import type { IOrganizationRole, IPersonDetails, ISkillsCount } from '$lib/semcv/models';
   import { namedNode, NamedNode, type Store, type Term } from 'oxigraph';
   import ListEducations from '$lib/components/schemaorgcv/ListEducations.svelte';
   import { getPerson } from '$lib/semcv/adapters/personAdapters';
   import { listOrgRoles } from '$lib/semcv/adapters/experienceAdapter';
+    import { skillsCounts } from '$lib/semcv/adapters/skillsAdapter';
+    import SkillsCloud from '$lib/components/schemaorgcv/SkillsCloud.svelte';
   let mainResult: Array<any> = [];
   let person: IPersonDetails | undefined = undefined;
   let organizationRoles: IOrganizationRole[] = [];
+  let skills: ISkillsCount[] = [];
   let error = '';
   let oxistore: Store;
   let loading = true;
@@ -45,7 +48,7 @@
 
       const personNode: NamedNode = namedNode("https://nka11.github.io/#me")
       person = getPerson(personNode,lang);
-      
+      skills = skillsCounts();
       organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",lang).sort(compareExperience);
       console.log(organizationRoles);
   }
@@ -109,7 +112,7 @@
       </section>
       <h2 class="text-3xl">Compétences</h2>
       <section>
-
+          <SkillsCloud skills={ skills }></SkillsCloud>
       </section>
       <h2 class="text-3xl">Formation</h2>
       <ListEducations of={ person }></ListEducations>

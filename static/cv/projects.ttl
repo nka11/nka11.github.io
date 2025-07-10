@@ -22,7 +22,10 @@
     Implementation d'un mini jeu de plateau
     Conception d'un moteur d'assertions pour valider le déplacement des pièces.
     Conception d'un algorithme de type arbre de décision pour que l'humain puisse jouer contre la machine"""@fr ;
-    schema:about skills:ai-general, skills:ai-neuralnet, skills:softwaredesign .
+    schema:about 
+        skills:ai-general,
+        skills:ai-neuralnet,
+        skills:softwaredesign .
 
 :cm-Horizon a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Application 'Horizon' Centre d'Appels" ;
@@ -45,6 +48,7 @@
     """ ;
     schema:about 
         skills:scm-cvs,
+        skills:sgbd-DB2,
         skills:devops .
 
 :cm-PeopleSoft a schema:CreativeWork, schema:Project, schema:Role ;
@@ -53,22 +57,8 @@
         Défi technique compte tenu de l'environnement assez exotique pour l'éditeur et l'intégrateur.
     """ ;
     schema:about
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:targetFramework "ESCO" ;
-            elm:label "Full Stack Development" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "DevOps practices" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "Gestion de projet Agile" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
-        ] .
+        skills:system-aix,
+        skills:sgbd-DB2 .
 
 :cm-procstockmvs a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Industrialisation et controle qualité du developpement procstock DB2/MVS" ;
@@ -77,22 +67,11 @@
         Packaging, Déploiement et suivi d'exploitation.
     """ ;
     schema:about
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:targetFramework "ESCO" ;
-            elm:label "Full Stack Development" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "DevOps practices" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "Gestion de projet Agile" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
-        ] .
+        skills:sgbd-DB2,
+        skills:scm-git,
+        skills::system-linux,
+        skills:system-zos
+        .
 
 :cm-sortieZ a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Migration z/OS vers Linux" ;
@@ -102,16 +81,13 @@
     - Mise en place des environnements et configuration des système pour heberger l'application centrale développée avec SoftwareAG Natural.
     - Industrialisation processus de deploiement de l'application autour de gitlab avec une CI Jenkins""" ;
     schema:about
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "DevOps practices" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "Gestion de projet Agile" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
-        ] .
+        skills:auth-LDAP,
+        skills:auth-RACF,
+        skills::system-linux,
+        skills:scm-git,
+        skills::programming-Natural,
+        skills::cicd-jenkins
+        .
 
 :cm-migreISISLUW a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Migration du warehouse de DB2/Z vers DB2 LUW" ;
@@ -122,16 +98,11 @@
         - Migration des programmes COBOL de z/OS vers linux.
         - Mise en place d'une chaîne de build et d'une procédure de déploiement pour les programmes COBOL.""" ;
     schema:about
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "DevOps practices" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "Gestion de projet Agile" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
-        ] .
+        skills:programming-COBOL,
+        skills:scm-git,
+        skills::cicd-jenkins,
+        skills:scm .
+
 :cm-road45 a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Projet Road45" ;
     schema:startDate "2022-10-02"^^xsd:date ;
@@ -143,16 +114,7 @@
     - Provide blueprints for various types of projects (REST API, Scheduled batches, Event-driven data propagation, Machine Learning Pipelines, Transactional Inference) to perform automated configuration and deployment (Project templates including IaC and CI/CD toolbox with an accurate documentation).
     ''' ;
     schema:about
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "DevOps practices" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "Gestion de projet Agile" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
-        ] .
+        skills:programming-python .
 
 :cm-SSO a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Integration d'authentification fédérée" ;
@@ -161,22 +123,10 @@
     schema:description """Intégration de la solution IBM ISAM pour le SSO SAML et OIDC et mise en œuvre d’une politique de gestion des identités.
     """ ;
     schema:about
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:targetFramework "ESCO" ;
-            elm:label "Full Stack Development" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "DevOps practices" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "Gestion de projet Agile" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
-        ] .
+        skills:auth-sso,
+        skills:auth-LDAP,
+        skills:programming-python
+        .
 
 :cm-secOpsTeam a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Creation FeatureTem SecOps" ;
@@ -185,13 +135,5 @@
     schema:description """Proposition et matérialisation de l'équipe de sécurité du SI sous forme de 'Feature Team' sécurité.
     Accompagnement du RSSI dans l'organisation de rituels agile.""" ;
     schema:about
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "DevOps practices" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858>
-        ],
-        [
-            a elm:LearningOutcome, schema:DefinedTerm ;
-            elm:label "Gestion de projet Agile" ;
-            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1>
-        ] .
+        skills:scm-git,
+        skills:scm .

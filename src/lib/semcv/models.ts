@@ -52,3 +52,8 @@ export interface IEducationDetails {
     skillLabel: Literal | null,
     parentSkillName: Literal | null
   };
+
+export interface ISkillsCount {
+  skillName: string,
+  count: number
+}

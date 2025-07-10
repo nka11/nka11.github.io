@@ -30,32 +30,56 @@
         elm:relatedESCOSkill <http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97> .
 
 :fullstack a elm:LearningOutcome, schema:DefinedTerm ;
-                            elm:targetFramework "ESCO" ;
-                            elm:label "Full Stack Development" ;
-                            elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879> .
+        elm:targetFramework "ESCO" ;
+        elm:label "Full Stack Development" ;
+        elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879> .
 :devops a elm:LearningOutcome, schema:DefinedTerm ;
-                            elm:label "DevOps practices" ;
-                            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858> .
+        elm:label "DevOps practices" ;
+        elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858> .
 
 :projectManagement-agile a elm:LearningOutcome, schema:DefinedTerm ;
-                            elm:label "Gestion de projet Agile" ;
-                            elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1> .
+        elm:label "Gestion de projet Agile" ;
+        elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1> .
 
 :data-structure a elm:LearningOutcome, schema:DefinedTerm ;
-                            elm:label "Structurer l’information " ;
-                            elm:relatedESCOSkill <http://data.europa.eu/esco/skill/cc9b4fbb-65f1-4c92-9229-1392d03b6e20> .
-                        
+        elm:label "Structurer l’information " ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/cc9b4fbb-65f1-4c92-9229-1392d03b6e20> .                    
+
+:sgbd-DB2 a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "DB2" .
+
+:system-zos a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "z/OS" .
+
+:system-linux a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Linux" .
+
+:system-aix a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "AIX" .
+
 
 :programming-pascal a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Pascal" ;
         elm:relatedSkill :programming ;
         elm:relatedESCOSkill <http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b> .
 
-
 :programming-java a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Java" ;
         elm:relatedSkill :programming ;
         elm:relatedESCOSkill <http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389> .
+
+:programming-python a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Python" ;
+        elm:relatedSkill :programming .
+
+
+:programming-COBOL a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Cobol" ;
+        elm:relatedSkill :programming .
+
+:programming-Natural a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Natural" ;
+        elm:relatedSkill :programming .
 
 :it-algorithmics a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Algorithmics"@en ;
@@ -96,3 +120,22 @@
         elm:label "Jenkins"@en ;
         elm:label "Jenkins"@fr ;
         elm:relatedESCOSkill <http://data.europa.eu/esco/skill/f47a1998-0beb-43be-9f46-380aa4d183da> .
+
+:cicd-gitlab a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Jenkins"@en ;
+        elm:label "Jenkins"@fr .
+
+
+:auth-sso a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Jenkins"@en ;
+        elm:label "Jenkins"@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/> .
+
+:auth-LDAP a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "LDAP"@en ;
+        elm:label "LDAP"@fr ;
+        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/a57a54b6-2f2e-43e4-9621-b52f4a63cb08> .
+
+:auth-RACF a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "RACF"@en ;
+        elm:label "RACF"@fr .
