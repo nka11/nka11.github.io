@@ -45,6 +45,20 @@
         elm:label "Structurer l’information " ;
         elm:relatedESCOSkill <http://data.europa.eu/esco/skill/cc9b4fbb-65f1-4c92-9229-1392d03b6e20> .                    
 
+:data-SQL a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "SQL" ;
+        elm:relatedSkill :data-structure .
+
+:data-noSQL a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "noSQL" ;
+        elm:relatedSkill :data-structure .
+
+:data-noSQL-couchDB a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "couchDB" ;
+        elm:relatedSkill
+                :data-structure ,
+                :data-noSQL .
+
 :sgbd-DB2 a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "DB2" .
 
@@ -57,6 +71,12 @@
 :system-aix a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "AIX" .
 
+:protocol-HTTP a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "HTTP" ;
+        elm:relatedSkill :networking .
+
+:networking a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "networking" .
 
 :programming-pascal a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Pascal" ;
@@ -70,6 +90,10 @@
 
 :programming-python a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Python" ;
+        elm:relatedSkill :programming .
+
+:programming-javascript a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Javascript" ;
         elm:relatedSkill :programming .
 
 

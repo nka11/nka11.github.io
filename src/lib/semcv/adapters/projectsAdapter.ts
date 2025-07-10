@@ -20,7 +20,7 @@ export function listProjects(subject: NamedNode, attribute: string = "schema:abo
         prefix elm: <https://data.europa.eu/snb/elm/>
         
         SELECT
-            ?project ?projectName ?projectDescription ?projectStartDate ?projectEndDate
+            ?project ?projectName ?roleName ?projectDescription ?projectStartDate ?projectEndDate
         WHERE {
 		      ${subject} ${attribute} ?project .
         ?project a schema:Project ;
@@ -30,6 +30,11 @@ export function listProjects(subject: NamedNode, attribute: string = "schema:abo
             ?project a schema:Project ;
                 schema:description ?projectDescription .
                 FILTER(LANG(?projectDescription) = "${lang}" || LANG(?projectDescription) = "")
+          }
+          OPTIONAL {
+            ?project a schema:Project ;
+                schema:roleName ?roleName .
+                FILTER(LANG(?roleName) = "${lang}" || LANG(?roleName) = "")
           }
           OPTIONAL {
              ?project a schema:Project ;
@@ -43,7 +48,7 @@ export function listProjects(subject: NamedNode, attribute: string = "schema:abo
         }    ORDER BY  DESC(?projectStartDate) 
     `;
     try {
-      console.log(listProjectsQuery);
+      // console.log(listProjectsQuery);
        result = (store?.query(listProjectsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IProjectDetail[];
       } catch(e) { // silent fail
         console.error(e);

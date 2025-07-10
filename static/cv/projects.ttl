@@ -33,6 +33,8 @@
         Spécifications technique détaillée.
         Packaging, Déploiement et suivi d'exploitation. """ ;
     schema:about 
+        skills:sgbd-DB2,
+        skills:data-SQL,
         skills:scm-cvs,
         skills:programming-java,
         skills:softwaredesign-uml,
@@ -48,6 +50,7 @@
     """ ;
     schema:about 
         skills:scm-cvs,
+        skills:data-SQL,
         skills:sgbd-DB2,
         skills:devops .
 
@@ -57,6 +60,7 @@
         Défi technique compte tenu de l'environnement assez exotique pour l'éditeur et l'intégrateur.
     """ ;
     schema:about
+        skills:data-SQL,
         skills:system-aix,
         skills:sgbd-DB2 .
 
@@ -68,6 +72,7 @@
     """ ;
     schema:about
         skills:sgbd-DB2,
+        skills:data-SQL,
         skills:scm-git,
         skills:system-linux,
         skills:system-zos
@@ -83,10 +88,11 @@
     schema:about
         skills:auth-LDAP,
         skills:auth-RACF,
-        skills::system-linux,
+        skills:system-linux,
         skills:scm-git,
-        skills::programming-Natural,
-        skills::cicd-jenkins
+        skills:system-zos,
+        skills:programming-Natural,
+        skills:cicd-jenkins
         .
 
 :cm-migreISISLUW a schema:CreativeWork, schema:Project, schema:Role ;
@@ -100,7 +106,7 @@
     schema:about
         skills:programming-COBOL,
         skills:scm-git,
-        skills::cicd-jenkins,
+        skills:cicd-jenkins,
         skills:scm .
 
 :cm-road45 a schema:CreativeWork, schema:Project, schema:Role ;
@@ -115,6 +121,7 @@
     ''' ;
     schema:about
         skills:scm-git,
+        skills:data-structure,
         skills:cicd-gitlab,
         skills:programming-python .
 
@@ -139,3 +146,31 @@
     schema:about
         skills:scm-git,
         skills:scm .
+
+:contrib-aloha-editor a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:roleName "Contributor" ;
+    schema:name "Aloha Editor" ;
+    schema:startDate "2010-01-01"^^xsd:date ;
+    schema:endDate "2013-12-01"^^xsd:date ;
+    schema:description "Contribution open-source (drag & drop, image)" ;
+    schema:url <http://aloha-editor.org/> ;
+    schema:about
+        skills:it-algorithmics,
+        skills:programming-javascript,
+        skills:scm-git .
+
+:author-KaraCos a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "KaraCos" ;
+    schema:roleName "Author" ;
+    schema:startDate "2009-01-01"^^xsd:date ;
+    schema:endDate "20014-12-01"^^xsd:date ;
+    schema:description "Serveur d’applications pour la gestion des données personnelles" ;
+    schema:url <http://github.com/karacos> ;
+    schema:about
+        skills:programming-python,
+        skills:programming-javascript,
+        skills:data-noSQL-couchDB,
+        skills:protocol-HTTP,
+        skills:it-algorithmics,
+        skills:scm-git .
+

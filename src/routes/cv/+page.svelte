@@ -12,6 +12,7 @@
   import { listOrgRoles } from '$lib/semcv/adapters/experienceAdapter';
     import { skillsCounts } from '$lib/semcv/adapters/skillsAdapter';
     import SkillsCloud from '$lib/components/schemaorgcv/SkillsCloud.svelte';
+    import ListPersonalProjects from '$lib/components/schemaorgcv/ListPersonalProjects.svelte';
   let mainResult: Array<any> = [];
   let person: IPersonDetails | undefined = undefined;
   let organizationRoles: IOrganizationRole[] = [];
@@ -125,7 +126,7 @@
       </section>
       <h2 class="text-3xl">Projets Personnels</h2>
       <section>
-
+        <ListPersonalProjects person={person}></ListPersonalProjects>
       </section>
 
     </article>

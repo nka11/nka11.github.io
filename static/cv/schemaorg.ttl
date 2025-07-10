@@ -22,7 +22,7 @@ ev:withinOrganization a rdf:Property ;
     rdfs:domain schema:Role ;
     rdfs:range schema:Organization .
 
-nka:me a schema:Person ;
+nka:me a schema:Person, schema:CreativeWork ;
     schema:name "Nicolas Karageuzian" ;
     schema:email "mailto:nkarageuzian@gmail.com" ;
     schema:url <http://github.com/nka11> ;
@@ -39,8 +39,17 @@ nka:me a schema:Person ;
     # schema:hasSkill "Java", "Docker", "SPARQL", "Azure" ;
 
     schema:alumniOf :dut1998, :edu2 ;
-    schema:hasOccupation :exp1, :exp2, :exp3, :exp4, :expISMRSSI, :expISMGRC, :expCTOWinastar .
-    # schema:hasPart :proj1, :proj2 .
+    schema:hasOccupation 
+        :exp1,
+        :exp2,
+        :exp3,
+        :exp4,
+        :expISMRSSI,
+        :expISMGRC,
+        :expCTOWinastar ;
+    schema:producer 
+        projects:contrib-aloha-editor,
+        projects:author-KaraCos .
 
 ### Formations
 
@@ -200,13 +209,5 @@ nka:me a schema:Person ;
 
 ### Projets & Réalisations
 
-:proj1 a schema:CreativeWork, schema:Project, schema:Role ;
-    schema:name "KaraCos" ;
-    schema:description "Serveur d’applications pour la gestion des données personnelles" ;
-    schema:url <http://github.com/karacos> .
 
-:proj2 a schema:CreativeWork, schema:Project, schema:Role ;
-    schema:name "Aloha Editor" ;
-    schema:description "Contribution open-source (drag & drop, image)" ;
-    schema:url <http://aloha-editor.org/> .
 

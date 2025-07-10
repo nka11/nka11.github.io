@@ -21,7 +21,12 @@
   property="schema:subjectOf"
   typeof="schema:CreativeWork schema:Project schema:Role">
   <span class="text-sm p-0 m-0">
-    <span class="font-bold" property="schema:name">{projectDetail.projectName?.value}</span> :
+    <span class="font-bold" property="schema:name">{projectDetail.projectName?.value}</span>
+    {#if projectDetail.roleName}
+      <span class="italic text-xs p-0 m-0"
+    property="schema:roleName">({ projectDetail.roleName.value })</span>
+    {/if}
+    :
     {#if projectDetail.projectStartDate || projectDetail.projectEndDate}
       
       <span class="text-xs italic">
@@ -62,6 +67,11 @@
       </span>
     {/if}
   </span>
+  {#if projectDetail.roleName}
+    <div class="italic text-xs p-0 m-0"
+  property="schema:roleName">{ projectDetail.roleName.value }</div>
+  {/if}
+
   {#if projectDetail.projectDescription}   
   <p 
   class="whitespace-pre-line text-xs p-0 m-0"

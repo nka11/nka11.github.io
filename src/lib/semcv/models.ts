@@ -23,6 +23,7 @@ export interface IOrganizationRole {
 export interface IProjectDetail {
     project: NamedNode,
     projectName: Literal | null;
+    roleName: Literal | null;
     projectDescription: Literal | null;
     projectStartDate: Literal | null;
     projectEndDate: Literal | null
