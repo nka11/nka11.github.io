@@ -14,6 +14,15 @@
 @prefix skills: <https://nka11.github.io/cv#skills/> .
 @prefix : <https://nka11.github.io/cv#projects/> .
 
+:iut-stage a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Stage de fin d'études au laboratoire LERISS de Sénart"@fr ;
+    schema:startDate "2022-10-02"^^xsd:date ;
+    schema:endDate "2023-09-30"^^xsd:date ;
+    schema:description """Au sein du Laboratioire de Recherche LERISS de Paris XII, spécialisé dans la recherche en réseaux de neurones. 
+    Implementation d'un mini jeu de plateau
+    Conception d'un moteur d'assertions pour valider le déplacement des pièces.
+    Conception d'un algorithme de type arbre de décision pour que l'humain puisse jouer contre la machine"""@fr ;
+    schema:about skills:ai-general, skills:ai-neuralnet, skills:softwaredesign .
 
 :cm-Horizon a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Application 'Horizon' Centre d'Appels" ;

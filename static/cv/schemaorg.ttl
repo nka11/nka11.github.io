@@ -60,17 +60,7 @@ nka:me a schema:Person ;
         skills:programming-pascal,
         skills:softwaredesign-uml,
         skills:softwaredesign ;
-    schema:subjectOf [
-        a schema:CreativeWork, schema:Project, schema:Role ;
-        schema:name "Stage au laboratoire LERISS de Sénart"@fr ;
-        schema:startDate "2022-10-02"^^xsd:date ;
-        schema:endDate "2023-09-30"^^xsd:date ;
-        schema:description """Au sein du Laboratioire de Recherche LERISS de Paris XII, spécialisé dans la recherche en réseaux de neurones. 
-        Implementation d'un mini jeu de plateau
-        Conception d'un moteur d'assertions pour valider le déplacement des pièces.
-        Conception d'un algorithme de type arbre de décision pour que l'humain puisse jouer contre la machine"""@fr ;
-        schema:about skills:ai-general, skills:ai-neuralnet, skills:softwaredesign
-    ] .
+    schema:subjectOf projects:iut-stage .
 
 :edu2 a schema:EducationalOrganization, schema:EducationalOccupationalCredential, schema:Role  ;
     schema:name "Bac S option Technologie" ;

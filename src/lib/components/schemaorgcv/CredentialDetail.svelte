@@ -68,7 +68,7 @@
             class="p-0 m-0"
             property="schema:description">{credentialDetails.credentialDescription.value}</p>
     {/if}
-    {#if projectsDetail}
+    {#if projectsDetail.length > 0}
         <div
             class="px-2 pt-0 pb-0 m-0"
             >
