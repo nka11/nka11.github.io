@@ -30,13 +30,6 @@ export function listSkills(subject: NamedNode, attribute: string = "schema:about
             ?skill a schema:DefinedTerm ;
                 elm:label ?skillLabel .
             FILTER(LANG(?skillLabel) = "${lang}" || LANG(?skillLabel) = "")
-            OPTIONAL {
-              ?skill elm:relatedSkill ?parentSkill .
-              OPTIONAL {
-                ?parentSkill elm:label ?parentSkillName .
-                FILTER(LANG(?parentSkillName) = "${lang}" || LANG(?parentSkillName) = "")
-              }
-            }
           }
         }
     `;
@@ -66,7 +59,7 @@ export function skillsCounts(lang: string = 'en'): ISkillsCount[] {
     WHERE {
       {
         ?refedskill a elm:LearningOutcome .
-      ?s schema:about ?refedskill .
+        ?s schema:about ?refedskill .
         ?refedskill elm:relatedSkill ?skill .
         ?skill a elm:LearningOutcome ;
             elm:label ?skillName .
@@ -74,27 +67,42 @@ export function skillsCounts(lang: string = 'en'): ISkillsCount[] {
     UNION
       {
         ?refedskill a elm:LearningOutcome .
-      ?s schema:competencyRequired ?refedskill .
+        ?s schema:competencyRequired ?refedskill .
         ?refedskill elm:relatedSkill ?skill .
         ?skill a elm:LearningOutcome ;
             elm:label ?skillName .
       }
     UNION
       {
-      ?skill a elm:LearningOutcome ;
-        elm:label ?skillName .
-      ?s         elm:relatedSkill  ?skill .
-      } UNION
+         ?refedskill a elm:LearningOutcome .
+         ?s schema:skills ?refedskill .
+         ?refedskill elm:relatedSkill ?skill .
+         ?skill a elm:LearningOutcome ;
+            elm:label ?skillName .
+      }
+    UNION
       {
-      ?skill a elm:LearningOutcome ;
-        elm:label ?skillName .
-      ?s schema:competencyRequired ?skill .
-    } 
-    UNION {
-      ?skill a elm:LearningOutcome ;
-        elm:label ?skillName .
-      ?s schema:about ?skill .
-
+        ?skill a elm:LearningOutcome ;
+          elm:label ?skillName .
+        ?s elm:relatedSkill  ?skill .
+      } 
+    UNION
+      {
+        ?skill a elm:LearningOutcome ;
+          elm:label ?skillName .
+        ?s schema:about ?skill .
+      } 
+    UNION
+      {
+        ?skill a elm:LearningOutcome ;
+          elm:label ?skillName .
+        ?s schema:competencyRequired ?skill .
+      } 
+    UNION 
+     {
+       ?skill a elm:LearningOutcome ;
+         elm:label ?skillName .
+       ?s schema:skills ?skill .
     }
     FILTER(LANG(?skillName) = "${lang}" || LANG(?skillName) = "")
     } 
@@ -102,7 +110,9 @@ export function skillsCounts(lang: string = 'en'): ISkillsCount[] {
   `
 
     try {
+      console.log(skillsCountQuery);
       result = (store?.query(skillsCountQuery) as unknown as Map<string, Term>[]).map(mapToObject) as ISkillsCount[];
+      console.log(result);
     } catch(e) { // silent fail
       console.error(e);
     }

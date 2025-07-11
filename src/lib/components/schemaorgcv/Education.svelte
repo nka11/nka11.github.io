@@ -20,7 +20,7 @@
 </script>
 
 {#if education}
-<section class="bg-gray-100 py-1 px-2 m-2 rounded-lg shadow-md">
+<section class=" py-1 px-2 m-2">
   <p class="text-xl font-semibold p-0 m-0">
       {#if education.educEnd }
       <span>{extractYear(education.educEnd.value)}</span> — 
@@ -34,6 +34,7 @@
   {#if education.educLocationAddress }
     <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Adresse :</strong> {education.educLocationAddress.value}</p>
   {/if}
+  <Skills skills={skills}></Skills>
   {#if projects.length > 0}
     <div
         class="px-2 pt-0 pb-0 m-0"
@@ -43,8 +44,8 @@
         {/each}
     </div>
   {/if}
-
-      <Skills skills={skills}></Skills>
+  
+      
      
     </section>
   

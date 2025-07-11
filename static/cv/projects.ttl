@@ -15,13 +15,13 @@
 @prefix : <https://nka11.github.io/cv#projects/> .
 
 :iut-stage a schema:CreativeWork, schema:Project, schema:Role ;
-    schema:name "Stage de fin d'études au laboratoire LERISS de Sénart"@fr ;
+    schema:name "Stage de fin d'études au laboratoire LERISS de Sénart" ;
     schema:startDate "2022-10-02"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;
     schema:description """Au sein du Laboratioire de Recherche LERISS de Paris XII, spécialisé dans la recherche en réseaux de neurones. 
     Implementation d'un mini jeu de plateau
     Conception d'un moteur d'assertions pour valider le déplacement des pièces.
-    Conception d'un algorithme de type arbre de décision pour que l'humain puisse jouer contre la machine"""@fr ;
+    Conception d'un algorithme de type arbre de décision pour que l'humain puisse jouer contre la machine""" ;
     schema:about 
         skills:ai-general,
         skills:ai-neuralnet,
@@ -39,6 +39,7 @@
         skills:programming-java,
         skills:softwaredesign-uml,
         skills:fullstack,
+        skills:cicd-jenkins,
         skills:devops,
         skills:data-structure .
 
@@ -51,6 +52,7 @@
     schema:about 
         skills:scm-cvs,
         skills:data-SQL,
+        skills:system-linux,
         skills:sgbd-DB2,
         skills:devops .
 
@@ -74,6 +76,7 @@
         skills:sgbd-DB2,
         skills:data-SQL,
         skills:scm-git,
+        skills:cicd-jenkins,
         skills:system-linux,
         skills:system-zos
         .
@@ -107,6 +110,7 @@
         skills:programming-COBOL,
         skills:scm-git,
         skills:cicd-jenkins,
+        skills:system-linux,
         skills:scm .
 
 :cm-road45 a schema:CreativeWork, schema:Project, schema:Role ;
@@ -121,8 +125,16 @@
     ''' ;
     schema:about
         skills:scm-git,
+        skills:data-noSQL,
+        skills:ai-general,
+        skills:ai-neuralnet,
+        skills:cloud-GCP,
+        skills:tools-ansible,
+        skills:tools-terraform,
         skills:data-structure,
         skills:cicd-gitlab,
+        skills:system-linux,
+        skills:eventbus-kafka,
         skills:programming-python .
 
 :cm-SSO a schema:CreativeWork, schema:Project, schema:Role ;
@@ -133,6 +145,8 @@
     """ ;
     schema:about
         skills:auth-sso,
+        skills:tools-ansible,
+        skills:cicd-gitlab,
         skills:auth-LDAP,
         skills:programming-python
         .
@@ -144,7 +158,10 @@
     schema:description """Proposition et matérialisation de l'équipe de sécurité du SI sous forme de 'Feature Team' sécurité.
     Accompagnement du RSSI dans l'organisation de rituels agile.""" ;
     schema:about
+        skills:tools-ansible,
+        skills:system-linux,
         skills:scm-git,
+        skills:cicd,
         skills:scm .
 
 :contrib-aloha-editor a schema:CreativeWork, schema:Project, schema:Role ;

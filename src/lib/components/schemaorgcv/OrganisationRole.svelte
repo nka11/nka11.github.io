@@ -4,16 +4,20 @@
   import { formatDateFr } from '$lib/dateFormatter';
   
   import CredentialDetail from '$lib/components/schemaorgcv/CredentialDetail.svelte';
-  import type { ICredentialDetails, IOrganizationRole } from '$lib/semcv/models';
+  import type { ICredentialDetails, IOrganizationRole, ISkillsDetails } from '$lib/semcv/models';
   import { listCredentials } from '$lib/semcv/adapters/credentialsAdapter';
+    import { listSkills } from '$lib/semcv/adapters/skillsAdapter';
+    import Skills from './Skills.svelte';
   let savedLang: string = 'en';
   export let organizationRole: IOrganizationRole;
   let credentialsDetails: ICredentialDetails[] = [];
-  
+  let skills: ISkillsDetails[] = [];
   onMount(async () => {
       const stored = localStorage.getItem('lang');
       if (stored) savedLang = stored;
       credentialsDetails = listCredentials(organizationRole.role, "schema:hasCredential", savedLang);
+      skills = listSkills(organizationRole.role, "schema:skills", savedLang);
+      
   })
 </script>
 
@@ -97,6 +101,7 @@
       {organizationRole.description.value}
     </p>
   {/if}
+  <Skills skills={skills}></Skills>
   {#if credentialsDetails}
     <div 
       class="px-2 py-0 m-0">

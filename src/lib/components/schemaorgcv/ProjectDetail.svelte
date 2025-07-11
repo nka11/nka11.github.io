@@ -17,14 +17,14 @@
 </script>
 
 <div 
-  class="pt-1 my-0 pb-0"
+  class="pt-1 m-1 pb-0 bg-gray-100 rounded-lg shadow-md"
   property="schema:subjectOf"
   typeof="schema:CreativeWork schema:Project schema:Role">
   <span class="text-sm p-0 m-0">
     <span class="font-bold" property="schema:name">{projectDetail.projectName?.value}</span>
     {#if projectDetail.roleName}
       <span class="italic text-xs p-0 m-0"
-    property="schema:roleName">({ projectDetail.roleName.value })</span>
+          property="schema:roleName">({ projectDetail.roleName.value })</span>
     {/if}
     :
     {#if projectDetail.projectStartDate || projectDetail.projectEndDate}
