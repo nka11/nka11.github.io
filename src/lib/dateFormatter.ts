@@ -12,7 +12,7 @@ export function formatDateFr(dateStr: string): string | null {
       return dateStr;
     }
   }
-export function extractYear(dateStr: string): string | null {
+export function extractYear(dateStr: string | undefined): string | null {
     if (!dateStr) return null;
     try {
       const date = new Date(dateStr);

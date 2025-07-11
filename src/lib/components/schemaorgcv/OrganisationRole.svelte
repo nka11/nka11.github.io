@@ -23,7 +23,7 @@
 
 <!-- Entité RDFa : LearningActivity représentant une expérience pro -->
 <div property="schema:hasOccupation"
-  typeof="schema:OrganizationRole schema:Occupation  schema:Organization"
+  typeof="schema:OrganizationRole schema:Occupation schema:Organization"
   class="border-b border-gray-300 py-2 m-0 last:border-0"
 >
 
