@@ -110,9 +110,9 @@ export function skillsCounts(lang: string = 'en'): ISkillsCount[] {
   `
 
     try {
-      console.log(skillsCountQuery);
+      // console.log(skillsCountQuery);
       result = (store?.query(skillsCountQuery) as unknown as Map<string, Term>[]).map(mapToObject) as ISkillsCount[];
-      console.log(result);
+      // console.log(result);
     } catch(e) { // silent fail
       console.error(e);
     }

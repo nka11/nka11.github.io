@@ -3,7 +3,7 @@
   
   import { onMount } from 'svelte';
   import OrganizationRole from '$lib/components/schemaorgcv/OrganisationRole.svelte';
-  import { oxigraphStore, initOxigraph } from '$lib/semcv/semantic_cv_store';
+  import { oxigraphStore, initOxigraph, compareExperience } from '$lib/semcv/semantic_cv_store';
   import { get } from 'svelte/store';
   import type { IOrganizationRole, IPersonDetails, ISkillsCount } from '$lib/semcv/models';
   import { namedNode, NamedNode, type Store, type Term } from 'oxigraph';
@@ -13,7 +13,11 @@
     import { skillsCounts } from '$lib/semcv/adapters/skillsAdapter';
     import SkillsCloud from '$lib/components/schemaorgcv/SkillsCloud.svelte';
     import ListPersonalProjects from '$lib/components/schemaorgcv/ListPersonalProjects.svelte';
-  let mainResult: Array<any> = [];
+    import PdfPrint from '$lib/components/schemaorgcv/PDF_print.svelte';
+  
+    export let data: {jsonld: any, dataFiles: string[]};
+  
+    let mainResult: Array<any> = [];
   let person: IPersonDetails | undefined = undefined;
   let organizationRoles: IOrganizationRole[] = [];
   let skills: ISkillsCount[] = [];
@@ -28,23 +32,11 @@
     savedLang = lang;
     localStorage.setItem('lang', lang);
   };
-  // tool to compare experience dates to sort
-  function compareExperience(exp1: IOrganizationRole, exp2: IOrganizationRole) {
-    if (!exp1.endDate && !exp2.endDate) {
-      if ((exp1.startDate?.value ?? '') < (exp2.startDate?.value ?? ''))  return  -1
-      return 1;
-    }
-    if (!exp1.endDate && exp2.endDate) {
-      return -1;
-    }
-    if (exp1.endDate && !exp2.endDate) {
-      return 1;
-    }
-    if ((exp1.endDate?.value ?? '') < (exp2.endDate?.value ?? '')) {
-      return 1;
-    }
-    return -1;
-  }
+
+  const jsonLD = JSON.stringify(data.jsonld);
+  const ldString = `<script type=\"application/ld+json\">${jsonLD}\u003C/script>`;
+
+  
   async function loadCVData(lang: string = 'fr') {
 
       const personNode: NamedNode = namedNode("https://nka11.github.io/#me")
@@ -60,7 +52,7 @@
     try {
       const stored = localStorage.getItem('lang');
       if (stored) savedLang = stored;
-      await initOxigraph(); // Exécuté uniquement côté navigateur
+      await initOxigraph(data.dataFiles); // Exécuté uniquement côté navigateur
       const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
           console.log("CV layout onMount: semantic store not ready");
@@ -82,6 +74,7 @@
 {:else if error}
   <p style="color: red;">{error}</p>
 {:else if mainResult}
+<PdfPrint personDetails={ person as IPersonDetails }></PdfPrint>
 <button on:click={() => changeLang('fr')}>FR</button>
 <button on:click={() => changeLang('en')}>EN</button>
 <!-- 

@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "jsonld-streaming-serializer": "^4.0.0",
+    "jspdf": "^3.0.1",
     "mdsvex": "^0.12.6",
     "oxigraph": "^0.4.11",
     "rdf-parse": "^4.0.0",

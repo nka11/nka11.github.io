@@ -2,26 +2,39 @@
 import { writable } from 'svelte/store';
 import wasmUrl from 'oxigraph/web_bg.wasm?url';
  import init, { Store, type Term } from 'oxigraph';
+import type { IOrganizationRole } from './models';
 export const oxigraphStore = writable<{ store: Store | null; oxiReady: boolean }>({
   store: null,
   oxiReady: false
 });
-
-export async function initOxigraph() {
+export // tool to compare experience dates to sort
+  function compareExperience(exp1: IOrganizationRole, exp2: IOrganizationRole) {
+    if (!exp1.endDate && !exp2.endDate) {
+      if ((exp1.startDate?.value ?? '') < (exp2.startDate?.value ?? ''))  return  -1
+      return 1;
+    }
+    if (!exp1.endDate && exp2.endDate) {
+      return -1;
+    }
+    if (exp1.endDate && !exp2.endDate) {
+      return 1;
+    }
+    if ((exp1.endDate?.value ?? '') < (exp2.endDate?.value ?? '')) {
+      return 1;
+    }
+    return -1;
+  }
+export async function initOxigraph(dataFiles: string[]) {
   if (typeof window === 'undefined') return; // 🔒 Protection SSG
 
   // @ts-ignore
   await init(wasmUrl);
   const store = new Store();
-  const turtleUrls = [
-    '/cv/schemaorg.ttl',
-    '/cv/skills.ttl',
-    '/cv/projects.ttl'
-  ]
+
 
   // Charger le fichier .ttl (ex: CV)
   await Promise.all(
-    turtleUrls.map(async (turtleUrl) => {
+    dataFiles.map(async (turtleUrl) => {
       await loadTurtleFile(turtleUrl, store);
     })
   );
