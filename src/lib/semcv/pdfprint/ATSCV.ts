@@ -1,5 +1,4 @@
 import { jsPDF } from "jspdf";
-import type { NamedNode } from "oxigraph";
 import type { ICredentialDetails, IEducationDetails, IOrganizationRole, IPersonDetails, IProjectDetail } from "../models";
 import { listOrgRoles } from "../adapters/experienceAdapter";
 import { skillsCounts } from "../adapters/skillsAdapter";
@@ -15,6 +14,101 @@ interface DocState {
   margin: number,
   maxWidth: number
 }
+
+export function generateATS_CV(personDetails: IPersonDetails, lang: string): jsPDF {
+  const doc = new jsPDF();
+
+  const maxWidth = 170;
+  const margin = 20;
+  const state={doc: doc, y: margin, margin:margin, maxWidth: maxWidth};
+  const name: string = personDetails.name?.value as string;
+  console.log("name:" + name);
+  // Titre principal
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(22);
+  doc.text(name, margin,state.y);
+
+  // Sous-titre
+  state.y +=  8;
+  doc.setFontSize(14);
+  doc.setFont("helvetica", "normal");
+    writeBlock(state,personDetails.name?.value as string,0,7)
+
+  
+  // doc.text(, margin,state.y);
+
+  // Coordonnées
+  // state.y +=  8;
+  // doc.setFontSize(11);
+  // doc.text("jean.dupont@email.com | 📱 +33 6 12 34 56 78 | Paris, France", margin,state.y);
+
+  // Ligne de séparation
+  // state.y +=  6;
+  doc.setLineWidth(0.5);
+  doc.line(margin,state.y, 210 - margin,state.y);
+  state.y +=  3;
+
+  // Section : Expériences
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.setLineWidth(0.2);
+  doc.line(margin,state.y, 210 - margin,state.y);
+  state.y +=  6;
+
+  doc.text("Expérience professionnelle", margin,state.y);
+  state.y +=  4;
+  let skills = skillsCounts(lang);
+  let organizationRoles = listOrgRoles(personDetails?.person, "schema:hasOccupation",lang).sort(compareExperience);
+  let educationList = listEducations(personDetails.person,"schema:alumniOf",lang);
+  
+  organizationRoles.forEach((role) => {
+    printOrganizationRole(role, state, lang);
+  });
+
+  // Section : Formation
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.setLineWidth(0.2);
+  doc.line(margin,state.y, 210 - margin,state.y);
+  state.y +=  6;
+
+  doc.text("Formation", margin,state.y);
+  state.y +=  8;
+  educationList.forEach((education) => {
+    printEducationDetails(state,education,lang);
+  })
+  // Section : Projets
+  state.y +=  10;
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.setLineWidth(0.2);
+  doc.line(margin,state.y, 210 - margin,state.y);
+  state.y +=  6;
+  doc.text("Projets", margin,state.y);
+  state.y +=  8;
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "normal");
+  const projects = listProjects(personDetails.person, "schema:producer",lang);
+  // projectsDetails = listProjects
+  projects.forEach((project) => {
+    printProjectDetails(state,project, lang,true);
+  });
+  // Section : Compétences
+  state.y +=  10;
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.setLineWidth(0.2);
+  doc.line(margin,state.y, 210 - margin,state.y);
+  state.y +=  6;
+  doc.text("Compétences", margin,state.y);
+  state.y +=  8;
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "normal");
+  let skillsList = skills.map((skill) => skill.skillName.value).join(', ');
+  writeBlock(state,skillsList,0,5);
+  return doc;
+}
+
 
 function writeBlock(state:DocState, text: string, blockMargin: number, lineHeight: number): void {
   const pageHeight = state.doc.internal.pageSize.getHeight();
@@ -51,8 +145,11 @@ function printProjectDetails(state:DocState, project:IProjectDetail, lang: strin
         headerline += formatDateFr(project.projectEndDate.value);
       }
     }
+    headerline = `${project.projectName?.value} - ${headerline}`;
+  } else {
+
+    headerline += `- ${project.projectName?.value}`;
   }
-  headerline += "- " + project.projectName?.value;
 
   // state.y +=  2;
   state.doc.setFontSize(11);
@@ -94,7 +191,11 @@ function printRoleCredentialDetails(state:DocState, role:IOrganizationRole, cred
   if (role.employer) {
     headerline += " - " + role.employer?.value;
   }
-  state.y +=  3;
+
+  state.y +=  1.6;
+  state.doc.setLineWidth(0.1);
+  state.doc.line(state.margin,state.y, 210 - state.margin * 2 , state.y);
+  state.y +=  3.4;
   state.doc.setFontSize(12);
   state.doc.setFont("helvetica", "bold");
   writeBlock(state,headerline,0,6)
@@ -130,7 +231,10 @@ function printEducationDetails(state:DocState, education: IEducationDetails, lan
   if (education.educLocationName) {
     headerline += " - " + education.educLocationName?.value;
   }
-  state.y +=  3;
+  state.y +=  0.6;
+  state.doc.setLineWidth(0.1);
+  state.doc.line(state.margin,state.y, 210 - state.margin * 2 , state.y);
+  state.y +=  3.4;
   state.doc.setFontSize(12);
   state.doc.setFont("helvetica", "bold");
   writeBlock(state,headerline,0,6)
@@ -143,80 +247,12 @@ function printEducationDetails(state:DocState, education: IEducationDetails, lan
   });
 }
 
-export function generateATS_CV(personDetails: IPersonDetails, lang: string): jsPDF {
-  const doc = new jsPDF();
 
-  const maxWidth = 170;
-  const margin = 20;
-  const state={doc: doc, y: margin, margin:margin, maxWidth: maxWidth};
-  const name: string = personDetails.name?.value as string;
-  console.log("name:" + name);
-  // Titre principal
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(22);
-  doc.text(name, margin,state.y);
-
-  // Sous-titre
-  state.y +=  8;
-  doc.setFontSize(14);
-  doc.setFont("helvetica", "normal");
-    writeBlock(state,personDetails.name?.value as string,0,7)
-
-  
-  // doc.text(, margin,state.y);
-
-  // Coordonnées
-  // state.y +=  8;
-  // doc.setFontSize(11);
-  // doc.text("jean.dupont@email.com | 📱 +33 6 12 34 56 78 | Paris, France", margin,state.y);
-
-  // Ligne de séparation
-  // state.y +=  6;
-  doc.setLineWidth(0.5);
-  doc.line(margin,state.y, 210 - margin,state.y);
-
-  // Section : Expériences
-  state.y +=  10;
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.text("Expérience professionnelle", margin,state.y);
-  state.y +=  8;
-  
- 
-  let skills = skillsCounts(lang);
-  let organizationRoles = listOrgRoles(personDetails?.person, "schema:hasOccupation",lang).sort(compareExperience);
-  let educationList = listEducations(personDetails.person,"schema:alumniOf",lang);
-  
-  organizationRoles.forEach((role) => {
-    printOrganizationRole(role, doc, state, lang);
-  });
-
-  // Section : Formation
-  state.y +=  5;
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.text("Formation", margin,state.y);
-  state.y +=  8;
-  educationList.forEach((education) => {
-    printEducationDetails(state,education,lang);
-  })
-
-  // Section : Compétences
-  state.y +=  10;
-  doc.setFontSize(16);
-  doc.setFont("helvetica", "bold");
-  doc.text("Compétences", margin,state.y);
-  let skillsList = skills.map((skill) => skill.skillName.value).join(', ');
-  state.y +=  8;
-  doc.setFontSize(10);
-  doc.setFont("helvetica", "normal");
-  writeBlock(state,skillsList,0,5);
-  return doc;
-}
-
-function printOrganizationRole(role: IOrganizationRole, doc: jsPDF, state: { doc: jsPDF; y: number; margin: number; maxWidth: number; }, lang: string) {
+function printOrganizationRole(role: IOrganizationRole, state: { doc: jsPDF; y: number; margin: number; maxWidth: number; }, lang: string) {
   let headerline = "";
   if (role.description) {
+      
+
     if (role.startDate || role.endDate) {
       if (role.startDate && role.endDate) {
         headerline += "de ";
@@ -239,12 +275,18 @@ function printOrganizationRole(role: IOrganizationRole, doc: jsPDF, state: { doc
     if (role.employer) {
       headerline += " - " + role.employer?.value;
     }
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(12);
+  
+    state.y +=  0.6;
+    state.doc.setLineWidth(0.1);
+    state.doc.line(state.margin,state.y, 210 - state.margin * 2 , state.y);
+    state.y +=  3.4;
+    state.doc.setFont("helvetica", "bold");
+    state.doc.setFontSize(12);
     writeBlock(state, headerline, 0, 6);
+    
 
     // doc.text(headerline, margin,state.y);  
-    doc.setFont("helvetica", "normal");
+    state.doc.setFont("helvetica", "normal");
     (role.description?.value as string + "").split('\n').forEach((line: string) => {
 
       // state.y +=  6;

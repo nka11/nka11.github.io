@@ -22,12 +22,59 @@ ev:withinOrganization a rdf:Property ;
     rdfs:domain schema:Role ;
     rdfs:range schema:Organization .
 
+cv:variant-cyber a schema:DefinedTermSet ;
+    schema:name "Variantes de CV Cyber" .
+
+cv:variant-CTO a schema:DefinedTermSet ;
+    schema:name "Variantes de CV Directeur Technique" .
+
+cv:variant-archi a schema:DefinedTermSet ;
+    schema:name "Variantes de CV Architecte" .
+
+
 nka:me a schema:Person, schema:CreativeWork ;
     schema:name "Nicolas Karageuzian" ;
     schema:email "mailto:nkarageuzian@gmail.com" ;
     schema:url <http://github.com/nka11> ;
-    schema:jobTitle "CyberSecurity & Architecture Consultant"@en ;
-    schema:jobTitle "Consultant en Cyber-Sécurité spécialiste des Architecture"@fr ;
+    schema:jobTitle
+        "CyberSecurity & Architecture Consultant"@en ,
+        "Consultant en Cyber-Sécurité spécialiste des Architecture"@fr ,
+        [ 
+            a schema:DefinedTerm ;
+            schema:name "Expert en Cybersécurité" ;
+            schema:inDefinedTermSet cv:variant-cyber ;
+            # Section summary
+            schema:desciption "";
+        ] ,
+        [ 
+            a schema:DefinedTerm ;
+            schema:name "CTO" ;
+            schema:inDefinedTermSet cv:variant-cto ;
+            # Section summary
+            schema:desciption "";
+        ] ,
+        [ 
+            a schema:DefinedTerm ;
+            schema:name "Architecte Solutions"@fr ;
+            schema:name "Solution Architect"@en ;
+            schema:inDefinedTermSet cv:variant-archi ;
+            # Section summary
+            schema:desciption 
+                """
+                    - Natural ability for analysing complex systems behaviours and interactions.
+                    - Multi-tier application architecture design involving network and security in multi-os environments with inter-system communications.
+                    - Global knowledge and technical understanding of the IT components
+                    - Communicating with business and understanding problems and needs.
+                """@en,
+                """
+                    - Capacité naturelle pour l'analise du comportement des systemes complexes et de leurs interactions.
+                    - Architecture des Applications multi-tiers qui impliquent du réseau et de la sécurité dans des environnements hétérogènes.
+                    - Compréhension globale globale et compréhension des différentes composantes d'une informatique de groupe.
+                    - Capacité de communication avec les métiers et compréhension des enjeux et besoins.
+                """@fr
+                ;
+        ] 
+        ;
     schema:birthPlace [
         a schema:Place ;
         schema:address [
