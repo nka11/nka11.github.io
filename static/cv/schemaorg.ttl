@@ -46,8 +46,10 @@ nka:me a schema:Person, schema:CreativeWork ;
         :exp4,
         :expISMRSSI,
         :expISMGRC,
+        :izrbcto,
         :expCTOWinastar ;
     schema:producer 
+        projects:contrib-neovillages,
         projects:contrib-aloha-editor,
         projects:author-KaraCos .
 
@@ -91,7 +93,8 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:startDate "2024-01-01"^^xsd:date ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "izrbcto" ;
-    schema:description """Encadrement developpeurs et Architecture.
+    schema:description """Conseil en Architecture et en stratégie.
+        Encadrement developpeurs .net et mobile.
         Tech Leadership et mise en place des outils de CI/CD (github actions vers Ikoula).""" ;
     schema:withinOrganization [
         a schema:Organization ;
@@ -99,9 +102,10 @@ nka:me a schema:Person, schema:CreativeWork ;
     ] ;
     schema:skills
         skills:project,
+        skills:sgbd-mysql,
         skills:cicd,
         skills:programming-dotnetCsharp,
-        :library-angular
+        skills:library-angular
         .
 :expCTOWinastar a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Directeur Technique de transition"@fr ;
@@ -121,6 +125,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:project,
         skills:blockchain,
         skills:blockchain-Solana,
+        skills:sgbd-postgres,
         skills:blockchain-Ethereum,
         skills:tools-ansible,
         skills:cicd,
@@ -172,6 +177,7 @@ nka:me a schema:Person, schema:CreativeWork ;
             schema:startDate "2011-06-02"^^xsd:date ;
             schema:endDate "2017-06-01"^^xsd:date ;
             schema:subjectOf
+                projects:cm-cxo,
                 projects:cm-sortieZ,
                 projects:cm-migreISISLUW .
 :cm-lead-DevSecOps a schema:EducationalOccupationalCredential, schema:OrganizationRole;

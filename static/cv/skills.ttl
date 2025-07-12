@@ -22,57 +22,57 @@
 
 :blockchain-Solana a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Solana" ;
-        schema:relatedSkill :blockchain .
+        elm:relatedSkill :blockchain .
 
 :blockchain-Ethereum a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Ethereum" ;
-        schema:relatedSkill :blockchain .
+        elm:relatedSkill :blockchain .
 
 :project a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Gestion de projet" .
 
 :project-JIRA-Software a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "JIRA" ;
-        schema:relatedSkill :project .
+        elm:relatedSkill :project .
 
 :grc a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Gestion Risques et conformité" .
 
 :grc-compliance a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:relatedSkill :grc ;
+        elm:relatedSkill :grc ;
         elm:label "Conformité Règlementaire et Certifiante" .
 
 :grc-compliance-RGPD a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:relatedSkill 
+        elm:relatedSkill 
                 :grc,
                 :grc-compliance ;
         elm:label "RGPD" .
 
 :grc-compliance-NIS2 a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:relatedSkill 
+        elm:relatedSkill 
                 :grc,
                 :grc-compliance ;
         elm:label "NIS2" .
 
 :grc-compliance-PCI-DSS a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:relatedSkill 
+        elm:relatedSkill 
                 :grc,
                 :grc-compliance ;
         elm:label "PCI/DSS" .
 
 :grc-compliance-iso27001 a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:relatedSkill 
+        elm:relatedSkill 
                 :grc,
                 :grc-compliance ;
         elm:label "ISO/27001" .
 
 
 :grc-riskManagement a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:relatedSkill :grc ;
+        elm:relatedSkill :grc ;
         elm:label "Analyse et Gestion de risques" .
 
 :grc-riskManagement-EBIOS a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:relatedSkill 
+        elm:relatedSkill 
                 :grc,
                 :grc-riskManagement ;
         elm:label "EBIOS-RM" .
@@ -127,6 +127,26 @@
         elm:label "Cloud Computing" ;
         elm:relatedSkill :data-structure .
 
+:cloud-Azure a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Azure" ;
+        elm:relatedSkill :cloud .
+
+:tools-CRM a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "CRM" .
+
+:cloud-AzureAD a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "AzureAD (EntraID)" ;
+        elm:relatedSkill 
+                :cloud,
+                :cloud-Azure .
+
+:cloud-Dynamics a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Microsoft Dynamics" ;
+        elm:relatedSkill 
+                :cloud,
+                :tools-CRM,
+                :cloud-Azure .
+
 :cloud-GCP a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "GCP" ;
         elm:relatedSkill :cloud .
@@ -141,10 +161,27 @@
 
 :tools-gitea a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Gitea" ;
-        elm:relatedSkill :cicd ,:devops .
+        elm:relatedSkill 
+                :cicd ,
+                :devops .
+
+:sgbdr a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "SGBDR" .
 
 :sgbd-DB2 a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "DB2" .
+        elm:label "DB2" ;
+        elm:relatedSkill
+                :sgbdr .
+
+:sgbd-mysql a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "mySQL" ;
+        elm:relatedSkill
+                :sgbdr .
+
+:sgbd-postgres a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "postgreSQL" ;
+        elm:relatedSkill
+                :sgbdr .
 
 :eventbus a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "EventBUS" .
@@ -273,9 +310,29 @@
         elm:relatedSkill :cicd, :devops.
 
 
+:auth-iam a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "IAM" ;
+        elm:relatedSkill
+                :grc.
+
 :auth-sso a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "SSO" ;
         elm:relatedESCOSkill <http://data.europa.eu/> .
+
+:auth-oidc a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "OIDC" ;
+        elm:relatedSkill 
+                :sso .
+
+:auth-saml a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "SAML" ;
+        elm:relatedSkill 
+                :sso .
+
+:auth-oauth a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "oAuth" ;
+        elm:relatedSkill 
+                :sso .
 
 :auth-LDAP a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "LDAP"@en ;

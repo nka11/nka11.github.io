@@ -128,6 +128,7 @@
         skills:data-noSQL,
         skills:ai-general,
         skills:ai-neuralnet,
+        skills:sgbd-postgres,
         skills:cloud-GCP,
         skills:tools-ansible,
         skills:tools-terraform,
@@ -137,17 +138,46 @@
         skills:eventbus-kafka,
         skills:programming-python .
 
+:cm-cxo a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Projet 'Customer Experience Optimization'" ;
+    schema:startDate "2016-06-02"^^xsd:date ;
+    schema:endDate "2019-10-31"^^xsd:date ;
+    schema:description """- Architecture projet : Cadrage, Choix d'un outil de CRM, Conception d'une experience unifiée avec le Clubmed Resa System.
+    Mise en oeuvre d'une stratégie de propagation entre le CRM Dynamics et le site central DB2.
+    Intégration de la solution IBM ISAM pour le SSO SAML et OIDC entre les différents composants du projet
+    """ ;
+    schema:about
+        skills:data-structure,
+        skills:auth-sso,
+        skills:auth-softwaredesign,
+        skills:sgbd-DB2,
+        skills:auth-oidc,
+        skills:auth-saml,
+        skills:cicd-gitlab,
+        skills:auth-LDAP,
+        skills:cloud-Dynamics,
+        skills:programming-java
+        .
+
 :cm-SSO a schema:CreativeWork, schema:Project, schema:Role ;
-    schema:name "Integration d'authentification fédérée" ;
-    schema:startDate "2017-06-02"^^xsd:date ;
+    schema:name "Integration globale d'authentification fédérée" ;
+    schema:startDate "2019-11-02"^^xsd:date ;
     schema:endDate "2021-10-31"^^xsd:date ;
-    schema:description """Intégration de la solution IBM ISAM pour le SSO SAML et OIDC et mise en œuvre d’une politique de gestion des identités.
+    schema:description """Elargissement de l'intégration de l'authentification fédérée sur l'outil SIRH (Workday - 40k utilisateurs).
+    Mise en œuvre d’une politique de gestion des identités.
+    Phase 2 : Migration vers la solution Microsoft AzureAD (Entra ID) pour le composant de fédération.
     """ ;
     schema:about
         skills:auth-sso,
+        skills:auth-iam,
+        skills:auth-oidc,
+        skills:auth-oauth,
+        skills:auth-saml,
         skills:tools-ansible,
         skills:cicd-gitlab,
         skills:auth-LDAP,
+        skills:cloud-AzureAD,
+        skills:sgbd-postgres,
         skills:programming-python
         .
 
@@ -191,3 +221,19 @@
         skills:it-algorithmics,
         skills:scm-git .
 
+:contrib-neovillages a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:roleName "Contributor" ;
+    schema:name "NeoVillages" ;
+    schema:startDate "2023-10-01"^^xsd:date ;
+    schema:endDate "2024-04-01"^^xsd:date ;
+    schema:description "Contribution au site Neovillages : Intégration d'un IdP OIDC et mise en oeuvre d'une authentification avec OIDC" ;
+    schema:url <http://aloha-editor.org/> ;
+    schema:about
+        skills:it-algorithmics,
+        skills:programming-javascript,
+        skills:auth-sso,
+        skills:auth-oidc,
+        skills:data-SQL,
+        skills:sgbd-mysql,
+        skills:sgbd-postgres,
+        skills:scm-git .
