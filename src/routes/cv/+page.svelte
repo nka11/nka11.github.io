@@ -14,6 +14,7 @@
     import SkillsCloud from '$lib/components/schemaorgcv/SkillsCloud.svelte';
     import ListPersonalProjects from '$lib/components/schemaorgcv/ListPersonalProjects.svelte';
     import PdfPrint from '$lib/components/schemaorgcv/PDF_print.svelte';
+    import PersonLangs from '$lib/components/schemaorgcv/PersonLangs.svelte';
   
     export let data: {jsonld: any, dataFiles: string[]};
   
@@ -91,9 +92,9 @@
     about={ `${person.person.value}` }>
       <h2 property="schema:name">{person.name?.value}</h2>
       <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
-      {#if person.lang}
+      <!-- {#if person.lang}
           <p>Langue : {person.lang?.value}</p>
-      {/if}
+      {/if} -->
 
           <h2 class="text-3xl">Expérience Professionnelle</h2>
       <section 
@@ -105,9 +106,9 @@
         {/each}
       </section>
       <h2 class="text-3xl">Compétences</h2>
-      <section>
+      <!-- <section> -->
           <SkillsCloud skills={ skills }></SkillsCloud>
-      </section>
+      <!-- </section> -->
       <h2 class="text-3xl">Formation</h2>
       <ListEducations of={ person }></ListEducations>
       <section>
@@ -115,7 +116,7 @@
       </section>
       <h2 class="text-3xl">Langues</h2>
       <section>
-
+        <PersonLangs person={ person.person }/>
       </section>
       <h2 class="text-3xl">Projets Personnels</h2>
       <section>

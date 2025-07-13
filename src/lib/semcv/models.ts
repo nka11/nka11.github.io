@@ -3,11 +3,16 @@ import { BlankNode, Literal, NamedNode } from 'oxigraph';
 export interface IPersonDetails {
     person: NamedNode;
     name: Literal | null;
-    lang: Literal | null;
     email: Literal | null;
     jobTitle: Literal | null;
     decription: Literal | null
     }
+export interface IPersonLangDetails {
+    person: NamedNode;
+    lang: Literal | null;
+    level: Literal | null;
+  
+}
 
 export interface IOrganizationRole {
     role: NamedNode;

@@ -82,7 +82,19 @@ nka:me a schema:Person, schema:CreativeWork ;
             schema:addressCountry "France"
         ]
     ] ;
-    # schema:knowsLanguage "fr", "en" ;
+    schema:knowsLanguage 
+        [
+            a schema:Language ;
+            schema:name "Français"@fr, "French"@en ;
+            schema:description "Native"@en, "Langue maternelle"@fr
+
+        ],
+        [
+            a schema:Language ;
+            schema:name "Anglais"@fr, "English"@en ;
+            schema:description "Bilingual"@en, "Bilingue"@fr
+
+        ] ;
     # schema:hasSkill "Java", "Docker", "SPARQL", "Azure" ;
 
     schema:alumniOf :dut1998, :edu2 ;
