@@ -14,6 +14,12 @@ export interface IPersonLangDetails {
   
 }
 
+export interface IVariantsDetails {
+  person: NamedNode;
+  variant: NamedNode;
+  name: Literal | null;
+}
+
 export interface IOrganizationRole {
     role: NamedNode;
     roleName: Literal | null;

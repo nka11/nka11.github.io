@@ -4,8 +4,8 @@
   export let skills: ISkillsCount[];
 
   // Déterminer les bornes de score
-  const minCount = Math.min(...skills.map(t => t.count.value));
-  const maxCount = Math.max(...skills.map(t => t.count.value));
+  const minCount = Math.min(...skills.map(t => Number(t.count.value)));
+  const maxCount = Math.max(...skills.map(t => Number(t.count.value)));
 
   // Fonction de normalisation
   const getFontSize = (count: number) => {
@@ -49,7 +49,7 @@
   {#each skills as { skillName, count }}
     <span
       class="tag"
-      style="font-size: {getFontSize(count.value)}; color: {getColor(count.value)};"
+      style="font-size: {getFontSize(Number(count.value))}; color: {getColor(Number(count.value))};"
       title={`Score: ${count}`}
     >
       {skillName.value}
