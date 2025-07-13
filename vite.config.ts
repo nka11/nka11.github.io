@@ -7,7 +7,7 @@ const config = defineConfig({
 	plugins: [
 		sveltepress({
 			theme: defaultTheme({
-				//globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
+				// globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
 				navbar: [
 					{
 						title: "Articles",

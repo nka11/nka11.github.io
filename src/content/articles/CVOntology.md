@@ -13,6 +13,8 @@ tags:
 
 Modéliser un **CV en RDF** permet de structurer les informations professionnelles d'une personne de façon interopérable, exploitable par des moteurs sémantiques, des triplestores ou des plateformes d'analyse de profils.
 
+Par ailleurs, les descriptions sémantiques rendues visibles des moteurs de recherche (via RDFa / JSONLD / microformats) sont des 'boosters' de visibilité, et une stratégie très efficace et reconnue dans le SEO [1].
+
 Plusieurs **ontologies RDF** ont été proposées pour cette tâche. Cet article compare les principales : **ResumeRDF**, **Europass**, **DOAC**, **FOAF** et **Schema.org**, en détaillant leurs usages, avantages et limites.
 
 ---
@@ -134,9 +136,28 @@ Chaque vocabulaire RDF pour CV a ses points forts. Si tu veux viser interopérab
 N’hésite pas à combiner plusieurs vocabulaires (FOAF + DOAC + Europass) pour un rendu complet.
 
 ## 📚 Ressources
+<ul>
+<li>
 
- - [Europass RDF Ontology](https://data.europa.eu/europass/ontology/)
- - [ESCO – European Skills, Competences, Qualifications and Occupations](https://esco.ec.europa.eu/)
- - [FOAF Vocabulary](http://xmlns.com/foaf/spec/)
- - [Schema.org](https://schema.org/)
- - [DOAC Ontology (archivé)](http://ramonantonio.net/doac/)
+[SEO Sémantique](https://fr.oncrawl.com/referencement/seo-semantique/)
+</li>
+<li>
+
+[Europass RDF Ontology](https://data.europa.eu/europass/ontology/)
+</li>
+<li>
+
+[ESCO – European Skills, Competences, Qualifications and Occupations](https://esco.ec.europa.eu/)
+</li>
+<li>
+
+[FOAF Vocabulary](http://xmlns.com/foaf/spec/)
+</li>
+<li>
+
+[Schema.org](https://schema.org/)
+</li>
+<li>
+
+[DOAC Ontology (archivé)](http://ramonantonio.net/doac/)
+</ul>
