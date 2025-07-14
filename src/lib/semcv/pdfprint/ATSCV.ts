@@ -7,6 +7,7 @@ import { listCredentials } from "../adapters/credentialsAdapter";
 import { extractYear, formatDateFr } from "$lib/dateFormatter";
 import { listProjects } from "../adapters/projectsAdapter";
 import { listEducations } from "../adapters/educationAdapters";
+import { listPersonLangs } from "../adapters/langsAdapters";
 
 interface DocState {
   doc: jsPDF,
@@ -60,7 +61,7 @@ export function generateATS_CV(personDetails: IPersonDetails, lang: string): jsP
   let skills = skillsCounts(lang);
   let organizationRoles = listOrgRoles(personDetails?.person, "schema:hasOccupation",lang).sort(compareExperience);
   let educationList = listEducations(personDetails.person,"schema:alumniOf",lang);
-  
+  let langList = listPersonLangs(personDetails.person, lang);
   organizationRoles.forEach((role) => {
     printOrganizationRole(role, state, lang);
   });
@@ -93,6 +94,23 @@ export function generateATS_CV(personDetails: IPersonDetails, lang: string): jsP
   projects.forEach((project) => {
     printProjectDetails(state,project, lang,true);
   });
+
+  // Section : Langues
+  state.y +=  10;
+  doc.setFontSize(16);
+  doc.setFont("helvetica", "bold");
+  doc.setLineWidth(0.2);
+  doc.line(margin,state.y, 210 - margin,state.y);
+  state.y +=  6;
+  doc.text("Langues", margin,state.y);
+  state.y +=  8;
+  doc.setFontSize(10);
+  doc.setFont("helvetica", "normal");
+  langList.forEach((personLang) => {
+    const langlabel = ` - ${personLang.lang?.value} - ${personLang.level?.value}`;
+    writeBlock(state,langlabel,0,5);
+  })
+
   // Section : Compétences
   state.y +=  10;
   doc.setFontSize(16);
