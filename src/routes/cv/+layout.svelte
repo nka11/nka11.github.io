@@ -1,4 +1,5 @@
 <script lang="ts">
+  
   const { children } = $props()
   import { onMount } from 'svelte';
   import { initOxigraph, oxigraphStore } from '$lib/semcv/semantic_cv_store';

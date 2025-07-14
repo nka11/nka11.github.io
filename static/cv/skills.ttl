@@ -69,7 +69,10 @@
 
 :grc-riskManagement a elm:LearningOutcome, schema:DefinedTerm ;
         elm:relatedSkill :grc ;
-        elm:label "Analyse et Gestion de risques" .
+        elm:label 
+                "Analyse et Gestion de risques"@fr,
+                "Risk Management"@en
+                 .
 
 :grc-riskManagement-EBIOS a elm:LearningOutcome, schema:DefinedTerm ;
         elm:relatedSkill 
@@ -256,6 +259,10 @@
         elm:relatedSkill 
                 :programming ,
                 :programming-python .
+
+:programming-C a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "C" ;
+        elm:relatedSkill :programming .
 
 :programming-COBOL a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Cobol" ;

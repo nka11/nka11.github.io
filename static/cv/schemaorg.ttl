@@ -129,6 +129,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:programming-java,
         skills:programming,
         skills:programming-pascal,
+        skills:programming-C,
         skills:softwaredesign-uml,
         skills:softwaredesign ;
     schema:subjectOf projects:iut-stage .
