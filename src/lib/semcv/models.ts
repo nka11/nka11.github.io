@@ -5,7 +5,7 @@ export interface IPersonDetails {
     name: Literal | null;
     email: Literal | null;
     jobTitle: Literal | null;
-    decription: Literal | null
+    description: Literal | null
     }
 export interface IPersonLangDetails {
     person: NamedNode;

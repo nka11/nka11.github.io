@@ -59,7 +59,7 @@ nka:me a schema:Person, schema:CreativeWork ;
             schema:name "Solution Architect"@en ;
             schema:inDefinedTermSet cv:variant-archi ;
             # Section summary
-            schema:desciption 
+            schema:description 
                 """
                     - Natural ability for analysing complex systems behaviours and interactions.
                     - Multi-tier application architecture design involving network and security in multi-os environments with inter-system communications.
@@ -67,7 +67,7 @@ nka:me a schema:Person, schema:CreativeWork ;
                     - Communicating with business and understanding problems and needs.
                 """@en,
                 """
-                    - Capacité naturelle pour l'analise du comportement des systemes complexes et de leurs interactions.
+                    - Capacité naturelle pour l'analyse du comportement des systemes complexes et de leurs interactions.
                     - Architecture des Applications multi-tiers qui impliquent du réseau et de la sécurité dans des environnements hétérogènes.
                     - Compréhension globale globale et compréhension des différentes composantes d'une informatique de groupe.
                     - Capacité de communication avec les métiers et compréhension des enjeux et besoins.

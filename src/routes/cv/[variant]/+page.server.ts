@@ -35,8 +35,9 @@ const variantsQuery = `
             schema:name ?name .
       }
       `
-      const results = (store?.query(variantsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IVariantsDetails[];
-    
+const results = (store?.query(variantsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IVariantsDetails[];
+
+console.log(results)
 
 export async function entries() {
   console.log(results);
@@ -52,16 +53,20 @@ export async function entries() {
 
 export async function load({ params }: any) {
   let data:any;
+  console.log(params)
   results.forEach((variant) => {
-    console.log(variant.variant);
-    if (variant.variant === params.variant) {
-      return {
-        metadata: variant, // ✅ uniquement des données sérialisables
-        variantPath: variant.variant.value.slice(VARIANT_PREFIX.length) // pour construire le path d’import dynamique
+    console.log(variant.variant.value);
+    console.log(params.variant);
+    console.log(variant.variant.value.endsWith(params.variant));
+    if (variant.variant.value.endsWith(params.variant)) {
+      data = {
+        dataFiles: dataFiles,
+        metadata: variant.variant.value, // ✅ uniquement des données sérialisables
+        variant: variant.variant.value.slice(VARIANT_PREFIX.length) // pour construire le path d’import dynamique
       };
     }
   })
-    
+  return data;
   }
 
 
