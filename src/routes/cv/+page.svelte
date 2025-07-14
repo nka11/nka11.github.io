@@ -2,7 +2,7 @@
   import { locale, _ } from 'svelte-i18n';
   
   import { onMount } from 'svelte';
-  import OrganizationRole from '$lib/components/schemaorgcv/OrganisationRole.svelte';
+  import OrganizationRole from '$lib/components/schemaorgcv/OrganizationRole.svelte';
   import { oxigraphStore, initOxigraph, compareExperience } from '$lib/semcv/semantic_cv_store';
   import { get } from 'svelte/store';
   import type { IOrganizationRole, IPersonDetails, ISkillsCount } from '$lib/semcv/models';
@@ -17,6 +17,8 @@
     import PersonLangs from '$lib/components/schemaorgcv/PersonLangs.svelte';
     import { listPersonVariants } from '$lib/semcv/adapters/variantsAdapter';
     import CvMenu from './CVMenu.svelte';
+    import { browsingPreferences } from '$lib/state.svelte';
+    import Experiences from '$lib/components/schemaorgcv/Experiences.svelte';
   
     export let data: {jsonld: any, dataFiles: string[],variants:{variant:string,name:string}[]};
   // import { userPrefs } from './states';
@@ -30,12 +32,7 @@
   let loading = true;
   let savedLang: string = 'en';
   // https://europa.eu/europass/elm-browser/documentation/rdf/ontology/documentation/elm.html#/
-  export const changeLang = (lang: string) => {
-    locale.set(lang);
-    loadCVData(lang);
-    savedLang = lang;
-    localStorage.setItem('lang', lang);
-  };
+
 
 
   const jsonLD = JSON.stringify(data.jsonld);
@@ -45,9 +42,9 @@
   async function loadCVData(lang: string = 'fr') {
 
       const personNode: NamedNode = namedNode("https://nka11.github.io/#me")
-      person = getPerson(personNode,lang);
+      person = getPerson(personNode,browsingPreferences.lang);
       skills = skillsCounts(lang);
-      organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",lang).sort(compareExperience);
+      organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",browsingPreferences.lang).sort(compareExperience);
       console.log(organizationRoles);
   }
 
@@ -60,11 +57,11 @@
       await initOxigraph(data.dataFiles); // Exécuté uniquement côté navigateur
       const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
-          console.log("CV layout onMount: semantic store not ready");
-          return;
-        }
-        oxistore = store as unknown as Store;
-        loadCVData(savedLang);      
+        console.log("CV layout onMount: semantic store not ready");
+        return;
+      }
+      oxistore = store as unknown as Store;
+      loadCVData(browsingPreferences.lang);      
     } catch (e) {
       console.error(e);
       error = 'Erreur lors de l’exécution du module WASM ou du parsing RDF.';
@@ -80,8 +77,6 @@
 {:else if error}
   <p style="color: red;">{error}</p>
 {:else if mainResult}
-<button onclick={() => changeLang('fr')}>FR</button>
-<button onclick={() => changeLang('en')}>EN</button>
 
 <!-- 
   <select on:change={(e) => changeLang(e.target.value)}>
@@ -89,47 +84,42 @@
     <option value="fr">Français</option>
     </select> -->
     {#if person}
-    <CvMenu person={ person } variants={ data.variants } ></CvMenu>
-    <article
-    prefix="
-      schema: https://schema.org/
-    "
-    typeof="schema:Person"
-    about={ `${person.person.value}` }>
-      <h2 property="schema:name">{person.name?.value}</h2>
-      <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
-      <!-- {#if person.lang}
-          <p>Langue : {person.lang?.value}</p>
-      {/if} -->
+    <CvMenu person={ person.person } variants={ data.variants } ></CvMenu>
+    {#key browsingPreferences.lang}
+      <article
+      prefix="
+        schema: https://schema.org/
+      "
+      typeof="schema:Person"
+      about={ `${person.person.value}` }>
+        <h2 property="schema:name">{person.name?.value}</h2>
+        <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
+        <!-- {#if person.lang}
+            <p>Langue : {person.lang?.value}</p>
+        {/if} -->
 
-          <h2 class="text-3xl">Expérience Professionnelle</h2>
-      <section 
-        class="px-2"
-        >
+        <Experiences person={person.person}></Experiences>
+        <h2 class="text-3xl">Compétences</h2>
+        <!-- <section> -->
+            <SkillsCloud skills={ skills }></SkillsCloud>
+        <!-- </section> -->
+        <h2 class="text-3xl">Formation</h2>
+        <ListEducations of={ person }></ListEducations>
+        <section>
+
+        </section>
+        <h2 class="text-3xl">Langues</h2>
+        <section>
+          <PersonLangs person={ person.person }/>
+        </section>
+        <h2 class="text-3xl">Projets Personnels</h2>
+        <section>
+          <ListPersonalProjects person={person}></ListPersonalProjects>
+        </section>
+
+      </article>
         
-        {#each organizationRoles as orgrole}
-          <OrganizationRole organizationRole={orgrole}/>
-        {/each}
-      </section>
-      <h2 class="text-3xl">Compétences</h2>
-      <!-- <section> -->
-          <SkillsCloud skills={ skills }></SkillsCloud>
-      <!-- </section> -->
-      <h2 class="text-3xl">Formation</h2>
-      <ListEducations of={ person }></ListEducations>
-      <section>
-
-      </section>
-      <h2 class="text-3xl">Langues</h2>
-      <section>
-        <PersonLangs person={ person.person }/>
-      </section>
-      <h2 class="text-3xl">Projets Personnels</h2>
-      <section>
-        <ListPersonalProjects person={person}></ListPersonalProjects>
-      </section>
-
-    </article>
+    {/key}
   {/if}
   
   

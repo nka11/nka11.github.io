@@ -3,14 +3,12 @@
     import type { IPersonLangDetails } from "$lib/semcv/models";
     import type { NamedNode } from "oxigraph";
     import { onMount } from "svelte";
+  	import { browsingPreferences } from '$lib/state.svelte.js';
 
     export let person:NamedNode;
     let languages: IPersonLangDetails[] = [];
-    let savedLang: string = 'en';
     onMount(async () => {
-        const stored = localStorage.getItem('lang');
-        if (stored) savedLang = stored;
-        languages = listPersonLangs(person, savedLang);
+        languages = listPersonLangs(person, browsingPreferences.lang);
         console.log(languages)
     });
 

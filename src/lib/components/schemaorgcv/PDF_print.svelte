@@ -6,14 +6,14 @@ import { generateATS_CV } from "$lib/semcv/pdfprint/ATSCV";
     import { onMount } from "svelte";
 // Default export is a4 paper, portrait, using millimeters for units
 const doc = new jsPDF();
-export let personDetails:IPersonDetails;
+export let personNode:NamedNode;
 let savedLang: string = 'en';
 
 
 doc.text("Hello world!", 10, 10);
 
 function savePdf() {
-    const cv: jsPDF = generateATS_CV(personDetails,savedLang);
+    const cv: jsPDF = generateATS_CV(personNode,savedLang);
     cv.save()
 }
 

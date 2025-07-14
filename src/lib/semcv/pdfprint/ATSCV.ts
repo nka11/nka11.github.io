@@ -8,6 +8,9 @@ import { extractYear, formatDateFr } from "$lib/dateFormatter";
 import { listProjects } from "../adapters/projectsAdapter";
 import { listEducations } from "../adapters/educationAdapters";
 import { listPersonLangs } from "../adapters/langsAdapters";
+import type { NamedNode } from "oxigraph";
+import { getPerson } from "../adapters/personAdapters";
+import { browsingPreferences } from "$lib/state.svelte";
 
 interface DocState {
   doc: jsPDF,
@@ -16,9 +19,9 @@ interface DocState {
   maxWidth: number
 }
 
-export function generateATS_CV(personDetails: IPersonDetails, lang: string): jsPDF {
+export function generateATS_CV(personNode: NamedNode, lang: string): jsPDF {
   const doc = new jsPDF();
-
+  const personDetails: IPersonDetails = getPerson(personNode,browsingPreferences.lang)
   const maxWidth = 170;
   const margin = 20;
   const state={doc: doc, y: margin, margin:margin, maxWidth: maxWidth};

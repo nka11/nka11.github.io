@@ -6,6 +6,10 @@ import { defineConfig } from 'vite'
 const config = defineConfig({
 	plugins: [
 		sveltepress({
+			// theme: {
+			// 	globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
+
+			// },
 			theme: defaultTheme({
 				//globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
 				navbar: [
