@@ -7,6 +7,7 @@ import * as fs from 'fs';
 import { Store, type Term } from 'oxigraph';
 
 const store = new Store();
+const VARIANT_PREFIX = "https://nka11.github.io/cv#variant-";
 
 const dataFiles = [
       '/cv/schemaorg.ttl',
@@ -25,10 +26,8 @@ const dataFiles = [
       //   { contentType: 'text/turtle' }
       // );
     });
-const PREFIX = "https://nka11.github.io/cv#";
 const variantsQuery = `
       PREFIX schema: <https://schema.org/>
-      PREFIX : <https://nka11.github.io/cv#> 
       
       SELECT ?variant ?name
       WHERE {
@@ -42,7 +41,7 @@ const variantsQuery = `
 export async function entries() {
   console.log(results);
   const variants = results.map((variant) => {
-      return { variant: variant.variant.value.slice(PREFIX.length) };
+      return { variant: variant.variant.value.slice(VARIANT_PREFIX.length) };
     })
 
   return variants;
@@ -58,7 +57,7 @@ export async function load({ params }: any) {
     if (variant.variant === params.variant) {
       return {
         metadata: variant, // ✅ uniquement des données sérialisables
-        variant: variant.variant.value // pour construire le path d’import dynamique
+        variant: variant.variant.value.slice(VARIANT_PREFIX.length) // pour construire le path d’import dynamique
       };
     }
   })
