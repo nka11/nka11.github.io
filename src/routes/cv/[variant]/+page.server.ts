@@ -16,16 +16,16 @@ const dataFiles = [
     ]
 
 
-    dataFiles.map((turtleUrl) => {
-      const turtlePath = `./static${turtleUrl}`;
-    
-      const turtleString = fs.readFileSync(turtlePath,'utf8');  
-      store.load(turtleString, { format: 'text/turtle' });
-      // const quadStream = rdfParse.rdfParser.parse(
-      //   Readable.from([turtleString]),
-      //   { contentType: 'text/turtle' }
-      // );
-    });
+dataFiles.map((turtleUrl) => {
+  const turtlePath = `./static${turtleUrl}`;
+
+  const turtleString = fs.readFileSync(turtlePath,'utf8');  
+  store.load(turtleString, { format: 'text/turtle' });
+  // const quadStream = rdfParse.rdfParser.parse(
+  //   Readable.from([turtleString]),
+  //   { contentType: 'text/turtle' }
+  // );
+});
 const variantsQuery = `
       PREFIX schema: <https://schema.org/>
       
@@ -41,7 +41,10 @@ const variantsQuery = `
 export async function entries() {
   console.log(results);
   const variants = results.map((variant) => {
-      return { variant: variant.variant.value.slice(VARIANT_PREFIX.length) };
+      return { 
+        variant: variant.variant.value.slice(VARIANT_PREFIX.length),
+        name: variant.name?.value
+      };
     })
 
   return variants;
@@ -49,15 +52,12 @@ export async function entries() {
 
 export async function load({ params }: any) {
   let data:any;
-    
-
-    
   results.forEach((variant) => {
     console.log(variant.variant);
     if (variant.variant === params.variant) {
       return {
         metadata: variant, // ✅ uniquement des données sérialisables
-        variant: variant.variant.value.slice(VARIANT_PREFIX.length) // pour construire le path d’import dynamique
+        variantPath: variant.variant.value.slice(VARIANT_PREFIX.length) // pour construire le path d’import dynamique
       };
     }
   })

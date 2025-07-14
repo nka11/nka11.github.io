@@ -15,9 +15,12 @@
     import ListPersonalProjects from '$lib/components/schemaorgcv/ListPersonalProjects.svelte';
     import PdfPrint from '$lib/components/schemaorgcv/PDF_print.svelte';
     import PersonLangs from '$lib/components/schemaorgcv/PersonLangs.svelte';
+    import { listPersonVariants } from '$lib/semcv/adapters/variantsAdapter';
+    import CvMenu from './CVMenu.svelte';
   
-    export let data: {jsonld: any, dataFiles: string[]};
-  
+    export let data: {jsonld: any, dataFiles: string[],variants:{variant:string,name:string}[]};
+  // import { userPrefs } from './states';
+
     let mainResult: Array<any> = [];
   let person: IPersonDetails | undefined = undefined;
   let organizationRoles: IOrganizationRole[] = [];
@@ -27,12 +30,13 @@
   let loading = true;
   let savedLang: string = 'en';
   // https://europa.eu/europass/elm-browser/documentation/rdf/ontology/documentation/elm.html#/
-  const changeLang = (lang: string) => {
+  export const changeLang = (lang: string) => {
     locale.set(lang);
     loadCVData(lang);
     savedLang = lang;
     localStorage.setItem('lang', lang);
   };
+
 
   const jsonLD = JSON.stringify(data.jsonld);
   const ldString = `<script type=\"application/ld+json\">${jsonLD}\u003C/script>`;
@@ -68,6 +72,7 @@
       loading = false;
     }
   });
+
 </script>
 
 {#if loading}
@@ -75,15 +80,16 @@
 {:else if error}
   <p style="color: red;">{error}</p>
 {:else if mainResult}
-<PdfPrint personDetails={ person as IPersonDetails }></PdfPrint>
-<button on:click={() => changeLang('fr')}>FR</button>
-<button on:click={() => changeLang('en')}>EN</button>
+<button onclick={() => changeLang('fr')}>FR</button>
+<button onclick={() => changeLang('en')}>EN</button>
+
 <!-- 
   <select on:change={(e) => changeLang(e.target.value)}>
     <option value="en">English</option>
     <option value="fr">Français</option>
-  </select> -->
-  {#if person}
+    </select> -->
+    {#if person}
+    <CvMenu person={ person } variants={ data.variants } ></CvMenu>
     <article
     prefix="
       schema: https://schema.org/

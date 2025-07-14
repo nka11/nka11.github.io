@@ -249,7 +249,13 @@
         elm:label "Angular" ;
         elm:relatedSkill 
                 :programming ,
-                :javascript .
+                :programming-javascript .
+
+:library-django a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Django" ;
+        elm:relatedSkill 
+                :programming ,
+                :programming-python .
 
 :programming-COBOL a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Cobol" ;

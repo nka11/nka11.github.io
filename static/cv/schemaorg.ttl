@@ -110,6 +110,7 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:producer 
         projects:contrib-neovillages,
         projects:contrib-aloha-editor,
+        projects:contrib-hyperkitty,
         projects:author-KaraCos .
 
 ### Formations

@@ -11,24 +11,6 @@
   let ContentComponent: any;
   console.log(data);
   onMount(async () => {
-    // const modules = import.meta.glob('../../../content/articles/*.md');
-    // // const match = Object.entries(modules).find(([path]) =>
-    // //   path.includes(`${data.slug}.md`)
-    // // );
-
-    // // if (!match) {
-    // //   throw error(404, 'Markdown not found');
-    // // }
-
-    // //const mod = await match[1]();
-    // for (const resolver of Object.values(modules)) {
-    //     const mod: any = await resolver();
-    //     const metadata = mod.metadata;
-
-    //     if (metadata.slug === data.slug) {
-    //       ContentComponent = mod.default;
-    //     }
-    //   }
 
     
   });
