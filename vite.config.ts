@@ -1,14 +1,18 @@
 import { defaultTheme } from '@sveltepress/theme-default'
 import { sveltepress } from '@sveltepress/vite'
+
 import path from 'path'
+import Unocss from 'unocss/vite'
+
 import { defineConfig } from 'vite'
+
 
 const config = defineConfig({
 	plugins: [
+		Unocss(),
 		sveltepress({
 			// theme: {
 			// 	globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
-
 			// },
 			theme: defaultTheme({
 				//globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),

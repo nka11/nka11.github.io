@@ -27,6 +27,7 @@ export function getPerson(subject: NamedNode, lang: string = "fr", variant: Name
       FILTER(LANG(?jobTitle) = "${lang}" || LANG(?jobTitle) = "")
       OPTIONAL {
         ?jobTitleTerm a schema:DefinedTerm ;
+              schema:inDefinedTermSet ${variant};
               schema:description ?description.
       FILTER(LANG(?description) = "${lang}" || LANG(?description) = "")
     }

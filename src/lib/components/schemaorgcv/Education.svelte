@@ -6,33 +6,35 @@
     import Skills from './Skills.svelte';
     import { listProjects } from '$lib/semcv/adapters/projectsAdapter';
     import ProjectDetail from './ProjectDetail.svelte';
+    import { browsingPreferences } from '$lib/state.svelte';
 
-  export let education: IEducationDetails;
-  let skills: ISkillsDetails[] = [];
-  let projects: IProjectDetail[] = [];
-  let savedLang: string = 'en';
-    onMount(async () => {
-      const stored = localStorage.getItem('lang');
-      if (stored) savedLang = stored;
-      skills = listSkills(education.educ, "schema:competencyRequired", savedLang);
-      projects = listProjects(education.educ, "schema:subjectOf", savedLang);
+  let params:{
+    education: IEducationDetails,
+    lang?: string
+  } = $props();
+  let skills: ISkillsDetails[] = $state([]);
+  let projects: IProjectDetail[] = $state([]);
+  onMount(async () => {
+    skills = listSkills(params.education.educ, "schema:competencyRequired", params.lang ? params.lang : browsingPreferences.lang);
+    projects = listProjects(params.education.educ, "schema:subjectOf", params.lang ? params.lang : browsingPreferences.lang);
   });
 </script>
 
-{#if education}
+{#if params.education}
+<h2 class="text-3xl">Formations et diplômes</h2>
 <section class=" py-1 px-2 m-2">
   <p class="text-xl font-semibold p-0 m-0">
-      {#if education.educEnd }
-      <span>{extractYear(education.educEnd.value)}</span> — 
+      {#if params.education.educEnd }
+      <span>{extractYear(params.education.educEnd.value)}</span> — 
     {/if}
-    {education.educName?.value}
+    {params.education.educName?.value}
   </p>
-  <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Niveau :</strong> {education.educLevel?.value}</p>
-  {#if education.educLocationName }
-    <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Établissement :</strong> {education.educLocationName.value}</p>
+  <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Niveau :</strong> {params.education.educLevel?.value}</p>
+  {#if params.education.educLocationName }
+    <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Établissement :</strong> {params.education.educLocationName.value}</p>
   {/if}
-  {#if education.educLocationAddress }
-    <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Adresse :</strong> {education.educLocationAddress.value}</p>
+  {#if params.education.educLocationAddress }
+    <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Adresse :</strong> {params.education.educLocationAddress.value}</p>
   {/if}
   <Skills skills={skills}></Skills>
   {#if projects.length > 0}

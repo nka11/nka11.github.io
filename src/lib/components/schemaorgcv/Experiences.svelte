@@ -10,13 +10,19 @@
   import { _ } from 'svelte-i18n';
 
   let params:{
-    person:NamedNode
+    person:NamedNode,
+    variant?: NamedNode,
     lang?:string
   } = $props();
 
   let organizationRoles: IOrganizationRole[] = $state([]);
   onMount(async () => {
-    organizationRoles = listOrgRoles(params.person,"schema:hasOccupation", params.lang ? params.lang : browsingPreferences.lang ).sort(compareExperience);
+    organizationRoles = listOrgRoles(
+        params.person,
+        "schema:hasOccupation",
+        params.lang ? params.lang : browsingPreferences.lang,
+        params.variant
+      ).sort(compareExperience);
   })
 </script> 
 {#if organizationRoles}

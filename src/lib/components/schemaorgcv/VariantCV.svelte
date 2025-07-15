@@ -6,6 +6,10 @@
     import { onMount } from "svelte";
     import { getPerson } from "$lib/semcv/adapters/personAdapters";
     import { initOxigraph } from "$lib/semcv/semantic_cv_store";
+    import SkillsCloud from "./SkillsCloud.svelte";
+    import ListEducations from "./ListEducations.svelte";
+    import PersonLangs from "./PersonLangs.svelte";
+    import PersonalProjects from "./PersonalProjects.svelte";
   let params:{
     variant: NamedNode,
     person: NamedNode,
@@ -22,14 +26,39 @@
 
   });
 </script>
+{#key browsingPreferences.lang}  
+  {#if personDetails}
+    <h1>
+      { personDetails.name?.value }
+    </h1>
 
-{#if personDetails}
-  <h2>
-    { personDetails.jobTitle?.value }
-  </h2>
-  <p 
-  class="whitespace-pre-line">
-    { personDetails.description?.value }
-  </p>
-  <Experiences person={personDetails.person} lang={ browsingPreferences.lang }></Experiences>
-{/if}
+    <h2>
+      { personDetails.jobTitle?.value }
+    </h2>
+    <p 
+    class="whitespace-pre-line">
+      { personDetails.description?.value }
+    </p>
+    <Experiences 
+      person={personDetails.person} 
+      lang={ browsingPreferences.lang }
+      variant={ params.variant }
+    ></Experiences>
+            <!-- <SkillsCloud skills={ skills }></SkillsCloud> -->
+        <!-- </section> -->
+    <ListEducations of={ params.person }></ListEducations>
+    <section>
+
+    </section>
+    <h2 class="text-3xl">Langues</h2>
+    <section>
+      <PersonLangs person={ params.person }/>
+    </section>
+    <h2 class="text-3xl">Projets Personnels</h2>
+    <section>
+      <PersonalProjects person={params.person}></PersonalProjects>
+    </section>
+
+  
+  {/if}
+{/key}

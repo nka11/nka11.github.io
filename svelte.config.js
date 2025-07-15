@@ -16,6 +16,10 @@ const config = {
 			// }
 		})
 	],
+	// To activate quality
+	// compilerOptions: {
+	// 	runes: true,
+	// },
 	kit: {
 		adapter: adapter({
 			pages: 'dist',

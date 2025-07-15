@@ -6,18 +6,19 @@
   import CredentialDetail from '$lib/components/schemaorgcv/CredentialDetail.svelte';
   import type { ICredentialDetails, IOrganizationRole, ISkillsDetails } from '$lib/semcv/models';
   import { listCredentials } from '$lib/semcv/adapters/credentialsAdapter';
-    import { listSkills } from '$lib/semcv/adapters/skillsAdapter';
-    import Skills from './Skills.svelte';
-  let savedLang: string = 'en';
-  export let organizationRole: IOrganizationRole;
-  let credentialsDetails: ICredentialDetails[] = [];
-  let skills: ISkillsDetails[] = [];
+  import { listSkills } from '$lib/semcv/adapters/skillsAdapter';
+  import Skills from './Skills.svelte';
+  import { browsingPreferences } from '$lib/state.svelte';
+  let params: {
+    organizationRole: IOrganizationRole,
+    lang?: string | undefined
+  } = $props()
+  // export let organizationRole: ;
+  let credentialsDetails: ICredentialDetails[] = $state([]);
+  let skills: ISkillsDetails[] = $state([]);
   onMount(async () => {
-      const stored = localStorage.getItem('lang');
-      if (stored) savedLang = stored;
-      credentialsDetails = listCredentials(organizationRole.role, "schema:hasCredential", savedLang);
-      skills = listSkills(organizationRole.role, "schema:skills", savedLang);
-      
+      credentialsDetails = listCredentials(params.organizationRole.role, "schema:hasCredential", params.lang ? params.lang : browsingPreferences.lang);
+      skills = listSkills(params.organizationRole.role, "schema:skills", params.lang ? params.lang : browsingPreferences.lang);
   })
 </script>
 
@@ -32,73 +33,73 @@
     <link property="elm:hasClassification" href={organizationRole.classification} />
   {/if} -->
 
-  {#if organizationRole.roleName}
+  {#if params.organizationRole.roleName}
     <h3
       property="schema:roleName"
       class="text-2xl font-semibold text-gray-900 pt-1 pb-0 m-0"
     >
-      {organizationRole.roleName.value}
+      {params.organizationRole.roleName.value}
     </h3>
   {/if}
 
-  {#if organizationRole.employer || organizationRole.startDate || organizationRole.endDate}
+  {#if params.organizationRole.employer || params.organizationRole.startDate || params.organizationRole.endDate}
     <p class="text-sm text-gray-700 p-0 m-0">
-      {#if organizationRole.employer}
+      {#if params.organizationRole.employer}
         <span property="ev:withinOrganization" class="font-medium" typeof="schema:Organization">
             <span 
               class="font-bold"
-              property="schema:name">{organizationRole.employer.value}</span>
+              property="schema:name">{params.organizationRole.employer.value}</span>
         </span>
       {/if}
 
-      {#if organizationRole.employer && (organizationRole.startDate || organizationRole.endDate)}
+      {#if params.organizationRole.employer && (params.organizationRole.startDate || params.organizationRole.endDate)}
         <span class="mx-2">—</span>
       {/if}
-      {#if organizationRole.startDate && organizationRole.endDate}
+      {#if params.organizationRole.startDate && params.organizationRole.endDate}
         <span class="mx-1">de</span>
       {/if}
-      {#if organizationRole.startDate && !organizationRole.endDate}
+      {#if params.organizationRole.startDate && !params.organizationRole.endDate}
         <span class="mx-1">depuis</span>
       {/if}
-      {#if organizationRole.startDate}
+      {#if params.organizationRole.startDate}
         
         <time
           property="schema:startDate"
-          datetime={organizationRole.startDate.value}
+          datetime={params.organizationRole.startDate.value}
           datatype="xsd:date"
           class="italic"
         >
-          {formatDateFr(organizationRole.startDate.value)}
+          {formatDateFr(params.organizationRole.startDate.value)}
         </time>
       {/if}
 
-      {#if organizationRole.startDate && organizationRole.endDate}
+      {#if params.organizationRole.startDate && params.organizationRole.endDate}
         <span class="mx-1">à</span>
       {/if}
 
-      {#if organizationRole.endDate}
+      {#if params.organizationRole.endDate}
         <time
           property="schema:endDate"
-          datetime={organizationRole.endDate.value}
+          datetime={params.organizationRole.endDate.value}
           datatype="xsd:date"
           class="italic"
         >
-          {formatDateFr(organizationRole.endDate.value)}
+          {formatDateFr(params.organizationRole.endDate.value)}
         </time>
       
       {/if}
     </p>
   {/if}
 
-  {#if organizationRole.place}
+  {#if params.organizationRole.place}
     <p property="elm:hasLocation" class="text-sm text-gray-600 m-0 p-0">
-      {organizationRole.place.value}
+      {params.organizationRole.place.value}
     </p>
   {/if}
 
-  {#if organizationRole.description}
+  {#if params.organizationRole.description}
     <p property="schema:description" class="p-0 m-0 text-gray-800 text-sm whitespace-pre-line">
-      {organizationRole.description.value}
+      {params.organizationRole.description.value}
     </p>
   {/if}
   <Skills skills={skills}></Skills>

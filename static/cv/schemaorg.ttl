@@ -194,8 +194,29 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:eventbus-rabbitmq
         .
 :exp2 a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
-    schema:roleName "Senior Technical Architect"@en ;
-    schema:roleName "Architecte Technique Senior"@fr ;
+    schema:roleName 
+        "Senior Technical Architect"@en ,
+        "Architecte Technique Senior"@fr ,
+        [ 
+            a schema:DefinedTerm ;
+                schema:inDefinedTermSet cv:variant-cyber;
+                schema:name 
+                    "Lead of IT Security Team (DevSecOps)"@en,
+                    "Responsable de l'équipe de sécurité du SI"@fr ;
+                schema:description """Some description
+                """
+        ],
+        [ 
+            a schema:DefinedTerm ;
+                schema:inDefinedTermSet cv:variant-archi;
+                schema:name 
+                    "Architect"@en,
+                    "Architecte"@fr ;
+                schema:description """Some description
+                """
+        ]
+        
+        ;
     schema:startDate "2001-01-01"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;
     schema:identifier "cm-ate" ;

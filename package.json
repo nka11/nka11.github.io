@@ -27,6 +27,7 @@
     "oxigraph": "^0.4.11",
     "rdf-parse": "^4.0.0",
     "rdflib": "^2.2.37",
-    "svelte-i18n": "^4.0.1"
+    "svelte-i18n": "^4.0.1",
+    "unocss": "^66.3.3"
   }
 }

@@ -12,7 +12,7 @@
   import { listOrgRoles } from '$lib/semcv/adapters/experienceAdapter';
     import { skillsCounts } from '$lib/semcv/adapters/skillsAdapter';
     import SkillsCloud from '$lib/components/schemaorgcv/SkillsCloud.svelte';
-    import ListPersonalProjects from '$lib/components/schemaorgcv/ListPersonalProjects.svelte';
+    import ListPersonalProjects from '$lib/components/schemaorgcv/PersonalProjects.svelte';
     import PdfPrint from '$lib/components/schemaorgcv/PDF_print.svelte';
     import PersonLangs from '$lib/components/schemaorgcv/PersonLangs.svelte';
     import { listPersonVariants } from '$lib/semcv/adapters/variantsAdapter';
@@ -101,10 +101,9 @@
         <Experiences person={person.person}></Experiences>
         <h2 class="text-3xl">Compétences</h2>
         <!-- <section> -->
-            <SkillsCloud skills={ skills }></SkillsCloud>
+        <SkillsCloud skills={ skills }></SkillsCloud>
         <!-- </section> -->
-        <h2 class="text-3xl">Formation</h2>
-        <ListEducations of={ person }></ListEducations>
+        <ListEducations of={ person.person }></ListEducations>
         <section>
 
         </section>
@@ -114,7 +113,7 @@
         </section>
         <h2 class="text-3xl">Projets Personnels</h2>
         <section>
-          <ListPersonalProjects person={person}></ListPersonalProjects>
+          <ListPersonalProjects person={person.person}></ListPersonalProjects>
         </section>
 
       </article>

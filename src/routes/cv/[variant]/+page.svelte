@@ -39,10 +39,7 @@
 <CvMenu person={ personNode }></CvMenu>
 
 <article class="prose max-w-none">
-<!-- <p class="text-sm text-gray-500">{new Date(data.metadata.date).toLocaleDateString()}</p> -->
-<!-- <p class="mb-6">{data.metadata.description}</p> -->
-
-<VariantCv variant={ variantNode } person={ personNode }></VariantCv>
+  <VariantCv variant={ variantNode } person={ personNode }></VariantCv>
 </article>
 {/if}
   
