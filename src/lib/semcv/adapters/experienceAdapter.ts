@@ -18,7 +18,6 @@ export function listOrgRoles(
             ?role schema:roleName ?roleName ;
                 schema:identifier ?identifier ;
                 schema:startDate ?startDate ;
-                
                 schema:withinOrganization ?org .
             FILTER(LANG(?roleName) = "${lang}" || LANG(?roleName) = "")
             ?org schema:name ?employer .
@@ -53,7 +52,9 @@ export function listOrgRoles(
                 ?role schema:endDate ?endDate .
             }
             OPTIONAL {
-                ?roleNameTerm a schema:DefinedTerm ;
+                ?role schema:roleName ?roleNameTerm ;
+                    schema:description ?descriptionTerm .
+                ?descriptionTerm a schema:DefinedTerm ;
                     schema:inDefinedTermSet ${variant};
                     schema:description ?description .
                 FILTER(LANG(?description) = "${lang}" || LANG(?description) = "")

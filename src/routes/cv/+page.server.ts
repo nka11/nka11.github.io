@@ -6,9 +6,9 @@ import type { IVariantsDetails } from '$lib/semcv/models';
 import { mapToObject } from '$lib/semcv/semantic_cv_store.js';
 
 import { Store, type Term } from 'oxigraph';
+import { VARIANT_PREFIX, variantsQuery } from '$lib/semcv/adapters/variantsAdapter';
 
 const store = new Store();
-const VARIANT_PREFIX = "https://nka11.github.io/cv#variant-";
 
 const dataFiles = [
       '/cv/schemaorg.ttl',
@@ -27,15 +27,7 @@ dataFiles.map((turtleUrl) => {
   //   { contentType: 'text/turtle' }
   // );
 });
-const variantsQuery = `
-      PREFIX schema: <https://schema.org/>
-      
-      SELECT ?variant ?name
-      WHERE {
-        ?variant a schema:DefinedTermSet ;
-            schema:name ?name .
-      }
-      `
+
 const results = (store?.query(variantsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IVariantsDetails[];
 
 // +page.server.ts

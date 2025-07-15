@@ -1,14 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { error } from '@sveltejs/kit';
-    import type { IPersonDetails, IVariantsDetails } from '$lib/semcv/models';
-    import { namedNode, type NamedNode } from 'oxigraph';
-    import { getPerson } from '$lib/semcv/adapters/personAdapters';
-    import VariantCv from '$lib/components/schemaorgcv/VariantCV.svelte';
-    import { initOxigraph, oxigraphStore } from '$lib/semcv/semantic_cv_store';
-    import CvMenu from '../CVMenu.svelte';
-    import { browsingPreferences } from '$lib/state.svelte';
-    import { get } from 'svelte/store';
+  import { namedNode, type NamedNode } from 'oxigraph';
+  import VariantCv from '$lib/components/schemaorgcv/VariantCV.svelte';
+  import { initOxigraph, oxigraphStore } from '$lib/semcv/semantic_cv_store';
+  import CvMenu from '../../../lib/components/schemaorgcv/CVMenu.svelte';
+  import { browsingPreferences } from '$lib/state.svelte';
+  import { get } from 'svelte/store';
 
   export let data: {
     dataFiles: string[];
@@ -36,7 +33,7 @@
 {#key browsingPreferences.lang}
 {#if variantNode}
   
-<CvMenu person={ personNode }></CvMenu>
+<CvMenu person={ personNode } variant={variantNode}></CvMenu>
 
 <article class="prose max-w-none">
   <VariantCv variant={ variantNode } person={ personNode }></VariantCv>

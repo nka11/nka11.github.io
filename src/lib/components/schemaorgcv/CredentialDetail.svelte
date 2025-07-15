@@ -64,9 +64,13 @@
         {/if}
     </p>
     {#if credentialDetails.credentialDescription}
-         <p 
-            class="p-0 m-0"
-            property="schema:description">{credentialDetails.credentialDescription.value}</p>
+    <div property="schema:description"></div>
+        {#each credentialDetails.credentialDescription.value.split('\n') as desciptionLine}
+            <p class="px-2 m-0 text-sm -indent-2">
+                {desciptionLine}
+            </p>
+                
+        {/each}
     {/if}
     {#if projectsDetail.length > 0}
         <div

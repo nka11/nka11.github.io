@@ -9,15 +9,21 @@
   import { listSkills } from '$lib/semcv/adapters/skillsAdapter';
   import Skills from './Skills.svelte';
   import { browsingPreferences } from '$lib/state.svelte';
+    import type { NamedNode } from 'oxigraph';
   let params: {
     organizationRole: IOrganizationRole,
-    lang?: string | undefined
+    lang?: string | undefined,
+    variant?: NamedNode | undefined
   } = $props()
   // export let organizationRole: ;
   let credentialsDetails: ICredentialDetails[] = $state([]);
   let skills: ISkillsDetails[] = $state([]);
   onMount(async () => {
-      credentialsDetails = listCredentials(params.organizationRole.role, "schema:hasCredential", params.lang ? params.lang : browsingPreferences.lang);
+      credentialsDetails = listCredentials(
+        params.organizationRole.role,
+        "schema:hasCredential",
+        params.lang ? params.lang : browsingPreferences.lang,
+        params.variant);
       skills = listSkills(params.organizationRole.role, "schema:skills", params.lang ? params.lang : browsingPreferences.lang);
   })
 </script>

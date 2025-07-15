@@ -28,6 +28,6 @@
 {#if organizationRoles}
   <h2 class="text-3xl">Experiences</h2>
   {#each organizationRoles as orgrole}
-    <OrganizationRole organizationRole={orgrole}/>
+    <OrganizationRole organizationRole={orgrole} variant={ params.variant }/>
   {/each}
 {/if}

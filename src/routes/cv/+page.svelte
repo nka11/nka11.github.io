@@ -2,7 +2,6 @@
   import { locale, _ } from 'svelte-i18n';
   
   import { onMount } from 'svelte';
-  import OrganizationRole from '$lib/components/schemaorgcv/OrganizationRole.svelte';
   import { oxigraphStore, initOxigraph, compareExperience } from '$lib/semcv/semantic_cv_store';
   import { get } from 'svelte/store';
   import type { IOrganizationRole, IPersonDetails, ISkillsCount } from '$lib/semcv/models';
@@ -10,15 +9,13 @@
   import ListEducations from '$lib/components/schemaorgcv/ListEducations.svelte';
   import { getPerson } from '$lib/semcv/adapters/personAdapters';
   import { listOrgRoles } from '$lib/semcv/adapters/experienceAdapter';
-    import { skillsCounts } from '$lib/semcv/adapters/skillsAdapter';
-    import SkillsCloud from '$lib/components/schemaorgcv/SkillsCloud.svelte';
-    import ListPersonalProjects from '$lib/components/schemaorgcv/PersonalProjects.svelte';
-    import PdfPrint from '$lib/components/schemaorgcv/PDF_print.svelte';
-    import PersonLangs from '$lib/components/schemaorgcv/PersonLangs.svelte';
-    import { listPersonVariants } from '$lib/semcv/adapters/variantsAdapter';
-    import CvMenu from './CVMenu.svelte';
-    import { browsingPreferences } from '$lib/state.svelte';
-    import Experiences from '$lib/components/schemaorgcv/Experiences.svelte';
+  import { skillsCounts } from '$lib/semcv/adapters/skillsAdapter';
+  import SkillsCloud from '$lib/components/schemaorgcv/SkillsCloud.svelte';
+  import ListPersonalProjects from '$lib/components/schemaorgcv/PersonalProjects.svelte';
+  import PersonLangs from '$lib/components/schemaorgcv/PersonLangs.svelte';
+  import CvMenu from '../../lib/components/schemaorgcv/CVMenu.svelte';
+  import { browsingPreferences } from '$lib/state.svelte';
+  import Experiences from '$lib/components/schemaorgcv/Experiences.svelte';
   
     export let data: {jsonld: any, dataFiles: string[],variants:{variant:string,name:string}[]};
   // import { userPrefs } from './states';
@@ -84,7 +81,7 @@
     <option value="fr">Français</option>
     </select> -->
     {#if person}
-    <CvMenu person={ person.person } variants={ data.variants } ></CvMenu>
+    <CvMenu person={ person.person }></CvMenu>
     {#key browsingPreferences.lang}
       <article
       prefix="

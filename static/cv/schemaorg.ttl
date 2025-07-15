@@ -202,21 +202,30 @@ nka:me a schema:Person, schema:CreativeWork ;
                 schema:inDefinedTermSet cv:variant-cyber;
                 schema:name 
                     "Lead of IT Security Team (DevSecOps)"@en,
-                    "Responsable de l'équipe de sécurité du SI"@fr ;
-                schema:description """Some description
-                """
+                    "Responsable de l'équipe de sécurité du SI"@fr
         ],
         [ 
             a schema:DefinedTerm ;
                 schema:inDefinedTermSet cv:variant-archi;
                 schema:name 
                     "Architect"@en,
-                    "Architecte"@fr ;
-                schema:description """Some description
-                """
+                    "Architecte"@fr 
         ]
         
         ;
+    schema:description
+        [ 
+            a schema:DefinedTerm ;
+                schema:inDefinedTermSet cv:variant-cyber;
+                schema:description """Some cyber description
+                """
+        ],
+        [
+           a schema:DefinedTerm ;
+                schema:inDefinedTermSet cv:variant-archi ;
+                schema:description """Some archi description
+                """ 
+        ] ;
     schema:startDate "2001-01-01"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;
     schema:identifier "cm-ate" ;
@@ -232,7 +241,28 @@ nka:me a schema:Person, schema:CreativeWork ;
 
 :cm-ArchiTech a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
-            schema:name "Architecte Technique" ;
+            schema:name 
+                "Architecte Technique",
+                [
+                    a schema:DefinedTerm ;
+                    schema:inDefinedTermSet cv:variant-archi;
+                    schema:name "Architecte Technique"
+                ]
+                ;
+            schema:description 
+                # "Architecte Technique",
+                [
+                    a schema:DefinedTerm ;
+                    schema:inDefinedTermSet cv:variant-archi;
+                    schema:description """• In charge of application design which address very different components : From mainframe (zOs/Natural/DB2) corporate systems to Rich Internet Applications and Javascript.
+• Involved early in the project life cycle to drive the general specification writing process, and specifying production technical requirements.
+• Technical expert and mentoring role for development teams.
+• Production environment roll-outs for an operational exploitation team (Linux, AIX and Windows):
+• Technical writings for operational procedures.
+• Binding application server’s common actions (stop/start/maintenance/deployment) into operational control and monitoring tools (OPC, Nagios, Quotium/CMDB).
+• Applications servers’ configuration and tuning (jBoss, apache/PHP)."""
+                ]
+                ;
             schema:identifier "cm-ate-architech" ;
             schema:validFor "P2Y"^^xsd:duration ;
             schema:startDate "2001-06-01"^^xsd:date ;
