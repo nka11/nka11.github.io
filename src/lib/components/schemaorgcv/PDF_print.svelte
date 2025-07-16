@@ -4,24 +4,31 @@ import { jsPDF } from "jspdf";
 import { generateATS_CV } from "$lib/semcv/pdfprint/ATSCV";
     import type { IPersonDetails } from "$lib/semcv/models";
     import { onMount } from "svelte";
+    import { browsingPreferences } from "$lib/state.svelte";
 // Default export is a4 paper, portrait, using millimeters for units
 const doc = new jsPDF();
-export let personNode:NamedNode;
-let savedLang: string = 'en';
+let params:{ 
+    personNode:NamedNode,
+    variant?: NamedNode
+} = $props();
 
 
 doc.text("Hello world!", 10, 10);
 
 function savePdf() {
-    const cv: jsPDF = generateATS_CV(personNode,savedLang);
+    const cv: jsPDF = generateATS_CV(
+        params.personNode,
+        browsingPreferences.lang,
+        params.variant
+    );
+    //TODO POPUP to choose name
+    //NICE : show PDF in new tab without download
     cv.save()
 }
 
     onMount(async () => {
-      const stored = localStorage.getItem('lang');
-      if (stored) savedLang = stored;
     })
 
 </script>
 
-<button on:click={savePdf}>Print PDF</button>
+<button onclick={savePdf}>Print PDF</button>

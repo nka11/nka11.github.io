@@ -30,12 +30,16 @@
   });
 
 </script>
-
-<button onclick={() => changeLang('fr')}>FR</button>
+{#if browsingPreferences.lang == 'fr'}
+FR 
 <button onclick={() => changeLang('en')}>EN</button>
+{:else}
+<button onclick={() => changeLang('fr')}>FR</button>
+EN
+{/if}
 
 
-<PdfPrint personNode={ params.person }></PdfPrint>
+<PdfPrint personNode={ params.person } variant={ params.variant }></PdfPrint>
 {#if variants}
   {#if variants.length > 0}
   <select onchange={selectVariant}>
