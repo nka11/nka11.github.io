@@ -1,3 +1,7 @@
+@unocss-preflights;
+@unocss-safelist;
+@unocss;
+
 :root {
   --svp-expansion-bg: #f8f8fb;
   --svp-expansion-bg-darker: #f2f2f7;
