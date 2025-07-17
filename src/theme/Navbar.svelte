@@ -1,22 +1,17 @@
 <script>
   import { page } from '$app/stores'
-  // import themeOptions from 'virtual:sveltepress/theme-default'
-  // import Discord from './icons/Discord.svelte'
-  // import Github from './icons/Github.svelte'
+  import Github from './icons/Github.svelte'
   import { scrollDirection } from './layout'
   import Logo from './Logo.svelte'
   import MobileSubNav from './MobileSubNav.svelte'
   import NavbarMobile from './NavbarMobile.svelte'
   import NavItem from './NavItem.svelte'
-  // import Search from './Search.svelte'
-  // import ToggleDark from './ToggleDark.svelte'
-  //   import CalCom from './CalCom.svelte';
+  import ToggleDark from './ToggleDark.svelte'
 
   const routeId = $derived($page.route.id)
   const isHome = $derived(routeId === '/')
   const hasError = $derived($page.error)
 </script>
-<!-- <CalCom namespace="15min" ></CalCom>   -->
 
 <header class="header" class:hidden-in-mobile={$scrollDirection === 'down'}>
   <div class="header-inner">
@@ -28,37 +23,16 @@
         </div>
       {/if}
     </div>
-    <!-- {#if themeOptions.docsearch}
-      <div
-        class:is-home={isHome}
-        class:move={!isHome && !hasError}
-        class="doc-search"
-      >
-        <Search {...themeOptions.docsearch} />
-      </div>
-    {/if} -->
 
     <nav class="nav-links" aria-label="Menu">
       <div class="navbar-pc">
-        <div class="sm:flex none">
-          <div
-            class="flex items-center cursor-pointer position-relative z-1 cursor-pointer decoration-none px-3"
-              aria-label="Book a Meeting"
-              data-cal-link="nico-deepthought/30min"
-              data-cal-namespace="15min"
-              >
-              Book a Meeting
-          </div>
-          <NavItem title="Articles" to="/articles"></NavItem>
-        </div>
-          <!-- {#each themeOptions.navbar as navItem}
-            <NavItem {...navItem} />
-          {/each}
+        <div class="flex items-center">
+          <NavItem title="Articles" to="/articles" />
         </div>
         
-        {#if themeOptions.github}
+        <div class="flex items-center">
           <NavItem
-            to={themeOptions.github}
+            to="https://github.com/nka11/nka11.github.io"
             external
             icon
             builtInIcon
@@ -66,20 +40,8 @@
           >
             <Github />
           </NavItem>
-        {/if}
-
-        {#if themeOptions.discord}
-          <NavItem
-            to={themeOptions.discord}
-            external
-            icon
-            builtInIcon
-            title="Discord"
-          >
-            <Discord />
-          </NavItem>
-        {/if}
-        <ToggleDark /> -->
+          <ToggleDark />
+        </div>
       </div>
     </nav>
   </div>
@@ -90,40 +52,55 @@
 
 <style>
   .header {
-    --at-apply: 'transition-transform fixed top-0 left-0 right-0 sm:h-[73px] z-888 dark:bg-opacity-40';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
+    z-index: 100;
+    border-bottom: 1px solid #eaecef;
   }
-  .hidden-in-mobile {
-    --at-apply: 'translate-y-[-100%] sm:translate-y-0';
+
+  .dark .header {
+    background-color: rgba(26, 26, 26, 0.8);
+    border-bottom: 1px solid #333;
   }
-  .logo-container {
-    --at-apply: 'hidden sm:block';
-  }
+
   .header-inner {
-    --at-apply: 'sm:w-[80vw] h-full flex items-stretch justify-between mx-auto';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 2rem;
+    max-width: calc(var(--content-max-width) + var(--sidebar-width));
+    margin: 0 auto;
   }
+
   .left {
-    --at-apply: 'flex items-center';
+    display: flex;
+    align-items: center;
   }
-  .doc-search {
-    --at-apply: 'flex-grow flex items-center relative transition-500 transition-left';
+
+  .logo-container {
+    display: none;
   }
-  .doc-search.is-home {
-    --at-apply: 'left-2';
+
+  @media (min-width: 640px) {
+    .logo-container {
+      display: block;
+    }
   }
-  .doc-search.move {
-    --at-apply: 'sm:left-[15.5vw]';
+
+  .nav-links {
+    display: flex;
+    align-items: center;
   }
 
   .navbar-pc {
-    --at-apply: 'items-stretch flex';
-  }
-  .nav-links {
-    --at-apply: 'flex items-stretch flex-grow justify-end';
-  }
-
-  .navbar-pc :global(.nav-item:not(.nav-item--icon)),
-  .navbar-pc :global(.nav-item--user-icon) {
-    --at-apply: 'hidden sm:flex';
+    display: flex;
+    align-items: center;
+    gap: 1rem;
   }
 </style>
