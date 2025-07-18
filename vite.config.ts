@@ -4,19 +4,26 @@ import { sveltepress } from '@sveltepress/vite'
 import path from 'path'
 import type { BundledLanguage } from 'shiki/langs'
 import Unocss from 'unocss/vite'
-
+import { presetAttributify, presetIcons, presetUno } from 'unocss'
 import { defineConfig } from 'vite'
+import sveltePreprocess from 'svelte-preprocess'
 
 
 const config = defineConfig({
 	plugins: [
-		// ,
+		Unocss({
+			presets: [
+				presetAttributify(),
+				presetIcons(),
+				presetUno(),
+			],
+		}),
 		sveltepress({
 			theme: {
 				globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
 				name: '',
 				pageLayout: '',
-				vitePlugins: [Unocss()],
+				vitePlugins: [],
 				highlighter: function (code: string, lang: BundledLanguage, meta?: string): string | Promise<string> {
 					throw new Error('Function not implemented.')
 				}
