@@ -13,6 +13,7 @@ const dataFiles = [
       '/cv/schemaorg.ttl',
       '/cv/skills.ttl',
       '/cv/projects.ttl',
+      '/cv/product_cycle.ttl',
     ]
 
 

@@ -143,7 +143,44 @@
         skills:cicd-gitlab,
         skills:system-linux,
         skills:eventbus-kafka,
-        skills:programming-python .
+        skills:programming-python ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType <https://nka11.github.io/cv#actions/design> ;
+            schema:userInteractionCount 1 ;
+            schema:agent <https://nka11.github.io/cv#roles/TechLead>, <https://nka11.github.io/cv#roles/ProductOwner> ;
+            schema:instrument skills:softwaredesign, skills:cloud-GCP, skills:tools-terraform
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType <https://nka11.github.io/cv#actions/code> ;
+            schema:userInteractionCount 10 ;
+            schema:agent <https://nka11.github.io/cv#roles/Developer> ;
+            schema:instrument skills:programming-python, skills:scm-git
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType <https://nka11.github.io/cv#actions/build> ;
+            schema:userInteractionCount 20 ;
+            schema:agent <https://nka11.github.io/cv#roles/Developer>, <https://nka11.github.io/cv#roles/DevOps> ;
+            schema:instrument skills:cicd-gitlab
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType <https://nka11.github.io/cv#actions/delivery> ;
+            schema:userInteractionCount 5 ;
+            schema:agent <https://nka11.github.io/cv#roles/DevOps> ;
+            schema:instrument skills:cicd-gitlab, skills:tools-ansible
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType <https://nka11.github.io/cv#actions/observability> ;
+            schema:userInteractionCount 50 ;
+            schema:agent <https://nka11.github.io/cv#roles/DevOps>, <https://nka11.github.io/cv#roles/SRE> ;
+            schema:instrument skills:cloud-GCP
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType <https://nka11.github.io/cv#actions/run> ;
+            schema:userInteractionCount 100 ;
+            schema:agent <https://nka11.github.io/cv#roles/SRE> ;
+            schema:instrument skills:cloud-GCP
+        ] .
 
 :cm-cxo a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Projet 'Customer Experience Optimization'" ;
