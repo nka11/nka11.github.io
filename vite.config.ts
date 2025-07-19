@@ -1,13 +1,12 @@
-import { defaultTheme } from '@sveltepress/theme-default'
 import { sveltepress } from '@sveltepress/vite'
 
 import path from 'path'
 import type { BundledLanguage } from 'shiki/langs'
 import Unocss from 'unocss/vite'
-import { presetAttributify, presetIcons, presetUno } from 'unocss'
+import { presetAttributify, presetIcons, presetUno, transformerDirectives } from 'unocss'
 import { defineConfig } from 'vite'
 import sveltePreprocess from 'svelte-preprocess'
-
+import extractorSvelte from '@unocss/extractor-svelte'
 
 const config = defineConfig({
 	plugins: [
@@ -17,13 +16,17 @@ const config = defineConfig({
 				presetIcons(),
 				presetUno(),
 			],
+			extractors: [
+				extractorSvelte(),
+			],
+			transformers: [transformerDirectives()],
 		}),
 		sveltepress({
+
 			theme: {
 				globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
 				name: '',
 				pageLayout: '',
-				vitePlugins: [],
 				highlighter: function (code: string, lang: BundledLanguage, meta?: string): string | Promise<string> {
 					throw new Error('Function not implemented.')
 				}
