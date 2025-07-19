@@ -1,0 +1,41 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix projects: <https://nka11.github.io/cv#projects/> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+
+# Generic actions for the product cycle
+product-cycle-actions:design a schema:CreateAction ;
+    schema:name "Design et conception" .
+
+product-cycle-actions:code a schema:UpdateAction ;
+    schema:name "Code" .
+
+product-cycle-actions:build a schema:UpdateAction ;
+    schema:name "Build" .
+
+product-cycle-actions:delivery a schema:UpdateAction ;
+    schema:name "Delivery" .
+
+product-cycle-actions:observability a schema:ViewAction ;
+    schema:name "Observability" .
+
+product-cycle-actions:run a schema:Action ;
+    schema:name "Run" .
+
+# Role definitions
+roles:TechLead a schema:Role ;
+    schema:name "Tech Lead" .
+roles:ProductOwner a schema:Role ;
+    schema:name "Product Owner" .
+roles:Developer a schema:Role ;
+    schema:name "Developer" .
+roles:DevOps a schema:Role ;
+    schema:name "DevOps" .
+roles:SRE a schema:Role ;
+    schema:name "Site Reliability Engineer" .

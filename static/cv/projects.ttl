@@ -12,6 +12,8 @@
 @prefix nka: <https://nka11.github.io/#> .
 @prefix cv: <https://nka11.github.io/cv#> .
 @prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
 @prefix : <https://nka11.github.io/cv#projects/> .
 
 :iut-stage a schema:CreativeWork, schema:Project, schema:Role ;
@@ -143,7 +145,44 @@
         skills:cicd-gitlab,
         skills:system-linux,
         skills:eventbus-kafka,
-        skills:programming-python .
+        skills:programming-python ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:userInteractionCount 1 ;
+            schema:agent roles:TechLead, roles:ProductOwner ;
+            schema:instrument skills:softwaredesign, skills:cloud-GCP, skills:tools-terraform
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType product-cycle-actions:code ;
+            schema:userInteractionCount 10 ;
+            schema:agent roles:Developer ;
+            schema:instrument skills:programming-python, skills:scm-git
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType product-cycle-actions:build ;
+            schema:userInteractionCount 20 ;
+            schema:agent roles:Developer, roles:DevOps ;
+            schema:instrument skills:cicd-gitlab
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType product-cycle-actions:delivery ;
+            schema:userInteractionCount 5 ;
+            schema:agent roles:DevOps ;
+            schema:instrument skills:cicd-gitlab, skills:tools-ansible
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType product-cycle-actions:observability ;
+            schema:userInteractionCount 50 ;
+            schema:agent roles:DevOps, roles:SRE ;
+            schema:instrument skills:cloud-GCP
+        ],
+        [ a schema:InteractionCounter, schema:Action ;
+            schema:interactionType product-cycle-actions:run ;
+            schema:userInteractionCount 100 ;
+            schema:agent roles:SRE ;
+            schema:instrument skills:cloud-GCP
+        ] .
 
 :cm-cxo a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Projet 'Customer Experience Optimization'" ;
