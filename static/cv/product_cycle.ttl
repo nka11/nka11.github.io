@@ -7,25 +7,25 @@
 @prefix projects: <https://nka11.github.io/cv#projects/> .
 @prefix skills: <https://nka11.github.io/cv#skills/> .
 @prefix roles: <https://nka11.github.io/cv#roles/> .
-@prefix actions: <https://nka11.github.io/cv#actions/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
 
 # Generic actions for the product cycle
-actions:design a schema:CreateAction ;
+product-cycle-actions:design a schema:CreateAction ;
     schema:name "Design et conception" .
 
-actions:code a schema:UpdateAction ;
+product-cycle-actions:code a schema:UpdateAction ;
     schema:name "Code" .
 
-actions:build a schema:UpdateAction ;
+product-cycle-actions:build a schema:UpdateAction ;
     schema:name "Build" .
 
-actions:delivery a schema:UpdateAction ;
+product-cycle-actions:delivery a schema:UpdateAction ;
     schema:name "Delivery" .
 
-actions:observability a schema:ViewAction ;
+product-cycle-actions:observability a schema:ViewAction ;
     schema:name "Observability" .
 
-actions:run a schema:Action ;
+product-cycle-actions:run a schema:Action ;
     schema:name "Run" .
 
 # Role definitions
