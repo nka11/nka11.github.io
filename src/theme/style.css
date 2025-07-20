@@ -1,6 +1,6 @@
-@unocss-preflights;
-@unocss-safelist;
-@unocss;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --svp-expansion-bg: #f8f8fb;
