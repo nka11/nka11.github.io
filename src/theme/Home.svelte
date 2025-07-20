@@ -50,30 +50,30 @@
     max-width: 1152px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1rem;
+    padding-left: 0;
+    padding-right: 0;
   }
-
+  
   @media (min-width: 640px) {
     .home-page {
       width: 70vw;
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 1rem;
     }
   }
 
   .title {
     font-size: 2.5rem; /* 40px (text-10) */
     font-weight: 700;
-    line-height: 6rem; /* 96px (leading-24) */
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
   }
-
+  
   @media (min-width: 640px) {
     .title {
-      font-size: 4rem; /* 64px (text-16) */
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+    line-height: 6rem; /* 96px (leading-24) */
+    font-size: 3.5rem; /* 64px (text-16) */
     }
   }
 
