@@ -220,12 +220,16 @@
 
 :programming-pascal a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Pascal" ;
-        elm:relatedSkill :programming ;
+        elm:relatedSkill 
+                :programming-procedural ,
+                :programming ;
         elm:relatedESCOSkill <http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b> .
 
 :programming-java a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Java" ;
-        elm:relatedSkill :programming ;
+        elm:relatedSkill 
+                :programming-oop ,
+                :programming ;
         elm:relatedESCOSkill <http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389> .
 
 :programming-windev a elm:LearningOutcome, schema:DefinedTerm ;
@@ -234,7 +238,10 @@
 
 :programming-python a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Python" ;
-        elm:relatedSkill :programming .
+        elm:relatedSkill 
+                :programming-oop,
+                :programming-procedural,
+                :programming .
 
 :programming-C a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "C" ;
@@ -242,7 +249,9 @@
 
 :programming-dotnetCsharp a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label ".net/C#" ;
-        elm:relatedSkill :programming .
+        elm:relatedSkill
+                :programming-oop,
+                :programming .
 
 :programming-javascript a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Javascript" ;
@@ -258,19 +267,35 @@
         elm:label "Django" ;
         elm:relatedSkill 
                 :programming ,
+                :programming-oop,
                 :programming-python .
+
+:programming-procedural a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Procedural" ;
+        elm:relatedSkill :programming .
+
+:programming-oop a elm:LearningOutcome, schema:DefinedTerm ;
+        elm:label "Object Oriented" ;
+        elm:relatedSkill :programming .
 
 :programming-C a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "C" ;
-        elm:relatedSkill :programming .
+        
+        elm:relatedSkill 
+                :programming-procedural,
+                :programming .
 
 :programming-COBOL a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Cobol" ;
-        elm:relatedSkill :programming .
+        elm:relatedSkill 
+                :programming,
+                :programming-procedural .
 
 :programming-Natural a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Natural" ;
-        elm:relatedSkill :programming .
+        elm:relatedSkill 
+                :programming,
+                :programming-procedural .
 
 :it-algorithmics a elm:LearningOutcome, schema:DefinedTerm ;
         elm:label "Algorithmics"@en ;
