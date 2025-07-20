@@ -87,51 +87,93 @@
 {/if}
 
 <style>
-  :global(.theme-default--page-layout h1 .svp-title-anchor),
-  :global(.theme-default--page-layout h2 .svp-title-anchor),
-  :global(.theme-default--page-layout h3 .svp-title-anchor),
-  :global(.theme-default--page-layout h4 .svp-title-anchor),
-  :global(.theme-default--page-layout h5 .svp-title-anchor),
-  :global(.theme-default--page-layout h6 .svp-title-anchor) {
-    @apply absolute left-0 top-[50%] flex items-center opacity-0 pointer-events-none hover:text-svp-hover transition-all transition-200;
-    transform: translate(-100%, -50%);
-  }
+:global(.theme-default--page-layout h1 .svp-title-anchor),
+:global(.theme-default--page-layout h2 .svp-title-anchor),
+:global(.theme-default--page-layout h3 .svp-title-anchor),
+:global(.theme-default--page-layout h4 .svp-title-anchor),
+:global(.theme-default--page-layout h5 .svp-title-anchor),
+:global(.theme-default--page-layout h6 .svp-title-anchor) {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s;
+  color: inherit;
+  transform: translate(-100%, -50%);
+}
 
-  :global(.theme-default--page-layout h2 .svp-title-anchor) {
-    transform: translate(-100%, calc((-100% + 1rem) / 2));
-  }
-  :global(.theme-default--page-layout h1),
-  :global(.theme-default--page-layout h2),
-  :global(.theme-default--page-layout h3),
-  :global(.theme-default--page-layout h4),
-  :global(.theme-default--page-layout h5),
-  :global(.theme-default--page-layout h6) {
-    @apply relative;
-  }
-  :global(.theme-default--page-layout h2) {
-    @apply border-t-solid border-t border-light-7 dark:border-gray-7 pt-4 mt-8 mb-4;
-  }
-  :global(.theme-default--page-layout h1:hover .svp-title-anchor),
-  :global(.theme-default--page-layout h2:hover .svp-title-anchor),
-  :global(.theme-default--page-layout h3:hover .svp-title-anchor),
-  :global(.theme-default--page-layout h4:hover .svp-title-anchor),
-  :global(.theme-default--page-layout h5:hover .svp-title-anchor),
-  :global(.theme-default--page-layout h6:hover .svp-title-anchor) {
-    @apply pointer-events-auto opacity-100;
-  }
-  :global(.theme-default--page-layout img) {
-    @apply max-w-full;
-  }
+:global(.theme-default--page-layout h2 .svp-title-anchor) {
+  transform: translate(-100%, calc((-100% + 1rem) / 2));
+}
+
+:global(.theme-default--page-layout h1),
+:global(.theme-default--page-layout h2),
+:global(.theme-default--page-layout h3),
+:global(.theme-default--page-layout h4),
+:global(.theme-default--page-layout h5),
+:global(.theme-default--page-layout h6) {
+  position: relative;
+}
+
+:global(.theme-default--page-layout h2) {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #e5e7eb; /* Tailwind light-7 default */
+  padding-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+:global(.theme-default--page-layout h1:hover .svp-title-anchor),
+:global(.theme-default--page-layout h2:hover .svp-title-anchor),
+:global(.theme-default--page-layout h3:hover .svp-title-anchor),
+:global(.theme-default--page-layout h4:hover .svp-title-anchor),
+:global(.theme-default--page-layout h5:hover .svp-title-anchor),
+:global(.theme-default--page-layout h6:hover .svp-title-anchor) {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+:global(.theme-default--page-layout img) {
+  max-width: 100%;
+}
+
+.content {
+  width: 90vw;
+  padding-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
   .content {
-    @apply sm:w-[45vw] mx-auto pb-8 sm:pb-28 w-[90vw];
+    width: 45vw;
+    padding-bottom: 7rem;
   }
-  .page-title {
-    @apply mt-0;
-  }
+}
+
+.page-title {
+  margin-top: 0;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5rem;
+}
+
+@media (min-width: 640px) {
   .meta {
-    @apply sm:flex justify-between mt-20 flex-col;
+    flex-direction: row;
   }
-  .without-edit-link {
-    @apply justify-end;
-  }
+}
+
+.without-edit-link {
+  justify-content: flex-end;
+}
+
 </style>

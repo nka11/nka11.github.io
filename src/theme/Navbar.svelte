@@ -13,11 +13,11 @@
   const hasError = $derived($page.error)
 </script>
 
-<header class="header" class:hidden-in-mobile={$scrollDirection === 'down'}>
+<header class="header {scrollDirection === 'down' ? 'hidden-in-mobile' : ''}">
   <div class="header-inner">
     <div class="left">
       <NavbarMobile />
-      {#if hasError || isHome}
+      {#if !isHome}
         <div class="logo-container">
           <Logo />
         </div>
@@ -26,11 +26,11 @@
 
     <nav class="nav-links" aria-label="Menu">
       <div class="navbar-pc">
-        <div class="flex items-center">
+        <div class="nav-item">
           <NavItem title="Articles" to="/articles" />
         </div>
         
-        <div class="flex items-center">
+        <div class="nav-item">
           <NavItem
             to="https://github.com/nka11/nka11.github.io"
             external
@@ -61,11 +61,16 @@
     backdrop-filter: blur(5px);
     z-index: 100;
     border-bottom: 1px solid #eaecef;
+    transition: transform 0.3s ease;
   }
 
   .dark .header {
     background-color: rgba(26, 26, 26, 0.8);
     border-bottom: 1px solid #333;
+  }
+
+  .hidden-in-mobile {
+    transform: translateY(-100%);
   }
 
   .header-inner {
@@ -102,5 +107,10 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
   }
 </style>
