@@ -67,6 +67,9 @@
     {@render children?.()}
   </div>
 </main>
+<footer class="text-center p-4 text-sm text-gray-500">
+  <p>Code licensed under Apache 2.0. Content licensed under CC BY-NC-SA 4.0.</p>
+</footer>
 
 
 
