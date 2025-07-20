@@ -84,52 +84,116 @@
 {/if}
 
 <style>
-  .nav-item {
-    --at-apply: 'flex items-center cursor-pointer position-relative z-1 cursor-pointer decoration-none px-3';
-  }
-  .nav-item--icon {
-    --at-apply: text-6;
-  }
-  .nav-item--icon .dropdown {
-    --at-apply: 'text-4';
-  }
-  .nav-item--icon:not(:first-child)::after,
-  :global(.navbar-pc .toggle::after) {
-    --at-apply: 'absolute left-0 bg-stone-2 w-[1px] top-[50%] h-[20px] dark:bg-stone-7';
-    transform: translateY(-50%);
-    content: ' ';
-  }
-  .nav-item--icon:first-of-type::after {
-    --at-apply: 'hidden sm:display-[unset]';
-  }
+.nav-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  padding-left: 0.75rem; /* px-3 */
+  padding-right: 0.75rem;
+}
 
-  .nav-item--icon:hover {
-    --at-apply: 'opacity-80';
+.nav-item--icon {
+  font-size: 1.5rem; /* text-6 */
+}
+
+.nav-item--icon .dropdown {
+  font-size: 1.125rem; /* text-4 */
+}
+
+.nav-item--icon:not(:first-child)::after,
+:global(.navbar-pc .toggle::after) {
+  position: absolute;
+  left: 0;
+  background-color: #e7e5e4; /* bg-stone-2 */
+  width: 1px;
+  top: 50%;
+  height: 20px;
+  content: ' ';
+  transform: translateY(-50%);
+}
+
+@media (min-width: 640px) {
+  .nav-item--icon:first-of-type::after {
+    display: unset;
   }
-  :global(:not(.dropdown) > .nav-item:not(.nav-item--icon):hover) {
-    --at-apply: 'svp-gradient-text';
-  }
-  .dropdown {
-    --at-apply: 'transition-transform transition-opacity transition-300 opacity-0 pointer-events-none  absolute top-0 right-0 bg-white dark:bg-[#232323] whitespace-nowrap z-3 rounded shadow-sm p-2';
-    transform: translateY(72px);
-  }
-  :global(.dropdown > .nav-item) {
-    --at-apply: 'block py-2 px-4 decoration-none rounded hover:bg-svp-primary hover:bg-opacity-20 hover:text-svp-primary text-[#213547] dark:text-[#efefef]';
-  }
-  :global(.dropdown > .nav-item:hover) {
-    background-image: none;
-  }
-  .nav-item:hover .dropdown {
-    --at-apply: 'opacity-100 pointer-events-initial';
-    transform: translateY(54px);
-  }
-  .arrow {
-    --at-apply: 'flex items-center transition-transform transition-300 text-6 text-[#213547] dark:text-light-4';
-  }
-  .nav-item:hover .arrow {
-    transform: rotate(180deg);
-  }
-  .active {
-    --at-apply: 'svp-gradient-text hover:svp-gradient-text cursor-default';
-  }
+}
+
+.nav-item--icon:first-of-type::after {
+  display: none;
+}
+
+.nav-item--icon:hover {
+  opacity: 0.8;
+}
+
+:global(:not(.dropdown) > .nav-item:not(.nav-item--icon):hover) {
+  background-image: linear-gradient(to right, #0ea5e9, #6366f1); /* svp-gradient-text (example) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dropdown {
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  background-color: #232323; /* dark mode fallback */
+  white-space: nowrap;
+  z-index: 3;
+  border-radius: 0.25rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  transform: translateY(72px);
+}
+
+:global(.dropdown > .nav-item) {
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-decoration: none;
+  border-radius: 0.25rem;
+  color: #213547;
+  background-color: transparent;
+}
+
+:global(.dropdown > .nav-item:hover) {
+  background-color: rgba(14, 165, 233, 0.2); /* svp-primary + opacity */
+  color: #0ea5e9;
+  background-image: none;
+}
+
+.nav-item:hover .dropdown {
+  opacity: 1;
+  pointer-events: initial;
+  transform: translateY(54px);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s;
+  font-size: 1.5rem;
+  color: #213547;
+  color: #cccccc; /* dark:text-light-4 fallback */
+}
+
+.nav-item:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.active {
+  background-image: linear-gradient(to right, #0ea5e9, #6366f1); /* svp-gradient-text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: default;
+}
+
 </style>

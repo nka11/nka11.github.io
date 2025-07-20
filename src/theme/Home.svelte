@@ -1,14 +1,14 @@
 <script>
-  import ActionButton from './ActionButton.svelte'
-  import Feature from './home/Feature.svelte'
+  import ActionButton from "./ActionButton.svelte";
+  import Feature from "./home/Feature.svelte";
 
   const {
     features = [],
     actions = [],
-    tagline = '',
+    tagline = "",
     siteConfig,
     heroImage,
-  } = $props()
+  } = $props();
 </script>
 
 <div class="home-page">
@@ -46,27 +46,126 @@
 
 <style>
   .home-page {
-    --at-apply: 'sm:w-[70vw] max-w-[1152px] mx-auto sm:px-0 px-4 pt-4';
+    width: 100%;
+    max-width: 1152px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
   }
+
+  @media (min-width: 640px) {
+    .home-page {
+      width: 70vw;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
   .title {
-    --at-apply: 'sm:text-16 text-10 grid grid-cols-12 font-700 leading-24';
+    font-size: 2.5rem; /* 40px (text-10) */
+    font-weight: 700;
+    line-height: 6rem; /* 96px (leading-24) */
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
   }
+
+  @media (min-width: 640px) {
+    .title {
+      font-size: 4rem; /* 64px (text-16) */
+    }
+  }
+
   .description {
-    --at-apply: 'text-8 leading-10 sm:text-inherit';
+    font-size: 1.75rem; /* 28px (text-8) */
+    line-height: 2.5rem; /* 40px (leading-10) */
   }
+
+  @media (min-width: 640px) {
+    .description {
+      font-size: inherit;
+    }
+  }
+
   .intro {
-    --at-apply: 'col-start-1 sm:col-span-7 col-span-12 row-start-2 sm:row-start-1 text-center sm:text-left';
+    /* grid-column: span 12; */
+    /* grid-row-start: 2; */
+    text-align: center;
   }
+
+  @media (min-width: 640px) {
+    .intro {
+      /* grid-column: span 12;
+      grid-column-start: 1; */
+      grid-row-start: 1;
+      text-align: left;
+    }
+  }
+
   .gradient-title {
-    --at-apply: 'svp-gradient-text';
+    /* Replace this with your actual gradient class or effect */
+    /* background: linear-gradient(to right, #3b82f6, #9333ea); */
+    background: linear-gradient(to right, #000, #777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
+
   .tagline {
-    --at-apply: 'text-slate-5 dark:text-slate-4 text-6 mt-4 font-500 leading-9 font-normal';
+    color: #64748b; /* slate-500 */
+    font-size: 1.5rem; /* text-6 = 24px */
+    margin-top: 1rem;
+    font-weight: 500;
+    line-height: 2.25rem; /* 36px (leading-9) */
+    font-style: normal;
   }
+
+  @media (prefers-color-scheme: dark) {
+    .tagline {
+      color: #94a3b8; /* slate-400 in dark mode */
+    }
+  }
+
   .actions {
-    --at-apply: 'grid-cols-1 px-10 sm:px-0 grid sm:flex gap-4 mt-4 justify-center sm:justify-start max-w-[320px] mx-auto sm:max-w-none';
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  @media (min-width: 640px) {
+    .actions {
+      display: flex;
+      justify-content: flex-start;
+      padding-left: 0;
+      padding-right: 0;
+      max-width: none;
+    }
+  }
+
   .features {
-    --at-apply: 'grid sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6 grid-cols-1 mb-4';
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .features {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .features {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 </style>

@@ -1,23 +1,23 @@
 <script>
-  import siteConfig from 'virtual:sveltepress/site'
+  // import siteConfig from 'virtual:sveltepress/site'
   // import themeOptions from 'virtual:sveltepress/theme-default'
   import NavItem from './NavItem.svelte'
-  // import { getPathFromBase, parseImageSrc } from './utils'
+  import { getPathFromBase, parseImageSrc } from './utils'
 </script>
 
-<!-- <NavItem to={getPathFromBase('/')} title={siteConfig.title}>
-   {#if themeOptions.logo}
+<NavItem to={getPathFromBase('/')} title="Nicolas Karageuzian">
+   <!-- {#if themeOptions.logo} -->
     <img
       class="logo"
       height="32"
-      src={parseImageSrc(themeOptions.logo)}
-      alt={siteConfig.title}
+      src={parseImageSrc("/nkaLogo-simple.svg")}
+      alt="Nicolas Karageuzian"
     />
     <span class="title">
-      {siteConfig.title}
+      Nicolas Karageuzian
     </span>
-  {/if} 
-</NavItem> -->
+  <!-- {/if}  -->
+</NavItem>
 
 <style>
   .logo {

@@ -1,7 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Base styles normally from @tailwind base */
+/* You'll need to recreate resets and base styles manually or include a reset.css if needed */
 
+/* Custom Variables */
 :root {
   --svp-expansion-bg: #f8f8fb;
   --svp-expansion-bg-darker: #f2f2f7;
@@ -29,6 +29,7 @@ html[data-theme='dark'] {
   --twoslash-popup-bg: var(--svp-expansion-bg);
 }
 
+/* Expansion styles */
 .c-expansion {
   position: relative;
 }
@@ -53,7 +54,7 @@ html[data-theme='dark'] {
 }
 
 .c-expansion--arrow {
-  transition: transform cubic-bezier(0.455, 0.03, 0.515, 0.955) 0.2s;
+  transition: transform 0.2s cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
 
 .c-expansion--arrow .c-icon {
@@ -70,10 +71,15 @@ html[data-theme='dark'] {
   z-index: 9;
 }
 
+/* Admonition styles */
 .admonition {
   margin-bottom: 1em;
   padding: 15px 30px 15px 15px;
   border-radius: 4px;
+  --admonition-bg: rgb(118 51 219 / 10%);
+  --admonition-color: #7633db;
+  background-color: var(--admonition-bg);
+  border-left: 8px solid var(--admonition-color);
 }
 
 .admonition h5 {
@@ -98,16 +104,8 @@ html[data-theme='dark'] {
   stroke-width: 0;
 }
 
-.admonition-content> :last-child {
+.admonition-content > :last-child {
   margin-bottom: 0;
-}
-
-/* default for custom types */
-.admonition {
-  --admonition-bg: rgb(118 51 219 / 10%);
-  --admonition-color: #7633db;
-  background-color: var(--admonition-bg);
-  border-left: 8px solid var(--admonition-color);
 }
 
 .admonition .admonition-heading {
@@ -123,7 +121,6 @@ html[data-theme='dark'] {
   fill: var(--admonition-color);
 }
 
-/** native types */
 .admonition-caution {
   --admonition-color: #e67e22;
   --admonition-bg: rgb(230 126 34 / 10%);
@@ -140,30 +137,32 @@ html[data-theme='dark'] {
 }
 
 .admonition-important {
-  --admonition-bg: rgb(52 152 219 / 10%);
   --admonition-color: #3498db;
+  --admonition-bg: rgb(52 152 219 / 10%);
 }
 
 .admonition-note {
-  --admonition-bg: rgba(241, 196, 15, 0.06);
   --admonition-color: #f1c40f;
+  --admonition-bg: rgba(241, 196, 15, 0.06);
 }
 
 .c-expansion--body .shiki {
   border-radius: unset;
 }
 
+/* Fonts */
 @font-face {
-  font-family: Dank Mono;
+  font-family: 'Dank Mono';
   src: url('./fonts/Dank Mono Regular.otf');
 }
 
 @font-face {
-  font-family: Dank Mono;
+  font-family: 'Dank Mono';
   src: url('./fonts/Dank Mono Italic.otf');
   font-style: italic;
 }
 
+/* Code block styles */
 .shiki {
   border-radius: 4px;
   margin: 0;
@@ -184,12 +183,12 @@ html.dark .shiki span:not(.twoslash-tag-icon),
 html.dark .twoslash-popup-container span {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
-  /* Optional, if you also want font styles */
   font-style: var(--shiki-dark-font-style) !important;
   font-weight: var(--shiki-dark-font-weight) !important;
   text-decoration: var(--shiki-dark-text-decoration) !important;
 }
 
+/* DocSearch overrides */
 .DocSearch-Container {
   z-index: 9999;
 }
@@ -198,6 +197,7 @@ html.dark .twoslash-popup-container span {
   border-radius: 8px;
 }
 
+/* View transitions */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
@@ -220,6 +220,7 @@ html.dark .twoslash-popup-container span {
   z-index: 1;
 }
 
+/* Async live code display */
 .svp--async-live-code--loading {
   color: var(--docsearch-primary-color);
   font-size: 2rem;
@@ -239,6 +240,7 @@ html.dark .twoslash-popup-container span {
   opacity: 0.8;
 }
 
+/* Logo style */
 .i-logos-svelte-kit {
   width: 4em;
 }

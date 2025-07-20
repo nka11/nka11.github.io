@@ -60,46 +60,95 @@
 />
 
 <Navbar />
-<main class="w-full flex">
+<main class="main-layout">
   <Sidebar />
-  <div class="main-container flex-grow">
+  <div class="main-container">
     <AjaxBar bind:this={ajaxBar} />
     {@render children?.()}
   </div>
 </main>
-<footer class="text-center p-4 text-sm text-gray-500">
+
+<footer class="footer">
   <p>Code licensed under Apache 2.0. Content licensed under CC BY-NC-SA 4.0.</p>
 </footer>
 
-
-
 <style>
-  :root {
-    --sidebar-width: 270px;
-    --content-max-width: 784px;
-    --nav-height: 64px;
-    --c-brand: #646cff;
-    --c-brand-light: #747bff;
-    --c-bg: #f9f9f9;
-    --c-bg-dark: #1a1a1a;
+  .main-layout {
+    display: flex;
+    width: 100%;
   }
 
   .main-container {
-    padding: 0 2rem;
-    max-width: var(--content-max-width);
-    margin: var(--nav-height) auto 0;
+    flex-grow: 1;
+    padding: 1rem;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: #6b7280; /* gris clair */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .footer {
+      color: #a1a1aa; /* gris clair en thème sombre */
+    }
+  }
+:root {
+  --sidebar-width: 270px;
+  --content-max-width: 1280px;
+  --nav-height: 64px;
+  --c-brand: #646cff;
+  --c-brand-light: #747bff;
+  --c-bg: #f9f9f9;
+  --c-bg-dark: #1a1a1a;
+
+  /* Additional spacing for responsiveness */
+  --padding-desktop: 2rem;
+  --padding-tablet: 1.5rem;
+  --padding-mobile: 1rem;
+}
+
+.main-container {
+  padding: 0 var(--padding-desktop);
+  max-width: var(--content-max-width);
+  margin: var(--nav-height) auto 0;
+}
+
+main {
+  padding-top: var(--nav-height);
+}
+
+:global(body) {
+  background-color: var(--c-bg);
+}
+
+:global(body.dark) {
+  background-color: var(--c-bg-dark);
+  color: rgba(255, 255, 255, 0.87);
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .main-container {
+    padding: 0 var(--padding-tablet);
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 600px) {
+  :root {
+    --nav-height: 56px; /* smaller nav for mobile */
+  }
+
+  .main-container {
+    padding: 0 var(--padding-mobile);
+    margin-top: var(--nav-height);
   }
 
   main {
     padding-top: var(--nav-height);
   }
-
-  :global(body) {
-    background-color: var(--c-bg);
-  }
-
-  :global(body.dark) {
-    background-color: var(--c-bg-dark);
-    color: rgba(255, 255, 255, 0.87);
-  }
+}
 </style>
