@@ -122,6 +122,25 @@ main {
 
 :global(body) {
   background-color: var(--c-bg);
+  font-family:
+      'Inter var experimental',
+      'Inter var',
+      'Inter',
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      'Helvetica Neue',
+      Helvetica,
+      Arial,
+      'Noto Sans',
+      sans-serif,
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol',
+      'Noto Color Emoji';
 }
 
 :global(body.dark) {
