@@ -12,7 +12,7 @@
   <div class="text-xs">
     <span class="font-bold"></span>
     {#each skills as skill }
-      [ <span class="border border-solid border-1 m-1">{skill.skillLabel?.value}</span> ]
+      [ <span class="border border-solid border m-1">{skill.skillLabel?.value}</span> ]
       
     {/each}
   </div>

@@ -66,7 +66,7 @@
     {#if credentialDetails.credentialDescription}
     <div property="schema:description"></div>
         {#each credentialDetails.credentialDescription.value.split('\n') as desciptionLine}
-            <p class="px-2 m-0 text-sm -indent-2">
+            <p class="px-2 m-0 text-sm pl-2">
                 {desciptionLine}
             </p>
                 

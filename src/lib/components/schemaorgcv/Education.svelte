@@ -22,7 +22,7 @@
 
 {#if params.education}
 <h2 class="text-3xl">Formations et diplômes</h2>
-<section class=" py-1 px-2 m-2">
+<section class="py-1 px-2 m-2">
   <p class="text-xl font-semibold p-0 m-0">
       {#if params.education.educEnd }
       <span>{extractYear(params.education.educEnd.value)}</span> — 

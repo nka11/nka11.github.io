@@ -78,21 +78,21 @@
 
 <style>
   .clickable {
-    --at-apply: 'cursor-pointer';
+    @apply cursor-pointer;
   }
   .clickable:hover .feature-title {
-    --at-apply: 'underline';
+    @apply underline;
   }
   .feature-title {
-    --at-apply: font-600 mt-3;
+    @apply font-semibold mt-3;
   }
   .feature-desc {
-    --at-apply: text-slate-5 mt-3 text-[14px];
+    @apply text-slate-500 mt-3 text-sm;
   }
   .feature-item {
-    --at-apply: 'bg-white dark:bg-gray-9 p-4 rounded-lg hover:shadow-md transition-shadow transition-300';
+    @apply bg-white dark:bg-gray-900 p-4 rounded-lg hover:shadow-md transition-shadow duration-300;
   }
   .icon {
-    --at-apply: 'text-10 inline-flex items-center p-1 bg-[#e5e5e5] dark:bg-[#252525] rounded-md';
+    @apply text-4xl inline-flex items-center p-1 bg-[#e5e5e5] dark:bg-[#252525] rounded-md;
   }
 </style>

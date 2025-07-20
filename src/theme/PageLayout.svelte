@@ -59,7 +59,7 @@
 {/snippet}
 
 {#if !isHome}
-  <div pb-4 class="theme-default--page-layout">
+  <div class="theme-default--page-layout pb-4">
     <div class="content">
       {#if title}
         <h1 class="page-title">
@@ -93,7 +93,7 @@
   :global(.theme-default--page-layout h4 .svp-title-anchor),
   :global(.theme-default--page-layout h5 .svp-title-anchor),
   :global(.theme-default--page-layout h6 .svp-title-anchor) {
-    --at-apply: 'absolute left-0 top-[50%] flex items-center opacity-0 pointer-events-none hover:text-svp-hover transition-all transition-200';
+    @apply absolute left-0 top-[50%] flex items-center opacity-0 pointer-events-none hover:text-svp-hover transition-all transition-200;
     transform: translate(-100%, -50%);
   }
 
@@ -106,10 +106,10 @@
   :global(.theme-default--page-layout h4),
   :global(.theme-default--page-layout h5),
   :global(.theme-default--page-layout h6) {
-    --at-apply: 'relative';
+    @apply relative;
   }
   :global(.theme-default--page-layout h2) {
-    --at-apply: 'border-t-solid border-t border-light-7 dark:border-gray-7 pt-4 mt-8 mb-4';
+    @apply border-t-solid border-t border-light-7 dark:border-gray-7 pt-4 mt-8 mb-4;
   }
   :global(.theme-default--page-layout h1:hover .svp-title-anchor),
   :global(.theme-default--page-layout h2:hover .svp-title-anchor),
@@ -117,21 +117,21 @@
   :global(.theme-default--page-layout h4:hover .svp-title-anchor),
   :global(.theme-default--page-layout h5:hover .svp-title-anchor),
   :global(.theme-default--page-layout h6:hover .svp-title-anchor) {
-    --at-apply: 'pointer-events-auto opacity-100';
+    @apply pointer-events-auto opacity-100;
   }
   :global(.theme-default--page-layout img) {
-    --at-apply: 'max-w-full';
+    @apply max-w-full;
   }
   .content {
-    --at-apply: 'sm:w-[45vw] mx-auto pb-8 sm:pb-28 w-[90vw]';
+    @apply sm:w-[45vw] mx-auto pb-8 sm:pb-28 w-[90vw];
   }
   .page-title {
-    --at-apply: 'mt-none';
+    @apply mt-0;
   }
   .meta {
-    --at-apply: 'sm:flex justify-between mt-20 column';
+    @apply sm:flex justify-between mt-20 flex-col;
   }
   .without-edit-link {
-    --at-apply: 'justify-end';
+    @apply justify-end;
   }
 </style>
