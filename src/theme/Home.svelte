@@ -82,16 +82,16 @@
     line-height: 2.5rem; /* 40px (leading-10) */
   }
 
-  @media (min-width: 640px) {
+  /* @media (min-width: 640px) {
     .description {
       font-size: inherit;
     }
-  }
+  } */
 
   .intro {
-    /* grid-column: span 12; */
-    /* grid-row-start: 2; */
-    text-align: center;
+    grid-column: span 7/span 7;
+    grid-row-start: 1;
+    text-align: left;
   }
 
   @media (min-width: 640px) {
@@ -115,7 +115,7 @@
     color: #64748b; /* slate-500 */
     font-size: 1.5rem; /* text-6 = 24px */
     margin-top: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 2.25rem; /* 36px (leading-9) */
     font-style: normal;
   }

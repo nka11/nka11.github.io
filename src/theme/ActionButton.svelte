@@ -31,15 +31,48 @@
 
 <style>
   .svp-action {
-    --at-apply: 'inline-flex items-center h-12 leading-12 rounded-6 px-6 bg-white dark:bg-zinc-8 transition-300 transition-shadow hover:shadow dark:hover:shadow-gray-6';
+    display: inline-flex;
+    align-items: center;
+    height: 3rem;              /* h-12 = 48px */
+    line-height: 3rem;         /* leading-12 = 48px */
+    border-radius: 6px;        /* rounded-6 = 6px */
+    padding: 0 1.5rem;         /* px-6 = 24px */
+    background-color: white;
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease;
   }
+
+  .svp-action:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* hover shadow */
+  }
+
   .svp-action--primary {
-    --at-apply: 'svp-gradient-bg text-white dark:text-warm-gray-8';
+    background: linear-gradient(to right, #4f46e5, #6366f1); /* Example gradient */
+    color: white;
   }
-  .external-icon {
-    --at-apply: 'text-6 ml-2 flex items-center';
+
+  .dark .svp-action {
+    background-color: #18181b; /* dark:bg-zinc-8 */
   }
+
+  .dark .svp-action--primary {
+    color: #f5f5f4; /* dark:text-warm-gray-8 (approximate) */
+  }
+
+  .dark .svp-action:hover {
+    box-shadow: 0 2px 8px rgba(75, 85, 99, 0.4); /* dark:hover:shadow-gray-6 approximation */
+  }
+
   .label {
-    --at-apply: 'flex-grow text-center';
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .external-icon {
+    font-size: 1.5rem; /* text-6 = ~24px */
+    margin-left: 0.5rem; /* ml-2 = 8px */
+    display: flex;
+    align-items: center;
   }
 </style>
