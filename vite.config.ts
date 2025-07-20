@@ -11,11 +11,12 @@ const config = defineConfig({
 
 			theme: {
 				globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
+				pageLayout: path.resolve(__dirname, 'src/theme/PageLayout.svelte'),
 				name: '',
-				pageLayout: '',
 				highlighter: function (code: string, lang: BundledLanguage, meta?: string): string | Promise<string> {
 					throw new Error('Function not implemented.')
-				}
+				},
+				vitePlugins: undefined
 			},
 			// theme: defaultTheme({
 			// 	//globalLayout: path.resolve(__dirname, 'src/theme/GlobalLayout.svelte'),
