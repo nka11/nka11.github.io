@@ -8,6 +8,7 @@
     import Description from "./project/Description.svelte";
     import Skills from "./project/Skills.svelte";
     import Impacts from "./project/Impacts.svelte";
+    import CyleDiagram from "./project/CyleDiagram.svelte";
 
   // === Données extraites du fichier TTL ===
   const props: {
@@ -81,6 +82,7 @@
 <div class="project">
   <Description project={project}/>
   <Cycle phases={phases} />
+  <!-- <CyleDiagram phases={phases}></CyleDiagram> -->
   <Impacts impacts={impacts} />
   <Skills skills={skills} />
 </div>
