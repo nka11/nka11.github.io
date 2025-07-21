@@ -27,6 +27,7 @@
   import { browsingPreferences } from '$lib/state.svelte';
   import Experiences from '$lib/components/schemaorgcv/Experiences.svelte';
     import { sidebar } from '../../theme/layout';
+    import ForceGraphSkills from '$lib/components/schemaorgcv/ForceGraphSkills.svelte';
   
     export let data: {jsonld: any, dataFiles: string[],variants:{variant:string,name:string}[]};
   // import { userPrefs } from './states';
@@ -111,6 +112,7 @@
         <h2 class="text-3xl">Compétences</h2>
         <!-- <section> -->
         <SkillsCloud skills={ skills }></SkillsCloud>
+        <!-- <ForceGraphSkills></ForceGraphSkills> -->
         <!-- </section> -->
         <ListEducations of={ person.person }></ListEducations>
         <section>

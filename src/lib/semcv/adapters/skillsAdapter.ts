@@ -125,3 +125,64 @@ export function skillsCounts(lang: string = 'en'): ISkillsCount[] {
     }
     return result;
 }
+
+export function skillsNodes() {
+  const { store, oxiReady } = get(oxigraphStore);
+      if (!oxiReady) {
+        throw "SkillsAdapter: semantic store not ready";
+    }
+  const query = `
+	prefix impact: <https://nka11.github.io/cv#projects/cm-road45/impact/>
+
+    PREFIX schema: <https://schema.org/>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix elm: <https://data.europa.eu/snb/elm/>
+    prefix product-cycle-actions: <https://nka11.github.io/cv#actions/>
+    prefix project: <https://nka11.github.io/cv#projects/>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+    SELECT ?id ?label ?group
+    WHERE {
+      {
+        ?id skos:broader ?group .
+        OPTIONAL { ?id elm:label ?label . }
+      }
+        UNION
+  {
+    ?id a skos:Concept ;
+                   skos:prefLabel ?label .
+    
+      BIND ("category" as ?group)
+  }
+    }
+  `
+  return (store?.query(query) as unknown as Map<string, Term>[]).map(mapToObject);      
+}
+
+
+export function skillsLinks() {
+  const { store, oxiReady } = get(oxigraphStore);
+      if (!oxiReady) {
+        throw "SkillsAdapter: semantic store not ready";
+    }
+  const query = `
+	  prefix impact: <https://nka11.github.io/cv#projects/cm-road45/impact/>
+
+    PREFIX schema: <https://schema.org/>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix elm: <https://data.europa.eu/snb/elm/>
+    prefix product-cycle-actions: <https://nka11.github.io/cv#actions/>
+    prefix project: <https://nka11.github.io/cv#projects/>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+    SELECT ?source ?target
+    WHERE {
+      ?target a elm:LearningOutcome ;
+  			skos:broader ?source .
+  
+    }
+  `
+  return (store?.query(query) as unknown as Map<string, Term>[]).map(mapToObject);      
+}

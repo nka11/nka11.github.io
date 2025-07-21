@@ -472,7 +472,7 @@ skills:programming-procedural a elm:LearningOutcome,
 
 nkonto:MethodologicalSkill a skos:Concept ;
     skos:inScheme nkonto:SkillCategory ;
-    skos:prefLabel "Compétence méthodologique" .
+    skos:prefLabel "Méthodologique" .
 
 nkonto:SkillCategory a skos:ConceptScheme ;
     skos:prefLabel "Classification DISCO des compétences"@fr .

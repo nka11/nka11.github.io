@@ -8,8 +8,6 @@
   const project = props.project;
 </script>
 
-<h2>{project.projectName?.value}</h2>
-<div class="subtitle">Club Med – {project.projectStartDate?.value} → {project.projectEndDate?.value}</div>
 <p class="project-desc">
     {@html project.projectDescription?.value}
 </p>
