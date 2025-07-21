@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { getProjectLifeCycle } from "$lib/semcv/adapters/projectsAdapter";
+    import { getProjectImpacts, getProjectLifeCycle } from "$lib/semcv/adapters/projectsAdapter";
     import { listSkills } from "$lib/semcv/adapters/skillsAdapter";
-    import type { IProjectCycle, IProjectDetail, ISkillsDetails } from "$lib/semcv/models";
+    import type { IProjectCycle, IProjectDetail, IProjectImpact, ISkillsDetails } from "$lib/semcv/models";
     import { browsingPreferences } from "$lib/state.svelte";
     import { onMount } from "svelte";
     import Cycle from "./project/Cycle.svelte";
@@ -15,11 +15,13 @@
     project: IProjectDetail,
     lang?:string
   } = $props()
+  let impactObject:any = $state({})
   const project = props.project;
   browsingPreferences.lang;
   let raw_skills: ISkillsDetails[] = $state([]);
   let savedLang: string = 'en';
   let phases = $state<IProjectCycle>()
+  let impacts = $state<IProjectImpact[]>()
   onMount(async () => {
     const stored = localStorage.getItem('lang');
     if (stored) savedLang = stored;
@@ -41,38 +43,39 @@
       }
     });
     phases = getProjectLifeCycle(project.project,browsingPreferences.lang)
+    impacts = getProjectImpacts(project.project,browsingPreferences.lang)
+    // let impacts:any = $state({});
+// console.log(props.impact)
+    impacts?.forEach((impact:IProjectImpact) => {
+      if (impact.type?.value) { if (impact.type.value in impactObject) {
+        impactObject[impact.type.value].push(impact.name?.value)
+      } else {
+        impactObject[impact.type.value] = [impact.name?.value]
+      }}
+    });
+  
   });
-
-
-  // const phases = [
-  //   { name: "Design", role: "Tech Lead / Product Owner", count: 1 },
-  //   { name: "Code", role: "Developer", count: 10 },
-  //   { name: "Build", role: "Developer / DevOps", count: 20 },
-  //   { name: "Delivery", role: "DevOps", count: 5 },
-  //   { name: "Observability", role: "DevOps / SRE", count: 50 },
-  //   { name: "Run", role: "SRE", count: 100 }
-  // ];
 
   
 
-  const impacts = {
-    Organizational: [
-      "Unified Identity and Access Management",
-      "Standardization of Project Blueprints"
-    ],
-    Technical: [
-      "Event-Driven Architecture Modernization",
-      "Infrastructure as Code"
-    ],
-    Data: [
-      "Improved Data Availability",
-      "Better Data Traceability"
-    ],
-    User: [
-      "Faster Time to Insight",
-      "Report Consistency"
-    ]
-  };
+  // const impacts = {
+  //   Organizational: [
+  //     "Unified Identity and Access Management",
+  //     "Standardization of Project Blueprints"
+  //   ],
+  //   Technical: [
+  //     "Event-Driven Architecture Modernization",
+  //     "Infrastructure as Code"
+  //   ],
+  //   Data: [
+  //     "Improved Data Availability",
+  //     "Better Data Traceability"
+  //   ],
+  //   User: [
+  //     "Faster Time to Insight",
+  //     "Report Consistency"
+  //   ]
+  // };
 
   const skills = $state<{ [key: string]: string[] }>({
     "undefined": []
@@ -80,10 +83,10 @@
 </script>
 
 <div class="project">
-  <Description project={project}/>
   <Cycle phases={phases} />
+  <Description project={project}/>
   <!-- <CyleDiagram phases={phases}></CyleDiagram> -->
-  <Impacts impacts={impacts} />
+  <Impacts impacts={impactObject} />
   <Skills skills={skills} />
 </div>
 

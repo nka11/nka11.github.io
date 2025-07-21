@@ -1,14 +1,16 @@
 <script lang="ts">
+    import type { IProjectImpact } from "$lib/semcv/models";
+    import { onMount } from "svelte";
+
 const props = $props<{
-    impacts: {
-        Organizational: string[],
-        Technical: string[],
-        Data: string[],
-        User: string[]
-    }
+    impacts?: any
 }>()
+console.log(props.impacts)
+
 </script>
-<div class="impacts-section">
+{#if props.impacts }
+  
+  <div class="impacts-section">
     <h3>Project Impacts</h3>
     <div class="impacts-grid">
       {#each Object.entries(props.impacts) as [category, items]}
@@ -21,6 +23,8 @@ const props = $props<{
       {/each}
     </div>
   </div>
+{/if }
+
   <style>
     h3 {
     font-size: 1.1rem;

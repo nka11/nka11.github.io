@@ -1,382 +1,498 @@
-@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
-@prefix owl:    <http://www.w3.org/2002/07/owl#> .
-
-
-@prefix schema: <https://schema.org/> .
 @prefix elm: <https://data.europa.eu/snb/elm/> .
 @prefix esco: <https://data.europa.eu/esco/skill/> .
-
-@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
-@prefix nka: <https://nka11.github.io/#> .
-@prefix cv: <https://nka11.github.io/cv#> .
-@prefix projects: <https://nka11.github.io/cv#projects/> .
-@prefix : <https://nka11.github.io/cv#skills/> .
-
-
-
-
-:blockchain a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Blockchain" .
-
-:blockchain-Solana a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Solana" ;
-        elm:relatedSkill :blockchain .
-
-:blockchain-Ethereum a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Ethereum" ;
-        elm:relatedSkill :blockchain .
-
-:project a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Gestion de projet" .
-
-:project-JIRA-Software a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "JIRA" ;
-        elm:relatedSkill :project .
-
-:grc a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Gestion Risques et conformité" .
-
-:grc-compliance a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:relatedSkill :grc ;
-        elm:label "Conformité Règlementaire et Certifiante" .
-
-:grc-compliance-RGPD a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:relatedSkill 
-                :grc,
-                :grc-compliance ;
-        elm:label "RGPD" .
-
-:grc-compliance-NIS2 a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:relatedSkill 
-                :grc,
-                :grc-compliance ;
-        elm:label "NIS2" .
-
-:grc-compliance-PCI-DSS a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:relatedSkill 
-                :grc,
-                :grc-compliance ;
-        elm:label "PCI/DSS" .
-
-:grc-compliance-iso27001 a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:relatedSkill 
-                :grc,
-                :grc-compliance ;
-        elm:label "ISO/27001" .
-
-
-:grc-riskManagement a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:relatedSkill :grc ;
-        elm:label 
-                "Analyse et Gestion de risques"@fr,
-                "Risk Management"@en
-                 .
-
-:grc-riskManagement-EBIOS a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:relatedSkill 
-                :grc,
-                :grc-riskManagement ;
-        elm:label "EBIOS-RM" .
-
-:softwaredesign a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Software Architecture"@en ;
-        elm:label "Architecture Logicielle"@fr ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> .
-
-:softwaredesign-uml a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "UML" ;
-        elm:relatedSkill :softwaredesign ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> .
-
-:programming a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Programming"@en ;
-        elm:label "Programmation"@fr ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97> .
-
-:fullstack a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:targetFramework "ESCO" ;
-        elm:label "Full Stack Development" ;
-        elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879> .
-
-:devops a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "DevOps" ;
-        elm:relatedESCOSkill <https://data.europa.eu/esco/skill/9c7e6502-4572-4bd3-bd15-771019a92858> .
-
-:projectManagement-agile a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Gestion de projet Agile" ;
-        elm:relatedESCOSkill <https://data.europa.eu/esco/skill/e5b94c9d-12ef-4cc6-81ad-6602c207a3e1> .
-
-:data-structure a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Structurer l’information " ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/cc9b4fbb-65f1-4c92-9229-1392d03b6e20> .                    
-
-:data-SQL a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "SQL" ;
-        elm:relatedSkill :data-structure .
-
-:data-noSQL a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "noSQL" ;
-        elm:relatedSkill :data-structure .
-
-:data-noSQL-couchDB a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "couchDB" ;
-        elm:relatedSkill
-                :data-structure ,
-                :data-noSQL .
-
-:cloud a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Cloud Computing" ;
-        elm:relatedSkill :data-structure .
-
-:cloud-Azure a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Azure" ;
-        elm:relatedSkill :cloud .
-
-:tools-CRM a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "CRM" .
-
-:cloud-AzureAD a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "AzureAD (EntraID)" ;
-        elm:relatedSkill 
-                :cloud,
-                :cloud-Azure .
-
-:cloud-Dynamics a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Microsoft Dynamics" ;
-        elm:relatedSkill 
-                :cloud,
-                :tools-CRM,
-                :cloud-Azure .
-
-:cloud-GCP a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "GCP" ;
-        elm:relatedSkill :cloud .
-
-:tools-terraform a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Terraform" ;
-        elm:relatedSkill :cloud, :devops .
-
-:tools-ansible a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Ansible" ;
-        elm:relatedSkill :python, :devops .
-
-:tools-gitea a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Gitea" ;
-        elm:relatedSkill 
-                :cicd ,
-                :devops .
-
-:sgbdr a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "SGBDR" .
-
-:sgbd-DB2 a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "DB2" ;
-        elm:relatedSkill
-                :sgbdr .
-
-:sgbd-mysql a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "mySQL" ;
-        elm:relatedSkill
-                :sgbdr .
-
-:sgbd-postgres a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "postgreSQL" ;
-        elm:relatedSkill
-                :sgbdr .
-
-:eventbus a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "EventBUS" .
-
-:eventbus-rabbitmq a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "RabbitMQ" ;
-        elm:relatedSkill
-                :eventbus .
-
-:eventbus-kafka a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Kafka" ;
-        elm:relatedSkill
-                :eventbus .
-
-:system-zos a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "z/OS" .
-
-:system-linux a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Linux" .
-
-:system-solaris a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Solaris" .
-
-:system-aix a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "AIX" .
-
-:protocol-HTTP a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "HTTP" ;
-        elm:relatedSkill :networking .
-
-:networking a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "networking" .
-
-:programming-pascal a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Pascal" ;
-        elm:relatedSkill 
-                :programming-procedural ,
-                :programming ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b> .
-
-:programming-java a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Java" ;
-        elm:relatedSkill 
-                :programming-oop ,
-                :programming ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389> .
-
-:programming-windev a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Windev" ;
-        elm:relatedSkill :programming .
-
-:programming-python a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Python" ;
-        elm:relatedSkill 
-                :programming-oop,
-                :programming-procedural,
-                :programming .
-
-:programming-C a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "C" ;
-        elm:relatedSkill :programming .
-
-:programming-dotnetCsharp a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label ".net/C#" ;
-        elm:relatedSkill
-                :programming-oop,
-                :programming .
-
-:programming-javascript a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Javascript" ;
-        elm:relatedSkill :programming .
-
-:library-angular a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Angular" ;
-        elm:relatedSkill 
-                :programming ,
-                :programming-javascript .
-
-:library-django a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Django" ;
-        elm:relatedSkill 
-                :programming ,
-                :programming-oop,
-                :programming-python .
-
-:programming-procedural a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Procedural" ;
-        elm:relatedSkill :programming .
-
-:programming-oop a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Object Oriented" ;
-        elm:relatedSkill :programming .
-
-:programming-C a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "C" ;
-        
-        elm:relatedSkill 
-                :programming-procedural,
-                :programming .
-
-:programming-COBOL a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Cobol" ;
-        elm:relatedSkill 
-                :programming,
-                :programming-procedural .
-
-:programming-Natural a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Natural" ;
-        elm:relatedSkill 
-                :programming,
-                :programming-procedural .
-
-:it-algorithmics a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Algorithmics"@en ;
-        elm:label "Algorithmique"@fr ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7482a123-e801-48de-9733-262125671410> .
-
-:ai-neuralnet a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Artificial Neural Networks"@en ;
-        elm:label "Reseaux de Neurones"@fr ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/5608d5a0-6d5e-43b7-be37-616501729bb4> .
-
-:ai-general a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "AI Fundamentals"@en ;
-        elm:label "Principes de l’Intelligence Artificielle "@fr ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/5608d5a0-6d5e-43b7-be37-616501729bb4> .
-
-:scm a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Source Control Management"@en ;
-        elm:label "Gestion des Versions de Code Source"@fr ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/9d2e926f-53d9-41f5-98f3-19dfaa687f3f> .
-
-:scm-cvs a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:description "Source Control Management with CVS"@en ;
-        schema:description "Gestion des Vesions avec CVS"@fr ;
-        elm:label "CVS" ;
-        elm:relatedSkill :scm .
-
-:scm-svn a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:description "Source Control Management with Subversion (SVN)"@en ;
-        schema:description "Gestion des Vesions avec Subversion (SVN)"@fr ;
-        elm:label "SVN" ;
-        elm:relatedSkill :scm .
-
-:scm-git a elm:LearningOutcome, schema:DefinedTerm ;
-        schema:description "Source Control Management with Git"@en ;
-        schema:description "Gestion des Vesions avec Git"@fr ;
-        elm:label "git" ;
-        elm:relatedSkill :scm .
-
-:cicd a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "CI/CD" ;
-        elm:relatedSkill :devops.
-
-:cicd-jenkins a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Jenkins" ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/f47a1998-0beb-43be-9f46-380aa4d183da> .
-
-:cicd-gitlab a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "Gitlab" ;
-        elm:relatedSkill :cicd, :devops.
-
-
-:auth-iam a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "IAM" ;
-        elm:relatedSkill
-                :grc.
-
-:auth-sso a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "SSO" ;
-        elm:relatedESCOSkill <http://data.europa.eu/> .
-
-:auth-oidc a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "OIDC" ;
-        elm:relatedSkill 
-                :sso .
-
-:auth-saml a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "SAML" ;
-        elm:relatedSkill 
-                :sso .
-
-:auth-oauth a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "oAuth" ;
-        elm:relatedSkill 
-                :sso .
-
-:auth-LDAP a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "LDAP"@en ;
-        elm:label "LDAP"@fr ;
-        elm:relatedESCOSkill <http://data.europa.eu/esco/skill/a57a54b6-2f2e-43e4-9621-b52f4a63cb08> .
-
-:auth-RACF a elm:LearningOutcome, schema:DefinedTerm ;
-        elm:label "RACF"@en ;
-        elm:label "RACF"@fr .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix schema: <https://schema.org/> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+skills:ai-general a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "AI Fundamentals"@en,
+        "Principes de l’Intelligence Artificielle "@fr ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/5608d5a0-6d5e-43b7-be37-616501729bb4> .
+
+skills:ai-neuralnet a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Artificial Neural Networks"@en,
+        "Reseaux de Neurones"@fr ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/5608d5a0-6d5e-43b7-be37-616501729bb4> .
+
+skills:auth-LDAP a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "LDAP"@en,
+        "LDAP"@fr ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/a57a54b6-2f2e-43e4-9621-b52f4a63cb08> .
+
+skills:auth-RACF a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "RACF"@en,
+        "RACF"@fr .
+
+skills:auth-iam a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "IAM" ;
+    elm:relatedSkill skills:grc .
+
+skills:auth-oauth a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "oAuth" ;
+    elm:relatedSkill skills:sso .
+
+skills:auth-oidc a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "OIDC" ;
+    elm:relatedSkill skills:sso .
+
+skills:auth-saml a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "SAML" ;
+    elm:relatedSkill skills:sso .
+
+skills:auth-sso a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "SSO" ;
+    elm:relatedESCOSkill <http://data.europa.eu/> .
+
+skills:blockchain-Ethereum a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Ethereum" ;
+    elm:relatedSkill skills:blockchain .
+
+skills:blockchain-Solana a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Solana" ;
+    elm:relatedSkill skills:blockchain .
+
+skills:cicd-gitlab a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "Gitlab" ;
+    elm:relatedSkill skills:cicd,
+        skills:devops .
+
+skills:cicd-jenkins a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "Jenkins" ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/f47a1998-0beb-43be-9f46-380aa4d183da> .
+
+skills:cloud-AzureAD a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "AzureAD (EntraID)" ;
+    elm:relatedSkill skills:cloud,
+        skills:cloud-Azure .
+
+skills:cloud-Dynamics a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Microsoft Dynamics" ;
+    elm:relatedSkill skills:cloud,
+        skills:cloud-Azure,
+        skills:tools-CRM .
+
+skills:cloud-GCP a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "GCP" ;
+    elm:relatedSkill skills:cloud .
+
+skills:data-SQL a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "SQL" ;
+    elm:relatedSkill skills:data-structure .
+
+skills:data-noSQL-couchDB a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "couchDB" ;
+    elm:relatedSkill skills:data-noSQL,
+        skills:data-structure .
+
+skills:eventbus-kafka a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Kafka" ;
+    skos:broader nkonto:ToolSkill ;
+    elm:relatedSkill skills:eventbus .
+
+skills:eventbus-rabbitmq a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "RabbitMQ" ;
+    elm:relatedSkill skills:eventbus .
+
+skills:fullstack a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Full Stack Development" ;
+    elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879> ;
+    elm:targetFramework "ESCO" .
+
+skills:grc-compliance-NIS2 a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "NIS2" ;
+    elm:relatedSkill skills:grc,
+        skills:grc-compliance .
+
+skills:grc-compliance-PCI-DSS a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "PCI/DSS" ;
+    elm:relatedSkill skills:grc,
+        skills:grc-compliance .
+
+skills:grc-compliance-RGPD a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "RGPD" ;
+    elm:relatedSkill skills:grc,
+        skills:grc-compliance .
+
+skills:grc-compliance-iso27001 a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "ISO/27001" ;
+    elm:relatedSkill skills:grc,
+        skills:grc-compliance .
+
+skills:grc-riskManagement-EBIOS a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "EBIOS-RM" ;
+    elm:relatedSkill skills:grc,
+        skills:grc-riskManagement .
+
+skills:it-algorithmics a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Algorithmics"@en,
+        "Algorithmique"@fr ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7482a123-e801-48de-9733-262125671410> .
+
+skills:library-angular a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Angular" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-javascript .
+
+skills:library-django a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Django" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-oop,
+        skills:programming-python .
+
+skills:programming-C a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "C" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-procedural .
+
+skills:programming-COBOL a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Cobol" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-procedural .
+
+skills:programming-Natural a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Natural" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-procedural .
+
+skills:programming-dotnetCsharp a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label ".net/C#" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-oop .
+
+skills:programming-java a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Java" ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389> ;
+    elm:relatedSkill skills:programming,
+        skills:programming-oop .
+
+skills:programming-pascal a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Pascal" ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/e8b89eb6-51e8-4c3a-babb-88b2e110376b> ;
+    elm:relatedSkill skills:programming,
+        skills:programming-procedural .
+
+skills:programming-windev a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Windev" ;
+    elm:relatedSkill skills:programming .
+
+skills:project-JIRA-Software a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ManagementSkill ;
+    elm:label "JIRA" ;
+    elm:relatedSkill skills:project .
+
+skills:projectManagement-agile a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Gestion de projet Agile" ;
+    elm:relatedESCOSkill esco:e5b94c9d-12ef-4cc6-81ad-6602c207a3e1 .
+
+skills:protocol-HTTP a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "HTTP" ;
+    elm:relatedSkill skills:networking .
+
+skills:scm-cvs a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "CVS" ;
+    elm:relatedSkill skills:scm ;
+    schema:description "Source Control Management with CVS"@en,
+        "Gestion des Vesions avec CVS"@fr .
+
+skills:scm-git a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "git" ;
+    skos:broader nkonto:ToolSkill ;
+    elm:relatedSkill skills:scm ;
+    schema:description "Source Control Management with Git"@en,
+        "Gestion des Vesions avec Git"@fr .
+
+skills:scm-svn a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "SVN" ;
+    elm:relatedSkill skills:scm ;
+    schema:description "Source Control Management with Subversion (SVN)"@en,
+        "Gestion des Vesions avec Subversion (SVN)"@fr .
+
+skills:sgbd-DB2 a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "DB2" ;
+    elm:relatedSkill skills:sgbdr .
+
+skills:sgbd-mysql a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "mySQL" ;
+    elm:relatedSkill skills:sgbdr .
+
+skills:sgbd-postgres a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "postgreSQL" ;
+    elm:relatedSkill skills:sgbdr .
+
+skills:softwaredesign-uml a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "UML" ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> ;
+    elm:relatedSkill skills:softwaredesign .
+
+skills:system-aix a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "AIX" .
+
+skills:system-linux a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Linux" .
+
+skills:system-solaris a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Solaris" .
+
+skills:system-zos a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "z/OS" .
+
+skills:tools-ansible a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "Ansible" ;
+    elm:relatedSkill skills:devops,
+        skills:python .
+
+skills:tools-gitea a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "Gitea" ;
+    elm:relatedSkill skills:cicd,
+        skills:devops .
+
+skills:tools-terraform a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "Terraform" ;
+    elm:relatedSkill skills:cloud,
+        skills:devops .
+
+skills:data-noSQL a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "noSQL" ;
+    elm:relatedSkill skills:data-structure .
+
+skills:grc-riskManagement a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "Risk Management"@en,
+        "Analyse et Gestion de risques"@fr ;
+    elm:relatedSkill skills:grc .
+
+skills:networking a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "networking" .
+
+skills:programming-javascript a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Javascript" ;
+    elm:relatedSkill skills:programming .
+
+skills:programming-python a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Python" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-oop,
+        skills:programming-procedural .
+
+skills:project a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ManagementSkill ;
+    elm:label "Gestion de projet" .
+
+skills:softwaredesign a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "Software Architecture"@en,
+        "Architecture Logicielle"@fr ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> .
+
+skills:tools-CRM a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "CRM" .
+
+skills:blockchain a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Blockchain" .
+
+skills:cicd a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "CI/CD" ;
+    elm:relatedSkill skills:devops .
+
+skills:cloud-Azure a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Azure" ;
+    elm:relatedSkill skills:cloud .
+
+skills:eventbus a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "EventBUS" .
+
+nkonto:ManagementSkill a skos:Concept ;
+    skos:inScheme nkonto:SkillCategory ;
+    skos:prefLabel "Management" .
+
+skills:scm a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "Source Control Management"@en,
+        "Gestion des Versions de Code Source"@fr ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/9d2e926f-53d9-41f5-98f3-19dfaa687f3f> .
+
+skills:sgbdr a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "SGBDR" .
+
+skills:data-structure a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Structurer l’information " ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/cc9b4fbb-65f1-4c92-9229-1392d03b6e20> .
+
+skills:grc-compliance a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "Conformité Règlementaire et Certifiante" ;
+    elm:relatedSkill skills:grc .
+
+skills:programming-oop a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Object Oriented" ;
+    elm:relatedSkill skills:programming .
+
+nkonto:ToolSkill a skos:Concept ;
+    skos:inScheme nkonto:SkillCategory ;
+    skos:prefLabel "Connaissance outil" .
+
+skills:cloud a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Cloud Computing" ;
+    elm:relatedSkill skills:data-structure .
+
+skills:devops a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "DevOps" ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:relatedESCOSkill esco:9c7e6502-4572-4bd3-bd15-771019a92858 .
+
+skills:programming-procedural a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Procedural" ;
+    elm:relatedSkill skills:programming .
+
+nkonto:MethodologicalSkill a skos:Concept ;
+    skos:inScheme nkonto:SkillCategory ;
+    skos:prefLabel "Compétence méthodologique" .
+
+nkonto:SkillCategory a skos:ConceptScheme ;
+    skos:prefLabel "Classification DISCO des compétences"@fr .
+
+skills:grc a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "Gestion Risques et conformité" .
+
+skills:programming a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Programming"@en,
+        "Programmation"@fr ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97> .
+
+nkonto:ComplianceSkill a skos:Concept ;
+    skos:inScheme nkonto:SkillCategory ;
+    skos:prefLabel "Sécurité & Conformité" .
+
+nkonto:TechnicalSkill a skos:Concept ;
+    skos:inScheme nkonto:SkillCategory ;
+    skos:prefLabel "Compétence technique" .
