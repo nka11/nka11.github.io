@@ -9,7 +9,7 @@
     let languages: IPersonLangDetails[] = [];
     onMount(async () => {
         languages = listPersonLangs(person, browsingPreferences.lang);
-        console.log(languages)
+        // console.log(languages)
     });
 
 </script>

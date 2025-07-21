@@ -109,7 +109,7 @@ export function getProjectLifeCycle(subject: NamedNode, lang: string = "fr"): IP
     GROUP BY ?project
     LIMIT 1
   `;
-  console.log(getProjectLifeCycleQuery)
+  // console.log(getProjectLifeCycleQuery)
   // let result: IProjectCycle[] = [];
   const { store, oxiReady } = get(oxigraphStore);
   if (!oxiReady) {

@@ -10,27 +10,27 @@
 
 {#if props.phases}
     <div class="timeline">
-      <div class="phase">
+      <div class="phase phase-design">
         <div class="phase-name">Design</div>
         <div class="phase-role">{props.phases?.design?.value}</div>
       </div>
-      <div class="phase">
+      <div class="phase phase-code">
         <div class="phase-name">Code</div>
         <div class="phase-role">{props.phases?.code?.value}</div>
       </div>
-      <div class="phase">
+      <div class="phase phase-build">
         <div class="phase-name">Build</div>
         <div class="phase-role">{props.phases?.build?.value}</div>
       </div>
-      <div class="phase">
+      <div class="phase phase-delivery">
         <div class="phase-name">Delivery</div>
         <div class="phase-role">{props.phases?.delivery?.value}</div>
       </div>
-      <div class="phase">
+      <div class="phase phase-obervability">
         <div class="phase-name">Observability</div>
         <div class="phase-role">{props.phases?.observability?.value}</div>
       </div>
-      <div class="phase">
+      <div class="phase phase-run">
         <div class="phase-name">Run</div>
         <div class="phase-role">{props.phases?.run?.value}</div>
       </div>

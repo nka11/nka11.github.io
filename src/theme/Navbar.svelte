@@ -1,5 +1,7 @@
 <script>
   import { page } from '$app/stores'
+    import CvMenu from '$lib/components/schemaorgcv/CVMenu.svelte';
+    import { namedNode } from 'oxigraph';
   import Github from './icons/Github.svelte'
   import { scrollDirection } from './layout'
   import Logo from './Logo.svelte'
@@ -10,7 +12,11 @@
 
   const routeId = $derived($page.route.id)
   const isHome = $derived(routeId === '/')
+  const isCv = $derived(routeId?.startsWith('/cv'))
   const hasError = $derived($page.error)
+  // console.log($page)
+
+
 </script>
 
 <header class="header {scrollDirection === 'down' ? 'hidden-in-mobile' : ''}">
@@ -20,6 +26,11 @@
       {#if !isHome}
         <div class="logo-container">
           <Logo />
+        </div>
+      {/if}
+      {#if isCv}
+        <div class="logo-container">
+          <!-- <CvMenu person={person}/> -->
         </div>
       {/if}
     </div>

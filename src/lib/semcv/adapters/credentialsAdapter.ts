@@ -99,7 +99,7 @@ export function listCredentials(
       `;
     }
     try {
-      console.log(credentialsQuery);
+      // console.log(credentialsQuery);
        result = (store?.query(credentialsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as ICredentialDetails[];
       } catch(e) { // silent fail
         console.error(e);
