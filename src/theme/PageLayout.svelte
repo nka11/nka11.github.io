@@ -30,7 +30,7 @@
   $sidebar = fmSidebar
   $showHeader = header
 
-  const isHome = $derived(routeId === '/')
+  const isHome = $derived(routeId === '/') 
 
   anchors.set(fmAnchors)
 
@@ -142,7 +142,7 @@
 }
 
 .content {
-  width: 90vw;
+  width: 100%;
   padding-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
@@ -150,7 +150,7 @@
 
 @media (min-width: 640px) {
   .content {
-    width: 45vw;
+    width: 90%;
     padding-bottom: 7rem;
   }
 }

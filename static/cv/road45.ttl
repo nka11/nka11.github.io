@@ -1,0 +1,128 @@
+@prefix : <https://example.org/cm-road45#> .
+@prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix impact: <https://nka11.github.io/cv#projects/cm-road45/impact/> .
+@prefix : <https://nka11.github.io/cv#projects/cm-road45> .
+
+
+: a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Projet Road45"@fr, "Project Road45"@en ;
+    schema:startDate "2022-10-02"^^xsd:date ;
+    schema:endDate "2023-09-30"^^xsd:date ;
+    schema:description """ROAD 45 stands for Reloaded Organization and Architecture of Data, 45 is the lucky number of the ClubMed company. In this ambitious project, Clubmed redesigned its entire Data analysis stack with an event-driven data propagation Architecture. The events emitted from all the operational components of the IT ecosystem will then be collected and processed on the GCP cloud platform to offer DATA users an intuitive and self-explainatory environment to work with their DATA (Reporting, previsions, etc…).
+- Tech Lead and PO of the infrastructure stream (3 devOps)
+- Design The GCP landing zone integrated with Clubmed’s legacy infrastructure, using IaC and CI/CD with gitlab
+- Azure Landing Zone definition for Clubmed's office architecture simplification
+- Create governance documentation and link with Azure AD for the SSO and IAM (Users)
+- Provide blueprints for various types of projects (REST API, Scheduled batches, Event-driven data propagation, Machine Learning Pipelines, Transactional Inference) to perform automated configuration and deployment (Project templates including IaC and CI/CD toolbox with an accurate documentation).
+"""@en,
+    """ROAD 45 signifie Réorganisation et Architecture des Données, 45 étant le chiffre fétiche de ClubMed. Dans ce projet ambitieux, ClubMed a repensé toute sa chaîne d’analyse de données avec une architecture orientée événements. Les événements issus de tous les composants opérationnels du SI sont collectés et traités dans GCP pour offrir aux utilisateurs un environnement de travail intuitif pour la donnée (reporting, prévisions, etc.).
+- Tech Lead et PO du stream infrastructure (3 devOps)
+- Conception de la GCP Landing Zone intégrée au SI ClubMed, avec IaC et CI/CD sous GitLab
+- Définition de la Landing Zone Azure pour simplification de l’architecture bureautique
+- Création de documentation de gouvernance avec intégration Azure AD pour SSO et IAM
+- Fourniture de blueprints pour divers types de projets (API REST, batchs planifiés, propagation événementielle, pipelines ML, inférence transactionnelle) avec déploiement automatisé (IaC, CI/CD, documentation).
+"""@fr ;
+    schema:about
+        skills:scm-git, skills:data-noSQL, skills:ai-general, skills:ai-neuralnet,
+        skills:sgbd-postgres, skills:cloud-GCP, skills:tools-ansible, skills:tools-terraform,
+        skills:data-structure, skills:cicd-gitlab, skills:system-linux, skills:eventbus-kafka,
+        skills:programming-python ;
+    :hasImpact
+        :impact-org-1, :impact-org-2,
+        :impact-tech-1, :impact-tech-2,
+        :impact-data-1, :impact-data-2,
+        :impact-user-1, :impact-user-2 ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description "Cadrage, ateliers d’architecture et modèles de sécurité."
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:code  ;
+            schema:description "Architecture logicielle, templates projet, choix d'outils et d'utilitaires."
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:build ;
+            schema:description "Infrastructure as code, CI/CD, conteneurisation. Tests automatisés, intégration continue."
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:delivery ;
+            schema:description "Déploiement multi-environnements sécurisé."
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:observability ;
+            schema:description "Choix des métriques, contrusction de tableaux de bord."
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:run ;
+            schema:description "Suivi d'exploitation, gestion des incidents, feedback produit."
+        ] .
+
+### Impacts Organisationnels
+:impact-org-1 a impact:OrganizationalImpact ;
+    schema:name "Unified Identity and Access Management"@en, "Gestion unifiée des identités et des accès"@fr ;
+    schema:description "Enabled SSO and centralized IAM with Azure AD, improving security and admin efficiency."@en,
+                       "Mise en place du SSO et IAM centralisé via Azure AD, renforçant la sécurité et simplifiant l’administration."@fr ;
+    impact:impactType impact:IdentityGovernance .
+
+:impact-org-2 a impact:OrganizationalImpact ;
+    schema:name "Standardization of Project Blueprints"@en, "Standardisation des Blueprints projets"@fr ;
+    schema:description "Accelerated onboarding through standardized templates and CI/CD tooling."@en,
+                       "Accélération de l’onboarding grâce à des modèles de projets standardisés avec CI/CD intégré."@fr ;
+    impact:impactType impact:Standardization .
+
+### Impacts Techniques
+:impact-tech-1 a impact:TechnicalImpact ;
+    schema:name "Event-Driven Architecture Modernization"@en, "Modernisation de l’architecture orientée événements"@fr ;
+    schema:description "Real-time decoupled architecture using Kafka and GCP."@en,
+                       "Architecture temps réel et découplée grâce à Kafka et GCP."@fr ;
+    impact:impactType impact:ArchitectureModernization .
+
+:impact-tech-2 a impact:TechnicalImpact ;
+    schema:name "Infrastructure as Code"@en, "Infrastructure as Code"@fr ;
+    schema:description "Full deployment automation via Terraform and Ansible."@en,
+                       "Automatisation complète des déploiements avec Terraform et Ansible."@fr ;
+    impact:impactType impact:Automation .
+
+### Impacts Données & Analyse
+:impact-data-1 a impact:DataImpact ;
+    schema:name "Improved Data Availability"@en, "Amélioration de la disponibilité des données"@fr ;
+    schema:description "Business data now exposed as real-time events in GCP."@en,
+                       "Les données métier sont désormais disponibles en temps réel via événements dans GCP."@fr ;
+    impact:impactType impact:DataOps .
+
+:impact-data-2 a impact:DataImpact ;
+    schema:name "Better Data Traceability"@en, "Meilleure traçabilité des données"@fr ;
+    schema:description "Lineage tracking through event-based flow."@en,
+                       "Traçabilité assurée par la propagation événementielle des données."@fr ;
+    impact:impactType impact:DataGovernance .
+
+### Impacts Utilisateurs
+:impact-user-1 a impact:UserImpact ;
+    schema:name "Faster Time to Insight"@en, "Accès plus rapide à l’information"@fr ;
+    schema:description "Self-service BI and intuitive dashboards."@en,
+                       "BI en libre-service et tableaux de bord intuitifs."@fr ;
+    impact:impactType impact:UserAutonomy .
+
+:impact-user-2 a impact:UserImpact ;
+    schema:name "Report Consistency"@en, "Cohérence des rapports"@fr ;
+    schema:description "Unified data sources reduce inconsistencies."@en,
+                       "Sources de données unifiées pour des rapports cohérents."@fr ;
+    impact:impactType impact:DataConsistency .
+
+### Taxonomie des types d’impacts
+impact:ArchitectureModernization a impact:ImpactType ; schema:name "Architecture Modernization"@en, "Modernisation de l’architecture"@fr .
+impact:Automation a impact:ImpactType ; schema:name "Automation"@en, "Automatisation"@fr .
+impact:DataOps a impact:ImpactType ; schema:name "DataOps Enablement"@en, "Mise en œuvre de DataOps"@fr .
+impact:DataGovernance a impact:ImpactType ; schema:name "Data Governance"@en, "Gouvernance des données"@fr .
+impact:Standardization a impact:ImpactType ; schema:name "Standardization"@en, "Standardisation"@fr .
+impact:IdentityGovernance a impact:ImpactType ; schema:name "Identity Governance"@en, "Gouvernance des identités"@fr .
+impact:UserAutonomy a impact:ImpactType ; schema:name "User Autonomy"@en, "Autonomie des utilisateurs"@fr .
+impact:DataConsistency a impact:ImpactType ; schema:name "Data Consistency"@en, "Cohérence des données"@fr .

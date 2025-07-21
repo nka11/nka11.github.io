@@ -61,7 +61,7 @@
 
 <Navbar />
 <main class="main-layout">
-  <Sidebar />
+  <!-- <Sidebar /> -->
   <div class="main-container">
     <AjaxBar bind:this={ajaxBar} />
     {@render children?.()}
@@ -81,6 +81,7 @@
   .main-container {
     flex-grow: 1;
     padding: 1rem;
+    max-width: var(--content-max-width);
   }
 
   .footer {

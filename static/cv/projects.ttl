@@ -121,68 +121,68 @@
         skills:system-linux,
         skills:scm .
 
-:cm-road45 a schema:CreativeWork, schema:Project, schema:Role ;
-    schema:name "Projet Road45" ;
-    schema:startDate "2022-10-02"^^xsd:date ;
-    schema:endDate "2023-09-30"^^xsd:date ;
-    schema:description """ROAD 45 stands for Reloaded Organization and Architecture of Data, 45 is the lucky number of the ClubMed company. In this ambitious project, Clubmed redesigned its entire Data analysis stack with an event-driven data propagation Architecture. The events emitted from all the operational components of the IT ecosystem will then be collected and processed on the GCP cloud platform to offer DATA users an intuitive and self-explainatory environment to work with their DATA (Reporting, previsions, etc…).
-    - Tech Lead and PO of the infrastructure stream (3 devOps)
-    - Design The GCP landing zone integrated with Clubmed’s legacy infrastructure, using IaC and CI/CD with gitlab
-    - Azure Landing Zone definition for Clubmed's office architecture simplification
-    - Create governance documentation and link with Azure AD for the SSO and IAM (Users)
-    - Provide blueprints for various types of projects (REST API, Scheduled batches, Event-driven data propagation, Machine Learning Pipelines, Transactional Inference) to perform automated configuration and deployment (Project templates including IaC and CI/CD toolbox with an accurate documentation).
-    """ ;
-    schema:about
-        skills:scm-git,
-        skills:data-noSQL,
-        skills:ai-general,
-        skills:ai-neuralnet,
-        skills:sgbd-postgres,
-        skills:cloud-GCP,
-        skills:tools-ansible,
-        skills:tools-terraform,
-        skills:data-structure,
-        skills:cicd-gitlab,
-        skills:system-linux,
-        skills:eventbus-kafka,
-        skills:programming-python ;
-    schema:agentInteractionStatistic
-        [ a schema:InteractionCounter, schema:Action ;
-            schema:interactionType product-cycle-actions:design ;
-            schema:userInteractionCount 1 ;
-            schema:agent roles:TechLead, roles:ProductOwner ;
-            schema:instrument skills:softwaredesign, skills:cloud-GCP, skills:tools-terraform
-        ],
-        [ a schema:InteractionCounter, schema:Action ;
-            schema:interactionType product-cycle-actions:code ;
-            schema:userInteractionCount 10 ;
-            schema:agent roles:Developer ;
-            schema:instrument skills:programming-python, skills:scm-git
-        ],
-        [ a schema:InteractionCounter, schema:Action ;
-            schema:interactionType product-cycle-actions:build ;
-            schema:userInteractionCount 20 ;
-            schema:agent roles:Developer, roles:DevOps ;
-            schema:instrument skills:cicd-gitlab
-        ],
-        [ a schema:InteractionCounter, schema:Action ;
-            schema:interactionType product-cycle-actions:delivery ;
-            schema:userInteractionCount 5 ;
-            schema:agent roles:DevOps ;
-            schema:instrument skills:cicd-gitlab, skills:tools-ansible
-        ],
-        [ a schema:InteractionCounter, schema:Action ;
-            schema:interactionType product-cycle-actions:observability ;
-            schema:userInteractionCount 50 ;
-            schema:agent roles:DevOps, roles:SRE ;
-            schema:instrument skills:cloud-GCP
-        ],
-        [ a schema:InteractionCounter, schema:Action ;
-            schema:interactionType product-cycle-actions:run ;
-            schema:userInteractionCount 100 ;
-            schema:agent roles:SRE ;
-            schema:instrument skills:cloud-GCP
-        ] .
+# :cm-road45 a schema:CreativeWork, schema:Project, schema:Role ;
+#     schema:name "Projet Road45" ;
+#     schema:startDate "2022-10-02"^^xsd:date ;
+#     schema:endDate "2023-09-30"^^xsd:date ;
+#     schema:description """ROAD 45 stands for Reloaded Organization and Architecture of Data, 45 is the lucky number of the ClubMed company. In this ambitious project, Clubmed redesigned its entire Data analysis stack with an event-driven data propagation Architecture. The events emitted from all the operational components of the IT ecosystem will then be collected and processed on the GCP cloud platform to offer DATA users an intuitive and self-explainatory environment to work with their DATA (Reporting, previsions, etc…).
+#     - Tech Lead and PO of the infrastructure stream (3 devOps)
+#     - Design The GCP landing zone integrated with Clubmed’s legacy infrastructure, using IaC and CI/CD with gitlab
+#     - Azure Landing Zone definition for Clubmed's office architecture simplification
+#     - Create governance documentation and link with Azure AD for the SSO and IAM (Users)
+#     - Provide blueprints for various types of projects (REST API, Scheduled batches, Event-driven data propagation, Machine Learning Pipelines, Transactional Inference) to perform automated configuration and deployment (Project templates including IaC and CI/CD toolbox with an accurate documentation).
+#     """ ;
+#     schema:about
+#         skills:scm-git,
+#         skills:data-noSQL,
+#         skills:ai-general,
+#         skills:ai-neuralnet,
+#         skills:sgbd-postgres,
+#         skills:cloud-GCP,
+#         skills:tools-ansible,
+#         skills:tools-terraform,
+#         skills:data-structure,
+#         skills:cicd-gitlab,
+#         skills:system-linux,
+#         skills:eventbus-kafka,
+#         skills:programming-python ;
+#     schema:agentInteractionStatistic
+#         [ a schema:InteractionCounter, schema:Action ;
+#             schema:interactionType product-cycle-actions:design ;
+#             schema:userInteractionCount 1 ;
+#             schema:agent roles:TechLead, roles:ProductOwner ;
+#             schema:instrument skills:softwaredesign, skills:cloud-GCP, skills:tools-terraform
+#         ],
+#         [ a schema:InteractionCounter, schema:Action ;
+#             schema:interactionType product-cycle-actions:code ;
+#             schema:userInteractionCount 10 ;
+#             schema:agent roles:Developer ;
+#             schema:instrument skills:programming-python, skills:scm-git
+#         ],
+#         [ a schema:InteractionCounter, schema:Action ;
+#             schema:interactionType product-cycle-actions:build ;
+#             schema:userInteractionCount 20 ;
+#             schema:agent roles:Developer, roles:DevOps ;
+#             schema:instrument skills:cicd-gitlab
+#         ],
+#         [ a schema:InteractionCounter, schema:Action ;
+#             schema:interactionType product-cycle-actions:delivery ;
+#             schema:userInteractionCount 5 ;
+#             schema:agent roles:DevOps ;
+#             schema:instrument skills:cicd-gitlab, skills:tools-ansible
+#         ],
+#         [ a schema:InteractionCounter, schema:Action ;
+#             schema:interactionType product-cycle-actions:observability ;
+#             schema:userInteractionCount 50 ;
+#             schema:agent roles:DevOps, roles:SRE ;
+#             schema:instrument skills:cloud-GCP
+#         ],
+#         [ a schema:InteractionCounter, schema:Action ;
+#             schema:interactionType product-cycle-actions:run ;
+#             schema:userInteractionCount 100 ;
+#             schema:agent roles:SRE ;
+#             schema:instrument skills:cloud-GCP
+#         ] .
 
 :cm-cxo a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name "Projet 'Customer Experience Optimization'" ;

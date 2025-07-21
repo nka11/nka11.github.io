@@ -31,6 +31,13 @@ export function listSkills(subject: NamedNode, attribute: string = "schema:about
                 elm:label ?skillLabel .
             FILTER(LANG(?skillLabel) = "${lang}" || LANG(?skillLabel) = "")
           }
+        OPTIONAL {
+            ?skill a schema:DefinedTerm ;
+                elm:relatedSkill ?parentSkill .
+            ?parentSkill a schema:DefinedTerm ;
+              elm:label ?parentSkillName .
+            FILTER(LANG(?parentSkillName) = "${lang}" || LANG(?parentSkillName) = "")
+          }
         }
     `;
     try {
