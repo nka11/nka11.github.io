@@ -8,10 +8,37 @@
   import Home from './Home.svelte'
   import HeroImage from './home/HeroImage.svelte'
   import LastUpdate from './LastUpdate.svelte'
-  import { anchors, pages, showHeader, sidebar } from './layout'
+  // import { anchors, , showHeader, sidebar } from './layout'
   import PageSwitcher from './PageSwitcher.svelte'
+    import Navbar from './Navbar.svelte';
+    import AjaxBar from './AjaxBar.svelte';
 
-  const routeId = $derived($page.route.id)
+      let ajaxBar = $state()
+import {
+    anchors,
+    pages,
+    isDark,
+    navCollapsed,
+    oldScrollY,
+    // resolveSidebar,
+    scrollY,
+    showHeader,
+    sidebar,
+    sidebarCollapsed,
+  } from './layout'
+    import Sidebar from './Sidebar.svelte';
+  beforeNavigate(() => {
+    ajaxBar?.start()
+  })
+
+  afterNavigate(() => {
+    ajaxBar?.end()
+    $sidebarCollapsed = true
+    $navCollapsed = true
+  })
+
+  
+    const routeId = $derived($page.route.id)
 
   // The frontmatter info. This would be injected by sveltepress
   const { fm, children, heroImage } = $props()
@@ -25,12 +52,13 @@
     home,
     sidebar: fmSidebar = true,
     header = true,
+    type = ""
   } = fm
 
   $sidebar = fmSidebar
   $showHeader = header
 
-  const isHome = $derived(routeId === '/')
+  const isHome = $derived(routeId === '/') 
 
   anchors.set(fmAnchors)
 
@@ -52,39 +80,53 @@
   <meta name="description" content={description || siteConfig.description} />
 </svelte:head>
 
-{#snippet defaultHeroImage()}
-  {#if fm.heroImage}
-    <HeroImage heroImage={fm.heroImage} />
-  {/if}
-{/snippet}
-
-{#if !isHome}
-  <div class="theme-default--page-layout pb-4">
-    <div class="content">
-      {#if title}
-        <h1 class="page-title">
-          {title}
-        </h1>
+<Navbar  />
+<main class="main-layout">
+  <!-- CSS for sidebar is broken
+   {#if fmSidebar}
+    <Sidebar />
+  {/if} -->
+  <div class="main-container">
+    <AjaxBar bind:this={ajaxBar} />
+    {#snippet defaultHeroImage()}
+      {#if fm.heroImage}
+        <HeroImage heroImage={fm.heroImage} />
+      {/if}
+    {/snippet}
+    
+    {#if !isHome}
+      <div class="theme-default--page-layout pb-4">
+        <div class="content">
+          {#if title}
+            <h1 class="page-title">
+              {title}
+            </h1>
+          {/if}
+          {@render children?.()}
+          <div class="meta" > 
+            <!-- class:without-edit-link={!themeOptions.editLink} -->
+            <!-- {#if themeOptions.editLink}
+              <EditPage {pageType} />
+            {/if} -->
+            <LastUpdate {lastUpdate} />
+          </div>
+          {#if ready && $pages.length}
+            <PageSwitcher />
+          {/if}
+        </div>
+      </div>
+    {:else}
+      {#if home !== false}
+        <Home {...fm} {siteConfig} heroImage={heroImage ?? defaultHeroImage}></Home>
       {/if}
       {@render children?.()}
-      <div class="meta" > 
-        <!-- class:without-edit-link={!themeOptions.editLink} -->
-        <!-- {#if themeOptions.editLink}
-          <EditPage {pageType} />
-        {/if} -->
-        <LastUpdate {lastUpdate} />
-      </div>
-      {#if ready && $pages.length}
-        <PageSwitcher />
-      {/if}
-    </div>
+    {/if}
+    
   </div>
-{:else}
-  {#if home !== false}
-    <Home {...fm} {siteConfig} heroImage={heroImage ?? defaultHeroImage}></Home>
-  {/if}
-  {@render children?.()}
-{/if}
+</main>
+
+
+
 
 <style>
 :global(.theme-default--page-layout h1 .svp-title-anchor),
@@ -142,7 +184,7 @@
 }
 
 .content {
-  width: 90vw;
+  width: 100%;
   padding-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
@@ -150,7 +192,7 @@
 
 @media (min-width: 640px) {
   .content {
-    width: 45vw;
+    width: 90%;
     padding-bottom: 7rem;
   }
 }
@@ -159,12 +201,56 @@
   margin-top: 0;
 }
 
+
+.main-container {
+  padding: 0 var(--padding-desktop);
+  max-width: var(--content-max-width);
+  margin: var(--nav-height) auto 0;
+}
+
+main {
+  padding-top: var(--nav-height);
+}
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .main-container {
+    padding: 0 var(--padding-tablet);
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 600px) {
+  :root {
+    --nav-height: 56px; /* smaller nav for mobile */
+  }
+
+  .main-container {
+    padding: 0 var(--padding-mobile);
+    margin-top: var(--nav-height);
+  }
+
+  main {
+    padding-top: var(--nav-height);
+  }
+}
+
 .meta {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-top: 5rem;
 }
+
+  .main-layout {
+    display: flex;
+    width: 100%;
+  }
+
+  .main-container {
+    flex-grow: 1;
+    padding: 1rem;
+    max-width: var(--content-max-width);
+  }
 
 @media (min-width: 640px) {
   .meta {

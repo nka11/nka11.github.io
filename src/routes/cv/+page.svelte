@@ -1,3 +1,13 @@
+<script module>
+  export const frontmatter  = {
+    title : 'Nicolas Karageuzian',
+    description : 'CV et portfolio',
+    header: false,
+    sidebar: false,
+    type: "CV"
+  }
+</script>
+
 <script lang="ts">
   import { locale, _ } from 'svelte-i18n';
   
@@ -16,10 +26,10 @@
   import CvMenu from '../../lib/components/schemaorgcv/CVMenu.svelte';
   import { browsingPreferences } from '$lib/state.svelte';
   import Experiences from '$lib/components/schemaorgcv/Experiences.svelte';
+    import { sidebar } from '../../theme/layout';
   
     export let data: {jsonld: any, dataFiles: string[],variants:{variant:string,name:string}[]};
   // import { userPrefs } from './states';
-
     let mainResult: Array<any> = [];
   let person: IPersonDetails | undefined = undefined;
   let organizationRoles: IOrganizationRole[] = [];
@@ -40,6 +50,8 @@
 
       const personNode: NamedNode = namedNode("https://nka11.github.io/#me")
       person = getPerson(personNode,browsingPreferences.lang);
+      // if (person.description && person.description.value) frontmatter.description = person.description.value
+      // if (person.name && person.name.value) frontmatter.title = `CV de {person.name.value}`
       skills = skillsCounts(lang);
       organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",browsingPreferences.lang).sort(compareExperience);
       console.log(organizationRoles);

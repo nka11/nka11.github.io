@@ -18,7 +18,7 @@ export function listSkills(subject: NamedNode, attribute: string = "schema:about
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         prefix elm: <https://data.europa.eu/snb/elm/>
-        
+        prefix skos: <http://www.w3.org/2004/02/skos/core#>
         SELECT
             ?skill 
             ?skillLabel 
@@ -30,6 +30,13 @@ export function listSkills(subject: NamedNode, attribute: string = "schema:about
             ?skill a schema:DefinedTerm ;
                 elm:label ?skillLabel .
             FILTER(LANG(?skillLabel) = "${lang}" || LANG(?skillLabel) = "")
+          }
+        OPTIONAL {
+            ?skill a schema:DefinedTerm ;
+                skos:broader ?parentSkill .
+            ?parentSkill a skos:Concept ;
+              skos:prefLabel ?parentSkillName .
+            FILTER(LANG(?parentSkillName) = "${lang}" || LANG(?parentSkillName) = "")
           }
         }
     `;

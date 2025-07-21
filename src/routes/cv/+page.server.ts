@@ -14,6 +14,8 @@ const dataFiles = [
       '/cv/schemaorg.ttl',
       '/cv/skills.ttl',
       '/cv/projects.ttl',
+      '/cv/road45.ttl',
+      '/cv/product_cycle.ttl',
     ]
 
 
@@ -34,21 +36,14 @@ const results = (store?.query(variantsQuery) as unknown as Map<string, Term>[]).
 
 export async function load() {
   let data:any;
-  const dataFiles = [
-    '/cv/schemaorg.ttl',
-    '/cv/skills.ttl',
-    '/cv/projects.ttl',
-  ]
-dataFiles.map((turtleUrl) => {
-  const turtlePath = `./static${turtleUrl}`;
-
-  const turtleString = fs.readFileSync(turtlePath,'utf8');  
-
-  const quadStream = rdfParse.rdfParser.parse(
-      Readable.from([turtleString]),
-      { contentType: 'text/turtle' }
-    );
-  });
+  dataFiles.map((turtleUrl) => {
+    const turtlePath = `./static${turtleUrl}`;
+    const turtleString = fs.readFileSync(turtlePath,'utf8');
+    const quadStream = rdfParse.rdfParser.parse(
+        Readable.from([turtleString]),
+        { contentType: 'text/turtle' }
+      );
+    });
   const variants = results.map((variant) => {
       return { 
         variant: variant.variant.value.slice(VARIANT_PREFIX.length),

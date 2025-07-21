@@ -14,6 +14,23 @@ export interface IPersonLangDetails {
   
 }
 
+export interface IProjectCycle {
+  design: Literal | null;
+  code: Literal | null;
+  build: Literal | null;
+  delivery: Literal | null;
+  observability: Literal | null;
+  run: Literal | null;
+}
+
+export interface IProjectImpact {
+    impact: NamedNode;
+    type: Literal | null;
+    name: Literal | null;
+    description: Literal | null;
+  
+}
+
 export interface IVariantsDetails {
   person: NamedNode;
   variant: NamedNode;

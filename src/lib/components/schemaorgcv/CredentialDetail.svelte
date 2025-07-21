@@ -5,6 +5,7 @@
   import { formatDateFr } from '$lib/dateFormatter';
   import { listSkills } from '$lib/semcv/adapters/skillsAdapter';
   import { listProjects } from '$lib/semcv/adapters/projectsAdapter';
+    import CycleProject from './CycleProject.svelte';
   export let credentialDetails: ICredentialDetails;
   let savedLang: string = 'en';
   let projectsDetail: IProjectDetail[] = [];
@@ -77,7 +78,8 @@
             class="px-2 pt-0 pb-0 m-0"
             >
             {#each projectsDetail as projectDetail}
-                <ProjectDetail projectDetail={projectDetail}></ProjectDetail>
+                <CycleProject project={projectDetail}></CycleProject>
+                <!-- <ProjectDetail projectDetail={projectDetail}></ProjectDetail> -->
             {/each}
         </div>
     {/if}

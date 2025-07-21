@@ -3,7 +3,6 @@ import { sveltepress } from '@sveltepress/vite'
 import path from 'path'
 import type { BundledLanguage } from 'shiki/langs'
 import { defineConfig } from 'vite'
-import sveltePreprocess from 'svelte-preprocess'
 
 const config = defineConfig({
 	plugins: [

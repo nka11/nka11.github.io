@@ -26,7 +26,7 @@ export function listPersonLangs(subject: NamedNode, lang: string = "fr" ): IPers
       }
     `;
     try {
-        console.log(langQuery)
+        // console.log(langQuery)
         results = (store?.query(langQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IPersonLangDetails[];
         console.log(results)
         } catch(e) {

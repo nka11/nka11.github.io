@@ -6,13 +6,16 @@
     import type { NamedNode } from "oxigraph";
     import { onMount } from "svelte";
     import { listVariants, VARIANT_PREFIX } from "$lib/semcv/adapters/variantsAdapter";
+    import { page } from "$app/state";
   let params: {
     person: NamedNode,
     variants?: IVariantsDetails[] | undefined,
-    variant: NamedNode | undefined
+    variant?: NamedNode | undefined
   } = $props()
-  let variants = $state(params.variants);
+  // const person = namedNode("https://nka11.github.io/#me")
 
+  let variants = $state(params.variants);
+  
   function selectVariant(event:Event) {
     const target = event.target as HTMLSelectElement;
     document.location = target.value;
@@ -26,7 +29,8 @@
     browsingPreferences.lang = lang
   };
   onMount(async () => {
-    variants = listVariants(params.person, browsingPreferences.lang)
+    if (params.person)
+      variants = listVariants(params.person, browsingPreferences.lang)
   });
 
 </script>
