@@ -23,6 +23,14 @@ export interface IProjectCycle {
   run: Literal | null;
 }
 
+export interface IProjectImpact {
+    impact: NamedNode;
+    type: Literal | null;
+    name: Literal | null;
+    description: Literal | null;
+  
+}
+
 export interface IVariantsDetails {
   person: NamedNode;
   variant: NamedNode;

@@ -47,7 +47,7 @@ export function getPerson(subject: NamedNode, lang: string = "fr", variant: Name
         ${predicate}
       }
     `;
-    console.log(personQuery);
+    // console.log(personQuery);
     try {
         const results = (store?.query(personQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IPersonDetails[];
         if (results.length == 1) {

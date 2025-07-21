@@ -25,22 +25,11 @@
 
   /** @type {Props & { [key: string]: any }} */
   const { children, ...rest } = $props()
-
+  // console.log(rest)
   setContext(SVELTEPRESS_CONTEXT_KEY, {
     isDark,
   })
 
-  let ajaxBar = $state()
-
-  beforeNavigate(() => {
-    ajaxBar?.start()
-  })
-
-  afterNavigate(() => {
-    ajaxBar?.end()
-    $sidebarCollapsed = true
-    $navCollapsed = true
-  })
 
   let pwaComponent = $state()
 
@@ -59,30 +48,15 @@
   bind:scrollY={$scrollY}
 />
 
-<Navbar />
-<main class="main-layout">
-  <!-- <Sidebar /> -->
-  <div class="main-container">
-    <AjaxBar bind:this={ajaxBar} />
-    {@render children?.()}
-  </div>
-</main>
+
+{@render children?.()}
 
 <footer class="footer">
   <p>Code licensed under Apache 2.0. Content licensed under CC BY-NC-SA 4.0.</p>
 </footer>
 
 <style>
-  .main-layout {
-    display: flex;
-    width: 100%;
-  }
 
-  .main-container {
-    flex-grow: 1;
-    padding: 1rem;
-    max-width: var(--content-max-width);
-  }
 
   .footer {
     text-align: center;
@@ -109,16 +83,6 @@
   --padding-desktop: 2rem;
   --padding-tablet: 1.5rem;
   --padding-mobile: 1rem;
-}
-
-.main-container {
-  padding: 0 var(--padding-desktop);
-  max-width: var(--content-max-width);
-  margin: var(--nav-height) auto 0;
-}
-
-main {
-  padding-top: var(--nav-height);
 }
 
 :global(body) {
@@ -149,26 +113,5 @@ main {
   color: rgba(255, 255, 255, 0.87);
 }
 
-/* Tablet breakpoint */
-@media (max-width: 1024px) {
-  .main-container {
-    padding: 0 var(--padding-tablet);
-  }
-}
 
-/* Mobile breakpoint */
-@media (max-width: 600px) {
-  :root {
-    --nav-height: 56px; /* smaller nav for mobile */
-  }
-
-  .main-container {
-    padding: 0 var(--padding-mobile);
-    margin-top: var(--nav-height);
-  }
-
-  main {
-    padding-top: var(--nav-height);
-  }
-}
 </style>

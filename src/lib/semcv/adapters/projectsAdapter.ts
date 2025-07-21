@@ -1,6 +1,6 @@
 
 import { Literal, NamedNode, BlankNode, type Term } from "oxigraph"
-import type { IProjectCycle, IProjectDetail, ISkillsDetails } from "../models";
+import type { IProjectCycle, IProjectDetail, IProjectImpact, ISkillsDetails } from "../models";
 import { mapToObject, oxigraphStore } from "../semantic_cv_store";
 import { get } from "svelte/store";
 
@@ -109,7 +109,7 @@ export function getProjectLifeCycle(subject: NamedNode, lang: string = "fr"): IP
     GROUP BY ?project
     LIMIT 1
   `;
-  console.log(getProjectLifeCycleQuery)
+  // console.log(getProjectLifeCycleQuery)
   // let result: IProjectCycle[] = [];
   const { store, oxiReady } = get(oxigraphStore);
   if (!oxiReady) {
@@ -126,4 +126,51 @@ export function getProjectLifeCycle(subject: NamedNode, lang: string = "fr"): IP
   } catch(e) { // silent fail
     throw e;
   }
+}
+
+export function getProjectImpacts(subject: NamedNode, lang: string = "fr"): IProjectImpact[] {
+  let result:IProjectImpact[] = [];
+  const { store, oxiReady } = get(oxigraphStore);
+  if (!oxiReady) {
+    console.log("listProjects: semantic store not ready");
+    return result;
+  }
+  const getProjectImpactsQuery = `
+	  prefix impact: <https://nka11.github.io/cv#projects/cm-road45/impact/>
+
+    PREFIX schema: <https://schema.org/>
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    prefix elm: <https://data.europa.eu/snb/elm/>
+    prefix product-cycle-actions: <https://nka11.github.io/cv#actions/>
+    prefix project: <https://nka11.github.io/cv#projects/>
+    SELECT
+      ?impact ?type ?name ?description
+
+    WHERE {
+      ${subject} a schema:Project ; 
+        project:hasImpact ?impact .
+      OPTIONAL {
+        ?impact schema:name ?name .
+        FILTER(LANG(?name) = "${lang}" || LANG(?name) = "")
+      }
+       OPTIONAL {
+        ?impact schema:description ?description .
+        FILTER(LANG(?description) = "${lang}" || LANG(?description) = "")
+      }
+      OPTIONAL {
+        ?impact rdf:type ?impactType .
+    	?impactType schema:name ?type .
+        FILTER(LANG(?type) = "${lang}" || LANG(?type) = "")
+      }
+    }
+
+  `;
+  try {
+      console.log(getProjectImpactsQuery);
+       result = (store?.query(getProjectImpactsQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IProjectImpact[];
+      } catch(e) { // silent fail
+        console.error(e);
+      }
+    return result;
 }

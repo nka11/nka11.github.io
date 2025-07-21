@@ -1,13 +1,14 @@
 @prefix : <https://example.org/cm-road45#> .
 @prefix schema: <https://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix nka: <https://nka11.github.io/#> .
 @prefix cv: <https://nka11.github.io/cv#> .
 @prefix skills: <https://nka11.github.io/cv#skills/> .
 @prefix roles: <https://nka11.github.io/cv#roles/> .
 @prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
 @prefix impact: <https://nka11.github.io/cv#projects/cm-road45/impact/> .
+@prefix project: <https://nka11.github.io/cv#projects/> .
 @prefix : <https://nka11.github.io/cv#projects/cm-road45> .
 
 
@@ -34,7 +35,7 @@
         skills:sgbd-postgres, skills:cloud-GCP, skills:tools-ansible, skills:tools-terraform,
         skills:data-structure, skills:cicd-gitlab, skills:system-linux, skills:eventbus-kafka,
         skills:programming-python ;
-    :hasImpact
+    project:hasImpact
         :impact-org-1, :impact-org-2,
         :impact-tech-1, :impact-tech-2,
         :impact-data-1, :impact-data-2,
@@ -66,58 +67,63 @@
         ] .
 
 ### Impacts Organisationnels
-:impact-org-1 a impact:OrganizationalImpact ;
+:impact-org-1 rdf:type impact:OrganizationalImpact ;
     schema:name "Unified Identity and Access Management"@en, "Gestion unifiée des identités et des accès"@fr ;
     schema:description "Enabled SSO and centralized IAM with Azure AD, improving security and admin efficiency."@en,
                        "Mise en place du SSO et IAM centralisé via Azure AD, renforçant la sécurité et simplifiant l’administration."@fr ;
     impact:impactType impact:IdentityGovernance .
 
-:impact-org-2 a impact:OrganizationalImpact ;
+:impact-org-2 rdf:type impact:OrganizationalImpact ;
     schema:name "Standardization of Project Blueprints"@en, "Standardisation des Blueprints projets"@fr ;
     schema:description "Accelerated onboarding through standardized templates and CI/CD tooling."@en,
                        "Accélération de l’onboarding grâce à des modèles de projets standardisés avec CI/CD intégré."@fr ;
     impact:impactType impact:Standardization .
 
 ### Impacts Techniques
-:impact-tech-1 a impact:TechnicalImpact ;
+:impact-tech-1 rdf:type impact:TechnicalImpact ;
     schema:name "Event-Driven Architecture Modernization"@en, "Modernisation de l’architecture orientée événements"@fr ;
     schema:description "Real-time decoupled architecture using Kafka and GCP."@en,
                        "Architecture temps réel et découplée grâce à Kafka et GCP."@fr ;
     impact:impactType impact:ArchitectureModernization .
 
-:impact-tech-2 a impact:TechnicalImpact ;
+:impact-tech-2 rdf:type impact:TechnicalImpact ;
     schema:name "Infrastructure as Code"@en, "Infrastructure as Code"@fr ;
     schema:description "Full deployment automation via Terraform and Ansible."@en,
                        "Automatisation complète des déploiements avec Terraform et Ansible."@fr ;
     impact:impactType impact:Automation .
 
 ### Impacts Données & Analyse
-:impact-data-1 a impact:DataImpact ;
+:impact-data-1 rdf:type impact:DataImpact ;
     schema:name "Improved Data Availability"@en, "Amélioration de la disponibilité des données"@fr ;
     schema:description "Business data now exposed as real-time events in GCP."@en,
                        "Les données métier sont désormais disponibles en temps réel via événements dans GCP."@fr ;
     impact:impactType impact:DataOps .
 
-:impact-data-2 a impact:DataImpact ;
+:impact-data-2 rdf:type impact:DataImpact ;
     schema:name "Better Data Traceability"@en, "Meilleure traçabilité des données"@fr ;
     schema:description "Lineage tracking through event-based flow."@en,
                        "Traçabilité assurée par la propagation événementielle des données."@fr ;
     impact:impactType impact:DataGovernance .
 
 ### Impacts Utilisateurs
-:impact-user-1 a impact:UserImpact ;
+:impact-user-1 rdf:type impact:UserImpact ;
     schema:name "Faster Time to Insight"@en, "Accès plus rapide à l’information"@fr ;
     schema:description "Self-service BI and intuitive dashboards."@en,
                        "BI en libre-service et tableaux de bord intuitifs."@fr ;
     impact:impactType impact:UserAutonomy .
 
-:impact-user-2 a impact:UserImpact ;
+:impact-user-2 rdf:type impact:UserImpact ;
     schema:name "Report Consistency"@en, "Cohérence des rapports"@fr ;
     schema:description "Unified data sources reduce inconsistencies."@en,
                        "Sources de données unifiées pour des rapports cohérents."@fr ;
     impact:impactType impact:DataConsistency .
 
 ### Taxonomie des types d’impacts
+impact:OrganizationalImpact a impact:ImpactType ; schema:name "Organizational" .
+impact:UserImpact a impact:ImpactType ; schema:name "User" .
+impact:DataImpact a impact:ImpactType ; schema:name "Data" .
+impact:TechnicalImpact a impact:ImpactType ; schema:name "Technical" .
+
 impact:ArchitectureModernization a impact:ImpactType ; schema:name "Architecture Modernization"@en, "Modernisation de l’architecture"@fr .
 impact:Automation a impact:ImpactType ; schema:name "Automation"@en, "Automatisation"@fr .
 impact:DataOps a impact:ImpactType ; schema:name "DataOps Enablement"@en, "Mise en œuvre de DataOps"@fr .
