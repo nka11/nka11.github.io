@@ -12,13 +12,15 @@ export function listOrgRoles(
 
     let experienceQuery = `
         PREFIX schema: <https://schema.org/>
+        prefix nkonto: <https://nka11.github.io/ontology#>
+        
         SELECT ?role ?roleName ?employer ?startDate ?endDate ?description ?identifier
         WHERE {
             ${subject} ${attribute} ?role .
             ?role schema:roleName ?roleName ;
                 schema:identifier ?identifier ;
                 schema:startDate ?startDate ;
-                schema:withinOrganization ?org .
+                nkonto:withinOrganization ?org .
             FILTER(LANG(?roleName) = "${lang}" || LANG(?roleName) = "")
             ?org schema:name ?employer .
             OPTIONAL {
@@ -33,6 +35,7 @@ export function listOrgRoles(
     `;
     if (variant) {
       experienceQuery = `
+        prefix nkonto: <https://nka11.github.io/ontology#>
         PREFIX schema: <https://schema.org/>
         SELECT ?role ?roleName ?employer ?startDate ?endDate ?description ?identifier
         WHERE {
@@ -40,7 +43,7 @@ export function listOrgRoles(
             ?role schema:roleName ?roleNameTerm ;
                 schema:identifier ?identifier ;
                 schema:startDate ?startDate ;
-                schema:withinOrganization ?org .
+                nkonto:withinOrganization ?org .
             
             ?roleNameTerm a schema:DefinedTerm ;
               schema:inDefinedTermSet ${variant};

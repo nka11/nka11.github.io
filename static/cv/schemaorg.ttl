@@ -8,19 +8,12 @@
 @prefix elm: <https://data.europa.eu/snb/elm/> .
 @prefix esco: <https://data.europa.eu/esco/skill/> .
 
-@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
 @prefix nka: <https://nka11.github.io/#> .
 @prefix cv: <https://nka11.github.io/cv#> .
 @prefix skills: <https://nka11.github.io/cv#skills/> .
 @prefix projects: <https://nka11.github.io/cv#projects/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
 @prefix : <https://nka11.github.io/cv#data/> .
-
-# Définition de la propriété withinOrganization
-ev:withinOrganization a rdf:Property ;
-    rdfs:label "withinOrganization"@en ;
-    rdfs:comment "Lien entre un rôle et l'organisation dans laquelle il est exercé."@fr ;
-    rdfs:domain schema:Role ;
-    rdfs:range schema:Organization .
 
 cv:variant-cyber a schema:DefinedTermSet ;
     schema:name "Variantes de CV Cyber" .
@@ -157,7 +150,7 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:description """Conseil en Architecture et en stratégie.
         Encadrement developpeurs .net et mobile.
         Tech Leadership et mise en place des outils de CI/CD (github actions vers Ikoula).""" ;
-    schema:withinOrganization [
+    nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "IzRoadbook"
     ] ;
@@ -178,7 +171,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         - Elaboration d’une feuille de route pour cibler les conformités stratégiques."""@fr ;
     schema:description """- Spearheaded the development and execution of a scale-up strategy that focused on transaction throughput and parralelism : From a limited single process Architecture to a multi-threaded agents architecture the load capacity has been increased by 400% without additional resources needs.
         - Definition of a roadmap to reach strategic compliance."""@en ;
-    schema:withinOrganization [
+    nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "Winastar"
     ] ;
@@ -229,7 +222,7 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:startDate "2001-01-01"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;
     schema:identifier "cm-ate" ;
-    schema:withinOrganization [
+    nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "Club Méditerranée SA"
     ] ;
@@ -313,7 +306,7 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:description '''Definition des objectifs stratégiques et de l’orientation de la politique de sécurité du SI
         Audit PSSI & mise en place de l’organisation de la gouvernance cyber
         Supervision et amélioration : Surveillance des risques, audits et renforcement des défenses.''' ;
-    schema:withinOrganization [
+    nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "ISM interpretariat"
     ] ;
@@ -334,7 +327,7 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:identifier "ism-rssi" ;
     schema:description """Audit de la maturité cyber et de la PSSI.
     Recommandations stratégiques et proposition d'une feuille de route.""" ;
-    schema:withinOrganization [
+    nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "ISM interpretariat"
     ] ;
@@ -349,7 +342,7 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:endDate "2001-01-01"^^xsd:date ;
     schema:description "Pupitrage, monitoring et déploiement d'un ensemble d'applications web." ;
     schema:identifier "acsp-inge-exp" ;
-    schema:withinOrganization [
+    nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "AlphaCSP"
     ] ;

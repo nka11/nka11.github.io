@@ -415,10 +415,6 @@ skills:eventbus a elm:LearningOutcome,
         schema:DefinedTerm ;
     elm:label "EventBUS" .
 
-nkonto:ManagementSkill a skos:Concept ;
-    skos:inScheme nkonto:SkillCategory ;
-    skos:prefLabel "Management" .
-
 skills:scm a elm:LearningOutcome,
         schema:DefinedTerm ;
     elm:label "Source Control Management"@en,
@@ -448,10 +444,6 @@ skills:programming-oop a elm:LearningOutcome,
     elm:label "Object Oriented" ;
     elm:relatedSkill skills:programming .
 
-nkonto:ToolSkill a skos:Concept ;
-    skos:inScheme nkonto:SkillCategory ;
-    skos:prefLabel "Connaissance outil" .
-
 skills:cloud a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
@@ -470,13 +462,6 @@ skills:programming-procedural a elm:LearningOutcome,
     elm:label "Procedural" ;
     elm:relatedSkill skills:programming .
 
-nkonto:MethodologicalSkill a skos:Concept ;
-    skos:inScheme nkonto:SkillCategory ;
-    skos:prefLabel "Méthodologique" .
-
-nkonto:SkillCategory a skos:ConceptScheme ;
-    skos:prefLabel "Classification DISCO des compétences"@fr .
-
 skills:grc a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:ComplianceSkill ;
@@ -488,11 +473,3 @@ skills:programming a elm:LearningOutcome,
     elm:label "Programming"@en,
         "Programmation"@fr ;
     elm:relatedESCOSkill <http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97> .
-
-nkonto:ComplianceSkill a skos:Concept ;
-    skos:inScheme nkonto:SkillCategory ;
-    skos:prefLabel "Sécurité & Conformité" .
-
-nkonto:TechnicalSkill a skos:Concept ;
-    skos:inScheme nkonto:SkillCategory ;
-    skos:prefLabel "Compétence technique" .

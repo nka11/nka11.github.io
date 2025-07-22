@@ -137,6 +137,7 @@ export function getProjectImpacts(subject: NamedNode, lang: string = "fr"): IPro
   }
   const getProjectImpactsQuery = `
 	  prefix impact: <https://nka11.github.io/cv#projects/cm-road45/impact/>
+    prefix nkonto: <https://nka11.github.io/ontology#>
 
     PREFIX schema: <https://schema.org/>
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -149,7 +150,7 @@ export function getProjectImpacts(subject: NamedNode, lang: string = "fr"): IPro
 
     WHERE {
       ${subject} a schema:Project ; 
-        project:hasImpact ?impact .
+        nkonto:hasImpact ?impact .
       OPTIONAL {
         ?impact schema:name ?name .
         FILTER(LANG(?name) = "${lang}" || LANG(?name) = "")

@@ -1,0 +1,55 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+
+@prefix : <https://nka11.github.io/ontology#> .
+
+:withinOrganization a rdf:Property ;
+    rdfs:label "withinOrganization"@en ;
+    rdfs:comment "Lien entre un rôle et l'organisation dans laquelle il est exercé."@fr ;
+    rdfs:domain schema:Role ;
+    rdfs:range schema:Organization .
+
+
+:SkillCategory a skos:ConceptScheme ;
+    skos:prefLabel "Classification DISCO des compétences"@fr .
+
+:ManagementSkill a skos:Concept ;
+    skos:inScheme :SkillCategory ;
+    skos:prefLabel "Management" .
+
+:ToolSkill a skos:Concept ;
+    skos:inScheme :SkillCategory ;
+    skos:prefLabel "Connaissance outil" .
+
+:MethodologicalSkill a skos:Concept ;
+    skos:inScheme :SkillCategory ;
+    skos:prefLabel "Méthodologique" .
+
+:ComplianceSkill a skos:Concept ;
+    skos:inScheme :SkillCategory ;
+    skos:prefLabel "Sécurité & Conformité" .
+
+:TechnicalSkill a skos:Concept ;
+    skos:inScheme :SkillCategory ;
+    skos:prefLabel "Compétence technique" .
+
+:OrganizationalImpact a :ImpactType ; schema:name "Organizational" .
+:UserImpact a :ImpactType ; schema:name "User" .
+:DataImpact a :ImpactType ; schema:name "Data" .
+:TechnicalImpact a :ImpactType ; schema:name "Technical" .
+
+
+### Taxonomie des types d’impacts
+:ArchitectureModernization a :ImpactType ; schema:name "Architecture Modernization"@en, "Modernisation de l’architecture"@fr .
+:Automation a :ImpactType ; schema:name "Automation"@en, "Automatisation"@fr .
+:DataOps a :ImpactType ; schema:name "DataOps Enablement"@en, "Mise en œuvre de DataOps"@fr .
+:DataGovernance a :ImpactType ; schema:name "Data Governance"@en, "Gouvernance des données"@fr .
+:Standardization a :ImpactType ; schema:name "Standardization"@en, "Standardisation"@fr .
+:IdentityGovernance a :ImpactType ; schema:name "Identity Governance"@en, "Gouvernance des identités"@fr .
+:UserAutonomy a :ImpactType ; schema:name "User Autonomy"@en, "Autonomie des utilisateurs"@fr .
+:DataConsistency a :ImpactType ; schema:name "Data Consistency"@en, "Cohérence des données"@fr .

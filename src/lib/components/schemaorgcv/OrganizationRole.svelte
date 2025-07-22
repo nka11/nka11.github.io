@@ -50,7 +50,7 @@
   {#if params.organizationRole.employer || params.organizationRole.startDate || params.organizationRole.endDate}
     <p class="org-role-info">
       {#if params.organizationRole.employer}
-        <span property="ev:withinOrganization" typeof="schema:Organization" class="org-employer">
+        <span property="nkonto:withinOrganization" typeof="schema:Organization" class="org-employer">
           <span property="schema:name" class="org-employer-name">
             {params.organizationRole.employer.value}
           </span>

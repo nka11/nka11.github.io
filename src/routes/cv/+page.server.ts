@@ -11,6 +11,7 @@ import { VARIANT_PREFIX, variantsQuery } from '$lib/semcv/adapters/variantsAdapt
 const store = new Store();
 
 const dataFiles = [
+      '/cv/ontology.ttl',
       '/cv/schemaorg.ttl',
       '/cv/skills.ttl',
       '/cv/projects.ttl',
@@ -23,6 +24,7 @@ dataFiles.map((turtleUrl) => {
   const turtlePath = `./static${turtleUrl}`;
 
   const turtleString = fs.readFileSync(turtlePath,'utf8');  
+  console.log(`Loading ${turtlePath}`)
   store.load(turtleString, { format: 'text/turtle' });
   // const quadStream = rdfParse.rdfParser.parse(
   //   Readable.from([turtleString]),

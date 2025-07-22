@@ -98,6 +98,7 @@
     {#key browsingPreferences.lang}
       <article
       prefix="
+        nkonto: <https://nka11.github.io/ontology#>
         schema: https://schema.org/
       "
       typeof="schema:Person"

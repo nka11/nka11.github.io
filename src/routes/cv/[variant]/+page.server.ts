@@ -10,7 +10,9 @@ const store = new Store();
 const VARIANT_PREFIX = "https://nka11.github.io/cv#variant-";
 
 const dataFiles = [
+      '/cv/ontology.ttl',
       '/cv/schemaorg.ttl',
+      '/cv/road45.ttl',
       '/cv/skills.ttl',
       '/cv/projects.ttl',
       '/cv/product_cycle.ttl',
