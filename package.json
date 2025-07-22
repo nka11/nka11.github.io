@@ -8,12 +8,13 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "test": "vitest"
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.8.1",
-    "@sveltejs/vite-plugin-svelte": "^4.0.1",
+    "@sveltejs/vite-plugin-svelte": "^4.0.4",
     "@sveltepress/vite": "^1.2.2",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/d3": "^7.4.3",
@@ -27,7 +28,11 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "@playwright/test": "^1.54.1",
+    "@testing-library/svelte": "^5.2.8",
+    "@vitest/ui": "^3.2.4",
     "d3": "^7.9.0",
+    "jsdom": "^26.1.0",
     "jsonld-streaming-serializer": "^4.0.0",
     "jspdf": "^3.0.1",
     "mdsvex": "^0.12.6",
@@ -35,6 +40,7 @@
     "rdf-parse": "^4.0.0",
     "rdflib": "^2.2.37",
     "svelte-i18n": "^4.0.1",
+    "svelte-local-storage-store": "^0.6.4",
     "svelte-preprocess": "^6.0.3"
   }
 }
