@@ -1,0 +1,30 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:cm-procstockmvs a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Industrialisation et controle qualité du developpement procstock DB2/MVS" ;
+    schema:description """Conception de l'architecture technique et des procédures de livraisons de procédures stockées DB2 entre les différents environnements dans un DB2 z/OS.
+        Spécifications technique détaillée.
+        Packaging, Déploiement et suivi d'exploitation.
+    """ ;
+    schema:about
+        skills:sgbd-DB2,
+        skills:data-SQL,
+        skills:scm-git,
+        skills:cicd-jenkins,
+        skills:system-linux,
+        skills:system-zos
+        .

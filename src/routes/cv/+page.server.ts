@@ -7,17 +7,9 @@ import { mapToObject } from '$lib/semcv/semantic_cv_store.js';
 
 import { Store, type Term } from 'oxigraph';
 import { VARIANT_PREFIX, variantsQuery } from '$lib/semcv/adapters/variantsAdapter';
+import { dataFiles } from '$lib/semcv/cv_data_files';
 
 const store = new Store();
-
-const dataFiles = [
-      '/cv/ontology.ttl',
-      '/cv/schemaorg.ttl',
-      '/cv/skills.ttl',
-      '/cv/projects.ttl',
-      '/cv/road45.ttl',
-      '/cv/product_cycle.ttl',
-    ]
 
 
 dataFiles.map((turtleUrl) => {
@@ -38,14 +30,6 @@ const results = (store?.query(variantsQuery) as unknown as Map<string, Term>[]).
 
 export async function load() {
   let data:any;
-  dataFiles.map((turtleUrl) => {
-    const turtlePath = `./static${turtleUrl}`;
-    const turtleString = fs.readFileSync(turtlePath,'utf8');
-    const quadStream = rdfParse.rdfParser.parse(
-        Readable.from([turtleString]),
-        { contentType: 'text/turtle' }
-      );
-    });
   const variants = results.map((variant) => {
       return { 
         variant: variant.variant.value.slice(VARIANT_PREFIX.length),
@@ -64,7 +48,6 @@ export async function load() {
   // data = JSON.parse(jsonld);
   return {
     jsonld:data,
-    dataFiles: dataFiles,
     variants: variants
   };
 }

@@ -1,0 +1,32 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:contrib-neovillages a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:roleName "Contributor" ;
+    schema:name "NeoVillages" ;
+    schema:startDate "2023-10-01"^^xsd:date ;
+    schema:endDate "2024-04-01"^^xsd:date ;
+    schema:description "Contribution au site Neovillages : Intégration d'un IdP OIDC et mise en oeuvre d'une authentification avec OIDC" ;
+    schema:url <http://aloha-editor.org/> ;
+    schema:about
+        skills:it-algorithmics,
+        skills:programming-javascript,
+        skills:auth-sso,
+        skills:auth-oidc,
+        skills:data-SQL,
+        skills:sgbd-mysql,
+        skills:sgbd-postgres,
+        skills:scm-git .

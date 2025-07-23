@@ -1,0 +1,38 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:cm-secOpsTeam a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Creation FeatureTem SecOps"@fr,
+        "Tech Lead secOps Feature Team"@en ;
+    schema:startDate "2021-11-02"^^xsd:date ;
+    schema:endDate "2022-05-30"^^xsd:date ;
+    schema:description
+        """Proposition et matérialisation de l'équipe de sécurité du SI sous forme de 'Feature Team' sécurité.
+            Accompagnement du RSSI dans l'organisation de rituels agile.
+        """@fr ,
+        """At the initiative of the creation of the SecOps FeatureTeam of Clubmed, led by the CISO.
+            Team design, mission & governance definition, advocacy for convincing direction comitee to adopt an agile organization which will address security compliance   and infrastructure design.
+            Support the PO (the CISO) in a SCRUM approach to coordinate the work of the ClubMed infrastructure teams. (Role of agile coach/scrum mentor)
+            Implementation in JIRA Cloud (Automations, Workflows, gitlab integration)
+            integration of security equipment and tools cooperating with the CISO
+        """@en ;
+    schema:about
+        skills:tools-ansible,
+        skills:system-linux,
+        skills:scm-git,
+        skills:cicd,
+        skills:scm .
