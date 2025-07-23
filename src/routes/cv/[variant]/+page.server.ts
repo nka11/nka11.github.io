@@ -55,6 +55,7 @@ export async function load({ params }: any) {
     console.log(variant.variant.value.endsWith(params.variant));
     if (variant.variant.value.endsWith(params.variant)) {
       data = {
+        dataFiles: dataFiles,
         metadata: variant.variant.value, // ✅ uniquement des données sérialisables
         variant: variant.variant.value.slice(VARIANT_PREFIX.length) // pour construire le path d’import dynamique
       };

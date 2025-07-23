@@ -48,6 +48,7 @@ export async function load() {
   // data = JSON.parse(jsonld);
   return {
     jsonld:data,
+    dataFiles: dataFiles,
     variants: variants
   };
 }
