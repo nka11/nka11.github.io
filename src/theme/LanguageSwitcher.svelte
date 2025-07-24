@@ -1,29 +1,36 @@
 <script lang="ts">
   import { locale } from 'svelte-i18n';
   import { browsingPreferences } from "$lib/state.svelte";
-
+    import { onMount } from 'svelte';
+  let lang = $state('en')
   function changeLang(newLang: string) {
     if (locale) {
       locale.set(newLang);
     }
+    lang = newLang
     browsingPreferences.lang = newLang;
     localStorage.setItem('lang', newLang);
   };
+  onMount(async () => {
+    lang = browsingPreferences.lang
+  })
 </script>
 
-{#key browsingPreferences.lang}
-  {#if browsingPreferences.lang == 'fr'}
-    <button data-testid="language-switcher-button" on:click={() => changeLang('en')}>🇬🇧</button>
-  {:else}
-    <button data-testid="language-switcher-button" on:click={() => changeLang('fr')}>🇫🇷</button>
-  {/if}
-{/key}
+<select
+  data-testid="language-switcher-select"
+  onchange={(e) => changeLang(e.currentTarget.value)}
+  bind:value={lang}
+>
+  <option value="en">🇬🇧</option>
+  <option value="fr">🇫🇷</option>
+</select>
 
 <style>
-    button {
+    select {
         background: none;
         border: none;
         cursor: pointer;
-        font-size: 1.5rem;
+        font-size: 1rem;
+        padding: 0.5rem;
     }
 </style>

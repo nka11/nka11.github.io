@@ -52,8 +52,10 @@
           >
             <Github />
           </NavItem>
+        </div>
+        <div>
           <LanguageSwitcher />
-          <ToggleDark />
+          <!-- <ToggleDark /> -->
         </div>
       </div>
     </nav>
