@@ -16,5 +16,4 @@ This project is a SvelteKit application for a personal website and CV. It uses `
 
 ## Global directives
 
- - When preparing branch name and commit comment, review the whole changeset that will be comitted and compose a meaningful comment that relates the changes and the why. If the why is not clear enough, prompt the human for clarifications.
- Add an md file or update the relevant file in the src/content/site-specs directory giving a detailed description of the change request.
+ - When preparing branch name and commit comment, review the whole changeset that will be comitted and compose a meaningful comment that relates the changes and the why. If the why is not clear enough, prompt the human for clarifications. Additionally, create an md file or update the relevant file in the src/content/site-specs directory giving a detailed description of the change request.
