@@ -106,9 +106,6 @@
         <h2 property="schema:name">{person.name?.value}</h2>
         <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
         <p style="font-size: 1.3rem;text-align: justify;white-space: pre-line;" property="schema:description">{person.description?.value}</p>
-        <!-- {#if person.lang}
-            <p>Langue : {person.lang?.value}</p>
-        {/if} -->
 
         <Experiences person={person.person}></Experiences>
         <h2 class="text-3xl">Compétences</h2>
