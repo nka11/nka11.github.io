@@ -4,7 +4,7 @@
 
 </script>
 
-<!-- <CalPopup namespace="meeting-30min"/> -->
+<CalPopup namespace="meeting-30min"/>
     <button
         data-cal-link="nico-deepthought/30min"
         data-cal-namespace="meeting-30min"
