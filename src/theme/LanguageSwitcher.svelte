@@ -11,19 +11,21 @@
   };
 </script>
 
-{#key browsingPreferences.lang}
-  {#if browsingPreferences.lang == 'fr'}
-    <button data-testid="language-switcher-button" on:click={() => changeLang('en')}>🇬🇧</button>
-  {:else}
-    <button data-testid="language-switcher-button" on:click={() => changeLang('fr')}>🇫🇷</button>
-  {/if}
-{/key}
+<select
+  data-testid="language-switcher-select"
+  on:change={(e) => changeLang(e.currentTarget.value)}
+  bind:value={browsingPreferences.lang}
+>
+  <option value="en">🇬🇧 English</option>
+  <option value="fr">🇫🇷 Français</option>
+</select>
 
 <style>
-    button {
+    select {
         background: none;
         border: none;
         cursor: pointer;
-        font-size: 1.5rem;
+        font-size: 1rem;
+        padding: 0.5rem;
     }
 </style>
