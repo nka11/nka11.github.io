@@ -10,6 +10,7 @@
   import NavItem from './NavItem.svelte'
   import LanguageSwitcher from './LanguageSwitcher.svelte'
   import ToggleDark from './ToggleDark.svelte'
+  import PrintButton from './PrintButton.svelte'
 
   const routeId = $derived($page.route.id)
   const isHome = $derived(routeId === '/')
@@ -56,6 +57,9 @@
         <div>
           <LanguageSwitcher />
           <!-- <ToggleDark /> -->
+        </div>
+        <div>
+          <PrintButton />
         </div>
       </div>
     </nav>
@@ -127,5 +131,11 @@
   .nav-item {
     display: flex;
     align-items: center;
+  }
+
+  @media print {
+    .header {
+      display: none;
+    }
   }
 </style>
