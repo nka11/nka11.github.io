@@ -31,7 +31,8 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:url <http://github.com/nka11> ;
     schema:jobTitle
         "CyberSecurity & Architecture Consultant"@en ,
-        "Consultant en Cyber-Sécurité spécialiste des Architecture"@fr ,
+        "Conseil en Architecture, Cloud et Cyber-Sécurité"@fr ,
+        # "Conseil en Cyber-Sécurité spécialiste des Architecture"@fr ,
         [ 
             a schema:DefinedTerm ;
             schema:name "Expert en Cybersécurité" ;
@@ -68,6 +69,11 @@ nka:me a schema:Person, schema:CreativeWork ;
                 ;
         ] 
         ;
+    schema:description """Ingénieur cloud et infrastructure confirmé avec plus de 20 ans d’expérience dans la conception, le déploiement et l’industrialisation d’environnements IT complexes, en particulier sur des architectures conteneurisées et des projets stratégiques de migration cloud.
+    Familier des environnements Azure, AKS et Kubernetes, avec une solide maîtrise de l’Infrastructure-as-Code (Terraform, Ansible ...), de la sécurité cloud (RBAC, certificats, réseau).
+Expérience dans la coordination les équipes architecture, sécurité et production, expert dans l’intégration en environnement contraint (conformité, FinOps, ...) et dans la définition de trajectoires de migrations.
+Rigueur, coordination interéquipes et capacité à documenter et vulgariser les choix techniques sont le cœur de mon approche.
+    """
     schema:birthPlace [
         a schema:Place ;
         schema:address [

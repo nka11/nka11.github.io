@@ -94,7 +94,7 @@
     <option value="fr">Français</option>
     </select> -->
     {#if person}
-    <CvMenu person={ person.person }></CvMenu>
+    <!-- <CvMenu person={ person.person }></CvMenu> -->
     {#key browsingPreferences.lang}
       <article
       prefix="
