@@ -1,7 +1,6 @@
 <script lang="ts">
     import CalPopup from "$lib/components/CalPopup.svelte";
-
-
+    import { T } from '$lib/i18n';
 </script>
 
 <CalPopup namespace="meeting-30min"/>
@@ -10,7 +9,7 @@
         data-cal-namespace="meeting-30min"
         class="calcom-button"
         >
-        Book a Meeting
+        {$T('book_a_meeting')}
 </button>
 
 <style>
