@@ -8,6 +8,7 @@
   import MobileSubNav from './MobileSubNav.svelte'
   import NavbarMobile from './NavbarMobile.svelte'
   import NavItem from './NavItem.svelte'
+  import LanguageSwitcher from './LanguageSwitcher.svelte'
   import ToggleDark from './ToggleDark.svelte'
 
   const routeId = $derived($page.route.id)
@@ -51,6 +52,9 @@
           >
             <Github />
           </NavItem>
+        </div>
+        <div>
+          <LanguageSwitcher />
           <!-- <ToggleDark /> -->
         </div>
       </div>

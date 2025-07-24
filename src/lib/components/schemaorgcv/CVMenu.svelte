@@ -21,27 +21,14 @@
     document.location = target.value;
   }
 
-  export const changeLang = (lang: string) => {
-    locale.set(lang);
-    // loadCVData(lang);
-    // savedLang = lang;
-    localStorage.setItem('lang', lang);
-    browsingPreferences.lang = lang
-  };
+  import { get } from 'svelte/store';
+
   onMount(async () => {
     if (params.person)
-      variants = listVariants(params.person, browsingPreferences.lang)
+      variants = listVariants(params.person, get(browsingPreferences).lang)
   });
 
 </script>
-{#if browsingPreferences.lang == 'fr'}
-FR 
-<button onclick={() => changeLang('en')}>EN</button>
-{:else}
-<button onclick={() => changeLang('fr')}>FR</button>
-EN
-{/if}
-
 
 <PdfPrint personNode={ params.person } variant={ params.variant }></PdfPrint>
 {#if variants}
