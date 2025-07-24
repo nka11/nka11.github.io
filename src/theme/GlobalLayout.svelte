@@ -54,7 +54,6 @@
 
 <footer class="footer">
   <p>Code licensed under Apache 2.0. Content licensed under CC BY-NC-SA 4.0.</p>
-  <CalPopup />
 </footer>
 
 <style>
