@@ -38,7 +38,7 @@
   let error = '';
   let oxistore: Store;
   let loading = true;
-  let savedLang: string = 'en';
+  let savedLang: string = 'fr';
   // https://europa.eu/europass/elm-browser/documentation/rdf/ontology/documentation/elm.html#/
 
 
@@ -105,6 +105,7 @@
       about={ `${person.person.value}` }>
         <h2 property="schema:name">{person.name?.value}</h2>
         <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
+        <p style="font-size: 1.3rem;text-align: justify;white-space: pre-line;" property="schema:description">{person.description?.value}</p>
         <!-- {#if person.lang}
             <p>Langue : {person.lang?.value}</p>
         {/if} -->

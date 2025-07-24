@@ -14,7 +14,7 @@
 
 <style>
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: bold;
     margin: 0 0 0 0.25rem;
     border: none;
