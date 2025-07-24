@@ -17,6 +17,7 @@
     sidebarCollapsed,
   } from './layout'
   import AjaxBar from './AjaxBar.svelte'
+  import CalPopup from '$lib/components/CalPopup.svelte'
   import './style.css'
     /**
    * @typedef {object} Props

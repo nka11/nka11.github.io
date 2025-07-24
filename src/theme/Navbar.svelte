@@ -11,6 +11,8 @@
   import LanguageSwitcher from './LanguageSwitcher.svelte'
   import ToggleDark from './ToggleDark.svelte'
   import PrintButton from './PrintButton.svelte'
+    import CalPopup from '$lib/components/CalPopup.svelte';
+    import CalButton from './CalButton.svelte';
 
   const routeId = $derived($page.route.id)
   const isHome = $derived(routeId === '/')
@@ -54,6 +56,9 @@
             <Github />
           </NavItem>
         </div>
+        <!-- <div class="nav-item"> -->
+          <CalButton></CalButton>
+        <!-- </div> -->
         <div>
           <LanguageSwitcher />
           <!-- <ToggleDark /> -->
