@@ -5,18 +5,10 @@ import { mapToObject } from '$lib/semcv/semantic_cv_store.js';
 import * as fs from 'fs';
 
 import { Store, type Term } from 'oxigraph';
+import { dataFiles } from '$lib/semcv/cv_data_files';
 
 const store = new Store();
 const VARIANT_PREFIX = "https://nka11.github.io/cv#variant-";
-
-const dataFiles = [
-      '/cv/ontology.ttl',
-      '/cv/schemaorg.ttl',
-      '/cv/road45.ttl',
-      '/cv/skills.ttl',
-      '/cv/projects.ttl',
-      '/cv/product_cycle.ttl',
-    ]
 
 
 dataFiles.map((turtleUrl) => {

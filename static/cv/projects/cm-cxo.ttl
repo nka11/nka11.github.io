@@ -1,0 +1,36 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:cm-cxo a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Projet 'Customer Experience Optimization'" ;
+    schema:startDate "2016-06-02"^^xsd:date ;
+    schema:endDate "2019-10-31"^^xsd:date ;
+    schema:description """- Architecture projet : Cadrage, Choix d'un outil de CRM, Conception d'une experience unifiée avec le Clubmed Resa System.
+    Mise en oeuvre d'une stratégie de propagation entre le CRM Dynamics et le site central DB2.
+    Intégration de la solution IBM ISAM pour le SSO SAML et OIDC entre les différents composants du projet
+    """ ;
+    schema:about
+        skills:data-structure,
+        skills:auth-sso,
+        skills:auth-softwaredesign,
+        skills:sgbd-DB2,
+        skills:auth-oidc,
+        skills:auth-saml,
+        skills:cicd-gitlab,
+        skills:auth-LDAP,
+        skills:cloud-Dynamics,
+        skills:programming-java
+        .

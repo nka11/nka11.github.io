@@ -1,0 +1,37 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:cm-sortieZ a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Migration z/OS vers Linux"@fr,
+        "Migration from zOS to Linux"@en ;
+    schema:startDate "2013-03-10" ;
+    schema:endDate "2015-09-10" ;
+    schema:description """- Migration de la base d'authentification RACF vers un annuaire openLDAP.
+        - Mise en place des environnements et configuration des système pour heberger l'application centrale développée avec SoftwareAG Natural.
+        - Industrialisation processus de deploiement de l'application autour de gitlab avec une CI Jenkins"""@fr,
+    """In charge of setting up communications with other systems, and tuning the application runtime. Fully handled RACF security migration to an OpenLDAP system and created processes and tools for administrators support team.
+        Technical support while migration on DB2 system from z/OS to Linux, in charge of migrating COBOL to openCOBOL, managing change for developpers, providing new tooling and supply chain (with gitlab/rmp & jenkins)
+    """@fr ;
+    schema:about
+        skills:auth-LDAP,
+        skills:auth-RACF,
+        skills:system-linux,
+        skills:scm-git,
+        skills:system-zos,
+        skills:programming-Natural,
+        skills:cicd-jenkins
+        .

@@ -1,0 +1,27 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:contrib-aloha-editor a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:roleName "Contributor" ;
+    schema:name "Aloha Editor" ;
+    schema:startDate "2010-01-01"^^xsd:date ;
+    schema:endDate "2013-12-01"^^xsd:date ;
+    schema:description "Contribution open-source (drag & drop, image)" ;
+    schema:url <http://aloha-editor.org/> ;
+    schema:about
+        skills:it-algorithmics,
+        skills:programming-javascript,
+        skills:scm-git .

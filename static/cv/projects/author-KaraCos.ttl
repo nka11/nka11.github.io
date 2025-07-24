@@ -1,0 +1,30 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:author-KaraCos a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "KaraCos" ;
+    schema:roleName "Author" ;
+    schema:startDate "2009-01-01"^^xsd:date ;
+    schema:endDate "20014-12-01"^^xsd:date ;
+    schema:description "Serveur d’applications pour la gestion des données personnelles" ;
+    schema:url <http://github.com/karacos> ;
+    schema:about
+        skills:programming-python,
+        skills:programming-javascript,
+        skills:data-noSQL-couchDB,
+        skills:protocol-HTTP,
+        skills:it-algorithmics,
+        skills:scm-git .
