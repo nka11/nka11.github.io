@@ -5,7 +5,7 @@ export async function load() {
   const articles = await Promise.all(
     Object.entries(modules).map(async ([path, resolver]) => {
       const { metadata }:any = await resolver();
-      if (metadata)
+      if (metadata && metadata.date)
         return {
             ...metadata,
             slug: metadata.slug ?? path.split('/').pop()?.replace('.md', '')
@@ -14,7 +14,9 @@ export async function load() {
   );
 
   return {
-    articles: articles.sort(
+    articles: articles.filter((elem) => {
+      return elem && elem.date
+    }).sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     )
   };

@@ -250,6 +250,7 @@ skills:project-JIRA-Software a elm:LearningOutcome,
 
 skills:projectManagement-agile a elm:LearningOutcome,
         schema:DefinedTerm ;
+    skos:broader nkonto:ManagementSkill ;
     elm:label "Gestion de projet Agile" ;
     elm:relatedESCOSkill esco:e5b94c9d-12ef-4cc6-81ad-6602c207a3e1 .
 
@@ -261,6 +262,7 @@ skills:protocol-HTTP a elm:LearningOutcome,
 skills:scm-cvs a elm:LearningOutcome,
         schema:DefinedTerm ;
     elm:label "CVS" ;
+    skos:broader nkonto:ToolSkill ;
     elm:relatedSkill skills:scm ;
     schema:description "Source Control Management with CVS"@en,
         "Gestion des Vesions avec CVS"@fr .
@@ -276,6 +278,7 @@ skills:scm-git a elm:LearningOutcome,
 skills:scm-svn a elm:LearningOutcome,
         schema:DefinedTerm ;
     elm:label "SVN" ;
+    skos:broader nkonto:ToolSkill ;
     elm:relatedSkill skills:scm ;
     schema:description "Source Control Management with Subversion (SVN)"@en,
         "Gestion des Vesions avec Subversion (SVN)"@fr .
@@ -397,6 +400,7 @@ skills:tools-CRM a elm:LearningOutcome,
 
 skills:blockchain a elm:LearningOutcome,
         schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
     elm:label "Blockchain" .
 
 skills:cicd a elm:LearningOutcome,
@@ -413,10 +417,12 @@ skills:cloud-Azure a elm:LearningOutcome,
 
 skills:eventbus a elm:LearningOutcome,
         schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
     elm:label "EventBUS" .
 
 skills:scm a elm:LearningOutcome,
         schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
     elm:label "Source Control Management"@en,
         "Gestion des Versions de Code Source"@fr ;
     elm:relatedESCOSkill <http://data.europa.eu/esco/skill/9d2e926f-53d9-41f5-98f3-19dfaa687f3f> .

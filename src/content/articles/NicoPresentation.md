@@ -1,0 +1,17 @@
+---
+title: Presentation
+---
+
+Grosse expérience d'architecte technique : D'abord logicielle et automatisation packaging et deploiement (du devops depuis 2001), j'ai intégré ou participé à l'intégration de la quasi totalité des briques du SI clubmed, depuis le site internet public relié à la plate-forme de réservation (> 1M visites/j), à la plateforme SIRH, en passant par l'IAM interne (40k utilisateurs) et externe (les 1,5M de GM actifs chaque année), le cockpit vendeur, et enfin la plate-forme décisionelle et sa migration vers une plate-forme DATA boostée à l'IA (j'y ai fait du MLOps pour gérer de l'entrainement de modèles avec des user stories dont on pourra parler en itw) et des pipelines d'aide à la décision.
+
+Ayant fini par faire le tour et ne trouvant plus de place pour grandir techniquement, je vole un peu de mes propres ailes depuis 2 ans, je suis passé sur un projet de trading crypto HF, avec un pilotage par bot Telegram, service dépoyé en marque blanche.
+Sur ce projet j'ai repris un code un peu moisi qui plafonnait à une centaine de transactions simultanées pour lui faire supporter plusieurs milliers avec la capacité de scaler non seulement en vertical, en optimisant la runtime et le traitement du parallelisme, mais aussi en horizontal et permettant la répartition de charge à différents niveaux du process.
+
+J'ai fait un petit tour en tant que RSSI pour accompagner une grosse association dans l'exigence et la conformité (NIS2).
+
+J'interviens aussi ponctuellement en tant que CTO conseil pour un petit projet que j'accompagne depuis 2ans et pour lequel j'ai mis en place la CI/CD et la doc contributeur. Ils me sollicitent depuis pour arbitrer sur les choix techniques. L'outillage que j'ai mis en place tourne sans que j'aie besoin d'etre sollicité.
+Les challenges costaud que tu décris me plaisent, on va passer des bons et moins bons moments pour répondre aux exigences, avec une bonne methodo, par plusieurs itérations, et en prenant le temps nécessaire à choisir les bons outils et dessiner la trajectoire, on arrivera à attendre les objectifs, j'ai une pleine confiance sur ces aspects.
+Pour ce role de CTO dans cette aventure, concernant la vision produit, elle devra etre alignée avec l'attente client qui, au vu des evolutions récentes et celles probablement disruptives à venir, devra savoir s'adapter et adopter rapidement les nouveautés nécessaire, en prenant garde à garder au minimum constante la qualité, en visant de l'améliorer en continu.
+ Mon Xp de RSSI me pousse à prendre en compte les normes (ISO) et les contraintes légales (RGPD, NIS2 pourrait être également visé) dès le départ pour éviter d'accumuler une dette qui peut etre handicapante sur ces sujets avec les clients exigeants et regardants.
+Coté tech, il sera crucial de maîtriser nos coûts et notre souveraineté, en choisissant judicieusement les composants et les partenaires qui vont accompagner notre developpement (briques logicielles, solution d'hebergement, CRM et autres outils).
+Coté management, je suis de l'école de l'exemplarité : Je ne peux pas exiger de l'équipe ce que je ne m'impose pas à moi-même. Je préfère m'entourer des meilleurs dans chaque domaine, je n'ai pas de problèmes, bien au contraire, quand l'équipe me challenge sur mes choix, et j'attends de ceux qui connaissent le mieux un domaines qu'ils soient force de proposition.
