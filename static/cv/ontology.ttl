@@ -45,9 +45,18 @@
 
 
 ### Taxonomie des types d’impacts
-:ArchitectureModernization a :ImpactType ; schema:name "Architecture Modernization"@en, "Modernisation de l’architecture"@fr .
-:Automation a :ImpactType ; schema:name "Automation"@en, "Automatisation"@fr .
-:DataOps a :ImpactType ; schema:name "DataOps Enablement"@en, "Mise en œuvre de DataOps"@fr .
+:ArchitectureModernization a :ImpactType ; 
+    schema:name
+        "Architecture Modernization"@en,
+        "Modernisation de l’architecture"@fr .
+:Automation a :ImpactType ; 
+    schema:name
+        "Automation"@en,
+        "Automatisation"@fr .
+:DataOps a :ImpactType ;
+    schema:name 
+        "DataOps Enablement"@en,
+        "Mise en œuvre de DataOps"@fr .
 :DataGovernance a :ImpactType ; schema:name "Data Governance"@en, "Gouvernance des données"@fr .
 :Standardization a :ImpactType ; schema:name "Standardization"@en, "Standardisation"@fr .
 :IdentityGovernance a :ImpactType ; schema:name "Identity Governance"@en, "Gouvernance des identités"@fr .

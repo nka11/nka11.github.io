@@ -1,7 +1,7 @@
 <script module>
   export const frontmatter  = {
-    title : 'Nicolas Karageuzian',
-    description : 'CV et portfolio',
+    title : 'CV et portfolio',
+    description : '',
     header: false,
     sidebar: false,
     type: "CV"
