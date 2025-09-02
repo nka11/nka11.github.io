@@ -189,7 +189,8 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:url <https://octobre.tech/> ;
     schema:description """Conception et mise en oeuvre de la stratégie digitale.
     Conception from scratch du site internet (choix d'architecture, developpement, deploiement).
-    Integration du SSO du CRM dans une expérience utilisateur intégrée.""" ;
+    Integration du SSO du CRM dans une expérience utilisateur intégrée.
+    Fourniture d'un support de communication et de suivi prospection sur mesure.""" ;
     nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "Octobre"
@@ -213,10 +214,11 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:url <https://www.izroadbook.com/> ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "izrbcto" ;
-    schema:description """Conseil en Architecture et en stratégie.
-        Assurance de la maintenabilité opérationelle après le départ du développeur du backend.
-        Retro-engineering et documentation du projet pour rendre autonome les developpeurs .net ou mobile sur le déploiement de leur travail vers la production.
-        Tech Leadership et mise en place des outils de CI/CD (github actions vers Ikoula).""" ;
+    schema:description """Assurance de la maintenabilité opérationelle après le départ du développeur du backend.
+        Retro-engineering et documentation du projet pour rendre autonome les developpeurs .net ou mobile.
+        Tech Leadership et mise en place des outils de CI/CD (github actions vers Ikoula) pour le déploiement des nouveautés vers la production..
+        Conseil en Architecture et en stratégie.
+        """ ;
     nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "IzRoadbook"
