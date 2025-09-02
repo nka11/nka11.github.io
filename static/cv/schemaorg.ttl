@@ -72,7 +72,7 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:description """En tant qu'Ingénieur produit "Full Cycle" j'aide les visionnaires à transformer leurs idées en projets, puis en produits.
     
         Ingénieur logiciel et infrastructure confirmé avec plus de 20 ans d’expérience dans la conception, le déploiement et l’industrialisation d’environnements IT complexes, en particulier sur des architectures conteneurisées et des projets stratégiques de migration.
-        Familier des environnements cloud (GCP, Azure, scaleway, ovh, aws), avec une solide maîtrise de l’Infrastructure-as-Code (Terraform, Ansible ...), de la sécurité (reseaux, certificats, RBAC, SSO/IAM) autant sur des environnements on-prem que cloud.
+        Familier des environnements cloud (GCP, Azure, scaleway, ovh, aws), avec une solide maîtrise de l’Infrastructure-as-Code (Terraform, Ansible ...), de la sécurité (reseaux, certificats, RBAC, SSO/IAM) autant à l'aise sur des environnements on-prem que cloud.
         Expérience significative dans la coordination entre les équipes de developpenent, d'architecture et sécurité et de production, expert dans l’intégration en environnement contraint (charge, conformité, FinOps, ...) et dans la définition de trajectoires de migrations.
         Rigueur, coordination interéquipes/multidiscipline, capacité à documenter et vulgariser les choix techniques sont le cœur de mon approche.
         """ ;
