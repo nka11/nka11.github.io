@@ -16,18 +16,22 @@
 @prefix : <https://nka11.github.io/cv#projects/> .
 :cm-SSO a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name
-        "Integration globale d'authentification fédérée"@fr,
+        "Integration globale de l'authentification fédérée"@fr,
         "Federated authentication integration"@en ;
     schema:startDate "2017-11-02"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;
     schema:description
-        """Elargissement de l'intégration de l'authentification fédérée sur l'outil SIRH (Workday - 40k utilisateurs).
+        """Elargissement de l'intégration de l'authentification fédérée (SSO) sur l'outil SIRH (Workday - 40k utilisateurs) avec SAML et IBM ISAM.
             Mise en œuvre d’une politique de gestion des identités.
+            Modernisation de l'application de gestions des identités nodejs : réecriture du front avec ReactJS.
+            Fédération des applications tierces avec le protocole OIDC de préférence, SAML quand c'est le seul choix propoé par l'éditeur/solution.
             Phase 2 : Migration vers la solution Microsoft AzureAD (Entra ID) pour le composant de fédération (2022 -> 2023-09).
         """@fr ,
         """Migrating SAML and OIDC delegations from ISAM to AzureAD (2022-now)
             Integration of the IBM  solution ISAM for SSO and implementation of an identity management policy.(2017-2021)
-            Administration and management.of the authentication stack with openLDAP
+            Administration and management of the authentication stack with openLDAP.
+            Priority to OIDC as the federation protocol when available. 
+            End user support tooling app modernization with nodejs : Rewrite with React.
             Integration of the different solutions to delegate authentication to the central solution (LDAP or with SAML or OIDC federation)
             Setup and exploitation of accounts synchronization solutions (Microsoft MIM/FIM, IBM ISDI)
         """@en ;
@@ -42,5 +46,8 @@
         skills:auth-LDAP,
         skills:cloud-AzureAD,
         skills:sgbd-postgresql,
+        skills:environment-nodejs,
+        skills:library-react,
+        skills:programming-javascript,
         skills:programming-python
         .

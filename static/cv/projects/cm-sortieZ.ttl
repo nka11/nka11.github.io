@@ -22,10 +22,13 @@
     schema:endDate "2015-09-10" ;
     schema:description """- Migration de la base d'authentification RACF vers un annuaire openLDAP.
         - Mise en place des environnements et configuration des système pour heberger l'application centrale développée avec SoftwareAG Natural.
-        - Industrialisation processus de deploiement de l'application autour de gitlab avec une CI Jenkins"""@fr,
+        - Industrialisation processus de deploiement de l'application autour de gitlab avec une CI Jenkins
+        - Creation et maintenant d'une application de gestion des identités pour les métiers support"""@fr,
     """In charge of setting up communications with other systems, and tuning the application runtime. Fully handled RACF security migration to an OpenLDAP system and created processes and tools for administrators support team.
-        Technical support while migration on DB2 system from z/OS to Linux, in charge of migrating COBOL to openCOBOL, managing change for developpers, providing new tooling and supply chain (with gitlab/rmp & jenkins)
-    """@fr ;
+        Technical support while migration on DB2 system from z/OS to Linux, in charge of migrating COBOL to openCOBOL, managing change for developpers, providing new tooling and supply chain (with gitlab/rmp & jenkins).
+        Created a transaction monitoring system with nodejs, based on logs output.
+        Crafted an identity management application with nodejs for the end user support teams.
+    """@en ;
     schema:about
         skills:auth-LDAP,
         skills:auth-RACF,
@@ -33,5 +36,7 @@
         skills:scm-git,
         skills:system-zos,
         skills:programming-Natural,
+        skills:environment-nodejs,
+        skills:programming-javascript,
         skills:cicd-jenkins
         .

@@ -191,6 +191,13 @@ skills:library-vue a elm:LearningOutcome,
     elm:relatedSkill skills:programming,
         skills:programming-javascript .
 
+skills:library-react a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "ReactJS" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-javascript .
+
+
 skills:library-django a elm:LearningOutcome,
         schema:DefinedTerm ;
     elm:label "Django" ;
