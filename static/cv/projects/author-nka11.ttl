@@ -14,22 +14,14 @@
 @prefix roles: <https://nka11.github.io/cv#roles/> .
 @prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
 @prefix : <https://nka11.github.io/cv#projects/> .
-:contrib-neovillages a schema:CreativeWork, schema:Project, schema:Role ;
-    schema:roleName "Contributor" ;
-    schema:name "NeoVillages" ;
+:author-nka11 a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Site perso nka11.github.io" ;
+    schema:roleName "Author" ;
     schema:startDate "2023-10-01"^^xsd:date ;
-    schema:endDate "2024-04-01"^^xsd:date ;
-    schema:description "Contribution au site Neovillages : Intégration d'un IdP OIDC (nodejs) et mise en oeuvre d'une authentification avec OIDC" ;
-    schema:url <http://aloha-editor.org/> ;
+    schema:description "Pages statiques générées (SSG), portfolio et publications personnelles (Digital gardening space)" ;
+    schema:url <http://github.com/karacos> ;
     schema:about
-        skills:it-algorithmics,
-        skills:programming-javascript,
-        skills:programming-PHP,
-        skills:auth-sso,
-        skills:auth-oidc,
-        skills:data-SQL,
-        skills:sgbd-mysql,
-        skills:sgbd-postgresql,
-        skills:environment-nodejs,
-        skills:scm-github,
-        skills:scm-git .
+        skills:programming-typescript,
+        skills:library-svelte,
+        skills:scm-git ,
+        skills:scm-github .

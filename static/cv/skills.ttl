@@ -187,6 +187,13 @@ skills:library-angular a elm:LearningOutcome,
     elm:relatedSkill skills:programming,
         skills:programming-javascript .
 
+skills:library-svelte a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "SvelteJS" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-javascript .
+
 skills:library-vue a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
@@ -284,6 +291,13 @@ skills:scm-cvs a elm:LearningOutcome,
     elm:relatedSkill skills:scm ;
     schema:description "Source Control Management with CVS"@en,
         "Gestion des Vesions avec CVS"@fr .
+
+skills:scm-github a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "github" ;
+    skos:broader nkonto:ToolSkill ;
+    elm:relatedSkill skills:scm-git ;
+    .
 
 skills:scm-git a elm:LearningOutcome,
         schema:DefinedTerm ;

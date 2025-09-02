@@ -112,7 +112,8 @@ nka:me a schema:Person, schema:CreativeWork ;
         projects:contrib-neovillages,
         projects:contrib-aloha-editor,
         projects:contrib-hyperkitty,
-        projects:author-KaraCos .
+        projects:author-KaraCos,
+        projects:author-nka11 .
 
 ### Formations
 
@@ -171,6 +172,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:sgbd-postgresql,
         skills:programming-typescript,
         skills:programming-python,
+        skills:scm-github,
         skills:environment-nodejs
         .
 
@@ -194,6 +196,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:sgbd-postgresql,
         skills:programming-typescript,
         skills:programming-python,
+        skills:scm-github,
         skills:environment-nodejs
         .
 
@@ -217,6 +220,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:cicd,
         skills:programming-dotnetCsharp,
         skills:programming-typescript,
+        skills:scm-github,
         skills:library-angular
         .
 :expCTOWinastar a schema:OrganizationRole, schema:Occupation, schema:Organization ;
