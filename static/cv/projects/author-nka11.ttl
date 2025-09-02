@@ -18,7 +18,8 @@
     schema:name "Site perso nka11.github.io" ;
     schema:roleName "Author" ;
     schema:startDate "2023-10-01"^^xsd:date ;
-    schema:description "Pages statiques générées (SSG), portfolio et publications personnelles (Digital gardening space)" ;
+    schema:description """Pages statiques générées (SSG), portfolio et publications personnelles (Digital gardening space).
+    CV sémantique modélisé dans un graphe RDF et rendu par une SPA.""" ;
     schema:url <http://github.com/karacos> ;
     schema:about
         skills:programming-typescript,
