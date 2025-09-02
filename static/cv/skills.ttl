@@ -133,6 +133,7 @@ skills:eventbus-rabbitmq a elm:LearningOutcome,
 
 skills:fullstack a elm:LearningOutcome,
         schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
     elm:label "Full Stack Development" ;
     elm:relatedESCOSkill <https://data.europa.eu/esco/occupation/4031e2fa-31c8-4b3f-bc44-84e5a0aef879> ;
     elm:targetFramework "ESCO" .
@@ -181,18 +182,21 @@ skills:it-algorithmics a elm:LearningOutcome,
 
 skills:library-angular a elm:LearningOutcome,
         schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
     elm:label "Angular" ;
     elm:relatedSkill skills:programming,
         skills:programming-javascript .
 
 skills:library-vue a elm:LearningOutcome,
         schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
     elm:label "VueJS" ;
     elm:relatedSkill skills:programming,
         skills:programming-javascript .
 
 skills:library-react a elm:LearningOutcome,
         schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
     elm:label "ReactJS" ;
     elm:relatedSkill skills:programming,
         skills:programming-javascript .
@@ -201,6 +205,7 @@ skills:library-react a elm:LearningOutcome,
 skills:library-django a elm:LearningOutcome,
         schema:DefinedTerm ;
     elm:label "Django" ;
+    skos:broader nkonto:TechnicalSkill ;
     elm:relatedSkill skills:programming,
         skills:programming-oop,
         skills:programming-python .
