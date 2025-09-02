@@ -41,6 +41,6 @@
         skills:cicd-gitlab,
         skills:auth-LDAP,
         skills:cloud-AzureAD,
-        skills:sgbd-postgres,
+        skills:sgbd-postgresql,
         skills:programming-python
         .

@@ -45,7 +45,7 @@
 #         skills:data-noSQL,
 #         skills:ai-general,
 #         skills:ai-neuralnet,
-#         skills:sgbd-postgres,
+#         skills:sgbd-postgresql,
 #         skills:cloud-GCP,
 #         skills:tools-ansible,
 #         skills:tools-terraform,

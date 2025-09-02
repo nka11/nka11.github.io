@@ -20,10 +20,11 @@
     schema:startDate "2013-06-01"^^xsd:date ;
     schema:endDate "2014-02-01"^^xsd:date ;
     schema:description "Contributions aux projet mailman3" ;
-    schema:url <http://aloha-editor.org/> ;
+    schema:url <https://docs.mailman3.org/projects/hyperkitty/en/stable/> ;
     schema:about
         skills:programming-python,
+        skills:programming-javascript,
         skills:library-django,
         skills:data-SQL,
-        skills:sgbd-postgres,
+        skills:sgbd-postgresql,
         skills:scm-git .

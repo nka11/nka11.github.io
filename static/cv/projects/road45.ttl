@@ -32,7 +32,7 @@
 """@fr ;
     schema:about
         skills:scm-git, skills:data-noSQL, skills:ai-general, skills:ai-neuralnet,
-        skills:sgbd-postgres, skills:cloud-GCP, skills:tools-ansible, skills:tools-terraform,
+        skills:sgbd-postgresql, skills:cloud-GCP, skills:tools-ansible, skills:tools-terraform,
         skills:data-structure, skills:cicd-gitlab, skills:system-linux, skills:eventbus-kafka,
         skills:programming-python ;
     nkonto:hasImpact

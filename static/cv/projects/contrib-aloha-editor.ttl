@@ -19,7 +19,9 @@
     schema:name "Aloha Editor" ;
     schema:startDate "2010-01-01"^^xsd:date ;
     schema:endDate "2013-12-01"^^xsd:date ;
-    schema:description "Contribution open-source (drag & drop, image)" ;
+    schema:description """Aloha Editor est un éditeur de HTML qui utilise la balise contenteditable de HTML5.
+    Contribution au produit open-source Aloha Editor pour des features qui permettent l'insertion d'image dans un editeur WYSIWYG en glisser-déplacer depuis l'explorateur de fichiers vers le navigateur web.
+    Environnement de dev Node/VanillaJS / jQuery-UI""" ;
     schema:url <http://aloha-editor.org/> ;
     schema:about
         skills:it-algorithmics,

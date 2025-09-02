@@ -105,6 +105,8 @@ nka:me a schema:Person, schema:CreativeWork ;
         :expISMRSSI,
         :expISMGRC,
         :izrbcto,
+        :deepthought,
+        :octobre,
         :expCTOWinastar ;
     schema:producer 
         projects:contrib-neovillages,
@@ -147,6 +149,54 @@ nka:me a schema:Person, schema:CreativeWork ;
 
 ### Expériences professionnelles
 
+:deepthought a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
+    schema:roleName "Funder"@en ;
+    schema:roleName "Fondateur"@fr ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    # schema:endDate "2025-05-31"^^xsd:date ;
+    schema:url <https://github.com/Deepthought-Solutions/> ;
+    schema:identifier "deepthought" ;
+    schema:description """Conseil et prestations en développements informatique et digital.
+    Directeur de l'edition de produit IT.""" ;
+    nkonto:withinOrganization [
+        a schema:Organization ;
+        schema:name "Deepthought Solutions"
+    ] ;
+    schema:skills
+        skills:project,
+        skills:auth-iam,
+        skills:library-vue,
+        skills:system-linux,
+        skills:auth-oidc,
+        skills:sgbd-postgresql,
+        skills:programming-typescript,
+        skills:programming-python,
+        skills:environment-nodejs
+        .
+
+:octobre a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
+    schema:roleName "Solution Architect"@en ;
+    schema:roleName "Architecte Solution"@fr ;
+    schema:startDate "2023-10-01"^^xsd:date ;
+    # schema:endDate "2025-05-31"^^xsd:date ;
+    schema:identifier "octobre" ;
+    schema:url <http://octobre.tech/> ;
+    schema:description """Conception et mise en oeuvre de la stratégie digitale, integration SSO et CRM custom""" ;
+    nkonto:withinOrganization [
+        a schema:Organization ;
+        schema:name "Octobre"
+    ] ;
+    schema:skills
+        skills:project,
+        skills:auth-iam,
+        skills:library-vue,
+        skills:auth-oidc,
+        skills:sgbd-postgresql,
+        skills:programming-typescript,
+        skills:programming-python,
+        skills:environment-nodejs
+        .
+
 :izrbcto a schema:OrganizationRole,  schema:Occupation, schema:Organization ;
     schema:roleName "CTO part-time"@en ;
     schema:roleName "Directeur de la Technologie à temps partiel"@fr ;
@@ -154,7 +204,8 @@ nka:me a schema:Person, schema:CreativeWork ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "izrbcto" ;
     schema:description """Conseil en Architecture et en stratégie.
-        Encadrement developpeurs .net et mobile.
+        Assurance de la maintenabilité opérationelle après le départ du développeur du backend.
+        Retro-engineering et documentation du projet pour rendre autonome les developpeurs .net ou mobile sur le déploiement de leur travail vers la production.
         Tech Leadership et mise en place des outils de CI/CD (github actions vers Ikoula).""" ;
     nkonto:withinOrganization [
         a schema:Organization ;
@@ -165,6 +216,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:sgbd-mysql,
         skills:cicd,
         skills:programming-dotnetCsharp,
+        skills:programming-typescript,
         skills:library-angular
         .
 :expCTOWinastar a schema:OrganizationRole, schema:Occupation, schema:Organization ;
@@ -185,7 +237,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:project,
         skills:blockchain,
         skills:blockchain-Solana,
-        skills:sgbd-postgres,
+        skills:sgbd-postgresql,
         skills:blockchain-Ethereum,
         skills:tools-ansible,
         skills:cicd,

@@ -185,6 +185,12 @@ skills:library-angular a elm:LearningOutcome,
     elm:relatedSkill skills:programming,
         skills:programming-javascript .
 
+skills:library-vue a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    elm:label "VueJS" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-javascript .
+
 skills:library-django a elm:LearningOutcome,
         schema:DefinedTerm ;
     elm:label "Django" ;
@@ -295,7 +301,7 @@ skills:sgbd-mysql a elm:LearningOutcome,
     elm:label "mySQL" ;
     elm:relatedSkill skills:sgbdr .
 
-skills:sgbd-postgres a elm:LearningOutcome,
+skills:sgbd-postgresql a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
     elm:label "postgreSQL" ;
@@ -362,6 +368,12 @@ skills:grc-riskManagement a elm:LearningOutcome,
         "Analyse et Gestion de risques"@fr ;
     elm:relatedSkill skills:grc .
 
+skills:programming-PHP a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "PHP" ;
+    elm:relatedSkill skills:programming .
+
 skills:networking a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
@@ -372,6 +384,20 @@ skills:programming-javascript a elm:LearningOutcome,
     skos:broader nkonto:TechnicalSkill ;
     elm:label "Javascript" ;
     elm:relatedSkill skills:programming .
+
+skills:programming-typescript a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Typescript" ;
+    elm:relatedSkill skills:programming-javascript .
+
+
+skills:environment-nodejs a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "NodeJS" ;
+    elm:relatedSkill skills:programming-javascript .
+
 
 skills:programming-python a elm:LearningOutcome,
         schema:DefinedTerm ;

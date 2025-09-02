@@ -137,7 +137,7 @@
 #         skills:data-noSQL,
 #         skills:ai-general,
 #         skills:ai-neuralnet,
-#         skills:sgbd-postgres,
+#         skills:sgbd-postgresql,
 #         skills:cloud-GCP,
 #         skills:tools-ansible,
 #         skills:tools-terraform,
@@ -232,7 +232,7 @@
         skills:cicd-gitlab,
         skills:auth-LDAP,
         skills:cloud-AzureAD,
-        skills:sgbd-postgres,
+        skills:sgbd-postgresql,
         skills:programming-python
         .
 
@@ -300,7 +300,7 @@
         skills:auth-oidc,
         skills:data-SQL,
         skills:sgbd-mysql,
-        skills:sgbd-postgres,
+        skills:sgbd-postgresql,
         skills:scm-git .
 
 :contrib-hyperkitty a schema:CreativeWork, schema:Project, schema:Role ;
@@ -314,5 +314,5 @@
         skills:programming-python,
         skills:library-django,
         skills:data-SQL,
-        skills:sgbd-postgres,
+        skills:sgbd-postgresql,
         skills:scm-git .

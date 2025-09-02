@@ -19,14 +19,16 @@
     schema:name "NeoVillages" ;
     schema:startDate "2023-10-01"^^xsd:date ;
     schema:endDate "2024-04-01"^^xsd:date ;
-    schema:description "Contribution au site Neovillages : Intégration d'un IdP OIDC et mise en oeuvre d'une authentification avec OIDC" ;
+    schema:description "Contribution au site Neovillages : Intégration d'un IdP OIDC (nodejs) et mise en oeuvre d'une authentification avec OIDC" ;
     schema:url <http://aloha-editor.org/> ;
     schema:about
         skills:it-algorithmics,
         skills:programming-javascript,
+        skills:programming-PHP,
         skills:auth-sso,
         skills:auth-oidc,
         skills:data-SQL,
         skills:sgbd-mysql,
-        skills:sgbd-postgres,
+        skills:sgbd-postgresql,
+        skills:environment-nodejs,
         skills:scm-git .
