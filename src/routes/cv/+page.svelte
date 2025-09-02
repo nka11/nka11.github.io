@@ -48,7 +48,7 @@
 
   
   async function loadCVData(lang: string = 'fr') {
-
+      browsingPreferences.lang = lang;
       const personNode: NamedNode = namedNode("https://nka11.github.io/#me")
       person = getPerson(personNode,browsingPreferences.lang);
       // if (person.description && person.description.value) frontmatter.description = person.description.value
@@ -71,6 +71,7 @@
         return;
       }
       oxistore = store as unknown as Store;
+      browsingPreferences.lang = 'fr';
       loadCVData(browsingPreferences.lang);      
     } catch (e) {
       console.error(e);

@@ -27,7 +27,7 @@ h2 {
   }
 
   .project-desc {
-    font-size: 1.15rem;
+    font-size: 1rem;
     color: #444;
     white-space: pre-line;
     text-align: justify;

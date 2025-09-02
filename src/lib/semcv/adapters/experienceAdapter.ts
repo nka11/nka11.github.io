@@ -14,7 +14,7 @@ export function listOrgRoles(
         PREFIX schema: <https://schema.org/>
         prefix nkonto: <https://nka11.github.io/ontology#>
         
-        SELECT ?role ?roleName ?employer ?startDate ?endDate ?description ?identifier
+        SELECT ?role ?roleName ?employer ?startDate ?endDate ?description ?identifier ?url
         WHERE {
             ${subject} ${attribute} ?role .
             ?role schema:roleName ?roleName ;
@@ -30,6 +30,9 @@ export function listOrgRoles(
                 ?role schema:description ?description .
                 FILTER(LANG(?description) = "${lang}" || LANG(?description) = "")
             }
+            OPTIONAL {
+                ?role schema:url ?url .
+            }
         }
         ORDER BY DESC(?endDate)
     `;
@@ -37,7 +40,7 @@ export function listOrgRoles(
       experienceQuery = `
         prefix nkonto: <https://nka11.github.io/ontology#>
         PREFIX schema: <https://schema.org/>
-        SELECT ?role ?roleName ?employer ?startDate ?endDate ?description ?identifier
+        SELECT ?role ?roleName ?employer ?startDate ?endDate ?description ?identifier ?url
         WHERE {
             ${subject} ${attribute} ?role .
             ?role schema:roleName ?roleNameTerm ;
@@ -53,6 +56,9 @@ export function listOrgRoles(
             ?org schema:name ?employer .
             OPTIONAL {
                 ?role schema:endDate ?endDate .
+            }
+            OPTIONAL {
+                ?role schema:url ?url .
             }
             OPTIONAL {
                 ?role schema:roleName ?roleNameTerm ;

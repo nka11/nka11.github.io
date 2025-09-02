@@ -30,8 +30,8 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:email "mailto:nkarageuzian@gmail.com" ;
     schema:url <http://github.com/nka11> ;
     schema:jobTitle
-        "CyberSecurity & Architecture Consultant"@en ,
-        "Conseil en Architecture, Cloud et Cyber-Sécurité"@fr ,
+        # "Full Cycle Engineer/General IT Specialist"@en ,
+        "Ingénieur Logiciel Cycle Complet - Specialiste en Informatique Génerale", #@fr ,
         # "Conseil en Cyber-Sécurité spécialiste des Architecture"@fr ,
         [ 
             a schema:DefinedTerm ;
@@ -69,10 +69,12 @@ nka:me a schema:Person, schema:CreativeWork ;
                 ;
         ] 
         ;
-    schema:description """Ingénieur cloud et infrastructure confirmé avec plus de 20 ans d’expérience dans la conception, le déploiement et l’industrialisation d’environnements IT complexes, en particulier sur des architectures conteneurisées et des projets stratégiques de migration cloud.
-        Familier des environnements cloud (GCP, Azure, scaleway, ovh, aws), avec une solide maîtrise de l’Infrastructure-as-Code (Terraform, Ansible ...), de la sécurité (RBAC, certificats, réseau) autant sur des environnements on-prem que cloud.
+    schema:description """En tant qu'Ingénieur produit "Full Cycle" j'aide les visionnaires à transformer leurs idées en projets, puis en produits.
+    
+        Ingénieur logiciel et infrastructure confirmé avec plus de 20 ans d’expérience dans la conception, le déploiement et l’industrialisation d’environnements IT complexes, en particulier sur des architectures conteneurisées et des projets stratégiques de migration.
+        Familier des environnements cloud (GCP, Azure, scaleway, ovh, aws), avec une solide maîtrise de l’Infrastructure-as-Code (Terraform, Ansible ...), de la sécurité (reseaux, certificats, RBAC, SSO/IAM) autant sur des environnements on-prem que cloud.
         Expérience significative dans la coordination les équipes architecture, sécurité et production, expert dans l’intégration en environnement contraint (charge, conformité, FinOps, ...) et dans la définition de trajectoires de migrations.
-        Rigueur, coordination interéquipes et capacité à documenter et vulgariser les choix techniques sont au cœur de mon approche.
+        Rigueur, coordination interéquipes/multidiscipline, capacité à documenter et vulgariser les choix techniques sont le cœur de mon approche.
         """ ;
     schema:birthPlace [
         a schema:Place ;
@@ -158,7 +160,9 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:url <https://github.com/Deepthought-Solutions/> ;
     schema:identifier "deepthought" ;
     schema:description """Conseil et prestations en développements informatique et digital.
-    Directeur de l'edition de produit IT.""" ;
+    Directeur de l'edition de produit IT :
+    - Fournisseur d'identité pour une mise en oeuvre du sso maitrisée.
+    - CRM d'assistance à la prospection/suivi des leads et ERP pour supporter les processus d'etreprise""" ;
     nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "Deepthought Solutions"
@@ -182,8 +186,10 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:startDate "2023-10-01"^^xsd:date ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "octobre" ;
-    schema:url <http://octobre.tech/> ;
-    schema:description """Conception et mise en oeuvre de la stratégie digitale, integration SSO et CRM custom""" ;
+    schema:url <https://octobre.tech/> ;
+    schema:description """Conception et mise en oeuvre de la stratégie digitale.
+    Conception from scratch du site internet (choix d'architecture, developpement, deploiement).
+    Integration du SSO du CRM dans une expérience utilisateur intégrée.""" ;
     nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "Octobre"
@@ -204,6 +210,7 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:roleName "CTO part-time"@en ;
     schema:roleName "Directeur de la Technologie à temps partiel"@fr ;
     schema:startDate "2024-01-01"^^xsd:date ;
+    schema:url <https://www.izroadbook.com/> ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "izrbcto" ;
     schema:description """Conseil en Architecture et en stratégie.
@@ -229,7 +236,10 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:identifier "winastar-cto" ;
-    schema:description """- Definition et mise en oeuvre d’une stratégie de scale UP avec pour focus la capacité de realiser un grand nombre de transactions blockchain en parallel : migration d'une architecture limitée à un process vers un pool d'agents multi-threadés qui ont permi une augmentation de 400% de la capacité de traitement sans besoin de ressources complémentaires.
+    schema:description """Reprise du projet après le départ du développeur unique :
+        - Reprise du code et redaction de documentation développeur.
+        - Ecriture et documentation des procédures d'exploitation.
+        - Definition et mise en oeuvre d’une stratégie de scale UP avec pour focus la capacité de realiser un grand nombre de transactions blockchain en parallel : migration d'une architecture limitée à un process vers un pool d'agents multi-threadés qui ont permi une augmentation de 400% de la capacité de traitement sans besoin de ressources complémentaires.
         - Elaboration d’une feuille de route pour cibler les conformités stratégiques."""@fr ;
     schema:description """- Spearheaded the development and execution of a scale-up strategy that focused on transaction throughput and parralelism : From a limited single process Architecture to a multi-threaded agents architecture the load capacity has been increased by 400% without additional resources needs.
         - Definition of a roadmap to reach strategic compliance."""@en ;

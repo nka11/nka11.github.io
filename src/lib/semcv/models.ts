@@ -45,7 +45,8 @@ export interface IOrganizationRole {
     endDate: Literal | null;
     description: Literal | null;
     place: Literal | null;
-    identifier: Literal | null
+    identifier: Literal | null;
+    url: Literal | null
     }
 
 export interface IProjectDetail {

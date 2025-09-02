@@ -19,6 +19,7 @@
   let skills: ISkillsDetails[] = $state([]);
 
   onMount(async () => {
+    console.log(params.organizationRole)
     credentialsDetails = listCredentials(
       params.organizationRole.role,
       "schema:hasCredential",
@@ -101,6 +102,13 @@
       {params.organizationRole.place.value}
     </p>
   {/if}
+  {#if params.organizationRole.url}
+    <p class="org-role-url">
+      <a href={params.organizationRole.url.value}>
+        {params.organizationRole.url.value}
+      </a>
+    </p>
+  {/if}
 
   {#if params.organizationRole.description}
     <p class="org-role-description" property="schema:description">
@@ -164,7 +172,12 @@
   .italic-date {
     font-style: italic;
   }
-
+ .org-role-url {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin: 0;
+    padding: 0;
+  }
   .org-role-place {
     font-size: 0.875rem;
     color: #4b5563;

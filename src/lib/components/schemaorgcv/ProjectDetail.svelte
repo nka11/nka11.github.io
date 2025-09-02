@@ -138,7 +138,7 @@
   .project-description {
     white-space: pre-line;
     text-align: justify;
-    font-size: 1rem;
+    font-size: 0.95rem;
     margin: 0.5rem 0 0;
     padding: 0;
   }
