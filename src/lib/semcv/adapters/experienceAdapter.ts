@@ -82,7 +82,7 @@ export function listOrgRoles(
         try {
             // console.log(experienceQuery);
             results = (store?.query(experienceQuery) as unknown as Map<string, Term>[]).map(mapToObject) as IOrganizationRole[];
-            console.log(results);
+            // console.log(results);
           } catch(e) { // silent fail
             console.error(e);
           }

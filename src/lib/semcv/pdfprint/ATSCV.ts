@@ -8,7 +8,7 @@ import { extractYear, formatDateFr } from "$lib/dateFormatter";
 import { listProjects } from "../adapters/projectsAdapter";
 import { listEducations } from "../adapters/educationAdapters";
 import { listPersonLangs } from "../adapters/langsAdapters";
-import type { NamedNode } from "oxigraph";
+import { namedNode, NamedNode } from "oxigraph";
 import { getPerson } from "../adapters/personAdapters";
 import { browsingPreferences } from "$lib/state.svelte";
 
@@ -20,12 +20,18 @@ interface DocState {
 }
 
 export function generateATS_CV(
-    personNode: NamedNode,
-    lang: string,
+    personNode: NamedNode | undefined = undefined,
+    lang: string | undefined = undefined,
     variant: NamedNode | undefined = undefined
   ): jsPDF {
   const doc = new jsPDF();
-  const personDetails: IPersonDetails = getPerson(personNode,browsingPreferences.lang, variant)
+  if (personNode == undefined) {
+    personNode = namedNode("https://nka11.github.io/#me")
+  }
+  if (lang == undefined) {
+    lang = browsingPreferences.lang
+  }
+  const personDetails: IPersonDetails = getPerson(personNode,lang, variant)
   const maxWidth = 170;
   const margin = 20;
   const state={doc: doc, y: margin, margin:margin, maxWidth: maxWidth};
@@ -111,7 +117,7 @@ export function generateATS_CV(
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
   const projects = listProjects(personDetails.person, "schema:producer",lang);
-  // projectsDetails = listProjects
+  // // projectsDetails = listProjects
   projects.forEach((project) => {
     printProjectDetails(state,project, lang,true);
   });
@@ -336,23 +342,25 @@ function printOrganizationRole(role: IOrganizationRole, state: { doc: jsPDF; y: 
       headerline += " - " + role.employer?.value;
     }
   
+    // writeBlock(state, headerline, 0, 6);
+    
+    
+    // doc.text(headerline, margin,state.y);  
     state.y +=  0.6;
     // state.doc.setLineWidth(0.1);
     // state.doc.line(state.margin,state.y, 210 - state.margin , state.y);
     // state.y +=  3.8;
     state.doc.setFont("helvetica", "bold");
     state.doc.setFontSize(12);
-    // writeBlock(state, headerline, 0, 6);
-    
-
-    // doc.text(headerline, margin,state.y);  
+    writeBlock(state, headerline, 0, 6);
     state.doc.setFontSize(10);
     state.doc.setFont("helvetica", "normal");
-    // (role.description?.value as string + "").split('\n').forEach((line: string) => {
-    //   line = line.trim();
-    //   if (line !== "")
-    //     writeBlock(state, line, 5, 5);
-    // });
+    (role.description?.value as string + "").split('\n').forEach((line: string) => {
+      
+      line = line.trim();
+      if (line !== "")
+        writeBlock(state, line, 5, 5);
+    });
   }
   const credentialsDetails = listCredentials(role.role, "schema:hasCredential", lang, variant);
   credentialsDetails.forEach((credential) => {
