@@ -405,6 +405,13 @@ skills:networking a elm:LearningOutcome,
     skos:broader nkonto:TechnicalSkill ;
     elm:label "networking" .
 
+skills:programming-logo a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    nkonto:FirstPractice "1986" ;
+    elm:label "LOGO" ;
+    elm:relatedSkill skills:programming .
+
 skills:programming-javascript a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;

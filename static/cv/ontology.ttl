@@ -43,6 +43,11 @@
 :DataImpact a :ImpactType ; schema:name "Data" .
 :TechnicalImpact a :ImpactType ; schema:name "Technical" .
 
+:FirstPractice a rdf:Property ;
+    rdfs:label "FirstPractice"@en ;
+    rdfs:comment "Date de la premiere pratique/apprentissage"@fr ;
+    rdfs:domain elm:LearningOutcome ;
+    rdfs:range xsd:date .
 
 ### Taxonomie des types d’impacts
 :ArchitectureModernization a :ImpactType ; 
