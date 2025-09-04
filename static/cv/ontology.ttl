@@ -6,7 +6,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix elm: <https://data.europa.eu/snb/elm/> .
 
-
 @prefix : <https://nka11.github.io/ontology#> .
 
 :withinOrganization a rdf:Property ;

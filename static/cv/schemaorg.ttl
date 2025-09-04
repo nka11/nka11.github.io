@@ -72,8 +72,11 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:description """En tant qu'Ingénieur produit "Full Cycle" j'aide les visionnaires à transformer leurs idées en projets, puis en produits.
     
         Ingénieur logiciel et infrastructure confirmé avec plus de 20 ans d’expérience dans la conception, le déploiement et l’industrialisation d’environnements IT complexes, en particulier sur des architectures conteneurisées et des projets stratégiques de migration.
+        
         Familier des environnements cloud (GCP, Azure, scaleway, ovh, aws), avec une solide maîtrise de l’Infrastructure-as-Code (Terraform, Ansible ...), de la sécurité (reseaux, certificats, RBAC, SSO/IAM) autant à l'aise sur des environnements on-prem que cloud.
+        
         Expérience significative dans la coordination entre les équipes de developpenent, d'architecture et sécurité et de production, expert dans l’intégration en environnement contraint (charge, conformité, FinOps, ...) et dans la définition de trajectoires de migrations.
+        
         Rigueur, coordination interéquipes/multidiscipline, capacité à documenter et vulgariser les choix techniques sont le cœur de mon approche.
         """ ;
     schema:birthPlace [
@@ -134,6 +137,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         skills:programming,
         skills:programming-pascal,
         skills:programming-C,
+        skills:system-linux,
         skills:softwaredesign-uml,
         skills:softwaredesign ;
     schema:subjectOf projects:iut-stage .
@@ -159,10 +163,10 @@ nka:me a schema:Person, schema:CreativeWork ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:url <https://github.com/Deepthought-Solutions/> ;
     schema:identifier "deepthought" ;
-    schema:description """Conseil et prestations en développements informatique et digital.
-    Directeur de l'edition de produit IT :
-    - Fournisseur d'identité pour une mise en oeuvre du sso maitrisée.
-    - CRM d'assistance à la prospection/suivi des leads et ERP pour supporter les processus d'etreprise""" ;
+    schema:description """Conseil et prestations en développement informatique et digital, avec un accompagnement de bout en bout.
+        Pilotage de l’édition de produits IT apportant des gains concrets :
+        - Mise en place d’un fournisseur d’identité garantissant un SSO sécurisé, fiable et maîtrisé, réduisant les coûts de support et améliorant l’expérience utilisateur.
+        - Développement d’un CRM sur mesure pour fluidifier la prospection et le suivi des leads, ainsi qu’un ERP optimisé pour renforcer l’efficacité des processus métier et accélérer la prise de décision.""" ;
     nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "Deepthought Solutions"
@@ -187,10 +191,10 @@ nka:me a schema:Person, schema:CreativeWork ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "octobre" ;
     schema:url <https://octobre.tech/> ;
-    schema:description """Conception et mise en oeuvre de la stratégie digitale.
-    Conception from scratch du site internet (choix d'architecture, developpement, deploiement).
-    Integration du SSO du CRM dans une expérience utilisateur intégrée.
-    Fourniture d'un support de communication et de suivi prospection sur mesure.""" ;
+    schema:description """Élaboration et mise en œuvre de la stratégie digitale, permettant à l’entreprise de gagner en visibilité et en efficacité commerciale.
+        - Conception et déploiement from scratch du site internet, avec des choix d’architecture garantissant performance, évolutivité et sécurité.
+        - Intégration fluide du SSO avec le CRM, offrant une expérience utilisateur unifiée et réduisant la complexité d’accès pour les équipes.
+        - Mise en place d’outils de communication et de suivi commercial sur mesure, favorisant la croissance et la réactivité dans la prospection.""" ;
     nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "Octobre"
@@ -214,10 +218,11 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:url <https://www.izroadbook.com/> ;
     # schema:endDate "2025-05-31"^^xsd:date ;
     schema:identifier "izrbcto" ;
-    schema:description """Assurance de la maintenabilité opérationelle après le départ du développeur du backend.
-        Retro-engineering et documentation du projet pour rendre autonome les developpeurs .net ou mobile.
-        Tech Leadership et mise en place des outils de CI/CD (github actions vers Ikoula) pour le déploiement des nouveautés vers la production..
-        Conseil en Architecture et en stratégie.
+    schema:description """Mission de CTO à temps partiel avec un objectif de continuité opérationnelle :
+        - Garantir la maintenabilité et la pérennité du backend malgré le départ du développeur principal.
+        - Rétro-engineering et documentation approfondie, permettant aux développeurs .NET et mobile de devenir autonomes rapidement.
+        - Mise en place d’une chaîne CI/CD automatisée (GitHub Actions → Ikoula), réduisant les délais de mise en production et limitant les erreurs.
+        - Conseil en architecture et stratégie, assurant une trajectoire technique robuste et adaptée à la croissance.
         """ ;
     nkonto:withinOrganization [
         a schema:Organization ;
@@ -377,9 +382,10 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:startDate "2025-01-01"^^xsd:date ;
     schema:endDate "2025-06-30"^^xsd:date ;
     schema:identifier "ism-rssi" ;
-    schema:description '''Definition des objectifs stratégiques et de l’orientation de la politique de sécurité du SI
-        Audit PSSI & mise en place de l’organisation de la gouvernance cyber
-        Supervision et amélioration : Surveillance des risques, audits et renforcement des défenses.''' ;
+    schema:description '''RSSI à temps partiel en charge de définir la politique de sécurité du SI et de la traduire en actions concrètes.
+        - Audit de la PSSI et mise en place d’une gouvernance cyber claire et adaptée.
+        - Supervision continue des risques et coordination des audits, permettant un renforcement mesurable des défenses.
+        - Contribution directe à la réduction de l’exposition aux menaces et à l’amélioration de la conformité réglementaire.''' ;
     nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "ISM interpretariat"
@@ -399,8 +405,9 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:identifier "ism-rssi" ;
-    schema:description """Audit de la maturité cyber et de la PSSI.
-    Recommandations stratégiques et proposition d'une feuille de route.""" ;
+    schema:description """Réalisation d’un audit complet de la maturité cyber et de la PSSI, afin d’identifier les forces et les vulnérabilités du SI.
+        - Formulation de recommandations stratégiques pragmatiques, adaptées au contexte de l’entreprise.
+        - Conception d’une feuille de route opérationnelle permettant de renforcer la conformité, d’améliorer la résilience cyber et d’anticiper les exigences réglementaires (RGPD, NIS2).""" ;
     nkonto:withinOrganization [
         a schema:Organization ;
         schema:name "ISM interpretariat"
@@ -414,7 +421,8 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:roleName "Ingénieur d’exploitation" ;
     schema:startDate "2000-01-01"^^xsd:date ;
     schema:endDate "2001-01-01"^^xsd:date ;
-    schema:description "Pupitrage, monitoring et déploiement d'un ensemble d'applications web." ;
+    schema:description """Contribution à la stabilité et disponibilité des services.
+        - Expérience fondatrice sur les environnements de production unix (Solaris), posant les bases de ma rigueur en production.""" ;
     schema:identifier "acsp-inge-exp" ;
     nkonto:withinOrganization [
         a schema:Organization ;
