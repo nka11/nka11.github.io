@@ -44,10 +44,12 @@ export function generateATS_CV(
 
   // Sous-titre
   state.y +=  8;
-  doc.setFontSize(14);
+  doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
-  writeBlock(state,personDetails.name?.value as string,0,7)
-
+  doc.textWithLink('https://nk11.github.io/cv', margin, state.y, { url: 'https://nk111.github.io/cv' });
+  // classified contact informations will come here
+  state.y += 1.7;
+  // writeBlock(state,personDetails.name?.value as string,0,7)
   doc.setLineWidth(0.5);
   doc.line(margin-10,state.y, 210 - margin +10,state.y);
   state.y +=  6;

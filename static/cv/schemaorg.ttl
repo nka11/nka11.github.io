@@ -30,8 +30,8 @@ nka:me a schema:Person, schema:CreativeWork ;
     schema:email "mailto:nkarageuzian@gmail.com" ;
     schema:url <http://github.com/nka11> ;
     schema:jobTitle
-        # "Full Cycle Engineer/General IT Specialist"@en ,
-        "Ingénieur Logiciel Cycle Complet - Specialiste en Informatique Génerale", #@fr ,
+        "Full-Cycle Product Engineer | Turning Ideas into Impactful Products"@en ,
+        "Ingénieur produit Full-Cycle | Transformer les idées en produits à fort impact"@fr ,
         # "Conseil en Cyber-Sécurité spécialiste des Architecture"@fr ,
         [ 
             a schema:DefinedTerm ;
@@ -69,9 +69,7 @@ nka:me a schema:Person, schema:CreativeWork ;
                 ;
         ] 
         ;
-    schema:description """Ingénieur produit Full-Cycle | Transformer les idées en produits à fort impact
-
-J’aide les visionnaires à transformer leurs idées en projets pour créer au final des produits pleinement opérationnels.
+    schema:description """J’aide les visionnaires à transformer leurs idées en projets pour créer au final des produits pleinement opérationnels.
 
 Avec plus de 20 ans d’expérience en ingénierie logicielle et infrastructure, je sans apporter de la valeur en :
  - Conception & Architecture : Analyse des besoins, UML, conseil métier.
@@ -83,9 +81,7 @@ Je maîtrise parfaitement les plateformes cloud (GCP, Azure, Scaleway, OVH, AWS)
 J’apporte également une grande expérience en gestion de projets, coordonnant équipes de développement, architecture, sécurité et production. Je suis reconnu pour fournir des solutions dans des environnements contraints (charge, conformité, FinOps) et pour définir des feuilles de route de migration claires.
 
 Mon approche repose sur la rigueur, la collaboration interéquipes et la capacité à documenter et communiquer clairement les choix techniques."""@fr,
-        """Full-Cycle Product Engineer | Turning Ideas into Impactful Products
-
-I help visionaries transform their ideas into projects—and ultimately into fully functional products.
+        """I help visionaries transform their ideas into projects to ultimately create fully functional products.
 
 With 20+ years of experience in software and infrastructure engineering, I specialize in:
 - Design & Architecture: Requirements analysis, UML, business consulting.
