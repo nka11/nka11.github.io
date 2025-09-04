@@ -69,16 +69,34 @@ nka:me a schema:Person, schema:CreativeWork ;
                 ;
         ] 
         ;
-    schema:description """En tant qu'Ingénieur produit "Full Cycle" j'aide les visionnaires à transformer leurs idées en projets, puis en produits.
-    
-        Ingénieur logiciel et infrastructure confirmé avec plus de 20 ans d’expérience dans la conception (Expressions de besoins, AMOA, UML), le développement fullstack (PHP/Java/Python/C#, javascript/typescript/react/vue), le packaging / déploiement et l’industrialisation d’environnements IT complexes, en particulier sur des architectures conteneurisées et des projets stratégiques de migration.
-        
-        Familier des environnements cloud (GCP, Azure, scaleway, ovh, aws), avec une solide maîtrise de l’Infrastructure-as-Code (Terraform, Ansible ...), de la sécurité (reseaux, certificats, RBAC, SSO/IAM) autant à l'aise sur des environnements on-prem que cloud.
-        
-        Expérience significative de gestion de projets et de coordination entre les équipes de developpenent, d'architecture et sécurité et de production, expert dans l’intégration en environnement contraint (charge, conformité, FinOps, ...), expertise significative dans la définition de trajectoires de migrations.
-        
-        Rigueur, coordination interéquipes/multidiscipline, capacité à documenter et vulgariser les choix techniques sont le cœur de mon approche.
-        """ ;
+    schema:description """Ingénieur produit Full-Cycle | Transformer les idées en produits à fort impact
+
+J’aide les visionnaires à transformer leurs idées en projets pour créer au final des produits pleinement opérationnels.
+
+Avec plus de 20 ans d’expérience en ingénierie logicielle et infrastructure, je sans apporter de la valeur en :
+ - Conception & Architecture : Analyse des besoins, UML, conseil métier.
+ - Développement Full-Stack : PHP, Java, Python, C#, JavaScript/TypeScript, React, Vue.
+ - Déploiement & Industrialisation : Packaging, CI/CD et gestion d’environnements IT complexes, y compris architectures conteneurisées et projets stratégiques de migration.
+
+Je maîtrise parfaitement les plateformes cloud (GCP, Azure, Scaleway, OVH, AWS), l’Infrastructure-as-Code (Terraform, Ansible) et la sécurité (réseaux, certificats, RBAC, SSO/IAM), j'ai également une expérience significative sur des infrastructures on-premises.
+
+J’apporte également une grande expérience en gestion de projets, coordonnant équipes de développement, architecture, sécurité et production. Je suis reconnu pour fournir des solutions dans des environnements contraints (charge, conformité, FinOps) et pour définir des feuilles de route de migration claires.
+
+Mon approche repose sur la rigueur, la collaboration interéquipes et la capacité à documenter et communiquer clairement les choix techniques."""@fr,
+        """Full-Cycle Product Engineer | Turning Ideas into Impactful Products
+
+I help visionaries transform their ideas into projects—and ultimately into fully functional products.
+
+With 20+ years of experience in software and infrastructure engineering, I specialize in:
+- Design & Architecture: Requirements analysis, UML, business consulting.
+- Full-Stack Development: PHP, Java, Python, C#, JavaScript/TypeScript, React, Vue.
+- Deployment & Industrialization: Packaging, CI/CD, and managing complex IT environments, including containerized architectures and strategic migration projects.
+
+I am highly proficient with cloud platforms (GCP, Azure, Scaleway, OVH, AWS), Infrastructure-as-Code (Terraform, Ansible), and security (networks, certificates, RBAC, SSO/IAM), with hands-on experience across both on-premises and cloud infrastructures.
+
+I also bring extensive project management experience, coordinating development, architecture, security, and production teams. I excel at delivering solutions in constrained environments (load, compliance, FinOps) and defining clear migration roadmaps.
+
+My approach is defined by rigor, cross-team collaboration, and the ability to clearly document and communicate technical choices."""@en ;
     schema:birthPlace [
         a schema:Place ;
         schema:address [
