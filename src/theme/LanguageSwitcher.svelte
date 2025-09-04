@@ -1,19 +1,29 @@
 <script lang="ts">
   import { locale } from 'svelte-i18n';
   import { browsingPreferences } from "$lib/state.svelte";
-    import { onMount } from 'svelte';
-  let lang = $state('en')
+  import { onMount } from 'svelte';
+
+  let lang: string;
+
   function changeLang(newLang: string) {
-    if (locale) {
-      locale.set(newLang);
-    }
-    lang = newLang
+    locale.set(newLang);
+    lang = newLang;
     browsingPreferences.lang = newLang;
     localStorage.setItem('lang', newLang);
-  };
-  onMount(async () => {
-    lang = browsingPreferences.lang
-  })
+  }
+
+  onMount(() => {
+    // Check if already stored in preferences/localStorage
+    let savedLang = browsingPreferences.lang || localStorage.getItem('lang');
+
+    if (!savedLang) {
+      // Fallback to browser setting
+      const browserLang = navigator.language || navigator.languages?.[0] || "en";
+      savedLang = browserLang.startsWith("fr") ? "fr" : "en";
+    }
+
+    changeLang(savedLang);
+  });
 </script>
 
 <select
@@ -26,11 +36,11 @@
 </select>
 
 <style>
-    select {
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-size: 1rem;
-        padding: 0.5rem;
-    }
+  select {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
 </style>

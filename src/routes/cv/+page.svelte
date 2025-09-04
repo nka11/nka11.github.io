@@ -28,8 +28,12 @@
   import Experiences from '$lib/components/schemaorgcv/Experiences.svelte';
     import { sidebar } from '../../theme/layout';
     import ForceGraphSkills from '$lib/components/schemaorgcv/ForceGraphSkills.svelte';
+    import Cv from '$lib/components/schemaorgcv/CV.svelte';
   
-    export let data: {jsonld: any, dataFiles: string[],variants:{variant:string,name:string}[]};
+    export let data: {
+      jsonld: any,
+      dataFiles: string[],
+      variants:{variant:string,name:string}[]};
   // import { userPrefs } from './states';
     let mainResult: Array<any> = [];
   let person: IPersonDetails | undefined = undefined;
@@ -43,8 +47,8 @@
 
 
 
-  const jsonLD = JSON.stringify(data.jsonld);
-  const ldString = `<script type=\"application/ld+json\">${jsonLD}\u003C/script>`;
+  // const jsonLD = JSON.stringify(data.jsonld);
+  // const ldString = `<script type=\"application/ld+json\">${jsonLD}\u003C/script>`;
 
   
   async function loadCVData(lang: string = 'fr') {
@@ -54,7 +58,6 @@
       person = getPerson(personNode,lang);
       // if (person.description && person.description.value) frontmatter.description = person.description.value
       // if (person.name && person.name.value) frontmatter.title = `CV de {person.name.value}`
-      skills = skillsCounts(lang);
       // organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",lang).sort(compareExperience);
       // console.log(organizationRoles);
   }
@@ -84,55 +87,23 @@
 
 </script>
 
+{#key browsingPreferences.lang}
 {#if loading}
   <p>Chargement du CV</p>
 {:else if error}
   <p style="color: red;">{error}</p>
-{:else if mainResult}
+{:else if person}
 
 <!-- 
   <select on:change={(e) => changeLang(e.target.value)}>
     <option value="en">English</option>
     <option value="fr">Français</option>
     </select> -->
-    {#if person}
     <!-- <CvMenu person={ person.person }></CvMenu> -->
-    {#key browsingPreferences.lang}
-      <article
-      prefix="
-        nkonto: <https://nka11.github.io/ontology#>
-        schema: https://schema.org/
-      "
-      typeof="schema:Person"
-      about={ `${person.person.value}` }>
-        <h2 property="schema:name">{person.name?.value}</h2>
-        <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
-        <p style="font-size: 1.3rem;text-align: justify;white-space: pre-line;" property="schema:description">{person.description?.value}</p>
-
-        <Experiences person={person.person} lang={browsingPreferences.lang}></Experiences>
-        <h2 class="text-3xl">Compétences</h2>
-        <!-- <section> -->
-        <SkillsCloud skills={ skills }></SkillsCloud>
-        <!-- <ForceGraphSkills></ForceGraphSkills> -->
-        <!-- </section> -->
-        <ListEducations of={ person.person }></ListEducations>
-        <section>
-
-        </section>
-        <h2 class="text-3xl">Langues</h2>
-        <section>
-          <PersonLangs person={ person.person }/>
-        </section>
-        <h2 class="text-3xl">Projets Personnels</h2>
-        <section>
-          <ListPersonalProjects person={person.person}></ListPersonalProjects>
-        </section>
-
-      </article>
-        
-    {/key}
-  {/if}
+      <Cv person={person} lang={browsingPreferences.lang}></Cv>
+       
   
   
   
 {/if}
+{/key}

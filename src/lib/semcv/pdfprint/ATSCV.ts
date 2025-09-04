@@ -1,7 +1,7 @@
 import { jsPDF, type TextOptionsLight } from "jspdf";
 import type { ICredentialDetails, IEducationDetails, IOrganizationRole, IPersonDetails, IProjectDetail } from "../models";
 import { listOrgRoles } from "../adapters/experienceAdapter";
-import { skillsCounts } from "../adapters/skillsAdapter";
+import { listSkills, skillsCounts } from "../adapters/skillsAdapter";
 import { compareExperience } from "../semantic_cv_store";
 import { listCredentials } from "../adapters/credentialsAdapter";
 import { extractYear, formatDateFr } from "$lib/dateFormatter";
@@ -220,6 +220,12 @@ function printProjectDetails(state:DocState, project:IProjectDetail, lang: strin
           state.doc.setFontSize(10);
           writeBlock(state,line,8,4);
         })
+        const skills = listSkills(
+      project.project,
+      "schema:about",
+      lang ?? browsingPreferences.lang
+    )
+    writeBlock(state, skills.map(skill => skill.skillLabel?.value).join(', '), 5, 5);
 }
 
 function printRoleCredentialDetails(state:DocState, role:IOrganizationRole, credential:ICredentialDetails, lang: string) {
@@ -364,6 +370,12 @@ function printOrganizationRole(role: IOrganizationRole, state: { doc: jsPDF; y: 
         writeBlock(state, line, 5, 5);
     });
   }
+  const skills = listSkills(
+      role.role,
+      "schema:skills",
+      lang ?? browsingPreferences.lang
+    )
+    writeBlock(state, skills.map(skill => skill.skillLabel?.value).join(', '), 5, 5);
   const credentialsDetails = listCredentials(role.role, "schema:hasCredential", lang, variant);
   credentialsDetails.forEach((credential) => {
     printRoleCredentialDetails(state, role, credential, lang);
