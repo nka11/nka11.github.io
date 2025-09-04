@@ -9,6 +9,7 @@ export function listOrgRoles(
         lang: string = "fr",
         variant: NamedNode | undefined = undefined
     ): IOrganizationRole[] {
+    console.log(`listOrgRoles ${lang}`);
 
     let experienceQuery = `
         PREFIX schema: <https://schema.org/>

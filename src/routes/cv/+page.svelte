@@ -33,7 +33,7 @@
   // import { userPrefs } from './states';
     let mainResult: Array<any> = [];
   let person: IPersonDetails | undefined = undefined;
-  let organizationRoles: IOrganizationRole[] = [];
+  // let organizationRoles: IOrganizationRole[] = [];
   let skills: ISkillsCount[] = [];
   let error = '';
   let oxistore: Store;
@@ -49,13 +49,14 @@
   
   async function loadCVData(lang: string = 'fr') {
       browsingPreferences.lang = lang;
+      console.log(`LoadCVData ${lang}`);
       const personNode: NamedNode = namedNode("https://nka11.github.io/#me")
-      person = getPerson(personNode,browsingPreferences.lang);
+      person = getPerson(personNode,lang);
       // if (person.description && person.description.value) frontmatter.description = person.description.value
       // if (person.name && person.name.value) frontmatter.title = `CV de {person.name.value}`
       skills = skillsCounts(lang);
-      organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",browsingPreferences.lang).sort(compareExperience);
-      console.log(organizationRoles);
+      // organizationRoles = listOrgRoles(person?.person, "schema:hasOccupation",lang).sort(compareExperience);
+      // console.log(organizationRoles);
   }
 
   
@@ -63,7 +64,7 @@
   onMount(async () => {
     try {
       const stored = localStorage.getItem('lang');
-      if (stored) savedLang = stored;
+      if (stored) browsingPreferences.lang = stored;
       await initOxigraph(data.dataFiles); // Exécuté uniquement côté navigateur
       const { store, oxiReady } = get(oxigraphStore);
       if (!oxiReady) {
@@ -71,7 +72,7 @@
         return;
       }
       oxistore = store as unknown as Store;
-      browsingPreferences.lang = 'fr';
+      // browsingPreferences.lang = 'fr';
       loadCVData(browsingPreferences.lang);      
     } catch (e) {
       console.error(e);
@@ -108,7 +109,7 @@
         <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
         <p style="font-size: 1.3rem;text-align: justify;white-space: pre-line;" property="schema:description">{person.description?.value}</p>
 
-        <Experiences person={person.person}></Experiences>
+        <Experiences person={person.person} lang={browsingPreferences.lang}></Experiences>
         <h2 class="text-3xl">Compétences</h2>
         <!-- <section> -->
         <SkillsCloud skills={ skills }></SkillsCloud>
