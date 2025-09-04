@@ -83,8 +83,8 @@
 </script>
 
 <div class="project">
-  <h2>{project.projectName?.value}</h2>
-  <div class="subtitle">Club Med – {project.projectStartDate?.value} → {project.projectEndDate?.value}</div>
+  <h3 class="project_title">{project.projectName?.value}</h3>
+  <div class="subtitle">{project.projectStartDate?.value} → {project.projectEndDate?.value}</div>
   <Cycle phases={phases} />
   <Description project={project}/>
   <!-- <CyleDiagram phases={phases}></CyleDiagram> -->
@@ -93,6 +93,11 @@
 </div>
 
 <style>
+  .project_title {
+    margin: 0;
+    padding: 0;
+    font-size: 1.1rem;
+  }
   .project {
     /* max-width: 900px; */
     margin: 0.5rem auto;

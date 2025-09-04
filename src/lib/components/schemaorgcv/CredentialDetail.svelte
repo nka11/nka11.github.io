@@ -78,6 +78,7 @@
             class="px-2 pt-0 pb-0 m-0"
             >
             {#each projectsDetail as projectDetail}
+                <!-- {#if projectDetail.} -->
                 <CycleProject project={projectDetail}></CycleProject>
                 <!-- <ProjectDetail projectDetail={projectDetail}></ProjectDetail> -->
             {/each}

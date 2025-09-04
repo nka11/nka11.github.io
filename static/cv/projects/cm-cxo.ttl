@@ -30,6 +30,7 @@
         skills:auth-oidc,
         skills:auth-saml,
         skills:cicd-gitlab,
+        skills:system-docker,
         skills:auth-LDAP,
         skills:cloud-Dynamics,
         skills:programming-java

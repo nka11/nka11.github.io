@@ -43,6 +43,7 @@
         skills:auth-saml,
         skills:tools-ansible,
         skills:cicd-gitlab,
+        skills:system-docker,
         skills:auth-LDAP,
         skills:cloud-AzureAD,
         skills:sgbd-postgresql,

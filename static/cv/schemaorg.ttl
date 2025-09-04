@@ -13,6 +13,8 @@
 @prefix skills: <https://nka11.github.io/cv#skills/> .
 @prefix projects: <https://nka11.github.io/cv#projects/> .
 @prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix unicaenbut: <https://nka11.github.io/cv#data/unicaenbut> .
+
 @prefix : <https://nka11.github.io/cv#data/> .
 
 cv:variant-cyber a schema:DefinedTermSet ;
@@ -122,11 +124,13 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         :exp3,
         :exp4,
         :expISMRSSI,
+        :unicaenifs,
         :expISMGRC,
         :izrbcto,
         :deepthought,
         :octobre,
-        :expCTOWinastar ;
+        :expCTOWinastar,
+        unicaenbut: ;
     schema:producer 
         projects:contrib-neovillages,
         projects:contrib-aloha-editor,
@@ -134,7 +138,8 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         projects:author-KaraCos,
         projects:author-nka11 .
 
-### Formations
+
+## Formations
 
 :dut1998 a schema:EducationalOrganization, schema:EducationalOccupationalCredential, schema:Role ;
     schema:name "DUT Informatique" ;
@@ -169,6 +174,7 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:endDate "1996-06-30"^^xsd:date .
 
 ### Expériences professionnelles
+
 
 :deepthought a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Fondateur"@fr ;

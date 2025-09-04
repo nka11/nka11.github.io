@@ -5,10 +5,11 @@
 const props = $props<{
     impacts?: any
 }>()
-console.log(props.impacts)
+console.log("Impacts")
+console.log($inspect(props.impacts))
 
 </script>
-{#if props.impacts }
+{#if Object.entries(props.impacts).length > 0 }
   
   <div class="impacts-section">
     <h3>Project Impacts</h3>

@@ -345,6 +345,19 @@ skills:system-aix a elm:LearningOutcome,
     skos:broader nkonto:TechnicalSkill ;
     elm:label "AIX" .
 
+skills:system-docker a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Docker" .
+
+skills:system-kubernetes a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Kubernetes" ;
+    elm:relatedSkill skills:devops,
+        skills:networking,
+        skills:system-docker .
+
 skills:system-linux a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
@@ -403,7 +416,7 @@ skills:programming-PHP a elm:LearningOutcome,
 skills:networking a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
-    elm:label "networking" .
+    elm:label "TCP/IP networking" .
 
 skills:programming-logo a elm:LearningOutcome,
         schema:DefinedTerm ;

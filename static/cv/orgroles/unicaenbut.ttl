@@ -1,0 +1,52 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix projects: <https://nka11.github.io/cv#projects/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix : <https://nka11.github.io/cv#data/unicaenbut> .
+
+: a schema:OrganizationRole, schema:Occupation, schema:Organization ;
+    schema:startDate "2025-09-01"^^xsd:date ;
+    schema:roleName "Université de Caen" ;
+    nkonto:withinOrganization [ a schema:Organization ; schema:name  "Campus Ifs - BUT Informatique" ] ;
+    schema:identifier "uicaenbut" ;
+    schema:hasCredential 
+        :vacataire .
+
+
+:vacataire a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+            schema:credentialCategory "Experience" ;
+            schema:identifier "unicaenbut-vac" ;
+            # schema:name 
+            #     "Enseignant Vacataire"@fr,
+            #     "Teacher Assistant"@en ;
+            schema:subjectOf
+                :2025r509 .
+
+:2025r509 a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name 
+        """Chargé d'enseignement sur le module 'Virtualisation avancée' (3e année)"""@fr,
+        """TA for advanded virtualization module (3rd year)"""@en 
+     ;
+    schema:startDate "2012-03-10" ;
+    schema:endDate "2012-12-10" ;
+    schema:description
+        """Cours avancé sur les technologie de virtualisations : Securisation du réseau virtuel, clustering, sécurisation de l'exploitation."""
+        ;
+    schema:about
+        skills:system-linux,
+        skills:system-docker,
+        skills:system-kubernetes 
+        .
+
+

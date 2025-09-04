@@ -7,6 +7,15 @@ if (fs.existsSync(projectsPath)) {
         return `/cv/projects/${f}`
     })
 }
+let orgrolesFiles: string[] = [];
+let orgroles: string[] = [];
+const orgrolesPath = './static/cv/orgroles';
+if (fs.existsSync(orgrolesPath)) {
+    orgrolesFiles = fs.readdirSync(orgrolesPath).map((f) => {
+        return `/cv/orgroles/${f}`
+    })
+}
+
 
 
 export const dataFiles = [
@@ -14,4 +23,4 @@ export const dataFiles = [
       '/cv/schemaorg.ttl',
       '/cv/skills.ttl',
       '/cv/product_cycle.ttl',
-    ].concat(projectFiles);
+    ].concat(projectFiles).concat(orgrolesFiles);

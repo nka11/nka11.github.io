@@ -33,6 +33,7 @@
     schema:about
         skills:tools-ansible,
         skills:system-linux,
+        skills:system-docker,
         skills:scm-git,
         skills:cicd,
         skills:scm .
