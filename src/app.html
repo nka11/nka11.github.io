@@ -5,6 +5,33 @@
 		<link rel="icon" href="%sveltekit.assets%/nkaLogo-simple.svg" />
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
+		<style>
+			.my-modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 150;
+  display: flex;
+  align-items: flex-start;     /* au lieu de center → on aligne en haut */
+  justify-content: center;     /* centré horizontalement */
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;            /* si le contenu est très grand, l'overlay scrolle */
+  padding: 2rem 1rem;          /* espace autour du modal */
+}
+
+.my-modal-content {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+  width: auto;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+		</style>
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>

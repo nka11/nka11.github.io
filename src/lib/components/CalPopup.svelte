@@ -21,7 +21,7 @@ It handles the initialization and API calls to the Cal.com script based on the p
         namespace = '15min',
         calLink = '',
         config = { layout: 'month_view' },
-        ui = { hideEventTypeDetails: false, layout: 'month_view' } as Record<string, any> | null,
+        ui = { hideEventTypeDetails: true, layout: 'month_view' } as Record<string, any> | null,
         origin = 'https://cal.com',
         class: className = ''
     } = $props();
@@ -30,35 +30,81 @@ It handles the initialization and API calls to the Cal.com script based on the p
     // This assumes namespaces are unique if multiple inline embeds are on the page.
     let divId: string = $derived(`cal-inline-container-${namespace}`);
 
+    let embedType_param = $state(embedType);
+
+    function createCalModal(id: string): HTMLElement {
+        // Overlay
+        const overlay = document.createElement('div');
+        overlay.id = `${id}-overlay`;
+        overlay.className =
+            "my-modal-overlay";
+
+        // Modal inner container
+        const inner = document.createElement('div');
+        inner.id = id;
+        inner.className =
+            "my-modal-content";
+
+        // Append
+        overlay.appendChild(inner);
+        document.body.appendChild(overlay);
+
+        return inner;
+    }
+
     onMount(() => {
+        
+        let ui_param = ui;
+        let hash = window.location.hash;
+        if (hash == "#book-a-meeting") {
+            console.log(hash);
+            ui_param = { hideEventTypeDetails: true, layout: 'month_view' };
+            embedType_param = "inline";
+            console.log(calLink)
+        }
         // Initialize the namespace (idempotent thanks to changes in cal.js)
         initNamespace(namespace, { origin });
 
-        if (embedType === 'inline') {
+        if (embedType_param === 'inline') {
             // Ensure the div is actually in the DOM before trying to use it.
             // Svelte's rendering is synchronous with effect execution unless using $effect.pre or $effect.layout
             // For $effect, the DOM should be updated.
             // A small delay might be safer if Cal.com's script runs too quickly,
             // but ideally, its queuing handles elements not immediately present.
             // The selector method is generally more robust.
+            createCalModal(divId);
             callNamespaceMethod(namespace, 'inline', {
                 elementOrSelector: `#${divId}`, // Use the selector string
                 config,
                 calLink
             });
-        } else if (embedType === 'floatingButton') {
+        } else if (embedType_param === 'floatingButton') {
             callNamespaceMethod(namespace, 'floatingButton', { calLink, config });
         }
 
         // Configure UI (if ui prop is provided)
         // This will be called after 'inline' or 'floatingButton'
-        if (ui) {
-            callNamespaceMethod(namespace, 'ui', ui);
+        if (ui_param) {
+            callNamespaceMethod(namespace, 'ui', ui_param);
         }
     });
 </script>
-
-{#if embedType === 'inline'}
-    <div id={divId} class={className} style="width:100%;height:100%;overflow:scroll">
+<!-- 
+{#if embedType_param === 'inline'}
+  <div
+    id={`overlay-${divId}`}
+    class={`my-modal-overlay ${className}`}
+  >
+    <div
+        id={divId}
+      class="my-modal-content"
+    >
     </div>
-{/if}
+  </div>
+{/if} -->
+
+<style>
+
+
+
+</style>
