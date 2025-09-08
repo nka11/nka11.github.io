@@ -32,25 +32,107 @@ It handles the initialization and API calls to the Cal.com script based on the p
 
     let embedType_param = $state(embedType);
 
-    function createCalModal(id: string): HTMLElement {
-        // Overlay
-        const overlay = document.createElement('div');
-        overlay.id = `${id}-overlay`;
-        overlay.className =
-            "my-modal-overlay";
+// import { initNamespace, callNamespaceMethod } from "$lib/cal.js";
 
-        // Modal inner container
-        const inner = document.createElement('div');
-        inner.id = id;
-        inner.className =
-            "my-modal-content";
+/**
+ * Ouvre une modal avec un Cal.com inline embed
+ * @param calLink string - lien Cal.com (ex: 'username/event-type')
+ * @param config object - config pour Cal.com
+ * @param ui object|null - options UI pour Cal.com
+ * @param namespace string - namespace Cal.com
+ * @param origin string - URL de Cal.com (default: 'https://cal.com')
+ * @returns () => void - fonction pour fermer la modal
+ */
+function openCalModal({
+  calLink,
+  config = { layout: "month_view" },
+  ui = null,
+  namespace = "15min",
+  origin = "https://cal.com",
+}: {
+  calLink: string;
+  config?: Record<string, any>;
+  ui?: Record<string, any> | null;
+  namespace?: string;
+  origin?: string;
+}) {
+  // Overlay modal
+  const overlay = document.createElement("div");
+  Object.assign(overlay.style, {
+    position: "fixed",
+    top: "0",
+    right: "0",
+    bottom: "0",
+    left: "0",
+    zIndex: "2147483647",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
+    overflowY: "auto",
+    padding: "2rem 1rem",
+  });
 
-        // Append
-        overlay.appendChild(inner);
-        document.body.appendChild(overlay);
+  // Modal content
+  const modal = document.createElement("div");
+  Object.assign(modal.style, {
+    position: "relative",
+    backgroundColor: "#ffffff",
+    borderRadius: "1rem",
+    boxShadow: "0 25px 50px -12px rgba(0,0,0,0.25)",
+    padding: "1.5rem",
+    width: "auto",
+    maxWidth: "80%",
+    maxHeight: "90vh",
+    overflowY: "auto",
+  });
 
-        return inner;
-    }
+  // Close button
+  const closeBtn = document.createElement("button");
+  closeBtn.innerHTML = "&times;";
+  Object.assign(closeBtn.style, {
+    position: "absolute",
+    top: "0.5rem",
+    right: "0.75rem",
+    background: "transparent",
+    border: "none",
+    fontSize: "2rem",
+    lineHeight: "1",
+    cursor: "pointer",
+    color: "#555",
+    zIndex: 123,
+  });
+  closeBtn.onmouseover = () => (closeBtn.style.color = "#000");
+  closeBtn.onmouseout = () => (closeBtn.style.color = "#555");
+  closeBtn.onclick = () => document.body.removeChild(overlay);
+  modal.prepend(closeBtn);
+
+  // Div pour Cal.com embed
+  const calDiv = document.createElement("div");
+  calDiv.id = `cal-inline-${namespace}`;
+  modal.appendChild(calDiv);
+
+  overlay.appendChild(modal);
+  document.body.appendChild(overlay);
+
+  // Initialisation Cal.com
+  initNamespace(namespace, { origin });
+  callNamespaceMethod(namespace, "inline", {
+    elementOrSelector: `#${calDiv.id}`,
+    calLink,
+    config,
+  });
+
+  if (ui) {
+    callNamespaceMethod(namespace, "ui", ui);
+  }
+
+  // Retourne fonction pour fermer modal
+  return () => {
+    if (overlay.parentNode) document.body.removeChild(overlay);
+  };
+}
+
 
     onMount(() => {
         
@@ -60,7 +142,12 @@ It handles the initialization and API calls to the Cal.com script based on the p
             console.log(hash);
             ui_param = { hideEventTypeDetails: true, layout: 'month_view' };
             embedType_param = "inline";
-            console.log(calLink)
+            openCalModal({
+                calLink,
+                config,
+                ui: ui_param,
+            });
+
         }
         // Initialize the namespace (idempotent thanks to changes in cal.js)
         initNamespace(namespace, { origin });
@@ -72,39 +159,22 @@ It handles the initialization and API calls to the Cal.com script based on the p
             // A small delay might be safer if Cal.com's script runs too quickly,
             // but ideally, its queuing handles elements not immediately present.
             // The selector method is generally more robust.
-            createCalModal(divId);
+            
             callNamespaceMethod(namespace, 'inline', {
                 elementOrSelector: `#${divId}`, // Use the selector string
                 config,
                 calLink
             });
         } else if (embedType_param === 'floatingButton') {
+            
             callNamespaceMethod(namespace, 'floatingButton', { calLink, config });
         }
 
         // Configure UI (if ui prop is provided)
         // This will be called after 'inline' or 'floatingButton'
         if (ui_param) {
+            
             callNamespaceMethod(namespace, 'ui', ui_param);
         }
     });
 </script>
-<!-- 
-{#if embedType_param === 'inline'}
-  <div
-    id={`overlay-${divId}`}
-    class={`my-modal-overlay ${className}`}
-  >
-    <div
-        id={divId}
-      class="my-modal-content"
-    >
-    </div>
-  </div>
-{/if} -->
-
-<style>
-
-
-
-</style>
