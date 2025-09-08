@@ -6,7 +6,7 @@ const props = $props<{
     impacts?: any
 }>()
 console.log("Impacts")
-console.log($inspect(props.impacts))
+// console.log($inspect(props.impacts))
 
 </script>
 {#if Object.entries(props.impacts).length > 0 }
