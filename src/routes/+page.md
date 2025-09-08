@@ -1,7 +1,7 @@
 ---
 title: Nicolas Karageuzian
 heroImage: /nkaLogo.svg
-tagline: Programming computers since 1987. I love to write about programming, web development and open source.
+tagline: Programming computers since 1987. I'm publishing about computing science, software development and free software.
 actions:
   - label: Visit my github
     type: primary
