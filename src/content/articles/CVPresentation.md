@@ -1,6 +1,10 @@
 ---
 title: Design de CV en 2025 pour les ATS
+description: "Comment écrire un CV pour passer les ATS ?"
 slug: 2025-cv-design-ats
+date: "2025-09-12"
+tags:
+  - emploi
 ---
 
 # 📄 Comment mettre en page son CV en 2025
