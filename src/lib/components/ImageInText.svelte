@@ -1,4 +1,6 @@
 <script lang="ts">
+  import OptimizedImage from '$lib/components/OptimizedImage.svelte';
+
   export let src: string;
   export let alt: string;
 
@@ -41,10 +43,13 @@
   aria-label="Click to view full size image: {alt}"
 >
   <div class="image-wrapper">
-    <img
+    <OptimizedImage
       src={src}
       alt={alt}
       class="responsive-image"
+      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33.333333vw, 25vw"
+      loading="lazy"
+      placeholder="blur"
     />
   </div>
 </button>
@@ -59,11 +64,14 @@
     tabindex="-1"
   >
     <div class="modal-content">
-      <img
+      <OptimizedImage
         src={src}
         alt={alt}
         class="modal-image"
-        on:click|stopPropagation
+        sizes="100vw"
+        loading="eager"
+        priority={true}
+        placeholder="blur"
       />
       <button
         class="close-button"
@@ -99,9 +107,17 @@
     box-sizing: border-box;
   }
 
-  .responsive-image {
+  :global(.responsive-image) {
     width: 100%;
     height: 100%;
+  }
+
+  :global(.responsive-image .optimized-image-container) {
+    width: 100%;
+    height: 100%;
+  }
+
+  :global(.responsive-image .main-image) {
     object-fit: cover;
     object-position: center;
   }
@@ -126,10 +142,22 @@
     padding: 1rem;
   }
 
-  .modal-image {
+  :global(.modal-image) {
     max-width: 100%;
     max-height: 100%;
+  }
+
+  :global(.modal-image .optimized-image-container) {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  :global(.modal-image .main-image) {
     object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .close-button {

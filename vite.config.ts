@@ -1,4 +1,5 @@
 import { sveltepress } from '@sveltepress/vite'
+import { imagetools } from 'vite-imagetools'
 
 import path from 'path'
 import type { BundledLanguage } from 'shiki/langs'
@@ -6,6 +7,16 @@ import { defineConfig } from 'vite'
 
 const config = defineConfig({
 	plugins: [
+		imagetools({
+			include: ['**/*.{png,jpg,jpeg,webp,avif}'],
+			exclude: ['**/images-optimized/**'],
+			defaultDirectives: new URLSearchParams({
+				format: 'webp;avif;original',
+				quality: '80',
+				width: '200;400;800;1200',
+				withoutEnlargement: 'true'
+			})
+		}),
 		sveltepress({
 
 			theme: {

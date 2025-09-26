@@ -7,11 +7,15 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "npm run optimize:images && vite build",
     "test": "vitest",
-    "test:ui": "vitest --ui"
+    "test:ui": "vitest --ui",
+    "optimize:images": "tsx scripts/optimize-images.ts",
+    "optimize:images:watch": "tsx watch scripts/optimize-images.ts",
+    "analyze:images": "tsx scripts/optimize-images.ts --analyze"
   },
   "devDependencies": {
+    "@squoosh/lib": "^0.3.1",
     "@sveltejs/adapter-static": "^3.0.1",
     "@sveltejs/kit": "^2.8.1",
     "@sveltejs/vite-plugin-svelte": "^4.0.4",
@@ -21,10 +25,13 @@
     "@types/node": "^20.11.20",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
+    "sharp": "^0.34.4",
     "svelte": "^5.0.0",
     "tailwindcss": "^4.1.11",
+    "tsx": "^4.20.6",
     "typescript": "^5.3.3",
     "vite": "^5.1.4",
+    "vite-imagetools": "^8.0.0",
     "vitest": "^3.2.4"
   },
   "dependencies": {

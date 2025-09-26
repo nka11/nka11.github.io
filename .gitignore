@@ -2,3 +2,6 @@ node_modules
 .svelte-kit
 .sveltepress
 dist
+
+# Generated optimized images
+static/images-optimized/
