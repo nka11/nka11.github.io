@@ -244,3 +244,10 @@ html.dark .twoslash-popup-container span {
 .i-logos-svelte-kit {
   width: 4em;
 }
+
+/* Article text justification */
+.prose p {
+  text-align: justify;
+  hyphens: auto;
+  word-break: break-word;
+}

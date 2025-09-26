@@ -19,7 +19,7 @@ Je demande donc à mon fidèle ami félin ballonné comment faire pour "passer" 
 
 J'ai déja un MVP : plusieurs versions du CV, en PDF, sur canvas... J'ai de la DATA mais elle n'est pas structurée.
 
-Fondamental et structurant, c'est le pilier d'une nouvelle stack : Ce sont des choix d'architecture technique qui vont 
+Fondamental et structurant, c'est le pilier d'une nouvelle stack : Ce sont des choix d'architecture technique qui vont être très difficile à challenger après sans devoir revoir l'ensemble du projet.
 
 Des parties de cette section sont extraites du résultat d'un prompt qui demande conseil sur comment stocker les données du CV dans un format DATA compréhensible par l'IA :
 

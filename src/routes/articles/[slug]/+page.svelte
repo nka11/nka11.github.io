@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { error } from '@sveltejs/kit';
+  import ImageInText from '$lib/components/ImageInText.svelte';
 
   export let data: {
     metadata: {
+      image: any;
       title: string;
       date: string;
       description: string;
@@ -42,7 +44,9 @@
   <h1>{data.metadata.title}</h1>
   <p class="text-sm text-gray-500">{new Date(data.metadata.date).toLocaleDateString()}</p>
   <!-- <p class="mb-6">{data.metadata.description}</p> -->
-
+  {#if data.metadata.image}
+    <ImageInText src={data.metadata.image} alt={data.metadata.title} />
+  {/if}
   {#if ContentComponent}
     <svelte:component this={ContentComponent} />
   {:else}
