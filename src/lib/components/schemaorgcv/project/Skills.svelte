@@ -9,6 +9,7 @@
     <h3>Skills Used</h3>
     <div class="skills-grid">
       {#each Object.entries(props.skills) as [category, list]}
+      {#if list.length > 0 }  
         <div class="skill-box">
           {#if category != "undefined"}
             <div class="skill-category">{category}</div>
@@ -17,6 +18,7 @@
             <span class="skill-tag">{skill}</span>
           {/each}
         </div>
+      {/if}
       {/each}
     </div>
   </div>
