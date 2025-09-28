@@ -84,6 +84,7 @@ J'évolue aisément sur les plateformes cloud (GCP, Azure, Scaleway, OVH, AWS), 
 Au dela des compétences techniques, j'ai souvent eu à intervenir en gestion de projets et planification, pour coordonner efficacement les équipes de développement, architecture, sécurité et production. Je suis reconnu pour livrer des solutions dans des environnements contraints (charge, conformité, FinOps) et pour définir des feuilles de route de migration claires.
 
 Mon approche repose sur la rigueur, la collaboration interéquipes et la capacité à documenter et communiquer clairement les choix techniques."""@fr,
+        
         """I help visionaries transform their ideas into projects to ultimately create fully functional products.
 
 With 20+ years of experience in software and infrastructure engineering, I specialize in:
