@@ -19,7 +19,7 @@ export function listProjects(subject: NamedNode, attribute: string = "schema:abo
         prefix elm: <https://data.europa.eu/snb/elm/>
         
         SELECT
-            ?project ?projectName ?roleName ?projectDescription ?projectStartDate ?projectEndDate
+            ?project ?projectName ?roleName ?projectDescription ?projectStartDate ?projectEndDate ?url
         WHERE {
 		      ${subject} ${attribute} ?project .
         ?project a schema:Project ;
@@ -34,6 +34,10 @@ export function listProjects(subject: NamedNode, attribute: string = "schema:abo
             ?project a schema:Project ;
                 schema:roleName ?roleName .
                 FILTER(LANG(?roleName) = "${lang}" || LANG(?roleName) = "")
+          }
+          OPTIONAL {
+            ?project a schema:Project ;
+                schema:url ?url .
           }
           OPTIONAL {
              ?project a schema:Project ;

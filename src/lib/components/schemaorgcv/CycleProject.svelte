@@ -84,7 +84,11 @@
 
 <div class="project">
   <h3 class="project_title">{project.projectName?.value}</h3>
-  <div class="subtitle">{project.projectStartDate?.value} → {project.projectEndDate?.value}</div>
+  <div class="subtitle">
+    {#if project.url}
+      <a href={ project.url.value }>{ project.url.value }</a> - 
+    {/if}
+    {project.projectStartDate?.value} → {project.projectEndDate?.value}</div>
   <Cycle phases={phases} />
   <Description project={project}/>
   <!-- <CyleDiagram phases={phases}></CyleDiagram> -->

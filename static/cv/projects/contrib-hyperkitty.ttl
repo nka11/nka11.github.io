@@ -19,7 +19,9 @@
     schema:name "HyperKitty - Archiver for GNU Mailman v3" ;
     schema:startDate "2013-06-01"^^xsd:date ;
     schema:endDate "2014-02-01"^^xsd:date ;
-    schema:description "Contributions aux projet mailman3" ;
+    schema:description """Contributions au projet hyperkitty mailman3, l'outil d'archivage des mails dans une liste de discussion mailman3.
+    Hyperkitty fait converger l'archivage, mais aussi consultation en ligne des archives des listes. Le web des forums amène aussi à intégrer dans l'application frontend les interactions avec la liste.
+    """ ;
     schema:url <https://docs.mailman3.org/projects/hyperkitty/en/stable/> ;
     schema:about
         skills:programming-python,

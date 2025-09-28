@@ -26,7 +26,7 @@
   })
 </script> 
 {#if organizationRoles}
-  <h2 class="text-3xl">Experiences</h2>
+  <h2 class="text-3xl">Experiences Professionnelles</h2>
   {#each organizationRoles as orgrole}
     <OrganizationRole organizationRole={orgrole} variant={ params.variant }/>
   {/each}

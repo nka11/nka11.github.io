@@ -65,10 +65,9 @@
       </span>
     {/if}
   </span>
-
-  {#if projectDetail.roleName}
-    <div class="project-role" property="schema:roleName">
-      {projectDetail.roleName.value}
+  {#if projectDetail.url}
+    <div class="project-url">
+      <a href={ projectDetail.url.value }>{ projectDetail.url.value }</a> 
     </div>
   {/if}
 
@@ -126,6 +125,12 @@
 
   .project-date {
     font-style: italic;
+  }
+
+  .project-url {
+    font-size: 0.70rem;
+    margin: 0;
+    padding: 0;
   }
 
   .project-role {

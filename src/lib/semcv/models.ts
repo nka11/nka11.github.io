@@ -51,6 +51,7 @@ export interface IOrganizationRole {
 
 export interface IProjectDetail {
     project: NamedNode,
+    url: Literal | null;
     projectName: Literal | null;
     roleName: Literal | null;
     projectDescription: Literal | null;
