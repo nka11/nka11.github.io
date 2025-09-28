@@ -7,6 +7,7 @@
     import { listProjects } from '$lib/semcv/adapters/projectsAdapter';
     import ProjectDetail from './ProjectDetail.svelte';
     import { browsingPreferences } from '$lib/state.svelte';
+    import { T } from '$lib/i18n';
 
   let params:{
     education: IEducationDetails,
@@ -21,7 +22,7 @@
 </script>
 
 {#if params.education}
-<h2 class="text-3xl">Formations et diplômes</h2>
+<h2 class="text-3xl">{$T('cv.education_diplomas')}</h2>
 <section class="py-1 px-2 m-2">
   <p class="text-xl font-semibold p-0 m-0">
       {#if params.education.educEnd }
@@ -29,12 +30,12 @@
     {/if}
     {params.education.educName?.value}
   </p>
-  <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Niveau :</strong> {params.education.educLevel?.value}</p>
+  <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>{$T('cv.education.level')} :</strong> {params.education.educLevel?.value}</p>
   {#if params.education.educLocationName }
-    <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Établissement :</strong> {params.education.educLocationName.value}</p>
+    <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>{$T('cv.education.institution')} :</strong> {params.education.educLocationName.value}</p>
   {/if}
   {#if params.education.educLocationAddress }
-    <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>Adresse :</strong> {params.education.educLocationAddress.value}</p>
+    <p class="text-sm text-gray-700 p-0 mt-0 mb-1"><strong>{$T('cv.education.address')} :</strong> {params.education.educLocationAddress.value}</p>
   {/if}
   <Skills skills={skills}></Skills>
   {#if projects.length > 0}

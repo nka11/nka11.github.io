@@ -4,13 +4,11 @@
   import Education from './Education.svelte';
   import { listEducations } from '$lib/semcv/adapters/educationAdapters';
     import type { NamedNode } from 'oxigraph';
-  let savedLang: string = 'en';
+    import { browsingPreferences } from '$lib/state.svelte';
   export let of: NamedNode;
   let educationDetails: IEducationDetails[];
     onMount(async () => {
-      const stored = localStorage.getItem('lang');
-      if (stored) savedLang = stored;
-      educationDetails = listEducations(of, "schema:alumniOf", savedLang);
+      educationDetails = listEducations(of, "schema:alumniOf", browsingPreferences.lang);
   });
 </script>
 

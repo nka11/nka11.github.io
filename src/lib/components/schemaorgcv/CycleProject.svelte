@@ -19,12 +19,9 @@
   const project = props.project;
   browsingPreferences.lang;
   let raw_skills: ISkillsDetails[] = $state([]);
-  let savedLang: string = 'en';
   let phases = $state<IProjectCycle>()
   let impacts = $state<IProjectImpact[]>()
   onMount(async () => {
-    const stored = localStorage.getItem('lang');
-    if (stored) savedLang = stored;
     raw_skills = listSkills(project.project, "schema:about", browsingPreferences.lang);
     raw_skills.forEach((skill: ISkillsDetails) => {
     const value = skill.skillLabel?.value;

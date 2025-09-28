@@ -6,16 +6,14 @@
   import { listSkills } from '$lib/semcv/adapters/skillsAdapter';
   import { listProjects } from '$lib/semcv/adapters/projectsAdapter';
     import CycleProject from './CycleProject.svelte';
+    import { T } from '$lib/i18n';
+    import { browsingPreferences } from '$lib/state.svelte';
   export let credentialDetails: ICredentialDetails;
-  let savedLang: string = 'en';
   let projectsDetail: IProjectDetail[] = [];
   let skills: ISkillsDetails[] = [];
   onMount(async () => {
-
-        const stored = localStorage.getItem('lang');
-        if (stored) savedLang = stored;
-        skills = listSkills(credentialDetails.credential, "schema:about", savedLang);
-       projectsDetail = listProjects(credentialDetails.credential, "schema:subjectOf", savedLang);
+        skills = listSkills(credentialDetails.credential, "schema:about", browsingPreferences.lang);
+       projectsDetail = listProjects(credentialDetails.credential, "schema:subjectOf", browsingPreferences.lang);
     })
 </script>
 
@@ -29,10 +27,10 @@
 
         <span class="mx-2">—</span>
         {#if credentialDetails.credentialStartDate && credentialDetails.credentialEndDate}
-            <span class="mx-1">de</span>
+            <span class="mx-1">{$T('cv.date.de')}</span>
         {/if}
         {#if credentialDetails.credentialStartDate && !credentialDetails.credentialEndDate}
-            <span class="mx-1">depuis</span>
+            <span class="mx-1">{$T('cv.date.depuis')}</span>
         {/if}
         {#if credentialDetails.credentialStartDate}
             
@@ -47,7 +45,7 @@
         {/if}
 
         {#if credentialDetails.credentialStartDate && credentialDetails.credentialEndDate}
-            <span class="mx-1">à</span>
+            <span class="mx-1">{$T('cv.date.a')}</span>
         {/if}
 
         {#if credentialDetails.credentialEndDate}

@@ -7,7 +7,7 @@
   import type { NamedNode } from "oxigraph";
   import { compareExperience } from "$lib/semcv/semantic_cv_store";
   import { browsingPreferences } from "$lib/state.svelte";
-  import { _ } from 'svelte-i18n';
+  import { T } from '$lib/i18n';
 
   let params:{
     person:NamedNode,
@@ -26,7 +26,7 @@
   })
 </script> 
 {#if organizationRoles}
-  <h2 class="text-3xl">Experiences Professionnelles</h2>
+  <h2 class="text-3xl">{$T('cv.professional_experiences')}</h2>
   {#each organizationRoles as orgrole}
     <OrganizationRole organizationRole={orgrole} variant={ params.variant }/>
   {/each}

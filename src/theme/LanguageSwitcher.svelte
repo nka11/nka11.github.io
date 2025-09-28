@@ -13,16 +13,8 @@
   }
 
   onMount(() => {
-    // Check if already stored in preferences/localStorage
-    let savedLang = browsingPreferences.lang || localStorage.getItem('lang');
-
-    if (!savedLang) {
-      // Fallback to browser setting
-      const browserLang = navigator.language || navigator.languages?.[0] || "en";
-      savedLang = browserLang.startsWith("fr") ? "fr" : "en";
-    }
-
-    changeLang(savedLang);
+    // browsingPreferences.lang already handles browser detection and localStorage
+    changeLang(browsingPreferences.lang);
   });
 </script>
 

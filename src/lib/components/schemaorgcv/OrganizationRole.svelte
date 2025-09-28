@@ -8,6 +8,7 @@
   import Skills from './Skills.svelte';
   import { browsingPreferences } from '$lib/state.svelte';
   import type { NamedNode } from 'oxigraph';
+  import { T } from '$lib/i18n';
 
   let params: {
     organizationRole: IOrganizationRole,
@@ -63,10 +64,10 @@
       {/if}
 
       {#if params.organizationRole.startDate && params.organizationRole.endDate}
-        <span class="range-label">de</span>
+        <span class="range-label">{$T('cv.date.de')}</span>
       {/if}
       {#if params.organizationRole.startDate && !params.organizationRole.endDate}
-        <span class="range-label">depuis</span>
+        <span class="range-label">{$T('cv.date.depuis')}</span>
       {/if}
 
       {#if params.organizationRole.startDate}
@@ -81,7 +82,7 @@
       {/if}
 
       {#if params.organizationRole.startDate && params.organizationRole.endDate}
-        <span class="range-label">à</span>
+        <span class="range-label">{$T('cv.date.a')}</span>
       {/if}
 
       {#if params.organizationRole.endDate}

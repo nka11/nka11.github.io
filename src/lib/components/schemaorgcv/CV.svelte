@@ -12,7 +12,7 @@
             <p style="font-size: 1.3rem;text-align: justify;white-space: pre-line;" property="schema:description">{person.description?.value}</p>
     
             <Experiences person={person.person} lang={browsingPreferences.lang}></Experiences>
-            <h2 class="text-3xl">Compétences</h2>
+            <h2 class="text-3xl">{$T('cv.skills')}</h2>
             <!-- <section> -->
             <SkillsCloud skills={ skills }></SkillsCloud>
             <!-- <ForceGraphSkills></ForceGraphSkills> -->
@@ -21,11 +21,11 @@
             <section>
     
             </section>
-            <h2 class="text-3xl">Langues</h2>
+            <h2 class="text-3xl">{$T('cv.languages')}</h2>
             <section>
                 <PersonLangs person={ person.person }/>
             </section>
-            <h2 class="text-3xl">Projets Personnels</h2>
+            <h2 class="text-3xl">{$T('cv.personal_projects')}</h2>
             <section>
                 <PersonalProjects person={person.person}></PersonalProjects>
             </section>
@@ -43,6 +43,7 @@
     import { namedNode } from "oxigraph";
     import { getPerson } from "$lib/semcv/adapters/personAdapters";
     import { skillsCounts } from "$lib/semcv/adapters/skillsAdapter";
+    import { T } from '$lib/i18n';
 
 
 let params:{

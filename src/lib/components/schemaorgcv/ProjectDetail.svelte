@@ -4,15 +4,14 @@
   import type { IProjectDetail, ISkillsDetails } from "$lib/semcv/models";
   import { onMount } from "svelte";
   import Skills from "./Skills.svelte";
+  import { T } from '$lib/i18n';
+  import { browsingPreferences } from '$lib/state.svelte';
 
   export let projectDetail: IProjectDetail;
   let skills: ISkillsDetails[] = [];
-  let savedLang: string = 'en';
 
   onMount(async () => {
-    const stored = localStorage.getItem('lang');
-    if (stored) savedLang = stored;
-    skills = listSkills(projectDetail.project, "schema:about", savedLang);
+    skills = listSkills(projectDetail.project, "schema:about", browsingPreferences.lang);
   });
 </script>
 
@@ -32,10 +31,10 @@
         <span class="date-separator">—</span>
 
         {#if projectDetail.projectStartDate && projectDetail.projectEndDate}
-          <span class="date-label">de</span>
+          <span class="date-label">{$T('cv.date.de')}</span>
         {/if}
         {#if projectDetail.projectStartDate && !projectDetail.projectEndDate}
-          <span class="date-label">depuis</span>
+          <span class="date-label">{$T('cv.date.depuis')}</span>
         {/if}
         {#if projectDetail.projectStartDate}
           <time
@@ -49,7 +48,7 @@
         {/if}
 
         {#if projectDetail.projectStartDate && projectDetail.projectEndDate}
-          <span class="date-label">à</span>
+          <span class="date-label">{$T('cv.date.a')}</span>
         {/if}
 
         {#if projectDetail.projectEndDate}

@@ -10,6 +10,7 @@
     import ListEducations from "./ListEducations.svelte";
     import PersonLangs from "./PersonLangs.svelte";
     import PersonalProjects from "./PersonalProjects.svelte";
+    import { T } from '$lib/i18n';
   let params:{
     variant: NamedNode,
     person: NamedNode,
@@ -50,11 +51,11 @@
     <section>
 
     </section>
-    <h2 class="text-3xl">Langues</h2>
+    <h2 class="text-3xl">{$T('cv.languages')}</h2>
     <section>
       <PersonLangs person={ params.person }/>
     </section>
-    <h2 class="text-3xl">Projets Personnels</h2>
+    <h2 class="text-3xl">{$T('cv.personal_projects')}</h2>
     <section>
       <PersonalProjects person={params.person}></PersonalProjects>
     </section>
