@@ -217,6 +217,20 @@ skills:library-django a elm:LearningOutcome,
         skills:programming-oop,
         skills:programming-python .
 
+skills:programming-asm-arm a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Assembleur ARM" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-procedural .
+
+skills:programming-asm-x86 a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Assembleur x86" ;
+    elm:relatedSkill skills:programming,
+        skills:programming-procedural .
+
 skills:programming-C a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
@@ -339,6 +353,12 @@ skills:softwaredesign-uml a elm:LearningOutcome,
     elm:label "UML" ;
     elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> ;
     elm:relatedSkill skills:softwaredesign .
+
+
+skills:system-android a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Android" .
 
 skills:system-aix a elm:LearningOutcome,
         schema:DefinedTerm ;

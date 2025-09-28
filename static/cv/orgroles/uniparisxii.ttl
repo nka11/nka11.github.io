@@ -1,0 +1,97 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix projects: <https://nka11.github.io/cv#projects/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix : <https://nka11.github.io/cv#data/uniparisxii> .
+
+: a schema:OrganizationRole, schema:Occupation, schema:Organization ;
+    schema:startDate "2013-09-01"^^xsd:date ;
+    schema:endDate "2015-06-01"^^xsd:date ;
+    schema:roleName "Université Paris XII" ;
+    nkonto:withinOrganization [ a schema:Organization ; schema:name  "Universitée Paris XII" ] ;
+    schema:identifier "iutparisxii" ;
+    schema:hasCredential 
+        :vacataire-iut-info,
+        :vacataire-iut-ge2i .
+
+
+:vacataire-iut-ge2i a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+            schema:credentialCategory "Experience" ;
+            schema:identifier "iutparisxii-vac" ;
+            schema:name 
+                 "Enseignant Vacataire IUT GE2I Sénart"@fr,
+                 "Teacher Assistant IUT GE2I Sénart"@en ;
+            schema:subjectOf
+                :2013ge2i .
+
+:2013ge2i a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name 
+        """Chargé d'enseignement module Java"""@fr,
+        """Java programming"""@en 
+     ;
+    schema:startDate "2014-09-01" ;
+    schema:endDate "2014-05-30" ;
+    schema:description
+        """Cours avancé de programmation d'applications Java : Familiarisation au SDK et aux bibliothèques java 8"""
+        ;
+    schema:about
+        skills:programming-java,
+        skills:system-android
+        .
+
+:vacataire-iut-info a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+            schema:credentialCategory "Experience" ;
+            schema:identifier "iutparisxii-vac" ;
+            schema:name 
+                 "Enseignant Vacataire IUT Informatique Fontainebleau"@fr,
+                 "Teacher Assistant IUT Informatique Fontainebleau"@en ;
+            schema:subjectOf
+                :2014info,
+                :2015info .
+
+:2014info a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name 
+        """Chargé d'enseignement module Android"""@fr,
+        """Android applications programming"""@en 
+     ;
+    schema:startDate "2014-09-01" ;
+    schema:endDate "2014-05-30" ;
+    schema:description
+        """Cours avancé de programmation d'applications Android : SDK et API andoid 3 et 4"""
+        ;
+    schema:about
+        skills:programming-java,
+        skills:system-android
+        .
+
+:2015info a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name 
+        """Chargé d'enseignement Architecture des Ordinateurs"""@fr,
+        """Teacher assistant for Systems Architecture"""@en 
+     ;
+    schema:startDate "2015-09-01" ;
+    schema:endDate "2015-06-30" ;
+    schema:description
+        """Cours de systemes unix, programmation assembleur ARM / Intel """@fr,
+        """TA for Unix system, assembly programming ARM / Intel """@en
+        ;
+    schema:about
+        skills:programming-asm-x86,
+        skills:programming-asm-arm,
+        skills:programming-C,
+        skills:system-linux
+        .
+
+
+

@@ -19,7 +19,7 @@
     schema:roleName "Author" ;
     schema:startDate "2009-01-01"^^xsd:date ;
     schema:endDate "20014-12-01"^^xsd:date ;
-    schema:description "Serveur d’applications pour la gestion des données personnelles" ;
+    schema:description "Conception et réalisation d'un serveur d’applications pour la gestion des données personnelles basé sur un stockage de type document." ;
     schema:url <http://github.com/karacos> ;
     schema:about
         skills:programming-python,
