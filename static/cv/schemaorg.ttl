@@ -79,9 +79,9 @@ Avec plus de 20 ans d’expérience en ingénierie logicielle et infrastructure,
  - Développement Full-Stack : PHP, Java, Python, C#, JavaScript/TypeScript, React, Vue.
  - Déploiement & Industrialisation : Packaging, CI/CD et gestion d’environnements IT complexes, y compris architectures conteneurisées et projets stratégiques de migration.
 
-Je maîtrise parfaitement les plateformes cloud (GCP, Azure, Scaleway, OVH, AWS), l’Infrastructure-as-Code (Terraform, Ansible) et la sécurité (réseaux, certificats, RBAC, SSO/IAM), j'ai également une expérience significative sur des infrastructures on-premises.
+J'évolue aisément sur les plateformes cloud (GCP, Azure, Scaleway, OVH, AWS), l’Infrastructure-as-Code (Terraform, Ansible) et la sécurité (réseaux, certificats, RBAC, SSO/IAM), j'ai avant tout une expérience significative sur des infrastructures on-premises.
 
-J’apporte également une grande expérience en gestion de projets, coordonnant équipes de développement, architecture, sécurité et production. Je suis reconnu pour fournir des solutions dans des environnements contraints (charge, conformité, FinOps) et pour définir des feuilles de route de migration claires.
+Au dela des compétences techniques, j'ai souvent eu à intervenir en gestion de projets et planification, pour coordonner efficacement les équipes de développement, architecture, sécurité et production. Je suis reconnu pour livrer des solutions dans des environnements contraints (charge, conformité, FinOps) et pour définir des feuilles de route de migration claires.
 
 Mon approche repose sur la rigueur, la collaboration interéquipes et la capacité à documenter et communiquer clairement les choix techniques."""@fr,
         """I help visionaries transform their ideas into projects to ultimately create fully functional products.
