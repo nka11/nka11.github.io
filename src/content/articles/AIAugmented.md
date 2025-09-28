@@ -16,7 +16,7 @@ L'intelligence augmentée redéfinit l'acronyme IA, qui qualifie induement d'int
 
 ## Qu'est-ce que l'IA ?
 
-L'IA, ou Intelligence Augmentée, verbalise le concept pour mettre l'accent sur le rôle d'assistance des technologies aujourd'hui nommées Intelligence Artificielle. Plutôt que de chercher à reproduire ou remplacer l'intelligence humaine, elle vise à la compléter et la renforcer, à l'instar de l'ordinateur que l'on rencontre dans star-wars et qui se place en outil au service des équipages, agissant en tant que conseil omniscient du fait de son accès à une mémoire quasi illimitée. C'est ce que sont nos LLM aujourd'hui.
+L'IA, ou Intelligence Augmentée, verbalise le concept pour mettre l'accent sur le rôle d'assistance des technologies aujourd'hui nommées Intelligence Artificielle. Plutôt que de chercher à reproduire ou remplacer l'intelligence humaine, elle vise à la compléter et la renforcer, à l'instar de l'ordinateur du vaisseau que l'on rencontre dans Star-Trek, et qui se place en outil au service des équipages, agissant en tant que conseil omniscient du fait de son accès à une mémoire (Base de données) quasi illimitée. C'est un peu ce que font nos LLM aujourd'hui.
 
 ### Principes fondamentaux
 
