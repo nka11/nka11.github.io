@@ -187,7 +187,7 @@
   }
 
   .org-role-description {
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     color: #1f2937;
     margin: 0.5rem 0 0;
     padding: 0;

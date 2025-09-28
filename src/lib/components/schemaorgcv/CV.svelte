@@ -9,7 +9,7 @@
             about={ `${person.person.value}` }>
             <h2 property="schema:name">{person.name?.value}</h2>
             <p><strong property="schema:jobTitle">{person.jobTitle?.value}</strong></p>
-            <p style="font-size: 1.3rem;text-align: justify;white-space: pre-line;" property="schema:description">{person.description?.value}</p>
+            <p style="font-size: 0.95rem;text-align: justify;white-space: pre-line;" property="schema:description">{person.description?.value}</p>
     
             <Experiences person={person.person} lang={browsingPreferences.lang}></Experiences>
             <h2 class="text-3xl">{$T('cv.skills')}</h2>
