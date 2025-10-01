@@ -9,7 +9,7 @@ function setupI18n() {
       // CV Section Headers
       'cv.skills': 'Skills',
       'cv.languages': 'Languages',
-      'cv.personal_projects': 'Personal Projects',
+      'cv.personal_projects': 'Personal Projects and other experiences',
       'cv.professional_experiences': 'Professional Experiences',
       'cv.education_diplomas': 'Education and Diplomas',
       // Date range labels
@@ -29,7 +29,7 @@ function setupI18n() {
       // CV Section Headers
       'cv.skills': 'Compétences',
       'cv.languages': 'Langues',
-      'cv.personal_projects': 'Projets Personnels',
+      'cv.personal_projects': 'Projets Personnels et autres expériences',
       'cv.professional_experiences': 'Experiences Professionnelles',
       'cv.education_diplomas': 'Formations et diplômes',
       // Date range labels

@@ -46,6 +46,7 @@
     schema:about
         skills:system-linux,
         skills:system-docker,
+        skills:pedagogy,
         skills:system-kubernetes 
         .
 

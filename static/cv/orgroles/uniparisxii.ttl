@@ -47,6 +47,7 @@
         ;
     schema:about
         skills:programming-java,
+        skills:pedagogy,
         skills:system-android
         .
 
@@ -72,6 +73,7 @@
         ;
     schema:about
         skills:programming-java,
+        skills:pedagogy,
         skills:system-android
         .
 
@@ -90,6 +92,7 @@
         skills:programming-asm-x86,
         skills:programming-asm-arm,
         skills:programming-C,
+        skills:pedagogy,
         skills:system-linux
         .
 

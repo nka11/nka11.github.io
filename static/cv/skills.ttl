@@ -5,6 +5,14 @@
 @prefix skills: <https://nka11.github.io/cv#skills/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+skills:pedagogy a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "Pedagogy"@en,
+        "Pédagogie"@fr ;
+    elm:relatedESCOSkill <http://data.europa.eu/esco/skill/a117f32c-662b-4dd9-b739-1230dd04cb60> .
+
+
 skills:ai-general a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
