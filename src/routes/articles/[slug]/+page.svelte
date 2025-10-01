@@ -31,7 +31,7 @@
         const mod: any = await resolver();
         const metadata = mod.metadata;
 
-        if (metadata.slug === data.slug) {
+        if (metadata && metadata.slug === data.slug) {
           ContentComponent = mod.default;
         }
       }

@@ -1,14 +1,11 @@
 ---
-
 title: Pourquoi basculer sur Rust
 description: "Pas de garbage, pas de surprise. Juste Rust"
-slug: 2025-rust-no-garbage
+slug: "2025-rust-no-garbage"
 date: "2025-10-01"
 tags:
   - programming
-
 image: '/images/iagen/NicoGarbageKick.png'
-
 ---
 
 # Pourquoi basculer sur Rust ?
@@ -59,5 +56,5 @@ Rust, c’est **la performance du bas niveau sans les risques de sa permissivit�
 * Linux Foundation (2022). *Rust support in the Linux kernel*.
 * Courtois, N. (2023). *Sobriété numérique et frugalité logicielle*.
 * Rust Foundation (2024). *State of Rust Survey*.
-https://www.lewebvert.fr/blog/2024-06-20-interview-tristan-nitot/
-https://github.com/uutils/coreutils/
+* https://www.lewebvert.fr/blog/2024-06-20-interview-tristan-nitot/
+* https://github.com/uutils/coreutils/
