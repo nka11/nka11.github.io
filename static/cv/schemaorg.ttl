@@ -192,7 +192,17 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         - Implemented an identity provider ensuring secure, reliable, and controlled SSO, reducing support costs and enhancing user experience.
         - Developed a custom CRM to streamline lead management and a tailored ERP to optimize business processes and accelerate decision-making."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Deepthought Solutions" ] ;
-    schema:skills skills:project, skills:auth-iam, skills:library-vue, skills:system-linux, skills:auth-oidc, skills:sgbd-postgresql, skills:programming-typescript, skills:programming-python, skills:scm-github, skills:environment-nodejs .
+    schema:skills
+        skills:project,
+        skills:auth-iam,
+        skills:library-vue,
+        skills:system-linux,
+        skills:auth-oidc,
+        skills:MCP,
+        skills:programming-rust,
+        skills:sgbd-postgresql, skills:programming-typescript,
+        skills:programming-python, skills:scm-github,
+        skills:environment-nodejs .
 
 :octobre a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Architecte Solution"@fr ;
@@ -280,7 +290,11 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         - Implemented multi-threaded architecture for blockchain processing, increasing throughput by 400% without additional resources.
         - Developed roadmap to achieve strategic compliance."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Winastar" ] ;
-    schema:skills skills:project, skills:blockchain, skills:blockchain-Solana, skills:sgbd-postgresql, skills:blockchain-Ethereum, skills:tools-ansible, skills:cicd, skills:programming-python, skills:eventbus-rabbitmq .
+    schema:skills skills:project,    
+    skills:programming-rust,
+    skills:blockchain, skills:blockchain-Solana, skills:sgbd-postgresql,
+    skills:blockchain-Ethereum, skills:tools-ansible, skills:cicd,
+    skills:programming-python, skills:eventbus-rabbitmq .
 
 :exp4 a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Ingénieur d’exploitation"@fr ;

@@ -195,6 +195,13 @@ skills:library-angular a elm:LearningOutcome,
     elm:relatedSkill skills:programming,
         skills:programming-javascript .
 
+skills:programming-rust a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Rust" ;
+    elm:relatedSkill skills:programming .
+
+
 skills:library-svelte a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:TechnicalSkill ;
