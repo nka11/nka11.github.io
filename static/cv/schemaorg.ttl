@@ -74,7 +74,7 @@ nka:me a schema:Person, schema:CreativeWork ;
         ;
     schema:description """J’aide les visionnaires à transformer leurs idées en projets pour créer au final des produits pleinement opérationnels.
 
-Avec plus de 20 ans d’expérience en ingénierie logicielle et infrastructure, je sans apporter de la valeur en :
+Avec plus de 20 ans d’expérience en ingénierie logicielle et infrastructure, je sais apporter de la valeur en :
  - Conception & Architecture : Analyse des besoins, UML, conseil métier.
  - Développement Full-Stack : PHP, Java, Python, C#, JavaScript/TypeScript, React, Vue.
  - Déploiement & Industrialisation : Packaging, CI/CD et gestion d’environnements IT complexes, y compris architectures conteneurisées et projets stratégiques de migration.
