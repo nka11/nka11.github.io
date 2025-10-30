@@ -20,11 +20,13 @@
         Spécifications technique détaillée.
         Packaging, Déploiement et suivi d'exploitation. """ ;
     schema:about
+        skills:project,
+        skills:softwaredesign,
+        skills:softwaredesign-uml,
         skills:sgbd-DB2,
         skills:data-SQL,
         skills:scm-cvs,
         skills:programming-java,
-        skills:softwaredesign-uml,
         skills:fullstack,
         skills:cicd-jenkins,
         skills:devops,

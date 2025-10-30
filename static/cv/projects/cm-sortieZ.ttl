@@ -30,6 +30,7 @@
         Crafted an identity management application with nodejs for the end user support teams.
     """@en ;
     schema:about
+        skills:project,
         skills:auth-LDAP,
         skills:auth-RACF,
         skills:system-linux,
@@ -38,5 +39,6 @@
         skills:programming-Natural,
         skills:environment-nodejs,
         skills:programming-javascript,
-        skills:cicd-jenkins
+        skills:cicd-jenkins,
+        skills:auth-iam
         .

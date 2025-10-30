@@ -31,6 +31,11 @@
             integration of security equipment and tools cooperating with the CISO
         """@en ;
     schema:about
+        skills:project,
+        skills:projectManagement-agile,
+        skills:project-JIRA-Software,
+        skills:grc,
+        skills:grc-compliance,
         skills:tools-ansible,
         skills:system-linux,
         skills:system-docker,

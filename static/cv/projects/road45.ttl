@@ -31,10 +31,27 @@
 - Fourniture de blueprints pour divers types de projets (API REST, batchs planifiés, propagation événementielle, pipelines ML, inférence transactionnelle) avec déploiement automatisé (IaC, CI/CD, documentation).
 """@fr ;
     schema:about
-        skills:scm-git, skills:data-noSQL, skills:ai-general, skills:ai-neuralnet,
+        skills:project,
+        skills:projectManagement-agile,
+        skills:softwaredesign,
+        skills:cloud,
+        skills:cloud-GCP,
+        skills:cloud-Azure,
+        skills:cloud-AzureAD,
+        skills:auth-iam,
+        skills:auth-sso,
+        skills:scm-git,
+        skills:data-noSQL,
+        skills:ai-general,
+        skills:ai-neuralnet,
         skills:system-docker,
-        skills:sgbd-postgresql, skills:cloud-GCP, skills:tools-ansible, skills:tools-terraform,
-        skills:data-structure, skills:cicd-gitlab, skills:system-linux, skills:eventbus-kafka,
+        skills:sgbd-postgresql,
+        skills:tools-ansible,
+        skills:tools-terraform,
+        skills:data-structure,
+        skills:cicd-gitlab,
+        skills:system-linux,
+        skills:eventbus-kafka,
         skills:programming-python ;
     nkonto:hasImpact
         :impact-org-1, :impact-org-2,

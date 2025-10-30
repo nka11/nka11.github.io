@@ -23,9 +23,11 @@
     Intégration de la solution IBM ISAM pour le SSO SAML et OIDC entre les différents composants du projet
     """ ;
     schema:about
+        skills:project,
+        skills:softwaredesign,
         skills:data-structure,
         skills:auth-sso,
-        skills:auth-softwaredesign,
+        skills:auth-iam,
         skills:sgbd-DB2,
         skills:auth-oidc,
         skills:auth-saml,

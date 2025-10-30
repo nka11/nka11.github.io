@@ -586,3 +586,43 @@ skills:programming a elm:LearningOutcome,
     elm:label "Programming"@en,
         "Programmation"@fr ;
     elm:relatedESCOSkill <http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97> .
+
+skills:infra-datacenter a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Datacenter Infrastructure"@en,
+        "Infrastructure Datacenter"@fr ;
+    elm:relatedSkill skills:networking .
+
+skills:infra-virtualization a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Virtualization & Hypervisors"@en,
+        "Virtualisation & Hyperviseurs"@fr .
+
+skills:infra-loadbalancing a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Load Balancing"@en,
+        "Répartition de charge"@fr ;
+    elm:relatedSkill skills:networking .
+
+skills:infra-cdn a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "CDN (Content Delivery Network)"@en,
+        "CDN (Réseau de diffusion de contenu)"@fr ;
+    elm:relatedSkill skills:networking .
+
+skills:infra-dr-bc a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Disaster Recovery & Business Continuity"@en,
+        "Plan de Reprise d'Activité & Continuité d'Activité"@fr .
+
+skills:project-budget a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ManagementSkill ;
+    elm:label "Budget Management"@en,
+        "Gestion budgétaire"@fr ;
+    elm:relatedSkill skills:project .

@@ -1,0 +1,54 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:cm-dc-migration a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name "Déménagement serveurs vers nouveau datacenter"@fr ;
+    schema:name "Server Migration to New Datacenter"@en ;
+    schema:startDate "2017-04-01" ;
+    schema:endDate "2018-08-20" ;
+    schema:description """Direction de projet de migration datacenter : transition de ~50 hyperviseurs vers un datacenter plus moderne et sécurisé pour améliorer la résilience des services.
+
+    Missions principales :
+    - Structuration et pilotage du projet multi-chantiers (WAN/LAN, serveurs, hébergement)
+    - Coordination technique : inventaire applications critiques, revue configurations réseau/CDN/load balancers
+    - Gestion des risques et scénarios métiers : répétitions de bascule PRA/mode dégradé
+    - Animation des instances projet, reporting et suivi budgétaire
+    - Pilotage de la sortie du datacenter historique
+    - Supervision de la remise en route production puis migration du PRA
+
+    """@fr ;
+    schema:description """Datacenter migration project management: transition of ~50 hypervisors to a more modern and secure datacenter to improve service resilience.
+
+    Key responsibilities:
+    - Project structuring and management of multi-workstream initiative (WAN/LAN, servers, hosting)
+    - Technical coordination: critical application inventory, network/CDN/load balancer configuration review
+    - Risk management and business scenarios: disaster recovery failover/degraded mode rehearsals
+    - Project governance, reporting and budget tracking
+    - Legacy datacenter exit management
+    - Production restart supervision followed by disaster recovery site migration
+
+    """@en ;
+    schema:about
+        skills:project,
+        skills:infra-datacenter,
+        skills:infra-virtualization,
+        skills:networking,
+        skills:infra-loadbalancing,
+        skills:infra-cdn,
+        skills:infra-dr-bc,
+        skills:project-budget,
+        skills:grc-riskManagement,
+        skills:system-linux .

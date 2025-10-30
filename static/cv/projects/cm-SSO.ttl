@@ -36,6 +36,7 @@
             Setup and exploitation of accounts synchronization solutions (Microsoft MIM/FIM, IBM ISDI)
         """@en ;
     schema:about
+        skills:project,
         skills:auth-sso,
         skills:auth-iam,
         skills:auth-oidc,
@@ -44,6 +45,7 @@
         skills:tools-ansible,
         skills:cicd-gitlab,
         skills:system-docker,
+        skills:system-linux,
         skills:auth-LDAP,
         skills:cloud-AzureAD,
         skills:sgbd-postgresql,

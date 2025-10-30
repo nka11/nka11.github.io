@@ -44,10 +44,12 @@
         """Cours avancé sur les technologie de virtualisations : Securisation du réseau virtuel, clustering, sécurisation de l'exploitation."""
         ;
     schema:about
+        skills:pedagogy,
         skills:system-linux,
         skills:system-docker,
-        skills:pedagogy,
-        skills:system-kubernetes 
+        skills:system-kubernetes,
+        skills:infra-virtualization,
+        skills:networking
         .
 
 

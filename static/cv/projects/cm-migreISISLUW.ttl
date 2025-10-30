@@ -23,10 +23,13 @@
         - Migration des programmes COBOL de z/OS vers linux.
         - Mise en place d'une chaîne de build et d'une procédure de déploiement pour les programmes COBOL.""" ;
     schema:about
+        skills:project,
         skills:programming-COBOL,
         skills:scm-git,
         skills:cicd-jenkins,
         skills:system-linux,
+        skills:system-zos,
+        skills:sgbd-DB2,
         skills:scm .
 
 # :cm-road45 a schema:CreativeWork, schema:Project, schema:Role ;
