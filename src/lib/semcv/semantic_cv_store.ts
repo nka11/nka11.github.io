@@ -9,20 +9,17 @@ export const oxigraphStore = writable<{ store: Store | null; oxiReady: boolean }
 });
 export // tool to compare experience dates to sort
   function compareExperience(exp1: IOrganizationRole, exp2: IOrganizationRole) {
-    if (!exp1.endDate && !exp2.endDate) {
-      if ((exp1.startDate?.value ?? '') < (exp2.startDate?.value ?? ''))  return  -1
-      return 1;
-    }
-    if (!exp1.endDate && exp2.endDate) {
-      return -1;
-    }
-    if (exp1.endDate && !exp2.endDate) {
-      return 1;
-    }
-    if ((exp1.endDate?.value ?? '') < (exp2.endDate?.value ?? '')) {
-      return 1;
-    }
-    return -1;
+    // Primary sort: startDate descending (most recent first)
+    const start1 = exp1.startDate?.value ?? '';
+    const start2 = exp2.startDate?.value ?? '';
+    if (start1 > start2) return -1;
+    if (start1 < start2) return 1;
+    // Secondary sort: endDate descending
+    const end1 = exp1.endDate?.value ?? '';
+    const end2 = exp2.endDate?.value ?? '';
+    if (end1 > end2) return -1;
+    if (end1 < end2) return 1;
+    return 0;
   }
 export async function initOxigraph(dataFiles: string[]) {
   if (typeof window === 'undefined') return; // 🔒 Protection SSG

@@ -1,0 +1,128 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix project: <https://nka11.github.io/cv#projects/> .
+@prefix : <https://nka11.github.io/cv#projects/deepthought> .
+
+: a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Conseil et développement digital de bout en bout"@fr,
+        "End-to-end IT Consultancy and Digital Development"@en ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:description
+        """Création et développement de Deepthought Solutions, société de conseil et prestations en développement informatique et digital.
+- Mise en place d'un fournisseur d'identité (OIDC) garantissant un SSO sécurisé, fiable et maîtrisé.
+- Développement d'un CRM sur mesure pour fluidifier la prospection et le suivi des leads.
+- Développement d'un ERP optimisé pour renforcer l'efficacité des processus métier.
+- Intégration du protocole MCP pour l'assistance IA."""@fr,
+        """Creation and development of Deepthought Solutions, an IT consultancy and digital development services company.
+- Implemented an identity provider (OIDC) ensuring secure, reliable, and controlled SSO.
+- Developed a custom CRM to streamline lead management and prospecting.
+- Developed a tailored ERP to optimize business processes and accelerate decision-making.
+- MCP protocol integration for AI assistance."""@en ;
+    schema:about
+        skills:project,
+        skills:auth-iam,
+        skills:library-vue,
+        skills:system-linux,
+        skills:auth-oidc,
+        skills:MCP,
+        skills:sqa,
+        skills:programming-rust,
+        skills:sgbd-postgresql,
+        skills:programming-typescript,
+        skills:programming-python,
+        skills:scm-github,
+        skills:environment-nodejs ;
+    nkonto:hasImpact
+        :impact-org-1,
+        :impact-tech-1, :impact-tech-2,
+        :impact-user-1, :impact-user-2 ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description
+                "Conception de l'architecture applicative, modélisation des processus métier CRM/ERP, choix du fournisseur d'identité OIDC."@fr,
+                "Application architecture design, CRM/ERP business process modeling, OIDC identity provider selection."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:code ;
+            schema:description
+                "Développement full-stack en TypeScript/Vue, Rust et Python. Intégration OIDC et protocole MCP."@fr,
+                "Full-stack development in TypeScript/Vue, Rust and Python. OIDC integration and MCP protocol."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:build ;
+            schema:description
+                "Conteneurisation, CI/CD via GitHub Actions, tests automatisés."@fr,
+                "Containerization, CI/CD via GitHub Actions, automated testing."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:delivery ;
+            schema:description
+                "Déploiement continu des applications CRM, ERP et fournisseur d'identité sur infrastructure Linux."@fr,
+                "Continuous deployment of CRM, ERP and identity provider applications on Linux infrastructure."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:run ;
+            schema:description
+                "Exploitation des services, monitoring, gestion des incidents et évolutions fonctionnelles."@fr,
+                "Service operations, monitoring, incident management and functional evolution."@en
+        ] .
+
+### Impacts Organisationnels
+:impact-org-1 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Unified Identity Management"@en,
+        "Gestion unifiée des identités"@fr ;
+    schema:description
+        "Centralized SSO via OIDC identity provider, reducing support costs and improving user experience across all applications."@en,
+        "SSO centralisé via fournisseur d'identité OIDC, réduisant les coûts de support et améliorant l'expérience utilisateur sur toutes les applications."@fr ;
+    nkonto:impactType nkonto:IdentityGovernance .
+
+### Impacts Techniques
+:impact-tech-1 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "Custom CRM/ERP Platform"@en,
+        "Plateforme CRM/ERP sur mesure"@fr ;
+    schema:description
+        "Tailored CRM and ERP applications built from scratch, perfectly aligned with business processes."@en,
+        "Applications CRM et ERP sur mesure, parfaitement alignées sur les processus métier."@fr ;
+    nkonto:impactType nkonto:ArchitectureModernization .
+
+:impact-tech-2 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "AI-Augmented Workflows via MCP"@en,
+        "Workflows augmentés par l'IA via MCP"@fr ;
+    schema:description
+        "Integration of the MCP protocol enabling AI-assisted operations and intelligent automation."@en,
+        "Intégration du protocole MCP permettant des opérations assistées par l'IA et une automatisation intelligente."@fr ;
+    nkonto:impactType nkonto:Automation .
+
+### Impacts Utilisateurs
+:impact-user-1 rdf:type nkonto:UserImpact ;
+    schema:name
+        "Streamlined Prospecting"@en,
+        "Prospection fluidifiée"@fr ;
+    schema:description
+        "Custom CRM streamlined lead management and tracking, accelerating the sales cycle."@en,
+        "Le CRM sur mesure a fluidifié la gestion et le suivi des leads, accélérant le cycle commercial."@fr ;
+    nkonto:impactType nkonto:UserAutonomy .
+
+:impact-user-2 rdf:type nkonto:UserImpact ;
+    schema:name
+        "Accelerated Decision-Making"@en,
+        "Prise de décision accélérée"@fr ;
+    schema:description
+        "Tailored ERP optimized business processes, providing real-time visibility for faster decision-making."@en,
+        "L'ERP sur mesure a optimisé les processus métier, offrant une visibilité en temps réel pour une prise de décision plus rapide."@fr ;
+    nkonto:impactType nkonto:DataConsistency .

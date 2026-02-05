@@ -1,0 +1,114 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix project: <https://nka11.github.io/cv#projects/> .
+@prefix : <https://nka11.github.io/cv#projects/octobre> .
+
+: a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Stratégie digitale et plateforme web"@fr,
+        "Digital Strategy and Web Platform"@en ;
+    schema:startDate "2023-10-01"^^xsd:date ;
+    schema:url <https://octobre.tech/> ;
+    schema:description
+        """Élaboration et mise en œuvre de la stratégie digitale pour améliorer la visibilité et l'efficacité commerciale d'Octobre.
+- Conception et déploiement du site internet from scratch avec architecture performante, évolutive et sécurisée.
+- Intégration fluide du SSO avec le CRM pour une expérience utilisateur unifiée.
+- Mise en place d'outils de communication et de suivi commercial sur mesure pour accélérer la prospection."""@fr,
+        """Development and implementation of the digital strategy to enhance visibility and business efficiency for Octobre.
+- Designed and deployed the website from scratch with a scalable, high-performance, and secure architecture.
+- Integrated SSO with CRM for a seamless user experience.
+- Implemented tailored communication and lead tracking tools to accelerate sales prospecting."""@en ;
+    schema:about
+        skills:project,
+        skills:auth-iam,
+        skills:library-vue,
+        skills:auth-oidc,
+        skills:sgbd-postgresql,
+        skills:programming-typescript,
+        skills:programming-python,
+        skills:scm-github,
+        skills:environment-nodejs ;
+    nkonto:hasImpact
+        :impact-org-1,
+        :impact-tech-1, :impact-tech-2,
+        :impact-user-1 ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description
+                "Cadrage de la stratégie digitale, conception UX/UI du site, architecture technique et modèle d'intégration SSO/CRM."@fr,
+                "Digital strategy scoping, website UX/UI design, technical architecture and SSO/CRM integration model."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:code ;
+            schema:description
+                "Développement full-stack du site en TypeScript/Vue, intégration OIDC, connecteurs CRM."@fr,
+                "Full-stack website development in TypeScript/Vue, OIDC integration, CRM connectors."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:build ;
+            schema:description
+                "CI/CD via GitHub Actions, tests automatisés, conteneurisation."@fr,
+                "CI/CD via GitHub Actions, automated testing, containerization."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:delivery ;
+            schema:description
+                "Déploiement du site et des outils de suivi commercial en production."@fr,
+                "Production deployment of the website and lead tracking tools."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:run ;
+            schema:description
+                "Exploitation du site, monitoring, évolutions fonctionnelles et optimisations SEO."@fr,
+                "Website operations, monitoring, functional evolution and SEO optimization."@en
+        ] .
+
+### Impacts Organisationnels
+:impact-org-1 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Enhanced Digital Visibility"@en,
+        "Visibilité digitale renforcée"@fr ;
+    schema:description
+        "From-scratch website with optimized architecture significantly improved the company's online presence and credibility."@en,
+        "Site internet conçu from scratch avec une architecture optimisée, améliorant significativement la présence en ligne et la crédibilité de l'entreprise."@fr ;
+    nkonto:impactType nkonto:Standardization .
+
+### Impacts Techniques
+:impact-tech-1 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "SSO/CRM Unified Integration"@en,
+        "Intégration unifiée SSO/CRM"@fr ;
+    schema:description
+        "Seamless SSO integration with CRM providing a unified authentication and user experience."@en,
+        "Intégration SSO fluide avec le CRM offrant une authentification et une expérience utilisateur unifiées."@fr ;
+    nkonto:impactType nkonto:ArchitectureModernization .
+
+:impact-tech-2 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "Scalable Web Architecture"@en,
+        "Architecture web évolutive"@fr ;
+    schema:description
+        "High-performance, secure and scalable architecture designed for growth."@en,
+        "Architecture performante, sécurisée et évolutive conçue pour accompagner la croissance."@fr ;
+    nkonto:impactType nkonto:Automation .
+
+### Impacts Utilisateurs
+:impact-user-1 rdf:type nkonto:UserImpact ;
+    schema:name
+        "Accelerated Sales Prospecting"@en,
+        "Prospection commerciale accélérée"@fr ;
+    schema:description
+        "Tailored communication and lead tracking tools accelerated the sales prospecting process."@en,
+        "Les outils de communication et de suivi commercial sur mesure ont accéléré le processus de prospection."@fr ;
+    nkonto:impactType nkonto:UserAutonomy .

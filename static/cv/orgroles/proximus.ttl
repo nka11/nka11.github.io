@@ -19,8 +19,8 @@
     schema:startDate "2025-11-01"^^xsd:date ;
     schema:endDate "2026-02-28"^^xsd:date ;
     schema:roleName
-        "Architecte Senior d'Applications Web"@fr,
-        "Senior Web Application Architect"@en ;
+        "Architecte d'Applications Web"@fr,
+        "Web Application Architect"@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Proximus" ] ;
     schema:identifier "proximus" ;
     schema:hasCredential

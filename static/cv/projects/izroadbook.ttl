@@ -1,0 +1,107 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix project: <https://nka11.github.io/cv#projects/> .
+@prefix : <https://nka11.github.io/cv#projects/izroadbook> .
+
+: a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Continuité opérationnelle et industrialisation CI/CD"@fr,
+        "Operational Continuity and CI/CD Industrialization"@en ;
+    schema:startDate "2024-01-01"^^xsd:date ;
+    schema:url <https://www.izroadbook.com/> ;
+    schema:description
+        """Reprise du pilotage technique après le départ du développeur principal pour assurer la continuité opérationnelle.
+- Rétro-engineering et documentation complète de l'existant pour rendre les développeurs .NET et mobile autonomes.
+- Mise en place d'une chaîne CI/CD automatisée (GitHub Actions → Ikoula) réduisant les délais de déploiement et les erreurs.
+- Conseil en architecture et stratégie pour garantir une trajectoire technique robuste et évolutive."""@fr,
+        """Technical leadership takeover after the departure of the main developer to ensure operational continuity.
+- Retro-engineering and comprehensive documentation to make .NET and mobile developers autonomous.
+- Implemented automated CI/CD pipeline (GitHub Actions → Ikoula), reducing deployment time and errors.
+- Architecture and strategy guidance to ensure a robust and scalable technical roadmap."""@en ;
+    schema:about
+        skills:project,
+        skills:sgbd-mysql,
+        skills:cicd,
+        skills:sqa,
+        skills:programming-dotnetCsharp,
+        skills:programming-typescript,
+        skills:scm-github,
+        skills:library-angular ;
+    nkonto:hasImpact
+        :impact-org-1, :impact-org-2,
+        :impact-tech-1,
+        :impact-user-1 ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description
+                "Rétro-engineering de l'architecture existante, cartographie des composants, définition de la trajectoire technique."@fr,
+                "Retro-engineering of existing architecture, component mapping, technical roadmap definition."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:build ;
+            schema:description
+                "Mise en place de la chaîne CI/CD GitHub Actions → Ikoula, tests automatisés, intégration continue."@fr,
+                "CI/CD pipeline setup with GitHub Actions → Ikoula, automated testing, continuous integration."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:delivery ;
+            schema:description
+                "Déploiement automatisé réduisant les délais et les erreurs de mise en production."@fr,
+                "Automated deployment reducing production rollout time and errors."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:run ;
+            schema:description
+                "Accompagnement des équipes, support technique, suivi de la trajectoire d'évolution."@fr,
+                "Team support, technical guidance, evolution roadmap monitoring."@en
+        ] .
+
+### Impacts Organisationnels
+:impact-org-1 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Developer Autonomy"@en,
+        "Autonomie des développeurs"@fr ;
+    schema:description
+        "Comprehensive documentation and retro-engineering enabled .NET and mobile developers to work autonomously."@en,
+        "La documentation complète et le rétro-engineering ont permis aux développeurs .NET et mobile de travailler en autonomie."@fr ;
+    nkonto:impactType nkonto:Standardization .
+
+:impact-org-2 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Operational Continuity"@en,
+        "Continuité opérationnelle"@fr ;
+    schema:description
+        "Ensured business continuity after the departure of the main developer through knowledge transfer and process formalization."@en,
+        "Assurance de la continuité opérationnelle après le départ du développeur principal grâce au transfert de connaissances et à la formalisation des processus."@fr ;
+    nkonto:impactType nkonto:IdentityGovernance .
+
+### Impacts Techniques
+:impact-tech-1 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "Automated CI/CD Pipeline"@en,
+        "Chaîne CI/CD automatisée"@fr ;
+    schema:description
+        "Automated CI/CD pipeline via GitHub Actions reducing deployment time and human errors."@en,
+        "Chaîne CI/CD automatisée via GitHub Actions réduisant les délais de déploiement et les erreurs humaines."@fr ;
+    nkonto:impactType nkonto:Automation .
+
+### Impacts Utilisateurs
+:impact-user-1 rdf:type nkonto:UserImpact ;
+    schema:name
+        "Faster Release Cycle"@en,
+        "Cycle de livraison accéléré"@fr ;
+    schema:description
+        "Automated deployments and clear documentation accelerated the release cycle and reduced time-to-market."@en,
+        "Les déploiements automatisés et la documentation claire ont accéléré le cycle de livraison et réduit le time-to-market."@fr ;
+    nkonto:impactType nkonto:UserAutonomy .

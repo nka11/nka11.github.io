@@ -1,0 +1,127 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix project: <https://nka11.github.io/cv#projects/> .
+@prefix : <https://nka11.github.io/cv#projects/winastar> .
+
+: a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Reprise technique et optimisation blockchain"@fr,
+        "Technical Recovery and Blockchain Optimization"@en ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:endDate "2024-12-20"^^xsd:date ;
+    schema:description
+        """Reprise et optimisation d'un projet blockchain après le départ du développeur principal.
+- Rédaction de documentation développeur et procédures d'exploitation.
+- Mise en œuvre d'une architecture multi-thread pour le traitement blockchain, augmentant la capacité de 400% sans ressources supplémentaires.
+- Élaboration d'une feuille de route pour atteindre les conformités stratégiques."""@fr,
+        """Recovery and optimization of a blockchain project after the departure of the main developer.
+- Developed developer documentation and operational procedures.
+- Implemented multi-threaded architecture for blockchain processing, increasing throughput by 400% without additional resources.
+- Developed roadmap to achieve strategic compliance."""@en ;
+    schema:about
+        skills:project,
+        skills:programming-rust,
+        skills:sqa,
+        skills:blockchain,
+        skills:blockchain-Solana,
+        skills:sgbd-postgresql,
+        skills:blockchain-Ethereum,
+        skills:tools-ansible,
+        skills:cicd,
+        skills:programming-python,
+        skills:eventbus-rabbitmq ;
+    nkonto:hasImpact
+        :impact-org-1,
+        :impact-tech-1, :impact-tech-2,
+        :impact-data-1,
+        :impact-user-1 ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description
+                "Rétro-engineering de l'existant, conception de l'architecture multi-thread, feuille de route de conformité."@fr,
+                "Retro-engineering of existing codebase, multi-threaded architecture design, compliance roadmap."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:code ;
+            schema:description
+                "Développement Rust de l'architecture multi-thread, intégration Solana/Ethereum, optimisation des traitements blockchain."@fr,
+                "Rust development of multi-threaded architecture, Solana/Ethereum integration, blockchain processing optimization."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:build ;
+            schema:description
+                "Infrastructure as Code avec Ansible, CI/CD, conteneurisation, tests automatisés."@fr,
+                "Infrastructure as Code with Ansible, CI/CD, containerization, automated testing."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:delivery ;
+            schema:description
+                "Déploiement de l'architecture optimisée en production avec documentation d'exploitation."@fr,
+                "Production deployment of optimized architecture with operational documentation."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:run ;
+            schema:description
+                "Exploitation de la plateforme blockchain, monitoring des performances, gestion des événements RabbitMQ."@fr,
+                "Blockchain platform operations, performance monitoring, RabbitMQ event management."@en
+        ] .
+
+### Impacts Organisationnels
+:impact-org-1 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Knowledge Transfer and Documentation"@en,
+        "Transfert de connaissances et documentation"@fr ;
+    schema:description
+        "Comprehensive developer documentation and operational procedures ensured knowledge continuity after developer departure."@en,
+        "Documentation développeur complète et procédures d'exploitation assurant la continuité des connaissances après le départ du développeur."@fr ;
+    nkonto:impactType nkonto:Standardization .
+
+### Impacts Techniques
+:impact-tech-1 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "400% Throughput Increase"@en,
+        "Augmentation du débit de 400%"@fr ;
+    schema:description
+        "Multi-threaded architecture for blockchain processing increased throughput by 400% without additional resources."@en,
+        "L'architecture multi-thread pour le traitement blockchain a augmenté le débit de 400% sans ressources supplémentaires."@fr ;
+    nkonto:impactType nkonto:ArchitectureModernization .
+
+:impact-tech-2 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "Multi-Chain Integration"@en,
+        "Intégration multi-chaîne"@fr ;
+    schema:description
+        "Unified processing architecture supporting both Solana and Ethereum blockchains."@en,
+        "Architecture de traitement unifiée supportant les blockchains Solana et Ethereum."@fr ;
+    nkonto:impactType nkonto:Automation .
+
+### Impacts Données
+:impact-data-1 rdf:type nkonto:DataImpact ;
+    schema:name
+        "Event-Driven Processing Reliability"@en,
+        "Fiabilité du traitement événementiel"@fr ;
+    schema:description
+        "RabbitMQ-based event processing ensuring reliable and ordered blockchain transaction handling."@en,
+        "Traitement événementiel basé sur RabbitMQ garantissant un traitement fiable et ordonné des transactions blockchain."@fr ;
+    nkonto:impactType nkonto:DataOps .
+
+### Impacts Utilisateurs
+:impact-user-1 rdf:type nkonto:UserImpact ;
+    schema:name
+        "Strategic Compliance Roadmap"@en,
+        "Feuille de route de conformité stratégique"@fr ;
+    schema:description
+        "Clear compliance roadmap providing visibility on the path to strategic regulatory alignment."@en,
+        "Feuille de route de conformité claire offrant une visibilité sur le chemin vers l'alignement réglementaire stratégique."@fr ;
+    nkonto:impactType nkonto:UserAutonomy .

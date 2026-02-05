@@ -184,7 +184,7 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
 
 :deepthought a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Fondateur"@fr ;
-    schema:roleName "Funder"@en ;
+    schema:roleName "Founder"@en ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:url <https://github.com/Deepthought-Solutions/> ;
     schema:identifier "deepthought" ;
@@ -207,7 +207,15 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         skills:programming-rust,
         skills:sgbd-postgresql, skills:programming-typescript,
         skills:programming-python, skills:scm-github,
-        skills:environment-nodejs .
+        skills:environment-nodejs ;
+    schema:hasCredential :credDeepthought .
+
+:credDeepthought a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
+    schema:credentialCategory "Experience" ;
+    schema:name "Fondateur" ;
+    schema:identifier "deepthought-founder" ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:subjectOf projects:deepthought .
 
 :octobre a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Architecte Solution"@fr ;
@@ -225,7 +233,15 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         - Integrated SSO with CRM for a seamless user experience.
         - Implemented tailored communication and lead tracking tools to accelerate sales prospecting."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Octobre" ] ;
-    schema:skills skills:project, skills:auth-iam, skills:library-vue, skills:auth-oidc, skills:sgbd-postgresql, skills:programming-typescript, skills:programming-python, skills:scm-github, skills:environment-nodejs .
+    schema:skills skills:project, skills:auth-iam, skills:library-vue, skills:auth-oidc, skills:sgbd-postgresql, skills:programming-typescript, skills:programming-python, skills:scm-github, skills:environment-nodejs ;
+    schema:hasCredential :credOctobre .
+
+:credOctobre a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
+    schema:credentialCategory "Experience" ;
+    schema:name "Architecte Solution" ;
+    schema:identifier "octobre-archi" ;
+    schema:startDate "2023-10-01"^^xsd:date ;
+    schema:subjectOf projects:octobre .
 
 :izrbcto a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Directeur de la Technologie à temps partiel"@fr ;
@@ -251,7 +267,15 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         skills:programming-dotnetCsharp,
         skills:programming-typescript,
         skills:scm-github,
-        skills:library-angular .
+        skills:library-angular ;
+    schema:hasCredential :credIzroadbook .
+
+:credIzroadbook a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
+    schema:credentialCategory "Experience" ;
+    schema:name "CTO à temps partiel" ;
+    schema:identifier "izroadbook-cto" ;
+    schema:startDate "2024-01-01"^^xsd:date ;
+    schema:subjectOf projects:izroadbook .
 
 :expISMGRC a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Consultant GRC"@fr ;
@@ -261,13 +285,22 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:identifier "ism-grc" ;
     schema:description
         """Audit complet de la maturité cyber et de la PSSI pour identifier forces et vulnérabilités.
-        - Recommandations stratégiques pragmatiques adaptées à l’entreprise.
+        - Recommandations stratégiques pragmatiques adaptées à l'entreprise.
         - Feuille de route opérationnelle pour renforcer conformité et résilience cyber."""@fr,
         """Comprehensive audit of cybersecurity maturity and IS security policy to identify strengths and vulnerabilities.
         - Delivered pragmatic strategic recommendations tailored to the company.
         - Provided an actionable roadmap to enhance compliance and cyber resilience."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "ISM interpretariat" ] ;
-    schema:skills skills:grc-compliance, skills:grc-compliance-NIS2, skills:grc-compliance-RGPD .
+    schema:skills skills:grc-compliance, skills:grc-compliance-NIS2, skills:grc-compliance-RGPD ;
+    schema:hasCredential :credISMGRC .
+
+:credISMGRC a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
+    schema:credentialCategory "Experience" ;
+    schema:name "Consultant GRC" ;
+    schema:identifier "ism-grc-audit" ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:endDate "2024-12-20"^^xsd:date ;
+    schema:subjectOf projects:ism-grc .
 
 :expISMRSSI a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "RSSI à temps partiel"@fr ;
@@ -277,15 +310,24 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:identifier "ism-rssi" ;
     schema:description
         """Définition et pilotage de la politique de sécurité du SI.
-        - Audit de la PSSI et mise en place d’une gouvernance cyber efficace.
-        - Supervision continue des risques et coordination des audits pour renforcer les défenses et réduire l’exposition aux menaces.
+        - Audit de la PSSI et mise en place d'une gouvernance cyber efficace.
+        - Supervision continue des risques et coordination des audits pour renforcer les défenses et réduire l'exposition aux menaces.
         - Contribution directe à la conformité réglementaire et à la résilience opérationnelle."""@fr,
         """Defined and managed the IS security policy.
         - Conducted IS security audits and established effective cyber governance.
         - Continuous risk monitoring and audit coordination to strengthen defenses and reduce exposure to threats.
         - Directly contributed to regulatory compliance and operational resilience."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "ISM interpretariat" ] ;
-    schema:skills skills:grc-compliance, skills:grc-compliance-NIS2, skills:grc-compliance-RGPD, skills:programming-windev, skills:project-JIRA-Software, skills:project, skills:grc-riskManagement-EBIOS .
+    schema:skills skills:grc-compliance, skills:grc-compliance-NIS2, skills:grc-compliance-RGPD, skills:programming-windev, skills:project-JIRA-Software, skills:project, skills:grc-riskManagement-EBIOS ;
+    schema:hasCredential :credISMRSSI .
+
+:credISMRSSI a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
+    schema:credentialCategory "Experience" ;
+    schema:name "RSSI externalisé" ;
+    schema:identifier "ism-rssi-ciso" ;
+    schema:startDate "2025-01-01"^^xsd:date ;
+    schema:endDate "2025-06-30"^^xsd:date ;
+    schema:subjectOf projects:ism-rssi .
 
 :expCTOWinastar a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Directeur Technique de transition"@fr ;
@@ -314,7 +356,16 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         skills:tools-ansible,
         skills:cicd,
         skills:programming-python,
-        skills:eventbus-rabbitmq .
+        skills:eventbus-rabbitmq ;
+    schema:hasCredential :credWinastar .
+
+:credWinastar a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
+    schema:credentialCategory "Experience" ;
+    schema:name "CTO de transition" ;
+    schema:identifier "winastar-cto-transition" ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:endDate "2024-12-20"^^xsd:date ;
+    schema:subjectOf projects:winastar .
 
 :exp4 a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Ingénieur d’exploitation"@fr ;

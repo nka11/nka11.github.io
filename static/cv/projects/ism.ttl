@@ -1,0 +1,186 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix project: <https://nka11.github.io/cv#projects/> .
+
+### Projet Audit GRC
+@prefix ismgrc: <https://nka11.github.io/cv#projects/ism-grc> .
+
+ismgrc: a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Audit de maturité cyber et conformité"@fr,
+        "Cybersecurity Maturity Audit and Compliance"@en ;
+    schema:startDate "2024-06-01"^^xsd:date ;
+    schema:endDate "2024-12-20"^^xsd:date ;
+    schema:description
+        """Audit complet de la maturité cyber et de la politique de sécurité du SI pour une PME du secteur de l'interprétariat.
+- Cartographie des risques selon la méthode EBIOS RM.
+- Identification des forces et vulnérabilités de la posture cyber.
+- Recommandations stratégiques pragmatiques adaptées au contexte de l'entreprise.
+- Feuille de route opérationnelle pour atteindre la conformité NIS2 et RGPD."""@fr,
+        """Comprehensive cybersecurity maturity and IS security policy audit for an SME in the interpreting sector.
+- Risk mapping using the EBIOS RM methodology.
+- Identification of strengths and vulnerabilities in the cyber posture.
+- Pragmatic strategic recommendations tailored to the company's context.
+- Actionable roadmap to achieve NIS2 and GDPR compliance."""@en ;
+    schema:about
+        skills:grc-compliance,
+        skills:grc-compliance-NIS2,
+        skills:grc-compliance-RGPD,
+        skills:grc-riskManagement-EBIOS ;
+    nkonto:hasImpact
+        ismgrc:impact-org-1, ismgrc:impact-org-2,
+        ismgrc:impact-tech-1,
+        ismgrc:impact-data-1 ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description
+                "Audit de maturité cyber, analyse de la PSSI existante, cartographie des risques EBIOS RM."@fr,
+                "Cybersecurity maturity audit, existing ISSP analysis, EBIOS RM risk mapping."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:delivery ;
+            schema:description
+                "Livraison du rapport d'audit, recommandations stratégiques, feuille de route de conformité NIS2 et RGPD."@fr,
+                "Delivery of audit report, strategic recommendations, NIS2 and GDPR compliance roadmap."@en
+        ] .
+
+ismgrc:impact-org-1 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Cybersecurity Maturity Assessment"@en,
+        "Évaluation de la maturité cyber"@fr ;
+    schema:description
+        "Clear visibility on the organization's cybersecurity posture with identified strengths and vulnerabilities."@en,
+        "Visibilité claire sur la posture cyber de l'organisation avec identification des forces et vulnérabilités."@fr ;
+    nkonto:impactType nkonto:Standardization .
+
+ismgrc:impact-org-2 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Regulatory Compliance Roadmap"@en,
+        "Feuille de route de conformité réglementaire"@fr ;
+    schema:description
+        "Actionable roadmap to achieve NIS2 and GDPR compliance, reducing legal and financial exposure."@en,
+        "Feuille de route opérationnelle pour atteindre la conformité NIS2 et RGPD, réduisant l'exposition juridique et financière."@fr ;
+    nkonto:impactType nkonto:IdentityGovernance .
+
+ismgrc:impact-tech-1 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "Risk Mapping with EBIOS RM"@en,
+        "Cartographie des risques EBIOS RM"@fr ;
+    schema:description
+        "Structured risk analysis using the EBIOS RM methodology, providing a clear view of threat scenarios and mitigations."@en,
+        "Analyse des risques structurée selon la méthode EBIOS RM, offrant une vision claire des scénarios de menaces et des mesures d'atténuation."@fr ;
+    nkonto:impactType nkonto:ArchitectureModernization .
+
+ismgrc:impact-data-1 rdf:type nkonto:DataImpact ;
+    schema:name
+        "GDPR Data Protection Assessment"@en,
+        "Évaluation de la protection des données RGPD"@fr ;
+    schema:description
+        "Assessment of personal data protection practices and recommendations for GDPR alignment."@en,
+        "Évaluation des pratiques de protection des données personnelles et recommandations pour la mise en conformité RGPD."@fr ;
+    nkonto:impactType nkonto:DataGovernance .
+
+
+### Projet RSSI externalisé
+@prefix ismrssi: <https://nka11.github.io/cv#projects/ism-rssi> .
+
+ismrssi: a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Pilotage RSSI externalisé"@fr,
+        "Outsourced CISO Management"@en ;
+    schema:startDate "2025-01-01"^^xsd:date ;
+    schema:endDate "2025-06-30"^^xsd:date ;
+    schema:description
+        """Définition et pilotage opérationnel de la politique de sécurité du SI en tant que RSSI externalisé.
+- Mise en place d'une gouvernance cyber efficace avec des rituels et indicateurs.
+- Supervision continue des risques et coordination des audits de sécurité.
+- Accompagnement à la conformité NIS2 et RGPD.
+- Contribution directe à la résilience opérationnelle de l'entreprise."""@fr,
+        """Definition and operational management of the IS security policy as outsourced CISO.
+- Establishment of effective cyber governance with rituals and indicators.
+- Continuous risk monitoring and security audit coordination.
+- Support for NIS2 and GDPR compliance.
+- Direct contribution to the company's operational resilience."""@en ;
+    schema:about
+        skills:grc-compliance,
+        skills:grc-compliance-NIS2,
+        skills:grc-compliance-RGPD,
+        skills:grc-riskManagement-EBIOS,
+        skills:project,
+        skills:project-JIRA-Software ;
+    nkonto:hasImpact
+        ismrssi:impact-org-1,
+        ismrssi:impact-tech-1,
+        ismrssi:impact-user-1, ismrssi:impact-user-2 ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description
+                "Définition de la politique de sécurité du SI, cadrage de la gouvernance cyber."@fr,
+                "IS security policy definition, cyber governance scoping."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:delivery ;
+            schema:description
+                "Déploiement des politiques de sécurité formalisées, mise en place des processus de gouvernance."@fr,
+                "Deployment of formalized security policies, governance process implementation."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:observability ;
+            schema:description
+                "Tableaux de bord de suivi des risques, indicateurs de conformité, rapports d'audit périodiques."@fr,
+                "Risk monitoring dashboards, compliance indicators, periodic audit reports."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:run ;
+            schema:description
+                "Supervision continue des risques, coordination des audits, gestion des incidents de sécurité."@fr,
+                "Continuous risk monitoring, audit coordination, security incident management."@en
+        ] .
+
+ismrssi:impact-org-1 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Cyber Governance Framework"@en,
+        "Cadre de gouvernance cyber"@fr ;
+    schema:description
+        "Established structured cybersecurity governance with formalized policies, rituals and compliance indicators."@en,
+        "Mise en place d'une gouvernance cyber structurée avec des politiques formalisées, des rituels et des indicateurs de conformité."@fr ;
+    nkonto:impactType nkonto:Standardization .
+
+ismrssi:impact-tech-1 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "IS Security Policy Deployment"@en,
+        "Déploiement de la PSSI"@fr ;
+    schema:description
+        "Formalized and deployed the information system security policy with concrete controls and audit procedures."@en,
+        "Formalisation et déploiement de la politique de sécurité du SI avec des contrôles concrets et des procédures d'audit."@fr ;
+    nkonto:impactType nkonto:ArchitectureModernization .
+
+ismrssi:impact-user-1 rdf:type nkonto:UserImpact ;
+    schema:name
+        "Reduced Threat Exposure"@en,
+        "Réduction de l'exposition aux menaces"@fr ;
+    schema:description
+        "Continuous risk monitoring and audit coordination strengthened defenses and reduced exposure to cyber threats."@en,
+        "La supervision continue des risques et la coordination des audits ont renforcé les défenses et réduit l'exposition aux menaces cyber."@fr ;
+    nkonto:impactType nkonto:UserAutonomy .
+
+ismrssi:impact-user-2 rdf:type nkonto:UserImpact ;
+    schema:name
+        "Operational Resilience"@en,
+        "Résilience opérationnelle"@fr ;
+    schema:description
+        "Direct contribution to regulatory compliance and operational resilience, ensuring business continuity."@en,
+        "Contribution directe à la conformité réglementaire et à la résilience opérationnelle, assurant la continuité d'activité."@fr ;
+    nkonto:impactType nkonto:DataConsistency .
