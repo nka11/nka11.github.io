@@ -188,26 +188,26 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:url <https://github.com/Deepthought-Solutions/> ;
     schema:identifier "deepthought" ;
-    schema:description
-        """Conseil et prestations en développement informatique et digital, avec accompagnement de bout en bout.
-        - Mise en place d’un fournisseur d’identité garantissant un SSO sécurisé, fiable et maîtrisé, réduisant les coûts de support et améliorant l’expérience utilisateur.
-        - Développement d’un CRM sur mesure pour fluidifier la prospection et le suivi des leads, ainsi qu’un ERP optimisé pour renforcer l’efficacité des processus métier et accélérer la prise de décision."""@fr,
-        """IT consultancy and digital development services with end-to-end support.
-        - Implemented an identity provider ensuring secure, reliable, and controlled SSO, reducing support costs and enhancing user experience.
-        - Developed a custom CRM to streamline lead management and a tailored ERP to optimize business processes and accelerate decision-making."""@en ;
+    # schema:description
+    #     """Conseil et prestations en développement informatique et digital, avec accompagnement de bout en bout.
+    #     - Mise en place d’un fournisseur d’identité garantissant un SSO sécurisé, fiable et maîtrisé, réduisant les coûts de support et améliorant l’expérience utilisateur.
+    #     - Développement d’un CRM sur mesure pour fluidifier la prospection et le suivi des leads, ainsi qu’un ERP optimisé pour renforcer l’efficacité des processus métier et accélérer la prise de décision."""@fr,
+    #     """IT consultancy and digital development services with end-to-end support.
+    #     - Implemented an identity provider ensuring secure, reliable, and controlled SSO, reducing support costs and enhancing user experience.
+    #     - Developed a custom CRM to streamline lead management and a tailored ERP to optimize business processes and accelerate decision-making."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Deepthought Solutions" ] ;
-    schema:skills
-        skills:project,
-        skills:auth-iam,
-        skills:library-vue,
-        skills:system-linux,
-        skills:auth-oidc,
-        skills:MCP,
-        skills:sqa,
-        skills:programming-rust,
-        skills:sgbd-postgresql, skills:programming-typescript,
-        skills:programming-python, skills:scm-github,
-        skills:environment-nodejs ;
+    # schema:skills
+    #     skills:project,
+    #     skills:auth-iam,
+    #     skills:library-vue,
+    #     skills:system-linux,
+    #     skills:auth-oidc,
+    #     skills:MCP,
+    #     skills:sqa,
+    #     skills:programming-rust,
+    #     skills:sgbd-postgresql, skills:programming-typescript,
+    #     skills:programming-python, skills:scm-github,
+    #     skills:environment-nodejs ;
     schema:hasCredential :credDeepthought .
 
 :credDeepthought a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
@@ -223,17 +223,17 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:startDate "2023-10-01"^^xsd:date ;
     schema:identifier "octobre" ;
     schema:url <https://octobre.tech/> ;
-    schema:description
-        """Élaboration et mise en œuvre de la stratégie digitale pour améliorer visibilité et efficacité commerciale.
-        - Conception et déploiement du site internet from scratch, avec architecture performante, évolutive et sécurisée.
-        - Intégration fluide du SSO avec le CRM pour une expérience utilisateur unifiée.
-        - Mise en place d’outils de communication et de suivi commercial sur mesure pour accélérer la prospection."""@fr,
-        """Development and implementation of the digital strategy to enhance visibility and business efficiency.
-        - Designed and deployed the website from scratch with a scalable, high-performance, and secure architecture.
-        - Integrated SSO with CRM for a seamless user experience.
-        - Implemented tailored communication and lead tracking tools to accelerate sales prospecting."""@en ;
+    # schema:description
+    #     """Élaboration et mise en œuvre de la stratégie digitale pour améliorer visibilité et efficacité commerciale.
+    #     - Conception et déploiement du site internet from scratch, avec architecture performante, évolutive et sécurisée.
+    #     - Intégration fluide du SSO avec le CRM pour une expérience utilisateur unifiée.
+    #     - Mise en place d’outils de communication et de suivi commercial sur mesure pour accélérer la prospection."""@fr,
+    #     """Development and implementation of the digital strategy to enhance visibility and business efficiency.
+    #     - Designed and deployed the website from scratch with a scalable, high-performance, and secure architecture.
+    #     - Integrated SSO with CRM for a seamless user experience.
+    #     - Implemented tailored communication and lead tracking tools to accelerate sales prospecting."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Octobre" ] ;
-    schema:skills skills:project, skills:auth-iam, skills:library-vue, skills:auth-oidc, skills:sgbd-postgresql, skills:programming-typescript, skills:programming-python, skills:scm-github, skills:environment-nodejs ;
+    # schema:skills skills:project, skills:auth-iam, skills:library-vue, skills:auth-oidc, skills:sgbd-postgresql, skills:programming-typescript, skills:programming-python, skills:scm-github, skills:environment-nodejs ;
     schema:hasCredential :credOctobre .
 
 :credOctobre a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
@@ -249,25 +249,25 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:startDate "2024-01-01"^^xsd:date ;
     schema:identifier "izrbcto" ;
     schema:url <https://www.izroadbook.com/> ;
-    schema:description
-        """Assurer la continuité opérationnelle après le départ du développeur principal.
-        - Rétro-engineering et documentation complète pour rendre les développeurs .NET et mobile autonomes.
-        - Mise en place d’une chaîne CI/CD automatisée (GitHub Actions -> Ikoula) réduisant les délais de déploiement et les erreurs.
-        - Conseil en architecture et stratégie pour garantir une trajectoire technique robuste et évolutive."""@fr,
-        """Ensure operational continuity after the departure of the main developer.
-        - Performed retro-engineering and comprehensive documentation to make .NET and mobile developers autonomous.
-        - Implemented automated CI/CD pipeline (GitHub Actions → Ikoula), reducing deployment time and errors.
-        - Provided architecture and strategy guidance to ensure a robust and scalable technical roadmap."""@en ;
+    # schema:description
+    #     """Assurer la continuité opérationnelle après le départ du développeur principal.
+    #     - Rétro-engineering et documentation complète pour rendre les développeurs .NET et mobile autonomes.
+    #     - Mise en place d’une chaîne CI/CD automatisée (GitHub Actions -> Ikoula) réduisant les délais de déploiement et les erreurs.
+    #     - Conseil en architecture et stratégie pour garantir une trajectoire technique robuste et évolutive."""@fr,
+    #     """Ensure operational continuity after the departure of the main developer.
+    #     - Performed retro-engineering and comprehensive documentation to make .NET and mobile developers autonomous.
+    #     - Implemented automated CI/CD pipeline (GitHub Actions → Ikoula), reducing deployment time and errors.
+    #     - Provided architecture and strategy guidance to ensure a robust and scalable technical roadmap."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "IzRoadbook" ] ;
-    schema:skills 
-        skills:project,
-        skills:sgbd-mysql,
-        skills:cicd,
-        skills:sqa,
-        skills:programming-dotnetCsharp,
-        skills:programming-typescript,
-        skills:scm-github,
-        skills:library-angular ;
+    # schema:skills 
+    #     skills:project,
+    #     skills:sgbd-mysql,
+    #     skills:cicd,
+    #     skills:sqa,
+    #     skills:programming-dotnetCsharp,
+    #     skills:programming-typescript,
+    #     skills:scm-github,
+    #     skills:library-angular ;
     schema:hasCredential :credIzroadbook .
 
 :credIzroadbook a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
@@ -283,15 +283,15 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:identifier "ism-grc" ;
-    schema:description
-        """Audit complet de la maturité cyber et de la PSSI pour identifier forces et vulnérabilités.
-        - Recommandations stratégiques pragmatiques adaptées à l'entreprise.
-        - Feuille de route opérationnelle pour renforcer conformité et résilience cyber."""@fr,
-        """Comprehensive audit of cybersecurity maturity and IS security policy to identify strengths and vulnerabilities.
-        - Delivered pragmatic strategic recommendations tailored to the company.
-        - Provided an actionable roadmap to enhance compliance and cyber resilience."""@en ;
+    # schema:description
+    #     """Audit complet de la maturité cyber et de la PSSI pour identifier forces et vulnérabilités.
+    #     - Recommandations stratégiques pragmatiques adaptées à l'entreprise.
+    #     - Feuille de route opérationnelle pour renforcer conformité et résilience cyber."""@fr,
+    #     """Comprehensive audit of cybersecurity maturity and IS security policy to identify strengths and vulnerabilities.
+    #     - Delivered pragmatic strategic recommendations tailored to the company.
+    #     - Provided an actionable roadmap to enhance compliance and cyber resilience."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "ISM interpretariat" ] ;
-    schema:skills skills:grc-compliance, skills:grc-compliance-NIS2, skills:grc-compliance-RGPD ;
+    # schema:skills skills:grc-compliance, skills:grc-compliance-NIS2, skills:grc-compliance-RGPD ;
     schema:hasCredential :credISMGRC .
 
 :credISMGRC a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
@@ -308,17 +308,17 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:startDate "2025-01-01"^^xsd:date ;
     schema:endDate "2025-06-30"^^xsd:date ;
     schema:identifier "ism-rssi" ;
-    schema:description
-        """Définition et pilotage de la politique de sécurité du SI.
-        - Audit de la PSSI et mise en place d'une gouvernance cyber efficace.
-        - Supervision continue des risques et coordination des audits pour renforcer les défenses et réduire l'exposition aux menaces.
-        - Contribution directe à la conformité réglementaire et à la résilience opérationnelle."""@fr,
-        """Defined and managed the IS security policy.
-        - Conducted IS security audits and established effective cyber governance.
-        - Continuous risk monitoring and audit coordination to strengthen defenses and reduce exposure to threats.
-        - Directly contributed to regulatory compliance and operational resilience."""@en ;
+    # schema:description
+    #     """Définition et pilotage de la politique de sécurité du SI.
+    #     - Audit de la PSSI et mise en place d'une gouvernance cyber efficace.
+    #     - Supervision continue des risques et coordination des audits pour renforcer les défenses et réduire l'exposition aux menaces.
+    #     - Contribution directe à la conformité réglementaire et à la résilience opérationnelle."""@fr,
+    #     """Defined and managed the IS security policy.
+    #     - Conducted IS security audits and established effective cyber governance.
+    #     - Continuous risk monitoring and audit coordination to strengthen defenses and reduce exposure to threats.
+    #     - Directly contributed to regulatory compliance and operational resilience."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "ISM interpretariat" ] ;
-    schema:skills skills:grc-compliance, skills:grc-compliance-NIS2, skills:grc-compliance-RGPD, skills:programming-windev, skills:project-JIRA-Software, skills:project, skills:grc-riskManagement-EBIOS ;
+    # schema:skills skills:grc-compliance, skills:grc-compliance-NIS2, skills:grc-compliance-RGPD, skills:programming-windev, skills:project-JIRA-Software, skills:project, skills:grc-riskManagement-EBIOS ;
     schema:hasCredential :credISMRSSI .
 
 :credISMRSSI a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
@@ -335,28 +335,28 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:identifier "winastar-cto" ;
-    schema:description
-        """Reprise et optimisation d’un projet après le départ du développeur principal.
-        - Rédaction de documentation développeur et procédures d’exploitation.
-        - Mise en œuvre d’une architecture multi-thread pour le traitement blockchain, augmentant la capacité de 400% sans ressources supplémentaires.
-        - Élaboration d’une feuille de route pour atteindre les conformités stratégiques."""@fr,
-        """Recovery and optimization of a project after the main developer left.
-        - Developed developer documentation and operational procedures.
-        - Implemented multi-threaded architecture for blockchain processing, increasing throughput by 400% without additional resources.
-        - Developed roadmap to achieve strategic compliance."""@en ;
+    # schema:description
+    #     """Reprise et optimisation d’un projet après le départ du développeur principal.
+    #     - Rédaction de documentation développeur et procédures d’exploitation.
+    #     - Mise en œuvre d’une architecture multi-thread pour le traitement blockchain, augmentant la capacité de 400% sans ressources supplémentaires.
+    #     - Élaboration d’une feuille de route pour atteindre les conformités stratégiques."""@fr,
+    #     """Recovery and optimization of a project after the main developer left.
+    #     - Developed developer documentation and operational procedures.
+    #     - Implemented multi-threaded architecture for blockchain processing, increasing throughput by 400% without additional resources.
+    #     - Developed roadmap to achieve strategic compliance."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Winastar" ] ;
-    schema:skills 
-        skills:project,    
-        skills:programming-rust,
-        skills:sqa,
-        skills:blockchain,
-        skills:blockchain-Solana,
-        skills:sgbd-postgresql,
-        skills:blockchain-Ethereum,
-        skills:tools-ansible,
-        skills:cicd,
-        skills:programming-python,
-        skills:eventbus-rabbitmq ;
+    # schema:skills 
+    #     skills:project,    
+    #     skills:programming-rust,
+    #     skills:sqa,
+    #     skills:blockchain,
+    #     skills:blockchain-Solana,
+    #     skills:sgbd-postgresql,
+    #     skills:blockchain-Ethereum,
+    #     skills:tools-ansible,
+    #     skills:cicd,
+    #     skills:programming-python,
+    #     skills:eventbus-rabbitmq ;
     schema:hasCredential :credWinastar .
 
 :credWinastar a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
