@@ -39,6 +39,7 @@
         skills:project,
         skills:auth-sso,
         skills:auth-iam,
+        skills:auth-isam,
         skills:auth-oidc,
         skills:auth-oauth,
         skills:auth-saml,
@@ -52,5 +53,5 @@
         skills:environment-nodejs,
         skills:library-react,
         skills:programming-javascript,
-        skills:programming-python
-        .
+        skills:programming-python,
+        skills:sqa .

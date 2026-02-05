@@ -50,6 +50,7 @@
         skills:tools-terraform,
         skills:data-structure,
         skills:cicd-gitlab,
+        skills:sqa,
         skills:system-linux,
         skills:eventbus-kafka,
         skills:programming-python ;

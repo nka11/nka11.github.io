@@ -40,5 +40,5 @@
         skills:environment-nodejs,
         skills:programming-javascript,
         skills:cicd-jenkins,
-        skills:auth-iam
-        .
+        skills:auth-iam,
+        skills:sqa .

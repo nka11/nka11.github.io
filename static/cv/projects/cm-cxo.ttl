@@ -28,6 +28,7 @@
         skills:data-structure,
         skills:auth-sso,
         skills:auth-iam,
+        skills:auth-isam,
         skills:sgbd-DB2,
         skills:auth-oidc,
         skills:auth-saml,

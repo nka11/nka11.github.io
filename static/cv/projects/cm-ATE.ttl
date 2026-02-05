@@ -25,4 +25,5 @@
         skills:data-SQL,
         skills:system-linux,
         skills:sgbd-DB2,
+        skills:sqa,
         skills:devops .

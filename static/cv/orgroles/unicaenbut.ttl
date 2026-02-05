@@ -27,11 +27,13 @@
 :vacataire a schema:EducationalOccupationalCredential, schema:OrganizationRole;
             schema:credentialCategory "Experience" ;
             schema:identifier "unicaenbut-vac" ;
-            # schema:name 
-            #     "Enseignant Vacataire"@fr,
-            #     "Teacher Assistant"@en ;
+            schema:name 
+                "Enseignant Vacataire"@fr,
+                "Part-time Teacher"@en ;
             schema:subjectOf
-                :2025r509 .
+                :2025r509,
+                :2026r408,
+                :2026r606 .
 
 :2025r509 a schema:CreativeWork, schema:Project, schema:Role ;
     schema:name 
@@ -52,4 +54,35 @@
         skills:networking
         .
 
+:2026r408 a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        """Chargé d'enseignement sur le module 'Virtualisation' (2e année)"""@fr,
+        """TA for virtualization module (2nd year)"""@en ;
+    schema:startDate "2026-01-01" ;
+    schema:endDate "2026-04-30" ;
+    schema:description
+        """Introduction aux technologies de virtualisation : gestion de machines virtuelles avec Libvirt/KVM, provisionnement automatisé avec Vagrant, conteneurisation avec Docker."""@fr,
+        """Introduction to virtualization technologies: virtual machine management with Libvirt/KVM, automated provisioning with Vagrant, containerization with Docker."""@en ;
+    schema:about
+        skills:pedagogy,
+        skills:system-linux,
+        skills:infra-libvirt,
+        skills:infra-vagrant,
+        skills:system-docker,
+        skills:infra-virtualization .
 
+:2026r606 a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        """Enseignant sur le module 'Maintenance applicative' (3e année)"""@fr,
+        """Teacher for application maintenance module (3rd year)"""@en ;
+    schema:startDate "2026-01-01" ;
+    schema:endDate "2026-04-30" ;
+    schema:description
+        """Enseignement de la maintenance applicative : gestion de versions, intégration continue, suivi de bugs, refactoring, tests et gestion du cycle de vie des applications."""@fr,
+        """Teaching application maintenance: version control, continuous integration, bug tracking, refactoring, testing and application lifecycle management."""@en ;
+    schema:about
+        skills:pedagogy,
+        skills:scm-git,
+        skills:cicd,
+        skills:sqa,
+        skills:programming .

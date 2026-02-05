@@ -30,4 +30,5 @@
         skills:fullstack,
         skills:cicd-jenkins,
         skills:devops,
+        skills:sqa,
         skills:data-structure .

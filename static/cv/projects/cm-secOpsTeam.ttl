@@ -41,4 +41,5 @@
         skills:system-docker,
         skills:scm-git,
         skills:cicd,
-        skills:scm .
+        skills:scm,
+        skills:sqa .

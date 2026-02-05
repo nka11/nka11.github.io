@@ -28,6 +28,7 @@
         skills:auth-sso,
         skills:auth-oidc,
         skills:data-SQL,
+        skills:sqa,
         skills:sgbd-mysql,
         skills:sgbd-postgresql,
         skills:environment-nodejs,

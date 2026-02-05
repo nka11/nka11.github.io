@@ -30,7 +30,8 @@
         skills:system-linux,
         skills:system-zos,
         skills:sgbd-DB2,
-        skills:scm .
+        skills:scm,
+        skills:sqa .
 
 # :cm-road45 a schema:CreativeWork, schema:Project, schema:Role ;
 #     schema:name "Projet Road45" ;

@@ -15,6 +15,8 @@
 @prefix nkonto: <https://nka11.github.io/ontology#> .
 @prefix unicaenbut: <https://nka11.github.io/cv#data/unicaenbut> .
 @prefix uniparisxii: <https://nka11.github.io/cv#data/uniparisxii> .
+@prefix proximus: <https://nka11.github.io/cv#data/proximus> .
+@prefix traktion: <https://nka11.github.io/cv#data/traktion> .
 
 @prefix : <https://nka11.github.io/cv#data/> .
 
@@ -132,7 +134,9 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         :octobre,
         :expCTOWinastar,
         unicaenbut: ,
-        uniparisxii: ;
+        uniparisxii: ,
+        proximus: ,
+        traktion: ;
     schema:producer 
         projects:contrib-neovillages,
         projects:contrib-aloha-editor,
@@ -199,6 +203,7 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         skills:system-linux,
         skills:auth-oidc,
         skills:MCP,
+        skills:sqa,
         skills:programming-rust,
         skills:sgbd-postgresql, skills:programming-typescript,
         skills:programming-python, skills:scm-github,
@@ -231,14 +236,22 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:description
         """Assurer la continuité opérationnelle après le départ du développeur principal.
         - Rétro-engineering et documentation complète pour rendre les développeurs .NET et mobile autonomes.
-        - Mise en place d’une chaîne CI/CD automatisée (GitHub Actions → Ikoula) réduisant les délais de déploiement et les erreurs.
+        - Mise en place d’une chaîne CI/CD automatisée (GitHub Actions -> Ikoula) réduisant les délais de déploiement et les erreurs.
         - Conseil en architecture et stratégie pour garantir une trajectoire technique robuste et évolutive."""@fr,
         """Ensure operational continuity after the departure of the main developer.
         - Performed retro-engineering and comprehensive documentation to make .NET and mobile developers autonomous.
         - Implemented automated CI/CD pipeline (GitHub Actions → Ikoula), reducing deployment time and errors.
         - Provided architecture and strategy guidance to ensure a robust and scalable technical roadmap."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "IzRoadbook" ] ;
-    schema:skills skills:project, skills:sgbd-mysql, skills:cicd, skills:programming-dotnetCsharp, skills:programming-typescript, skills:scm-github, skills:library-angular .
+    schema:skills 
+        skills:project,
+        skills:sgbd-mysql,
+        skills:cicd,
+        skills:sqa,
+        skills:programming-dotnetCsharp,
+        skills:programming-typescript,
+        skills:scm-github,
+        skills:library-angular .
 
 :expISMGRC a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Consultant GRC"@fr ;
@@ -290,11 +303,18 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         - Implemented multi-threaded architecture for blockchain processing, increasing throughput by 400% without additional resources.
         - Developed roadmap to achieve strategic compliance."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Winastar" ] ;
-    schema:skills skills:project,    
-    skills:programming-rust,
-    skills:blockchain, skills:blockchain-Solana, skills:sgbd-postgresql,
-    skills:blockchain-Ethereum, skills:tools-ansible, skills:cicd,
-    skills:programming-python, skills:eventbus-rabbitmq .
+    schema:skills 
+        skills:project,    
+        skills:programming-rust,
+        skills:sqa,
+        skills:blockchain,
+        skills:blockchain-Solana,
+        skills:sgbd-postgresql,
+        skills:blockchain-Ethereum,
+        skills:tools-ansible,
+        skills:cicd,
+        skills:programming-python,
+        skills:eventbus-rabbitmq .
 
 :exp4 a schema:OrganizationRole, schema:Occupation, schema:Organization ;
     schema:roleName "Ingénieur d’exploitation"@fr ;
@@ -310,7 +330,10 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         - Ensured stability and service availability.
         - Early experience on Linux and Solaris environments, building strong operational discipline."""@en ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "AlphaCSP" ] ;
-    schema:skills skills:programming-java, skills:system-linux, skills:system-solaris .
+    schema:skills
+        skills:programming-java,
+        skills:system-linux,
+        skills:system-solaris .
 
 
 #######

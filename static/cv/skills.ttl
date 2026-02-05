@@ -27,6 +27,27 @@ skills:ai-neuralnet a elm:LearningOutcome,
         "Reseaux de Neurones"@fr ;
     elm:relatedESCOSkill <http://data.europa.eu/esco/skill/5608d5a0-6d5e-43b7-be37-616501729bb4> .
 
+skills:ai-claude a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "Claude AI (Anthropic)"@en,
+        "Claude AI (Anthropic)"@fr ;
+    elm:relatedSkill skills:ai-general .
+
+skills:ai-gemini a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "Gemini (Google)"@en,
+        "Gemini (Google)"@fr ;
+    elm:relatedSkill skills:ai-general .
+
+skills:ai-antigravity a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "Antigravity"@en,
+        "Antigravity"@fr ;
+    elm:relatedSkill skills:ai-general .
+
 skills:auth-LDAP a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:ComplianceSkill ;
@@ -39,6 +60,13 @@ skills:auth-RACF a elm:LearningOutcome,
     skos:broader nkonto:ComplianceSkill ;
     elm:label "RACF"@en,
         "RACF"@fr .
+
+skills:auth-isam a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "IBM ISAM" ;
+    elm:relatedSkill skills:sso, skills:auth-oidc, skills:auth-saml .
+
 
 skills:auth-iam a elm:LearningOutcome,
         schema:DefinedTerm ;
@@ -84,13 +112,15 @@ skills:cicd-gitlab a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:MethodologicalSkill ;
     elm:label "Gitlab" ;
-    elm:relatedSkill skills:cicd,
+    elm:relatedSkill skills:sqa, skills:cicd,
         skills:devops .
 
 skills:cicd-jenkins a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:MethodologicalSkill ;
     elm:label "Jenkins" ;
+    elm:relatedSkill skills:sqa, skills:cicd,
+        skills:devops;
     elm:relatedESCOSkill <http://data.europa.eu/esco/skill/f47a1998-0beb-43be-9f46-380aa4d183da> .
 
 skills:cloud-AzureAD a elm:LearningOutcome,
@@ -306,6 +336,7 @@ skills:projectManagement-agile a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:ManagementSkill ;
     elm:label "Gestion de projet Agile" ;
+    elm:relatedSkill skills:sqa;
     elm:relatedESCOSkill esco:e5b94c9d-12ef-4cc6-81ad-6602c207a3e1 .
 
 skills:protocol-HTTP a elm:LearningOutcome,
@@ -367,7 +398,7 @@ skills:softwaredesign-uml a elm:LearningOutcome,
     skos:broader nkonto:MethodologicalSkill ;
     elm:label "UML" ;
     elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> ;
-    elm:relatedSkill skills:softwaredesign .
+    elm:relatedSkill skills:softwaredesign, skills:sqa .
 
 
 skills:system-android a elm:LearningOutcome,
@@ -500,6 +531,14 @@ skills:softwaredesign a elm:LearningOutcome,
         "Architecture Logicielle"@fr ;
     elm:relatedESCOSkill <http://data.europa.eu/esco/skill/7193cb6d-8334-494f-86e5-21e6d03a47c3> .
 
+skills:sqa a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "Software Quality Assurance"@en,
+        "Assurance Qualité Logicielle"@fr ;
+    elm:relatedSkill skills:cicd,
+        skills:softwaredesign .
+
 skills:tools-CRM a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:ToolSkill ;
@@ -514,7 +553,7 @@ skills:cicd a elm:LearningOutcome,
         schema:DefinedTerm ;
     skos:broader nkonto:MethodologicalSkill ;
     elm:label "CI/CD" ;
-    elm:relatedSkill skills:devops .
+    elm:relatedSkill skills:devops, skills:sqa .
 
 skills:cloud-Azure a elm:LearningOutcome,
         schema:DefinedTerm ;
@@ -599,6 +638,22 @@ skills:infra-virtualization a elm:LearningOutcome,
     skos:broader nkonto:TechnicalSkill ;
     elm:label "Virtualization & Hypervisors"@en,
         "Virtualisation & Hyperviseurs"@fr .
+
+skills:infra-libvirt a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Libvirt / KVM"@en,
+        "Libvirt / KVM"@fr ;
+    elm:relatedSkill skills:infra-virtualization,
+        skills:system-linux .
+
+skills:infra-vagrant a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ToolSkill ;
+    elm:label "Vagrant"@en,
+        "Vagrant"@fr ;
+    elm:relatedSkill skills:infra-virtualization,
+        skills:system-linux .
 
 skills:infra-loadbalancing a elm:LearningOutcome,
         schema:DefinedTerm ;

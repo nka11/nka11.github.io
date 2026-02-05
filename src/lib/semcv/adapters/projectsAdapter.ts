@@ -59,7 +59,7 @@ export function listProjects(subject: NamedNode, attribute: string = "schema:abo
     return result;
 }
 
-export function getProjectLifeCycle(subject: NamedNode, lang: string = "fr"): IProjectCycle {
+export function getProjectLifeCycle(subject: NamedNode, lang: string = "fr"): IProjectCycle | undefined {
   const getProjectLifeCycleQuery = `
     PREFIX schema: <https://schema.org/>
     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -124,12 +124,11 @@ export function getProjectLifeCycle(subject: NamedNode, lang: string = "fr"): IP
     if (results.length == 1) {
       let result: IProjectCycle = results[0] ;
       return result;
-    } else {
-      throw `Entity not found or not unique (length ${results.length})`;
     }
   } catch(e) { // silent fail
-    throw e;
+    console.error(e);
   }
+  return undefined;
 }
 
 export function getProjectImpacts(subject: NamedNode, lang: string = "fr"): IProjectImpact[] {

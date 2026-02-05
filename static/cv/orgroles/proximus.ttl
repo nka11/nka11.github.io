@@ -1,0 +1,34 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix projects: <https://nka11.github.io/cv#projects/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix : <https://nka11.github.io/cv#data/proximus> .
+
+: a schema:OrganizationRole, schema:Occupation, schema:Organization ;
+    schema:startDate "2025-11-01"^^xsd:date ;
+    schema:endDate "2026-02-28"^^xsd:date ;
+    schema:roleName
+        "Architecte Senior d'Applications Web"@fr,
+        "Senior Web Application Architect"@en ;
+    nkonto:withinOrganization [ a schema:Organization ; schema:name "Proximus" ] ;
+    schema:identifier "proximus" ;
+    schema:hasCredential
+        :architect .
+
+
+:architect a schema:EducationalOccupationalCredential, schema:OrganizationRole;
+            schema:credentialCategory "Experience" ;
+            schema:identifier "proximus-architect" ;
+            schema:subjectOf
+                projects:audit-tango .

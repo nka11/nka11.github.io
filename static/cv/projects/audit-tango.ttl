@@ -1,0 +1,49 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix ev: <https://nka11.github.io/ExtendedVocabulary#> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix : <https://nka11.github.io/cv#projects/> .
+:audit-tango a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:roleName "Senior Web Application Architect"@en,
+        "Architecte Senior d'Applications Web"@fr ;
+    schema:name
+        "Audit technique complet du site tango.lu"@fr,
+        "Full technical audit of tango.lu website"@en ;
+    schema:startDate "2025-11-01"^^xsd:date ;
+    schema:endDate "2026-02-28"^^xsd:date ;
+    schema:description
+        """Audit technique complet de l'application web tango.lu pour le compte de Proximus.
+    - Revue d'architecture : analyse de l'architecture applicative, des choix technologiques et de la scalabilité.
+    - Audit de sécurité : identification des vulnérabilités, revue des pratiques d'authentification et de gestion des accès.
+    - Audit de performance : analyse des temps de réponse, optimisation du rendu et de la diffusion des contenus.
+    - Recommandations stratégiques et feuille de route d'amélioration.
+        """@fr,
+        """Comprehensive technical audit of the tango.lu web application on behalf of Proximus.
+    - Architecture review: analysis of application architecture, technology choices and scalability.
+    - Security audit: vulnerability identification, review of authentication and access management practices.
+    - Performance audit: response time analysis, rendering and content delivery optimization.
+    - Strategic recommendations and improvement roadmap.
+        """@en ;
+    schema:about
+        skills:softwaredesign,
+        skills:grc,
+        skills:grc-riskManagement,
+        skills:protocol-HTTP,
+        skills:networking,
+        skills:infra-cdn,
+        skills:infra-loadbalancing,
+        skills:auth-sso,
+        skills:auth-oidc,
+        skills:grc-compliance,
+        skills:sqa .
