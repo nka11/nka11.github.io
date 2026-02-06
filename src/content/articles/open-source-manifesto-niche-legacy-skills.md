@@ -1,6 +1,12 @@
 ---
-title: "Why I Value Niche Technical Skills — Including Proprietary and Legacy Ones"
+title: "Why I Value Niche and Legacy Technical Skills"
 description: "An open-source manifesto about pragmatism, legacy systems, and real liberation from vendor lock-in."
+slug: "2026-niche-legacy-skills"
+date: "2026-02-06"
+tags:
+  - programming
+image: '/images/iagen/NicoGarbageKick.png'
+
 ---
 
 # Why I Value Niche Technical Skills — Including Proprietary and Legacy Ones  
@@ -22,85 +28,87 @@ The reality is that a large part of the world still runs on:
 - closed data formats  
 - **very legacy systems**, sometimes decades old  
 
-Banks, governments, insurance companies, and critical infrastructure do not reboot every five years. Many of them still rely on technologies like **COBOL**, not by choice, but because they work — and because replacing them irresponsibly would be catastrophic.
+Banks, governments, insurance companies, and critical infrastructure do not reboot every five years. Many of them still rely on technologies like **COBOL**, not by choice, but because they work — and because replacing them irresponsibly would be catastrophic. The 2020 pandemic exposed this brutally: U.S. state unemployment systems, still running COBOL, buckled under sudden demand — not because the language was flawed, but because no one was left who understood the systems well enough to adapt them quickly.
 
-If we want open source to matter, we must start where people actually are.
+If I want open source to matter, I have to start where people actually are.
 
 ## Legacy Skills Are Not the Enemy
 
-Legacy technologies are often framed as technical debt, obstacles, or failures of the past. That framing is simplistic.
+Legacy technologies are often framed as technical debt, obstacles, or failures of the past. I find that framing simplistic.
 
-Legacy systems usually exist because they:
-- encode decades of business rules  
-- have proven stability at scale  
-- survived multiple technological cycles  
-- are deeply intertwined with real-world processes  
+The legacy systems I have worked with exist because they:
+- encode decades of business rules
+- have proven stability at scale
+- survived multiple technological cycles
+- are deeply intertwined with real-world processes
 
-COBOL, for example, is not “dead”. It is *quietly critical*.
+COBOL, for example, is not "dead". It is *quietly critical*.
 
-Knowing how these systems work is not an endorsement of their permanence.  
-It is a prerequisite for **safely evolving or replacing them**.
+When I learn how these systems work, I am not endorsing their permanence.
+I am building the prerequisite for **safely evolving or replacing them**.
 
-## To Liberate a System, You Must Understand It Deeply
+## To Liberate a System, I Must Understand It Deeply
 
 Vendor lock-in and legacy dependence are rarely superficial. They are embedded in:
-- data models  
-- transaction semantics  
-- batch workflows  
-- undocumented assumptions  
-- institutional knowledge that no longer exists in writing  
+- data models
+- transaction semantics
+- batch workflows
+- undocumented assumptions
+- institutional knowledge that no longer exists in writing
 
-You cannot extract value from such systems by rewriting them blindly in a modern stack. That approach replaces one risk with another.
+I have seen too many teams try to extract value from such systems by rewriting them blindly in a modern stack. That approach replaces one risk with another — and history is full of multi-year, multi-million migration projects that failed precisely because they treated the old system as a black box to be discarded rather than a body of knowledge to be transferred.
 
-Niche and legacy technical skills allow us to:
-- audit existing behavior precisely  
-- preserve critical logic during migrations  
-- design incremental exit strategies  
-- avoid functional regressions hidden by time  
+My niche and legacy technical skills allow me to:
+- audit existing behavior precisely
+- preserve critical logic during migrations
+- design incremental exit strategies
+- avoid functional regressions hidden by time
 
 This is how liberation happens in practice.
 
 ## Proprietary and Legacy Knowledge as a Transitional Tool
 
-Knowing a proprietary or legacy language does not mean defending it.
+When I learn a proprietary or legacy language, I am not defending it.
 
-It means being able to:
-- translate closed logic into open systems  
-- decouple data from vendors  
-- expose interfaces where none existed  
-- reduce dependency step by step  
+I am equipping myself to:
+- translate closed logic into open systems
+- decouple data from vendors
+- expose interfaces where none existed
+- reduce dependency step by step
 
-Legacy expertise is a **transitional skill**.  
+For me, legacy expertise is a **transitional skill**.
 It shortens the distance between closed pasts and open futures.
 
 Without it, migrations become ideological rewrites instead of engineering processes.
 
 ## Open Source Needs Bridges, Not Purity Tests
 
-Open source does not win by refusing to touch legacy systems.  
+Open source does not win by refusing to touch legacy systems.
 It wins by **absorbing their value and outgrowing their constraints**.
 
-That requires people willing to:
-- learn unpopular technologies  
-- read old code without judgment  
-- respect systems they intend to replace  
-- carry complexity so others don’t have to  
+That is why I am willing to:
+- learn unpopular technologies
+- read old code without judgment
+- respect systems I intend to replace
+- carry complexity so others don't have to
 
-This is not glamorous work.  
+This is not glamorous work.
 It is essential work.
 
 ## The Responsibility of Expertise
 
-Deep, niche, and legacy skills create asymmetry. That asymmetry can be used to dominate — or to liberate.
+Deep, niche, and legacy skills create asymmetry. The person who understands the old system holds real power over those who depend on it. That asymmetry can be used to dominate — to become an indispensable gatekeeper — or to liberate.
 
 I choose the latter.
 
 Expertise should:
-- reduce dependency, not increase it  
-- make systems understandable, not mystical  
-- leave users more autonomous than before  
+- reduce dependency, not increase it
+- make systems understandable, not mystical
+- leave users more autonomous than before
 
-Open source is not only about writing new software.  
+This is why I document what I find, build open interfaces around closed systems, and treat every migration as a knowledge transfer — not just a technical one.
+
+Open source is not only about writing new software.
 It is about **freeing existing systems from silent captivity**.
 
 ## In Short
