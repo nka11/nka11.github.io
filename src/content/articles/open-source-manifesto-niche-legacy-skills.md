@@ -5,7 +5,6 @@ slug: "2026-niche-legacy-skills"
 date: "2026-02-06"
 tags:
   - programming
-
 ---
 
 # Why I Value Niche Technical Skills — Including Proprietary and Legacy Ones  
