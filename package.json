@@ -12,7 +12,8 @@
     "test:ui": "vitest --ui",
     "optimize:images": "tsx scripts/optimize-images.ts",
     "optimize:images:watch": "tsx watch scripts/optimize-images.ts",
-    "analyze:images": "tsx scripts/optimize-images.ts --analyze"
+    "analyze:images": "tsx scripts/optimize-images.ts --analyze",
+    "postinstall": "cp node_modules/@myriaddreamin/typst-ts-web-compiler/pkg/typst_ts_web_compiler_bg.wasm static/wasm/ && cp node_modules/@myriaddreamin/typst-ts-renderer/pkg/typst_ts_renderer_bg.wasm static/wasm/"
   },
   "devDependencies": {
     "@squoosh/lib": "^0.3.1",
@@ -35,6 +36,9 @@
     "vitest": "^3.2.4"
   },
   "dependencies": {
+    "@myriaddreamin/typst-ts-renderer": "^0.7.0-rc2",
+    "@myriaddreamin/typst-ts-web-compiler": "^0.7.0-rc2",
+    "@myriaddreamin/typst.ts": "^0.7.0-rc2",
     "@playwright/test": "^1.54.1",
     "@testing-library/svelte": "^5.2.8",
     "@vitest/ui": "^3.2.4",

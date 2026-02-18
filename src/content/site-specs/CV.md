@@ -1,4 +1,4 @@
-## ADR #01 - Données et stockage
+## ADR 001 - Données et stockage
 
 J'ai déja un MVP : plusieurs versions du CV, en PDF, sur canvas... J'ai de la DATA mais elle n'est pas structurée.
 

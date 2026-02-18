@@ -5,3 +5,6 @@ dist
 
 # Generated optimized images
 static/images-optimized/
+
+# Typst WASM files (regenerated via postinstall)
+static/wasm/
