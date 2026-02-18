@@ -13,7 +13,7 @@
     "optimize:images": "tsx scripts/optimize-images.ts",
     "optimize:images:watch": "tsx watch scripts/optimize-images.ts",
     "analyze:images": "tsx scripts/optimize-images.ts --analyze",
-    "postinstall": "cp node_modules/@myriaddreamin/typst-ts-web-compiler/pkg/typst_ts_web_compiler_bg.wasm static/wasm/ && cp node_modules/@myriaddreamin/typst-ts-renderer/pkg/typst_ts_renderer_bg.wasm static/wasm/"
+    "postinstall": "mkdir -p static/wasm && cp node_modules/@myriaddreamin/typst-ts-web-compiler/pkg/typst_ts_web_compiler_bg.wasm static/wasm/ && cp node_modules/@myriaddreamin/typst-ts-renderer/pkg/typst_ts_renderer_bg.wasm static/wasm/"
   },
   "devDependencies": {
     "@squoosh/lib": "^0.3.1",
