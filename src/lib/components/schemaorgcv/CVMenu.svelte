@@ -6,7 +6,6 @@
     import type { NamedNode } from "oxigraph";
     import { onMount } from "svelte";
     import { listVariants, VARIANT_PREFIX } from "$lib/semcv/adapters/variantsAdapter";
-    import { page } from "$app/state";
   let params: {
     person: NamedNode,
     variants?: IVariantsDetails[] | undefined,
@@ -21,11 +20,9 @@
     document.location = target.value;
   }
 
-  import { get } from 'svelte/store';
-
   onMount(async () => {
     if (params.person)
-      variants = listVariants(params.person, get(browsingPreferences).lang)
+      variants = listVariants(params.person, browsingPreferences.lang)
   });
 
 </script>

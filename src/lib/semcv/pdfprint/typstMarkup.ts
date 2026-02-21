@@ -63,18 +63,32 @@ export function buildPreamble(lang: string): string {
 /**
  * Build the header section: name, link, job title, description.
  */
-export function buildHeader(person: IPersonDetails): string {
+export function buildHeader(person: IPersonDetails, variant?: NamedNode): string {
   const name = cleanText(person.name?.value);
   const jobTitle = cleanText(person.jobTitle?.value);
   const description = cleanText(person.description?.value);
 
+  const VARIANT_PREFIX = "https://nka11.github.io/cv#variant-";
+  let cvUrl = "https://nka11.github.io/cv";
+  let cvLabel = "nka11.github.io/cv";
+  if (variant) {
+    const variantSlug = variant.value.slice(VARIANT_PREFIX.length);
+    cvUrl += `/${variantSlug}`;
+    cvLabel += `/${variantSlug}`;
+  }
+
   let out = "";
   out += `#text(size: 22pt, weight: "bold")[${escapeTypst(name)}]\n\n`;
-  out += `#text(size: 8pt)[#link("https://nka11.github.io/cv")[nka11.github.io/cv]]\n\n`;
+  out += `#text(size: 8pt)[#link("${cvUrl}")[${cvLabel}]]\n\n`;
   out += `#line(length: 100%, stroke: 0.5pt)\n\n`;
   out += `#text(size: 16pt)[${escapeTypst(jobTitle)}]\n\n`;
   if (description) {
-    out += `#text(size: 10pt)[${escapeTypst(description)}]\n\n`;
+    description.split('\n').forEach((lineraw: string) => {
+      const line = lineraw.trim();
+      if (line) {
+        out += `#text(size: 10pt)[${escapeTypst(line)}]\n\n`;
+      }
+    });
   }
   out += `#line(length: 100%, stroke: 0.5pt)\n\n`;
   return out;
@@ -211,16 +225,16 @@ export function buildOrganizationRole(
 ): string {
   let out = "";
 
+  const dateRange = buildDateRange(role.startDate?.value, role.endDate?.value, lang);
+  let headerline = dateRange;
+  headerline += " -  " + (role.roleName?.value ?? "");
+  if (role.employer) {
+    headerline += " - " + role.employer.value;
+  }
+
+  out += `== ${escapeTypst(headerline)}\n\n`;
+
   if (role.description) {
-    const dateRange = buildDateRange(role.startDate?.value, role.endDate?.value, lang);
-    let headerline = dateRange;
-    headerline += " -  " + (role.roleName?.value ?? "");
-    if (role.employer) {
-      headerline += " - " + role.employer.value;
-    }
-
-    out += `== ${escapeTypst(headerline)}\n\n`;
-
     (role.description.value + "").split('\n').forEach((lineraw: string) => {
       const line = lineraw.trim();
       if (line) {
@@ -297,7 +311,7 @@ export function buildTypstDocument(
   doc += buildPreamble(lang);
 
   // Header
-  doc += buildHeader(person);
+  doc += buildHeader(person, variant);
 
   // Experience section
   doc += `= ${headers.experience}\n\n`;

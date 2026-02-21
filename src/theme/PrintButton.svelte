@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { generateATS_CV } from '$lib/semcv/pdfprint/ATSCV';
   import { generateATS_CV_Typst } from '$lib/semcv/pdfprint/ATSCV_typst';
+  import { VARIANT_PREFIX } from '$lib/semcv/adapters/variantsAdapter';
+  import { namedNode } from 'oxigraph';
   import PrintIcon from './icons/Print.svelte';
   import { onMount } from 'svelte';
 
-  let pdfEngine: 'jspdf' | 'typst' = $state('typst');
   let loading = $state(false);
   let isCvPage = $state(false);
 
@@ -12,27 +12,31 @@
     isCvPage = window.document.location.pathname.startsWith('/cv');
   });
 
+  function getVariantFromUrl() {
+    const match = window.location.pathname.match(/^\/cv\/(.+?)(?:\/)?$/);
+    if (match) {
+      return namedNode(VARIANT_PREFIX + match[1]);
+    }
+    return undefined;
+  }
+
   async function printPage() {
     if (isCvPage) {
-      if (pdfEngine === 'typst') {
-        loading = true;
-        try {
-          const pdfBytes = await generateATS_CV_Typst();
-          const blob = new Blob([new Uint8Array(pdfBytes)], { type: 'application/pdf' });
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'cv.pdf';
-          a.click();
-          URL.revokeObjectURL(url);
-        } catch (e) {
-          console.error('Typst PDF generation failed:', e);
-        } finally {
-          loading = false;
-        }
-      } else {
-        const cv = generateATS_CV();
-        cv.save();
+      const variant = getVariantFromUrl();
+      loading = true;
+      try {
+        const pdfBytes = await generateATS_CV_Typst(undefined, undefined, variant);
+        const blob = new Blob([new Uint8Array(pdfBytes)], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'cv.pdf';
+        a.click();
+        URL.revokeObjectURL(url);
+      } catch (e) {
+        console.error('Typst PDF generation failed:', e);
+      } finally {
+        loading = false;
       }
       return;
     }
@@ -40,36 +44,15 @@
   }
 </script>
 
-<div class="print-controls">
-  {#if isCvPage}
-    <select bind:value={pdfEngine} title="PDF engine">
-      <option value="typst">Typst</option>
-      <option value="jspdf">jsPDF</option>
-    </select>
+<button onclick={printPage} title="Print" disabled={loading}>
+  {#if loading}
+    <span class="spinner"></span>
+  {:else}
+    <PrintIcon />
   {/if}
-  <button onclick={printPage} title="Print" disabled={loading}>
-    {#if loading}
-      <span class="spinner"></span>
-    {:else}
-      <PrintIcon />
-    {/if}
-  </button>
-</div>
+</button>
 
 <style>
-  .print-controls {
-    display: flex;
-    gap: 0.3rem;
-    align-items: center;
-  }
-  select {
-    padding: 0.1rem 0.3rem;
-    border: 1px solid var(--text-color, #333);
-    border-radius: 3px;
-    background: inherit;
-    color: inherit;
-    font-size: 0.75rem;
-  }
   button {
     background: none;
     border: none;
