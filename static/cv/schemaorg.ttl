@@ -29,6 +29,9 @@ cv:variant-CTO a schema:DefinedTermSet ;
 cv:variant-archi a schema:DefinedTermSet ;
     schema:name "Variantes de CV Architecte" .
 
+cv:variant-GRC a schema:DefinedTermSet ;
+    schema:name "Variantes de CV Chef de projet GRC" .
+
 
 nka:me a schema:Person, schema:CreativeWork ;
     schema:name "Nicolas Karageuzian" ;
@@ -72,7 +75,31 @@ nka:me a schema:Person, schema:CreativeWork ;
                     - Capacité de communication avec les métiers et compréhension des enjeux et besoins.
                 """@fr
                 ;
-        ] 
+        ] ,
+        [
+            a schema:DefinedTerm ;
+            schema:name "Chef de projet GRC"@fr ;
+            schema:name "GRC Project Manager"@en ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:description
+                """
+                    - Pilotage de projets GRC de bout en bout : cadrage, planification, exécution et reporting auprès de la direction.
+                    - Audit de maturité cyber et analyse d'écarts de conformité (NIS2, RGPD, ISO 27001) : diagnostic clair, plan d'actions priorisé et chiffré.
+                    - Mise en place de la gouvernance sécurité SI : comités, indicateurs de risque (KRI), tableaux de bord décisionnels.
+                    - Gestion des risques structurée (EBIOS RM) : cartographie, scénarios de menace, plans de traitement alignés sur les enjeux métier.
+                    - Rédaction et déploiement de PSSI et feuilles de route opérationnelles avec adhésion des parties prenantes.
+                    - Valeur ajoutée : double compétence technique et gouvernance, capacité à traduire les exigences réglementaires en actions concrètes et à mobiliser les équipes IT comme métier autour d'objectifs de conformité mesurables.
+                """@fr,
+                """
+                    - End-to-end GRC project management: scoping, planning, execution and executive reporting.
+                    - Cybersecurity maturity audit and compliance gap analysis (NIS2, GDPR, ISO 27001): clear diagnosis, prioritized and costed action plan.
+                    - IS security governance setup: steering committees, key risk indicators (KRI), executive dashboards.
+                    - Structured risk management (EBIOS RM): risk mapping, threat scenarios, treatment plans aligned with business priorities.
+                    - Drafting and rolling out security policies (ISSP) and operational roadmaps with stakeholder buy-in.
+                    - Added value: dual technical and governance expertise, ability to translate regulatory requirements into concrete actions and rally both IT and business teams around measurable compliance goals.
+                """@en
+                ;
+        ]
         ;
     schema:description """J’aide les visionnaires à transformer leurs idées en projets pour créer au final des produits pleinement opérationnels.
 
@@ -278,8 +305,14 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
     schema:subjectOf projects:izroadbook .
 
 :expISMGRC a schema:OrganizationRole, schema:Occupation, schema:Organization ;
-    schema:roleName "Consultant GRC"@fr ;
-    schema:roleName "GRC Consultant"@en ;
+    schema:roleName "Consultant GRC"@fr ,
+        "GRC Consultant"@en ,
+        [
+            a schema:DefinedTerm ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:name "Consultant GRC - Audit et Conformité"@fr,
+                "GRC Consultant - Audit & Compliance"@en
+        ] ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:identifier "ism-grc" ;
@@ -296,15 +329,26 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
 
 :credISMGRC a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
     schema:credentialCategory "Experience" ;
-    schema:name "Consultant GRC" ;
+    schema:name "Consultant GRC",
+        [
+            a schema:DefinedTerm ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:name "Consultant GRC - Audit et Conformité"
+        ] ;
     schema:identifier "ism-grc-audit" ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:subjectOf projects:ism-grc .
 
 :expISMRSSI a schema:OrganizationRole, schema:Occupation, schema:Organization ;
-    schema:roleName "RSSI à temps partiel"@fr ;
-    schema:roleName "Part-time CISO"@en ;
+    schema:roleName "RSSI à temps partiel"@fr ,
+        "Part-time CISO"@en ,
+        [
+            a schema:DefinedTerm ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:name "RSSI externalisé - Gouvernance et Pilotage des Risques"@fr,
+                "Outsourced CISO - Governance & Risk Management"@en
+        ] ;
     schema:startDate "2025-01-01"^^xsd:date ;
     schema:endDate "2025-06-30"^^xsd:date ;
     schema:identifier "ism-rssi" ;
@@ -323,15 +367,26 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
 
 :credISMRSSI a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
     schema:credentialCategory "Experience" ;
-    schema:name "RSSI externalisé" ;
+    schema:name "RSSI externalisé",
+        [
+            a schema:DefinedTerm ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:name "RSSI externalisé - Gouvernance et Pilotage des Risques"
+        ] ;
     schema:identifier "ism-rssi-ciso" ;
     schema:startDate "2025-01-01"^^xsd:date ;
     schema:endDate "2025-06-30"^^xsd:date ;
     schema:subjectOf projects:ism-rssi .
 
 :expCTOWinastar a schema:OrganizationRole, schema:Occupation, schema:Organization ;
-    schema:roleName "Directeur Technique de transition"@fr ;
-    schema:roleName "Transition CTO"@en ;
+    schema:roleName "Directeur Technique de transition"@fr ,
+        "Transition CTO"@en ,
+        [
+            a schema:DefinedTerm ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:name "Directeur Technique de transition - Conformité et Feuille de route"@fr,
+                "Transition CTO - Compliance & Roadmap"@en
+        ] ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
     schema:identifier "winastar-cto" ;
@@ -361,7 +416,12 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
 
 :credWinastar a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
     schema:credentialCategory "Experience" ;
-    schema:name "CTO de transition" ;
+    schema:name "CTO de transition",
+        [
+            a schema:DefinedTerm ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:name "CTO de transition - Conformité et Feuille de route"
+        ] ;
     schema:identifier "winastar-cto-transition" ;
     schema:startDate "2024-06-01"^^xsd:date ;
     schema:endDate "2024-12-20"^^xsd:date ;
@@ -399,14 +459,13 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
                     "Lead of IT Security Team (DevSecOps)"@en,
                     "Responsable de l'équipe de sécurité du SI"@fr
         ],
-        [ 
+        [
             a schema:DefinedTerm ;
                 schema:inDefinedTermSet cv:variant-archi;
-                schema:name 
+                schema:name
                     "Architect"@en,
-                    "Architecte"@fr 
+                    "Architecte"@fr
         ]
-        
         ;
     schema:description
         [ 
@@ -419,7 +478,7 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
            a schema:DefinedTerm ;
                 schema:inDefinedTermSet cv:variant-archi ;
                 schema:description """Some archi description
-                """ 
+                """
         ] ;
     schema:startDate "2001-01-01"^^xsd:date ;
     schema:endDate "2023-09-30"^^xsd:date ;

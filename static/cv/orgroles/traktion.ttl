@@ -19,14 +19,25 @@
     schema:startDate "2025-10-01"^^xsd:date ;
     schema:roleName
         "Architecte Infrastructure et Conformité augmenté par l'IA (temps partiel)"@fr,
-        "AI Augmented Infrastructure and Compliance Architect (part-time)"@en ;
+        "AI Augmented Infrastructure and Compliance Architect (part-time)"@en,
+        [
+            a schema:DefinedTerm ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:name "Architecte Conformité et GRC augmenté par l'IA (temps partiel)"@fr,
+                "AI Augmented Compliance & GRC Architect (part-time)"@en
+        ] ;
     nkonto:withinOrganization [ a schema:Organization ; schema:name "Traktion" ] ;
     schema:identifier "traktion" ;
     schema:hasCredential :credential .
 
 :credential a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
     schema:credentialCategory "Experience" ;
-    schema:name "Architecte Infrastructure et Conformité" ;
+    schema:name "Architecte Infrastructure et Conformité",
+        [
+            a schema:DefinedTerm ;
+            schema:inDefinedTermSet cv:variant-GRC ;
+            schema:name "Architecte Conformité et GRC"
+        ] ;
     schema:identifier "traktion-infra-compliance" ;
     schema:startDate "2025-10-01"^^xsd:date ;
     schema:subjectOf projects:traktion .

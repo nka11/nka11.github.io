@@ -36,8 +36,7 @@
     <h2>
       { personDetails.jobTitle?.value }
     </h2>
-    <p 
-    class="whitespace-pre-line">
+    <p style="white-space: pre-line; text-align: justify;">
       { personDetails.description?.value }
     </p>
     <Experiences 

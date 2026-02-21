@@ -58,7 +58,7 @@ export function listCredentials(
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         prefix elm: <https://data.europa.eu/snb/elm/>
-        
+
         SELECT
 
             ?credential ?credentialName ?credentialDescription ?credentialIdentifier ?credentialStartDate ?credentialEndDate
@@ -66,30 +66,36 @@ export function listCredentials(
           ${subject} ${attribute} ?credential .
           OPTIONAL {
                 ?credential a schema:EducationalOccupationalCredential ;
-                    schema:name ?credentialName .
-              FILTER(LANG(?credentialName) = "${lang}" || LANG(?credentialName) = "")         
-            OPTIONAL {
+                    schema:name ?defaultCredentialName .
+              FILTER(isLiteral(?defaultCredentialName) && (LANG(?defaultCredentialName) = "${lang}" || LANG(?defaultCredentialName) = ""))
+          }
+          OPTIONAL {
                 ?credential a schema:EducationalOccupationalCredential ;
                     schema:name ?credentialNameTerm .
                 ?credentialNameTerm a schema:DefinedTerm ;
                   schema:inDefinedTermSet ${variant};
-                    schema:name ?credentialName .
-              FILTER(LANG(?credentialName) = "${lang}" || LANG(?credentialName) = "")
-            }
+                    schema:name ?variantCredentialName .
+              FILTER(LANG(?variantCredentialName) = "${lang}" || LANG(?variantCredentialName) = "")
+          }
+          BIND(COALESCE(?variantCredentialName, ?defaultCredentialName) AS ?credentialName)
+          OPTIONAL {
+            ?credential a schema:EducationalOccupationalCredential ;
+                  schema:description ?defaultCredentialDescription .
+            FILTER(isLiteral(?defaultCredentialDescription) && (LANG(?defaultCredentialDescription) = "${lang}" || LANG(?defaultCredentialDescription) = ""))
           }
           OPTIONAL {
             ?credential a schema:EducationalOccupationalCredential ;
                   schema:description ?credentialDescriptionTerm .
             ?credentialDescriptionTerm a schema:DefinedTerm ;
                 schema:inDefinedTermSet ${variant} ;
-                schema:description ?credentialDescription .
-            FILTER(LANG(?credentialDescription) = "${lang}" || LANG(?credentialDescription) = "")
-        
+                schema:description ?variantCredentialDescription .
+            FILTER(LANG(?variantCredentialDescription) = "${lang}" || LANG(?variantCredentialDescription) = "")
           }
+          BIND(COALESCE(?variantCredentialDescription, ?defaultCredentialDescription) AS ?credentialDescription)
           OPTIONAL {
             ?credential a schema:EducationalOccupationalCredential ;
                   schema:startDate ?credentialStartDate .
-            
+
           }
           OPTIONAL {
             ?credential a schema:EducationalOccupationalCredential ;

@@ -44,16 +44,21 @@ export function listOrgRoles(
         SELECT ?role ?roleName ?employer ?startDate ?endDate ?description ?identifier ?url
         WHERE {
             ${subject} ${attribute} ?role .
-            ?role schema:roleName ?roleNameTerm ;
+            ?role schema:roleName ?defaultRoleName ;
                 schema:identifier ?identifier ;
                 schema:startDate ?startDate ;
                 nkonto:withinOrganization ?org .
-            
-            ?roleNameTerm a schema:DefinedTerm ;
-              schema:inDefinedTermSet ${variant};
-              schema:name ?roleName .
+            FILTER(isLiteral(?defaultRoleName) && (LANG(?defaultRoleName) = "${lang}" || LANG(?defaultRoleName) = ""))
 
-            FILTER(LANG(?roleName) = "${lang}" || LANG(?roleName) = "")
+            OPTIONAL {
+                ?role schema:roleName ?roleNameTerm .
+                ?roleNameTerm a schema:DefinedTerm ;
+                    schema:inDefinedTermSet ${variant} ;
+                    schema:name ?variantRoleName .
+                FILTER(LANG(?variantRoleName) = "${lang}" || LANG(?variantRoleName) = "")
+            }
+            BIND(COALESCE(?variantRoleName, ?defaultRoleName) AS ?roleName)
+
             ?org schema:name ?employer .
             OPTIONAL {
                 ?role schema:endDate ?endDate .
@@ -62,13 +67,17 @@ export function listOrgRoles(
                 ?role schema:url ?url .
             }
             OPTIONAL {
-                ?role schema:roleName ?roleNameTerm ;
-                    schema:description ?descriptionTerm .
-                ?descriptionTerm a schema:DefinedTerm ;
-                    schema:inDefinedTermSet ${variant};
-                    schema:description ?description .
-                FILTER(LANG(?description) = "${lang}" || LANG(?description) = "")
+                ?role schema:description ?defaultDescription .
+                FILTER(isLiteral(?defaultDescription) && (LANG(?defaultDescription) = "${lang}" || LANG(?defaultDescription) = ""))
             }
+            OPTIONAL {
+                ?role schema:description ?descriptionTerm .
+                ?descriptionTerm a schema:DefinedTerm ;
+                    schema:inDefinedTermSet ${variant} ;
+                    schema:description ?variantDescription .
+                FILTER(LANG(?variantDescription) = "${lang}" || LANG(?variantDescription) = "")
+            }
+            BIND(COALESCE(?variantDescription, ?defaultDescription) AS ?description)
         }
         ORDER BY DESC(?endDate)
         `

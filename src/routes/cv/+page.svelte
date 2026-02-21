@@ -99,7 +99,7 @@
     <option value="en">English</option>
     <option value="fr">Français</option>
     </select> -->
-    <!-- <CvMenu person={ person.person }></CvMenu> -->
+    <CvMenu person={ person.person }></CvMenu>
       <Cv person={person} lang={browsingPreferences.lang}></Cv>
        
   
