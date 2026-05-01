@@ -23,7 +23,7 @@ Quand le sujet du stage est pertinent et adapté, que les conditions sont dignes
 
 C’est une question qui touche au cœur de la sociologie du travail et de la pédagogie. L'idée que la "vraie" valeur d'une expérience professionnelle se mesure à la dureté des conditions rencontrées est un héritage culturel profond, souvent résumé par l'adage « il faut en baver pour apprendre ».
 
-Voici une analyse des mécanismes qui expliquent pourquoi l'émancipation au travail est encore parfois perçue comme un frein à la validité académique.
+L'émancipation au travail est encore parfois perçue comme un frein à la validité académique, tentons d'expliquer des mécanismes qui mènent à cette pensée.
 
 ---
 
