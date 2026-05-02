@@ -13,7 +13,7 @@ image: /images/iagen/stage_travail.png
 
 Offrir du full remote, ne pas avoir de locaux : de plus en plus d'etreprises se lancent et prospèrent dans un environnement digital, qui rend les conditions de réalisation du travail de moins en moins contraignantes, voire de plus en plus émancipatrices.
 
-De telles entreprises rencontrent cependant une certaine résistance de la part des équipes éducatives quand il s'agit d'accueuillir des stagiaires, ou des alternants. Dans de nombreux cas, c'est un refus catégoriques. C'est frustrant et discriminant : le Full-Remote ne serait pas du travail, et le digital ne serait pas un environnement qui permette la validation d'un stage, vraiment ?
+De telles entreprises rencontrent cependant une certaine résistance de la part des équipes éducatives quand il s'agit d'accueuillir des stagiaires, ou des alternants. Dans de nombreux cas, c'est un refus catégoriques. C'est frustrant et discriminant : Une entreprise qui n'a pas de bureaux ne serait pas une vraie entreprise, du travail fait en Full-Remote ne serait pas du vrai travail, et le digital ne serait pas un environnement qui permette la validation d'un stage, vraiment ?
 
 Quand le sujet du stage est pertinent et adapté, que les conditions sont dignes, et que l'encadrement est présent et suffisamment exigeant, pourquoi encore refuser, en 2026, que l'étudiant fasse son stage essentiellement à distance ?
 
