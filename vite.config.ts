@@ -57,7 +57,7 @@ const config = defineConfig({
 			siteConfig: {
 				
 				title: 'Nicolas Karageuzian',
-				description: 'Programmer, Solution Architect and Free Software Enthusiast',
+				description: 'Programmer, Enterprise Architect and Free Software Enthusiast',
 			},
 		}),
 	],
