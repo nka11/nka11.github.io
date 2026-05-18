@@ -12,24 +12,20 @@
     heroImage,
   } = $props();
 
+  // Flavours in the civic system:
+  //   ink     — neutral / structural topics
+  //   or      — flagship / distinctive / positive emphasis
+  //   alert   — reserved for compliance & risk content (cinnabar accent)
   const headlineOfferings = [
-    { code: 'HL · 01', key: 'virtualized', collection: 'mdi', name: 'server-network', flavour: 'cinnabar' },
-    { code: 'HL · 02', key: 'iam_sso',     collection: 'mdi', name: 'shield-key',     flavour: 'forest' },
-    { code: 'HL · 03', key: 'ebios_nis2',  collection: 'mdi', name: 'gavel',          flavour: 'forest' },
-    { code: 'HL · 04', key: 'cicd',        collection: 'mdi', name: 'pipe',           flavour: 'cinnabar' },
-    { code: 'HL · 05', key: 'semantic',    collection: 'mdi', name: 'graph-outline',  flavour: 'ink' },
-    { code: 'HL · 06', key: 'genai',       collection: 'mdi', name: 'robot-industrial', flavour: 'cinnabar' }
+    { code: 'HL · 01', key: 'virtualized', collection: 'mdi', name: 'server-network',    flavour: 'ink' },
+    { code: 'HL · 02', key: 'iam_sso',     collection: 'mdi', name: 'shield-key',        flavour: 'or' },
+    { code: 'HL · 03', key: 'ebios_nis2',  collection: 'mdi', name: 'gavel',             flavour: 'alert' },
+    { code: 'HL · 04', key: 'cicd',        collection: 'mdi', name: 'pipe',              flavour: 'ink' },
+    { code: 'HL · 05', key: 'semantic',    collection: 'mdi', name: 'graph-outline',     flavour: 'or' },
+    { code: 'HL · 06', key: 'genai',       collection: 'mdi', name: 'robot-industrial',  flavour: 'or' }
   ];
 </script>
 
-<svelte:head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,30..100;1,9..144,300..900,30..100&family=IBM+Plex+Mono:wght@400;500&display=swap"
-  />
-</svelte:head>
 
 <div class="home-page">
   <section class="slide hero-slide">
@@ -68,7 +64,7 @@
   <section class="slide training-slide">
     <div class="training-content">
       <div class="training-meta">
-        <span class="mono-tag">§ TRAINING · 06 HEADLINE OFFERINGS</span>
+        <span class="mono-tag">§ TRAINING · 06 OFFERS</span>
       </div>
       <h2 class="training-title">{$T('home.training.title')}</h2>
       <p class="training-subtitle">{$T('home.training.subtitle')}</p>
@@ -238,103 +234,74 @@
     }
   }
 
-  /* Training Slide — editorial prospectus aesthetic */
+  /* Training slide — aligned with the sovereign-civic system.
+     Inherits --paper / --ink / --or / --cinnabar from :root. */
   .training-slide {
-    --ink: #1a1410;
-    --ink-soft: #4a3f37;
-    --cinnabar: #b6311f;
-    --forest: #2f4a35;
-    --gold: #b88a3e;
-    --rule: rgba(26, 20, 16, 0.18);
     border-top: 2px solid var(--ink);
-    margin-top: 4rem;
-    padding-top: 3rem;
-  }
-
-  :global(.dark) .training-slide {
-    --ink: #ece5d5;
-    --ink-soft: #b9b1a0;
-    --rule: rgba(236, 229, 213, 0.22);
-    border-top: 2px solid var(--ink);
+    margin-top: var(--space-7, 48px);
+    padding-top: var(--space-6, 32px);
   }
 
   .training-meta {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--space-4, 16px);
   }
 
   .mono-tag {
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-family: var(--font-mono);
     font-size: 0.72rem;
+    font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--cinnabar);
+    color: var(--ink-soft);
   }
 
   .training-title {
+    font-family: var(--font-display);
+    font-weight: 700;
     font-size: clamp(2.2rem, 5vw, 3.4rem);
-    font-weight: 350;
-    font-style: italic;
-    line-height: 1;
+    line-height: 1.04;
     letter-spacing: -0.02em;
-    margin: 0 0 0.5rem;
+    margin: 0 0 var(--space-3, 12px);
     color: var(--ink);
     text-align: left;
-    font-family: 'Fraunces', 'Times New Roman', serif;
-    font-variation-settings: 'opsz' 144, 'SOFT' 90;
   }
 
   .training-subtitle {
+    font-family: var(--font-body);
     font-size: 1.05rem;
+    font-weight: 400;
     color: var(--ink-soft);
     text-align: left;
-    margin: 0 0 2.5rem;
+    margin: 0 0 var(--space-7, 48px);
     max-width: 60ch;
     line-height: 1.5;
-    font-family: 'Fraunces', 'Times New Roman', serif;
   }
 
   .headline-grid {
     list-style: none;
     padding: 0;
-    margin: 0 0 3rem;
+    margin: 0 0 var(--space-6, 32px);
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    gap: 1rem;
-    counter-reset: hl;
+    gap: 1px;
+    background: var(--ink);
+    border: 1px solid var(--ink);
   }
 
   .headline-card {
     grid-column: span 6;
     position: relative;
-    border: 1px solid var(--ink);
-    background: rgba(255, 255, 255, 0.4);
-    transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), background 0.3s;
-    animation: hlrise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
-    animation-delay: calc(var(--idx) * 70ms);
-    overflow: hidden;
-  }
-
-  :global(.dark) .headline-card {
-    background: rgba(0, 0, 0, 0.25);
-  }
-
-  .headline-card::after {
-    content: "";
-    position: absolute;
-    inset: 5px;
-    border: 1px solid var(--rule);
-    pointer-events: none;
+    background: var(--paper);
+    transition: background 0.25s ease, transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+    animation: hlrise 0.55s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+    animation-delay: calc(var(--idx) * 60ms);
   }
 
   .headline-card:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.7);
-  }
-  :global(.dark) .headline-card:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: var(--paper-soft);
   }
 
   @media (min-width: 980px) {
@@ -352,8 +319,8 @@
   .card-link {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.6rem 1.5rem 1.25rem;
+    gap: var(--space-3, 12px);
+    padding: var(--space-5, 24px) var(--space-5, 24px) var(--space-4, 16px);
     text-decoration: none;
     color: inherit;
     height: 100%;
@@ -363,94 +330,98 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    padding-bottom: var(--space-2, 8px);
+    border-bottom: 1px solid var(--ink-faint);
   }
 
+  /* Flavour accent — drives card-code colour and the title's trailing mark.
+     Defaults to or; .flav-ink uses ink; .flav-alert uses cinnabar. */
+  .headline-card { --accent: var(--or); }
+  .flav-ink     { --accent: var(--ink); }
+  .flav-alert   { --accent: var(--cinnabar); }
+
   .card-code {
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-family: var(--font-mono);
+    font-weight: 500;
     font-size: 0.72rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--cinnabar);
+    color: var(--accent);
   }
-  .flav-forest .card-code { color: var(--forest); }
-  .flav-ink .card-code { color: var(--gold); }
 
   .card-icon {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: var(--ink);
-    opacity: 0.55;
-    transition: opacity 0.3s, transform 0.3s;
+    opacity: 0.6;
+    transition: opacity 0.25s ease, color 0.25s ease;
   }
   .headline-card:hover .card-icon {
     opacity: 1;
-    transform: rotate(-4deg) scale(1.08);
+    color: var(--accent);
   }
 
   .card-title {
-    font-family: 'Fraunces', 'Times New Roman', serif;
-    font-weight: 350;
-    font-size: clamp(1.25rem, 2vw, 1.65rem);
-    line-height: 1.08;
-    letter-spacing: -0.02em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.2rem, 1.9vw, 1.55rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
     margin: 0;
     color: var(--ink);
     max-width: 22ch;
-    font-variation-settings: 'opsz' 144, 'SOFT' 50;
   }
   .card-title::after {
     content: " ●";
-    color: var(--cinnabar);
+    color: var(--accent);
     font-size: 0.45em;
     vertical-align: 0.5em;
   }
-  .flav-forest .card-title::after { color: var(--forest); }
-  .flav-ink .card-title::after { color: var(--gold); }
 
   .card-lead {
-    font-family: 'Fraunces', 'Times New Roman', serif;
-    font-style: italic;
+    font-family: var(--font-body);
+    font-weight: 400;
     color: var(--ink-soft);
     font-size: 0.95rem;
-    line-height: 1.4;
+    line-height: 1.5;
     margin: 0;
-    max-width: 36ch;
-    font-variation-settings: 'opsz' 14, 'SOFT' 70;
+    max-width: 38ch;
   }
 
   .card-cta {
     margin-top: auto;
-    padding-top: 0.5rem;
-    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    padding-top: var(--space-3, 12px);
+    font-family: var(--font-mono);
+    font-weight: 500;
     font-size: 0.72rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink);
-    border-top: 1px dotted var(--rule);
-    transition: color 0.3s, letter-spacing 0.3s;
+    border-top: 1px solid var(--ink-faint);
+    transition: color 0.25s ease, letter-spacing 0.25s ease;
   }
   .headline-card:hover .card-cta {
-    color: var(--cinnabar);
+    color: var(--accent);
     letter-spacing: 0.18em;
   }
 
   .training-footer {
     text-align: left;
-    max-width: 800px;
+    max-width: 70ch;
     margin: 0;
-    padding-top: 1rem;
-    border-top: 1px solid var(--rule);
+    padding-top: var(--space-4, 16px);
+    border-top: 1px solid var(--ink-faint);
   }
   .training-footer p {
-    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-family: var(--font-body);
     color: var(--ink-soft);
-    margin: 0.5rem 0;
+    margin: var(--space-2, 8px) 0;
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.55;
   }
 
   .ade-mention a {
     font-weight: 500;
-    color: var(--cinnabar);
+    color: var(--or);
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 3px;

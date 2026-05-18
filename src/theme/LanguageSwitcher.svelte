@@ -30,9 +30,15 @@
 <style>
   select {
     background: none;
-    border: none;
+    border: 1px solid var(--ink-faint);
+    border-radius: var(--radius-1, 2px);
     cursor: pointer;
     font-size: 1rem;
-    padding: 0.5rem;
+    padding: 0.25rem 0.4rem;
+    color: var(--ink);
+    transition: border-color 0.2s ease;
+  }
+  select:hover {
+    border-color: var(--or);
   }
 </style>

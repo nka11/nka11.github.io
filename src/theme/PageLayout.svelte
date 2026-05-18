@@ -104,10 +104,6 @@ import {
           {/if}
           {@render children?.()}
           <div class="meta" > 
-            <!-- class:without-edit-link={!themeOptions.editLink} -->
-            <!-- {#if themeOptions.editLink}
-              <EditPage {pageType} />
-            {/if} -->
             <LastUpdate {lastUpdate} />
           </div>
           {#if ready && $pages.length}
@@ -163,7 +159,7 @@ import {
 :global(.theme-default--page-layout h2) {
   border-top-style: solid;
   border-top-width: 1px;
-  border-top-color: #e5e7eb; /* Tailwind light-7 default */
+  border-top-color: var(--rule);
   padding-top: 1rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -256,10 +252,6 @@ main {
   .meta {
     flex-direction: row;
   }
-}
-
-.without-edit-link {
-  justify-content: flex-end;
 }
 
 </style>

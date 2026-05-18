@@ -681,3 +681,56 @@ skills:project-budget a elm:LearningOutcome,
     elm:label "Budget Management"@en,
         "Gestion budgétaire"@fr ;
     elm:relatedSkill skills:project .
+
+skills:ea-enterprise-architecture a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "Enterprise Architecture"@en,
+        "Architecture d'Entreprise"@fr ;
+    schema:description
+        "Definition of target architecture, capability maps and architecture principles aligning business, data, application and technology layers."@en,
+        "Définition de l'architecture cible, des cartes de capacités et des principes d'architecture alignant les couches métier, données, applications et technologies."@fr .
+
+skills:ea-togaf a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "TOGAF" ;
+    elm:relatedSkill skills:ea-enterprise-architecture .
+
+skills:ea-archimate a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:MethodologicalSkill ;
+    elm:label "ArchiMate" ;
+    elm:relatedSkill skills:ea-enterprise-architecture .
+
+skills:data-spaces a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Data Spaces"@en,
+        "Espaces de Données"@fr ;
+    schema:description
+        "Federated, sovereign data sharing infrastructures based on the Dataspace Protocol, IDSA reference architecture and trust frameworks."@en,
+        "Infrastructures fédérées et souveraines de partage de données s'appuyant sur le Dataspace Protocol, l'architecture de référence IDSA et des cadres de confiance."@fr .
+
+skills:data-spaces-gaiax a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "Gaia-X" ;
+    elm:relatedSkill skills:data-spaces ;
+    schema:description
+        "Gaia-X trust framework, self-descriptions and federation services for sovereign European data ecosystems."@en,
+        "Cadre de confiance Gaia-X, self-descriptions et services de fédération pour des écosystèmes de données européens souverains."@fr .
+
+skills:data-spaces-idsa a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:TechnicalSkill ;
+    elm:label "IDSA / Dataspace Protocol"@en,
+        "IDSA / Dataspace Protocol"@fr ;
+    elm:relatedSkill skills:data-spaces .
+
+skills:grc-compliance-DORA a elm:LearningOutcome,
+        schema:DefinedTerm ;
+    skos:broader nkonto:ComplianceSkill ;
+    elm:label "DORA" ;
+    elm:relatedSkill skills:grc,
+        skills:grc-compliance .

@@ -1,0 +1,55 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+
+@prefix schema: <https://schema.org/> .
+@prefix elm: <https://data.europa.eu/snb/elm/> .
+@prefix esco: <https://data.europa.eu/esco/skill/> .
+
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix projects: <https://nka11.github.io/cv#projects/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix : <https://nka11.github.io/cv#data/eonax> .
+
+: a schema:OrganizationRole, schema:Occupation, schema:Organization ;
+    schema:startDate "2026-05-01"^^xsd:date ;
+    schema:roleName
+        "Architecte d'Entreprise — Data space mobilité souverain (temps partiel)"@fr,
+        "Enterprise Architect — Sovereign mobility data space (part-time)"@en ;
+    schema:description
+        """Mission d'Architecte d'Entreprise (temps partiel) au sein d'Eona-X, data space européen souverain fondé par Air France, Groupe ADP, SNCF, Renault et CMA CGM, couvrant 4 secteurs : transport, mobilité, tourisme et logistique.
+Définition de la vision et de la feuille de route d'architecture d'entreprise pour un écosystème fédéré multi-acteurs, en s'appuyant sur les cadres TOGAF et ArchiMate, l'architecture de référence Gaia-X / IDSA et le Dataspace Protocol. Conformité by design : NIS2, DORA, RGPD intégrés dès la conception."""@fr,
+        """Enterprise Architect (part-time) mission within Eona-X, the European sovereign data space founded by Air France, Groupe ADP, SNCF, Renault and CMA CGM, covering 4 verticals: transport, mobility, tourism and logistics.
+Definition of the enterprise architecture vision and roadmap for a federated multi-actor ecosystem, leveraging TOGAF and ArchiMate frameworks, the Gaia-X / IDSA reference architecture and the Dataspace Protocol. Compliance by design: NIS2, DORA and GDPR embedded from inception."""@en ;
+    nkonto:withinOrganization [
+        a schema:Organization ;
+        schema:name "Eona-X" ;
+        schema:description
+            "Data space européen souverain pour les secteurs du transport, de la mobilité, du tourisme et de la logistique, fondé par Air France, Groupe ADP, SNCF, Renault et CMA CGM."@fr,
+            "European sovereign data space for the transport, mobility, tourism and logistics sectors, founded by Air France, Groupe ADP, SNCF, Renault and CMA CGM."@en
+    ] ;
+    schema:identifier "eonax" ;
+    schema:hasCredential :credential .
+
+:credential a schema:EducationalOccupationalCredential, schema:OrganizationRole ;
+    schema:credentialCategory "Experience" ;
+    schema:name
+        "Architecte d'Entreprise"@fr,
+        "Enterprise Architect"@en ;
+    schema:identifier "eonax-enterprise-architect" ;
+    schema:startDate "2026-05-01"^^xsd:date ;
+    schema:subjectOf projects:eonax ;
+    elm:relatedSkill
+        skills:ea-enterprise-architecture,
+        skills:ea-togaf,
+        skills:ea-archimate,
+        skills:data-spaces,
+        skills:data-spaces-gaiax,
+        skills:data-spaces-idsa,
+        skills:grc-compliance-NIS2,
+        skills:grc-compliance-DORA,
+        skills:grc-compliance-RGPD .

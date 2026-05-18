@@ -53,65 +53,206 @@
 {@render children?.()}
 
 <footer class="footer">
-  <p>Code licensed under Apache 2.0. Content licensed under CC BY-NC-SA 4.0.</p>
+  <div class="footer-inner">
+    <div class="footer-zone footer-identity">
+      <span class="footer-mark">§ NK</span>
+      <span class="footer-line">© {new Date().getFullYear()} · Nicolas Karageuzian</span>
+    </div>
+    <div class="footer-zone footer-licences">
+      <span class="footer-line">
+        <span class="footer-label">Code</span> Apache 2.0
+        <span class="footer-sep">·</span>
+        <span class="footer-label">Contenu</span> CC BY-NC-SA 4.0
+      </span>
+    </div>
+    <div class="footer-zone footer-source">
+      <a href="https://github.com/nka11/nka11.github.io" target="_blank" rel="noopener noreferrer" class="footer-line footer-link">
+        github.com/nka11 ↗
+      </a>
+    </div>
+  </div>
 </footer>
 
 <style>
 
 
   .footer {
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.875rem;
-    color: #6b7280; /* gris clair */
+    border-top: 1px solid var(--ink-faint);
+    background: var(--paper);
+    margin-top: var(--space-8, 72px);
   }
 
-  @media (prefers-color-scheme: dark) {
-    .footer {
-      color: #a1a1aa; /* gris clair en thème sombre */
+  .footer-inner {
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: var(--space-5, 24px) var(--padding-desktop, 2rem);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-5, 24px);
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .footer-zone {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3, 12px);
+    align-items: baseline;
+  }
+  .footer-licences { justify-content: center; text-align: center; }
+  .footer-source   { justify-content: flex-end; text-align: right; }
+
+  .footer-mark {
+    color: var(--or);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+  }
+  .footer-line { white-space: nowrap; }
+  .footer-label {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .footer-sep { opacity: 0.4; margin: 0 0.25rem; }
+
+  .footer-link {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  .footer-link:hover {
+    color: var(--or);
+    border-bottom-color: var(--or);
+  }
+
+  @media (max-width: 720px) {
+    .footer-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-3, 12px);
+      padding: var(--space-4, 16px) var(--padding-mobile, 1rem);
+    }
+    .footer-zone,
+    .footer-licences,
+    .footer-source {
+      justify-content: flex-start;
+      text-align: left;
     }
   }
+
+  @media print {
+    .footer { display: none; }
+  }
+
 :root {
+  /* Layout */
   --sidebar-width: 270px;
   --content-max-width: 1280px;
   --nav-height: 64px;
-  --c-brand: #646cff;
-  --c-brand-light: #747bff;
-  --c-bg: #f9f9f9;
-  --c-bg-dark: #1a1a1a;
-
-  /* Additional spacing for responsiveness */
   --padding-desktop: 2rem;
   --padding-tablet: 1.5rem;
   --padding-mobile: 1rem;
+
+  /* Type — sovereign-civic system, modernized */
+  --font-display: 'Marianne', 'Marianne Web', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter Tight', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', 'Fira Mono', Consolas, monospace;
+
+  /* Color — light (canonical) : Modern minimal — near-white paper + near-black ink + or */
+  --paper: #FAFAFA;
+  --paper-soft: #F2F2F0;
+  --ink: #0A0A0A;
+  --ink-soft: #525252;
+  --ink-faint: rgba(10, 10, 10, 0.10);
+  --rule: #1A1A1A;
+  --or: #B8893C;
+  --or-soft: #D4A85C;
+  /* Cinnabar reserved exclusively for warnings/alerts */
+  --cinnabar: #B6311F;
+
+  /* Geometry */
+  --radius-0: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;
+
+  /* Spacing rhythm */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 72px;
+
+  /* Legacy aliases — rewire old tokens to the new system so unswept components stay coherent */
+  --c-bg: var(--paper);
+  --c-bg-dark: #15110B;
+  --c-brand: var(--or);
+  --c-brand-light: var(--or-soft);
+}
+
+:global(html.dark),
+:global(html[data-theme='dark']) {
+  --paper: #0A0A0A;
+  --paper-soft: #141414;
+  --ink: #FAFAFA;
+  --ink-soft: #A3A3A3;
+  --ink-faint: rgba(250, 250, 250, 0.10);
+  --rule: #E5E5E5;
+  --or: #D4A85C;
+  --or-soft: #E6BE73;
+  --cinnabar: #D65A47;
 }
 
 :global(body) {
-  background-color: var(--c-bg);
-  font-family:
-      'Inter var experimental',
-      'Inter var',
-      'Inter',
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      Roboto,
-      'Helvetica Neue',
-      Helvetica,
-      Arial,
-      'Noto Sans',
-      sans-serif,
-      'Apple Color Emoji',
-      'Segoe UI Emoji',
-      'Segoe UI Symbol',
-      'Noto Color Emoji';
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-feature-settings: 'ss01', 'kern';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 :global(body.dark) {
-  background-color: var(--c-bg-dark);
-  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+:global(h1),
+:global(h2),
+:global(h3),
+:global(h4),
+:global(h5),
+:global(h6) {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+:global(code),
+:global(kbd),
+:global(samp),
+:global(pre) {
+  font-family: var(--font-mono);
+}
+
+:global(a) {
+  color: var(--or);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+:global(a:hover) {
+  color: var(--or-soft);
+}
+
+:global(::selection) {
+  background: var(--or);
+  color: var(--paper);
 }
 
 

@@ -83,16 +83,13 @@
     left: 0;
     right: 0;
     height: var(--nav-height);
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(5px);
+    background-color: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: saturate(140%) blur(8px);
+    -webkit-backdrop-filter: saturate(140%) blur(8px);
     z-index: 100;
-    border-bottom: 1px solid #eaecef;
+    border-bottom: 1px solid var(--ink-faint);
     transition: transform 0.3s ease;
-  }
-
-  :global(.dark) .header {
-    background-color: rgba(26, 26, 26, 0.8);
-    border-bottom: 1px solid #333;
+    font-family: var(--font-display);
   }
 
   .hidden-in-mobile {

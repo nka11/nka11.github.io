@@ -8,6 +8,10 @@ https://sens-public.org/articles/1275/
 
 https://mathieugrenier.fr/blog/coder-avec-claude-c-est-facile-et-rapide-1/apprendre-a-optimiser-sa-consommation-de-tokens-sur-claude-code-21
 
+https://github.com/RustPython/RustPython
+
+https://github.com/koala73/worldmonitor
+
 Intelligent pentest
 
  - https://github.com/KeygraphHQ/shannon

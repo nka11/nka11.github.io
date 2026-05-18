@@ -132,13 +132,6 @@
     padding: 0;
   }
 
-  .project-role {
-    font-style: italic;
-    font-size: 0.75rem;
-    margin: 0;
-    padding: 0;
-  }
-
   .project-description {
     white-space: pre-line;
     text-align: justify;

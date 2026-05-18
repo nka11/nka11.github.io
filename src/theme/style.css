@@ -1,30 +1,100 @@
 /* Base styles normally from @tailwind base */
 /* You'll need to recreate resets and base styles manually or include a reset.css if needed */
 
-/* Custom Variables */
+/* Civic typography — self-hosted.
+   Sources (all freely redistributable):
+   - Marianne:       Etalab DSFR, licence libre (@gouvfr/dsfr)
+   - Spectral:       Production Type, SIL OFL 1.1
+   - JetBrains Mono: JetBrains, SIL OFL 1.1
+   Spectral is split per Google Fonts unicode-range subsets (latin + latin-ext)
+   so the browser only loads the file it needs. */
+
+@font-face {
+  font-family: 'Marianne';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/Marianne-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Marianne';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/Marianne-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Marianne';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/Marianne-Bold.woff2') format('woff2');
+}
+
+/* Inter Tight — variable font, single file covers weights 100–900.
+   Latin-ext (French accents, dashes, currency) */
+@font-face {
+  font-family: 'Inter Tight';
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/InterTight-VF-ext.woff2') format('woff2-variations'),
+       url('./fonts/InterTight-VF-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Inter Tight — latin */
+@font-face {
+  font-family: 'Inter Tight';
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/InterTight-VF.woff2') format('woff2-variations'),
+       url('./fonts/InterTight-VF.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/JetBrainsMono-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url('./fonts/JetBrainsMono-Medium.woff2') format('woff2');
+}
+
+/* SveltePress / DocSearch token rewiring onto the civic palette.
+   The colors here intentionally reference the tokens defined in
+   GlobalLayout.svelte (--paper, --ink, --or, ...). */
 :root {
-  --svp-expansion-bg: #f8f8fb;
-  --svp-expansion-bg-darker: #f2f2f7;
-  --svp-expansion-bg-darker2: #e8e8f2;
-  --docsearch-primary-color: rgba(251, 113, 133, 1);
-  --svp-code-font: 'Dank Mono', Consolas, 'Courier New', Courier, monospace;
+  --svp-expansion-bg: var(--paper-soft, #EDE8DC);
+  --svp-expansion-bg-darker: rgba(22, 22, 22, 0.06);
+  --svp-expansion-bg-darker2: rgba(22, 22, 22, 0.10);
+  --svp-code-font: var(--font-mono, ui-monospace, monospace);
+
+  --docsearch-primary-color: var(--or, #B8893C);
   --docsearch-searchbox-background: transparent;
   --docsearch-logo-color: var(--docsearch-primary-color);
-  --docsearch-searchbox-shadow: inset 0px 0px 0px 1px var(--docsearch-primary-color);
+  --docsearch-searchbox-shadow: inset 0 0 0 1px var(--rule, #2A2A2A);
 }
 
 html.dark,
 html[data-theme='dark'] {
-  --svp-text: #dfdedd;
-  --svp-expansion-bg: #282c34;
-  --svp-expansion-bg-darker: #262626;
-  --svp-expansion-bg-darker2: #222;
+  --svp-text: var(--ink);
+  --svp-expansion-bg: var(--paper-soft);
+  --svp-expansion-bg-darker: rgba(236, 229, 213, 0.08);
+  --svp-expansion-bg-darker2: rgba(236, 229, 213, 0.12);
   --docsearch-text-color: var(--svp-text);
   --docsearch-key-gradient: var(--svp-expansion-bg);
   --docsearch-searchbox-focus-background: var(--svp-expansion-bg-darker2);
-  --docsearch-modal-background: #252529;
-  --docsearch-footer-background: #1e1e20;
-  --docsearch-hit-background: #313136;
+  --docsearch-modal-background: var(--paper-soft);
+  --docsearch-footer-background: var(--paper);
+  --docsearch-hit-background: rgba(236, 229, 213, 0.06);
   --docsearch-hit-color: var(--svp-text);
   --twoslash-popup-bg: var(--svp-expansion-bg);
 }
@@ -71,21 +141,27 @@ html[data-theme='dark'] {
   z-index: 9;
 }
 
-/* Admonition styles */
+/* Admonition styles — civic palette, hairline left-rule, no rounded corners.
+   Three semantic levels only:
+   - note   : ink-on-paper-soft (informational)
+   - tip / important : or accent (positive emphasis)
+   - warning / caution : cinnabar (alerts) */
 .admonition {
   margin-bottom: 1em;
-  padding: 15px 30px 15px 15px;
-  border-radius: 4px;
-  --admonition-bg: rgb(118 51 219 / 10%);
-  --admonition-color: #7633db;
+  padding: var(--space-4, 16px) var(--space-5, 24px);
+  border-radius: var(--radius-0, 0);
+  --admonition-color: var(--ink, #161616);
+  --admonition-bg: var(--paper-soft, #EDE8DC);
   background-color: var(--admonition-bg);
-  border-left: 8px solid var(--admonition-color);
+  border-left: 2px solid var(--admonition-color);
 }
 
 .admonition h5 {
   margin-top: 0;
   margin-bottom: 8px;
   text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--font-mono, ui-monospace, monospace);
   display: flex;
   align-items: center;
 }
@@ -94,13 +170,13 @@ html[data-theme='dark'] {
   display: flex;
   align-items: center;
   margin-right: 0.3em;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
 }
 
 .admonition-icon svg {
   display: inline-block;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
   stroke-width: 0;
 }
 
@@ -110,8 +186,8 @@ html[data-theme='dark'] {
 
 .admonition .admonition-heading {
   color: var(--admonition-color);
-  font-weight: bold;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 12px;
   display: flex;
   align-items: center;
 }
@@ -121,50 +197,27 @@ html[data-theme='dark'] {
   fill: var(--admonition-color);
 }
 
-.admonition-caution {
-  --admonition-color: #e67e22;
-  --admonition-bg: rgb(230 126 34 / 10%);
-}
-
-.admonition-tip {
-  --admonition-color: #2ecc71;
-  --admonition-bg: rgb(46 204 113 / 10%);
-}
-
-.admonition-warning {
-  --admonition-color: #e74c3c;
-  --admonition-bg: rgb(231 76 60 / 10%);
-}
-
-.admonition-important {
-  --admonition-color: #3498db;
-  --admonition-bg: rgb(52 152 219 / 10%);
-}
-
 .admonition-note {
-  --admonition-color: #f1c40f;
-  --admonition-bg: rgba(241, 196, 15, 0.06);
+  --admonition-color: var(--ink);
+}
+
+.admonition-tip,
+.admonition-important {
+  --admonition-color: var(--or);
+}
+
+.admonition-warning,
+.admonition-caution {
+  --admonition-color: var(--cinnabar);
 }
 
 .c-expansion--body .shiki {
   border-radius: unset;
 }
 
-/* Fonts */
-@font-face {
-  font-family: 'Dank Mono';
-  src: url('./fonts/Dank Mono Regular.otf');
-}
-
-@font-face {
-  font-family: 'Dank Mono';
-  src: url('./fonts/Dank Mono Italic.otf');
-  font-style: italic;
-}
-
 /* Code block styles */
 .shiki {
-  border-radius: 4px;
+  border-radius: var(--radius-2, 4px);
   margin: 0;
   overflow-x: auto;
   line-height: 1.5em;
@@ -194,7 +247,7 @@ html.dark .twoslash-popup-container span {
 }
 
 .DocSearch-Button {
-  border-radius: 8px;
+  border-radius: var(--radius-1, 2px);
 }
 
 /* View transitions */
@@ -222,12 +275,12 @@ html.dark .twoslash-popup-container span {
 
 /* Async live code display */
 .svp--async-live-code--loading {
-  color: var(--docsearch-primary-color);
+  color: var(--or);
   font-size: 2rem;
 }
 
 .svp--async-live-code--error {
-  color: #e74c3c;
+  color: var(--cinnabar);
   font-size: 16px;
 }
 

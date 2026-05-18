@@ -21,7 +21,7 @@
     overflow-y: auto;
   }
 
-  .dark .sidebar {
+  :global(.dark) .sidebar {
     background-color: var(--c-bg-dark);
     border-right: 1px solid #333;
   }

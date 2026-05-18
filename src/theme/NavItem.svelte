@@ -91,26 +91,32 @@
   position: relative;
   z-index: 1;
   text-decoration: none;
-  padding-left: 0.75rem; /* px-3 */
-  padding-right: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
 }
 
 .nav-item--icon {
-  font-size: 1.5rem; /* text-6 */
+  font-size: 1.4rem;
+  color: var(--ink);
 }
 
 .nav-item--icon .dropdown {
-  font-size: 1.125rem; /* text-4 */
+  font-size: 1.05rem;
 }
 
 .nav-item--icon:not(:first-child)::after,
 :global(.navbar-pc .toggle::after) {
   position: absolute;
   left: 0;
-  background-color: #e7e5e4; /* bg-stone-2 */
+  background-color: var(--ink-faint);
   width: 1px;
   top: 50%;
-  height: 20px;
+  height: 18px;
   content: ' ';
   transform: translateY(-50%);
 }
@@ -126,47 +132,64 @@
 }
 
 .nav-item--icon:hover {
-  opacity: 0.8;
+  color: var(--or);
+  opacity: 1;
 }
 
+/* Underline-on-hover for text nav items — civic chrome */
+:global(:not(.dropdown) > .nav-item:not(.nav-item--icon)) {
+  position: relative;
+}
+:global(:not(.dropdown) > .nav-item:not(.nav-item--icon))::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  background: var(--or);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
 :global(:not(.dropdown) > .nav-item:not(.nav-item--icon):hover) {
-  background-image: linear-gradient(to right, #0ea5e9, #6366f1); /* svp-gradient-text (example) */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--ink);
+}
+:global(:not(.dropdown) > .nav-item:not(.nav-item--icon):hover)::after {
+  transform: scaleX(1);
 }
 
 .dropdown {
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.25s ease, opacity 0.25s ease;
   opacity: 0;
   pointer-events: none;
   position: absolute;
   top: 0;
   right: 0;
-  background-color: white;
-  background-color: #232323; /* dark mode fallback */
+  background-color: var(--paper);
   white-space: nowrap;
   z-index: 3;
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-1, 2px);
+  padding: 0.4rem;
   transform: translateY(72px);
 }
 
 :global(.dropdown > .nav-item) {
   display: block;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0.45rem 0.9rem;
   text-decoration: none;
-  border-radius: 0.25rem;
-  color: #213547;
+  border-radius: var(--radius-0, 0);
+  color: var(--ink);
   background-color: transparent;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 :global(.dropdown > .nav-item:hover) {
-  background-color: rgba(14, 165, 233, 0.2); /* svp-primary + opacity */
-  color: #0ea5e9;
+  background-color: var(--paper-soft);
+  color: var(--or);
   background-image: none;
 }
 
@@ -179,21 +202,31 @@
 .arrow {
   display: flex;
   align-items: center;
-  transition: transform 0.3s;
-  font-size: 1.5rem;
-  color: #213547;
-  color: #cccccc; /* dark:text-light-4 fallback */
+  transition: transform 0.25s ease;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  margin-left: 0.2rem;
 }
 
 .nav-item:hover .arrow {
   transform: rotate(180deg);
+  color: var(--or);
 }
 
+/* Active link — civic underline + or, no gradient text */
 .active {
-  background-image: linear-gradient(to right, #0ea5e9, #6366f1); /* svp-gradient-text */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--ink);
   cursor: default;
+}
+:global(a.nav-item.active)::after {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  background: var(--or);
+  transform: scaleX(1);
 }
 
 </style>

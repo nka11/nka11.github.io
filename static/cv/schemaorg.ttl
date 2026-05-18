@@ -17,6 +17,7 @@
 @prefix uniparisxii: <https://nka11.github.io/cv#data/uniparisxii> .
 @prefix proximus: <https://nka11.github.io/cv#data/proximus> .
 @prefix traktion: <https://nka11.github.io/cv#data/traktion> .
+@prefix eonax: <https://nka11.github.io/cv#data/eonax> .
 
 @prefix : <https://nka11.github.io/cv#data/> .
 
@@ -163,7 +164,8 @@ My approach is defined by rigor, cross-team collaboration, and the ability to cl
         unicaenbut: ,
         uniparisxii: ,
         proximus: ,
-        traktion: ;
+        traktion: ,
+        eonax: ;
     schema:producer 
         projects:contrib-neovillages,
         projects:contrib-aloha-editor,

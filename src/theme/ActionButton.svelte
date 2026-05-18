@@ -52,15 +52,15 @@
     color: white;
   }
 
-  .dark .svp-action {
+  :global(.dark) .svp-action {
     background-color: #18181b; /* dark:bg-zinc-8 */
   }
 
-  .dark .svp-action--primary {
+  :global(.dark) .svp-action--primary {
     color: #f5f5f4; /* dark:text-warm-gray-8 (approximate) */
   }
 
-  .dark .svp-action:hover {
+  :global(.dark) .svp-action:hover {
     box-shadow: 0 2px 8px rgba(75, 85, 99, 0.4); /* dark:hover:shadow-gray-6 approximation */
   }
 

@@ -21,9 +21,17 @@
 
 <style>
   .logo {
-    --at-apply: 'h-[32px]';
+    height: 32px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
   }
   .title {
-    --at-apply: 'font-600 ml-2';
+    margin-left: 0.6rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    vertical-align: middle;
   }
 </style>

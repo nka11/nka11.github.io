@@ -4,6 +4,7 @@
   import { namedNode } from 'oxigraph';
   import PrintIcon from './icons/Print.svelte';
   import { onMount } from 'svelte';
+  import { T } from '$lib/i18n';
 
   let loading = $state(false);
   let isCvPage = $state(false);
@@ -44,7 +45,7 @@
   }
 </script>
 
-<button onclick={printPage} title="Print" disabled={loading}>
+<button onclick={printPage} title={$T('nav.print')} disabled={loading}>
   {#if loading}
     <span class="spinner"></span>
   {:else}
@@ -57,11 +58,16 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 0.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-color);
+    color: var(--ink);
+    font-size: 1.2rem;
+    transition: color 0.2s ease;
+  }
+  button:hover {
+    color: var(--or);
   }
   button:disabled {
     opacity: 0.6;

@@ -111,7 +111,7 @@
 <div bind:this={container} class="w-full h-full"></div>
 
 <style>
-  svg {
+  :global(svg) {
     border: 1px solid #ccc;
     background-color: #fdfdfd;
   }

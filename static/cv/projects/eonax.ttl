@@ -1,0 +1,113 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+@prefix schema: <https://schema.org/> .
+@prefix nka: <https://nka11.github.io/#> .
+@prefix cv: <https://nka11.github.io/cv#> .
+@prefix skills: <https://nka11.github.io/cv#skills/> .
+@prefix roles: <https://nka11.github.io/cv#roles/> .
+@prefix product-cycle-actions: <https://nka11.github.io/cv#actions/> .
+@prefix nkonto: <https://nka11.github.io/ontology#> .
+@prefix project: <https://nka11.github.io/cv#projects/> .
+@prefix : <https://nka11.github.io/cv#projects/eonax> .
+
+: a schema:CreativeWork, schema:Project, schema:Role ;
+    schema:name
+        "Architecture d'Entreprise du data space souverain mobilité"@fr,
+        "Enterprise Architecture for the sovereign mobility data space"@en ;
+    schema:startDate "2026-05-01"^^xsd:date ;
+    schema:description
+        """Mission d'Architecte d'Entreprise (temps partiel) au sein d'Eona-X, data space souverain européen fondé par Air France, Groupe ADP, SNCF, Renault et CMA CGM, couvrant les secteurs du transport, de la mobilité, du tourisme et de la logistique.
+- Définition de la vision et de la feuille de route d'architecture d'entreprise alignant métier, données, applications et infrastructure.
+- Cartographie des capacités et des principes d'architecture pour un écosystème fédéré multi-acteurs.
+- Conception des connecteurs de souveraineté (Dataspace Protocol, EDC) et des self-descriptions Gaia-X.
+- Modèles sémantiques d'interopérabilité inter-secteurs (transport, mobilité, tourisme, logistique).
+- Conformité by design : NIS2, DORA, RGPD intégrés dès la conception des composants.
+- Alignement des parties prenantes : comité d'architecture, gouvernance fédérée, sélection technologique et PoCs."""@fr,
+        """Enterprise Architect (part-time) mission within Eona-X, the European sovereign data space founded by Air France, Groupe ADP, SNCF, Renault and CMA CGM, covering transport, mobility, tourism and logistics.
+- Definition of the enterprise architecture vision and roadmap aligning business, data, application and infrastructure layers.
+- Capability mapping and architecture principles for a federated multi-actor ecosystem.
+- Design of sovereignty connectors (Dataspace Protocol, EDC) and Gaia-X self-descriptions.
+- Cross-sector semantic interoperability models (transport, mobility, tourism, logistics).
+- Compliance by design: NIS2, DORA, GDPR embedded into component design.
+- Stakeholder alignment: architecture board, federated governance, technology selection and PoCs."""@en ;
+    schema:about
+        skills:ea-enterprise-architecture,
+        skills:ea-togaf,
+        skills:ea-archimate,
+        skills:data-spaces,
+        skills:data-spaces-gaiax,
+        skills:data-spaces-idsa,
+        skills:grc-compliance,
+        skills:grc-compliance-NIS2,
+        skills:grc-compliance-DORA,
+        skills:grc-compliance-RGPD ;
+    nkonto:hasImpact
+        :impact-org-1, :impact-org-2,
+        :impact-tech-1,
+        :impact-data-1,
+        :impact-user-1 ;
+    schema:agentInteractionStatistic
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description
+                "Cadrage de la vision d'architecture cible, cartographie des capacités, principes d'architecture pour data space fédéré."@fr,
+                "Target architecture vision scoping, capability mapping, architecture principles for a federated data space."@en
+        ],
+        [ a schema:InteractionCounter ;
+            schema:interactionType product-cycle-actions:design ;
+            schema:description
+                "Sélection technologique et conduite de PoCs sur les connecteurs Dataspace Protocol / EDC et les self-descriptions Gaia-X."@fr,
+                "Technology selection and PoCs on Dataspace Protocol / EDC connectors and Gaia-X self-descriptions."@en
+        ] .
+
+### Impacts Organisationnels
+:impact-org-1 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Federated Architecture Governance"@en,
+        "Gouvernance d'architecture fédérée"@fr ;
+    schema:description
+        "Establishment of a federated architecture governance aligning founding members (Air France, ADP, SNCF, Renault, CMA CGM) across 4 verticals."@en,
+        "Mise en place d'une gouvernance d'architecture fédérée alignant les membres fondateurs (Air France, ADP, SNCF, Renault, CMA CGM) sur 4 verticaux."@fr ;
+    nkonto:impactType nkonto:Standardization .
+
+:impact-org-2 rdf:type nkonto:OrganizationalImpact ;
+    schema:name
+        "Compliance by Design"@en,
+        "Conformité by design"@fr ;
+    schema:description
+        "Architectural principles embedding NIS2, DORA and GDPR requirements into every data space component from inception."@en,
+        "Principes d'architecture intégrant les exigences NIS2, DORA et RGPD dans chaque composant du data space dès la conception."@fr ;
+    nkonto:impactType nkonto:Standardization .
+
+### Impacts Techniques
+:impact-tech-1 rdf:type nkonto:TechnicalImpact ;
+    schema:name
+        "Sovereign Federated Data Infrastructure"@en,
+        "Infrastructure de données fédérée souveraine"@fr ;
+    schema:description
+        "Reference architecture for sovereignty connectors (Dataspace Protocol / EDC) and Gaia-X compliant self-descriptions."@en,
+        "Architecture de référence pour les connecteurs de souveraineté (Dataspace Protocol / EDC) et les self-descriptions conformes Gaia-X."@fr ;
+    nkonto:impactType nkonto:ArchitectureModernization .
+
+### Impacts Données
+:impact-data-1 rdf:type nkonto:DataImpact ;
+    schema:name
+        "Cross-Sector Semantic Interoperability"@en,
+        "Interopérabilité sémantique inter-secteurs"@fr ;
+    schema:description
+        "Common semantic models enabling data exchange across transport, mobility, tourism and logistics verticals."@en,
+        "Modèles sémantiques communs permettant l'échange de données entre les verticaux transport, mobilité, tourisme et logistique."@fr ;
+    nkonto:impactType nkonto:DataGovernance .
+
+### Impacts Utilisateurs
+:impact-user-1 rdf:type nkonto:UserImpact ;
+    schema:name
+        "European Data Sovereignty"@en,
+        "Souveraineté européenne des données"@fr ;
+    schema:description
+        "Member companies retain full control over their data assets while enabling trusted exchange across the ecosystem."@en,
+        "Les entreprises membres conservent un contrôle total sur leurs actifs de données tout en permettant des échanges de confiance dans l'écosystème."@fr ;
+    nkonto:impactType nkonto:UserAutonomy .
