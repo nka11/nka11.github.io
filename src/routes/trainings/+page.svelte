@@ -350,7 +350,7 @@
 
     <div class="headline-grid">
       {#each headline as h, i}
-        <article class="hl-card flavour-{h.flavour ?? 'ink'}" style="--idx:{i};">
+        <article id={h.code.replace(/\W+/g, '-').toLowerCase()} class="hl-card flavour-{h.flavour ?? 'ink'}" style="--idx:{i};">
           <div class="hl-corner mono">{h.code}</div>
           <div class="hl-duration mono">{h.days}</div>
           <h3 class="hl-title">{isFr ? h.titleFr : h.titleEn}</h3>
@@ -429,7 +429,7 @@
         <span>{isFr ? 'Composer une formation' : 'Compose a training'}</span>
         <span class="arrow">→</span>
       </a>
-      <a class="cta-secondary" href="/#contact">
+      <a class="cta-secondary" href="mailto:nkarageuzian@gmail.com">
         {isFr ? 'Me contacter directement' : 'Contact me directly'}
       </a>
     </div>
