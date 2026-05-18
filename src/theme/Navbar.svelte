@@ -1,7 +1,7 @@
 <script>
   import { page } from '$app/stores'
     import CvMenu from '$lib/components/schemaorgcv/CVMenu.svelte';
-    import { namedNode } from 'oxigraph';
+  import { T } from '$lib/i18n';
   import Github from './icons/Github.svelte'
   import { scrollDirection } from './layout'
   import Logo from './Logo.svelte'
@@ -41,9 +41,12 @@
     <nav class="nav-links" aria-label="Menu">
       <div class="navbar-pc">
         <div class="nav-item">
-          <NavItem title="Articles" to="/articles" />
+          <NavItem title={$T('nav.trainings')} to="/trainings" />
         </div>
-        
+        <div class="nav-item">
+          <NavItem title={$T('nav.articles')} to="/articles" />
+        </div>
+
         <div class="nav-item">
           <NavItem
             to="https://github.com/nka11/nka11.github.io"
@@ -87,7 +90,7 @@
     transition: transform 0.3s ease;
   }
 
-  .dark .header {
+  :global(.dark) .header {
     background-color: rgba(26, 26, 26, 0.8);
     border-bottom: 1px solid #333;
   }
